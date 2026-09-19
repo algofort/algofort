@@ -139,8 +139,9 @@ export function CtaSection() {
                 </div>
                 <div className="text-align-left">
                   <div className="text-color-white">
-                    <h2 className="heading-style-h1 font-weight-medium section-title sec-cta__title">
-                      Start your project with Forteve®
+                    <h2 className="heading-style-h2 section-title sec-cta__title">
+                      Start <br />
+                      <span className="text-color-secondary">Project</span>
                     </h2>
                     <p className="section-description sec-cta__desc cta-description">
                       Let us collaborate to build something extraordinary and elevate your brand to the next level.

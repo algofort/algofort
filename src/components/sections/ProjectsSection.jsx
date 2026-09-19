@@ -151,7 +151,7 @@ export function ProjectsSection() {
                 <span className="text-color-secondary">Projects</span>
               </h2>
               <p className="section-description sec-projects__desc projects-descr">
-                Explore our portfolio of digital products, software solutions, and technology experiences built by Forteve.
+                Explore our portfolio of digital products, software solutions, and technology experiences built by Algofort.
               </p>
               <div className="projects-btn-wrap">
                 <Link href="/projects" className="main-button footer-submit-btn w-inline-block">

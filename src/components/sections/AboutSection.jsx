@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -12,13 +12,97 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
+// Generates strip of digits [0..9, 0..9, ..., 0..targetDigit] for slot machine / odometer roll
+function generateDigitStrip(targetDigit, cycles = 3) {
+  const target = parseInt(targetDigit, 10);
+  const items = [];
+
+  for (let c = 0; c < cycles; c++) {
+    for (let d = 0; d <= 9; d++) {
+      items.push(d);
+    }
+  }
+
+  for (let d = 0; d <= target; d++) {
+    items.push(d);
+  }
+
+  const targetIndex = items.length - 1;
+  const targetPercent = (targetIndex / items.length) * 100;
+
+  return {
+    items,
+    targetPercent,
+  };
+}
+
+function OdometerDigit({ digit, cycles = 3 }) {
+  const { items, targetPercent } = useMemo(
+    () => generateDigitStrip(digit, cycles),
+    [digit, cycles]
+  );
+
+  return (
+    <span className="odometer-digit-col" aria-hidden="true">
+      <span className="odometer-digit-track" data-target-percent={targetPercent}>
+        {items.map((val, idx) => (
+          <span key={idx} className="odometer-digit-val">
+            {val}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
+}
+
+function OdometerNumber({ value, suffix }) {
+  const digits = String(value).split('');
+
+  return (
+    <h3 className="why-us-card-number" aria-label={`${value}${suffix}`}>
+      {digits.map((digit, idx) => (
+        <OdometerDigit key={idx} digit={digit} cycles={3} />
+      ))}
+      <span className="odometer-suffix">{suffix}</span>
+    </h3>
+  );
+}
+
+const statsCardsData = [
+  {
+    id: 'exp',
+    target: '10',
+    suffix: '+',
+    ghost: '10+',
+    desc: 'Years of experience delivering custom AI & scalable software',
+  },
+  {
+    id: 'projects',
+    target: '10',
+    suffix: 'k+',
+    ghost: '10k+',
+    desc: 'Completed projects for growing brands & global enterprises',
+  },
+  {
+    id: 'employees',
+    target: '50',
+    suffix: '+',
+    ghost: '50+',
+    desc: 'Expert employees & specialized engineers driving innovation',
+  },
+  {
+    id: 'awards',
+    target: '10',
+    suffix: '+',
+    ghost: '10+',
+    desc: 'Prestigious industry awards for design & technical excellence',
+  },
+];
+
 export const AboutSection = () => {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const cardsRef = useRef(null);
-  const num1Ref = useRef(null);
-  const num2Ref = useRef(null);
-  const num3Ref = useRef(null);
 
   useGSAP(
     () => {
@@ -50,27 +134,32 @@ export const AboutSection = () => {
         }
       }
 
-      // 2. Simultaneous Counter Animation for Stats Cards
+      // 2. Simultaneous Rolling Number Ticker / Slot Machine Odometer for All 4 Cards
       if (cardsRef.current) {
-        const targets = { val1: 0, val2: 0, val3: 0 };
+        const tracks = cardsRef.current.querySelectorAll('.odometer-digit-track');
+        if (tracks.length > 0) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          });
 
-        gsap.to(targets, {
-          val1: 10,
-          val2: 30,
-          val3: 500,
-          duration: 2.0,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          onUpdate: () => {
-            if (num1Ref.current) num1Ref.current.innerText = Math.round(targets.val1);
-            if (num2Ref.current) num2Ref.current.innerText = Math.round(targets.val2);
-            if (num3Ref.current) num3Ref.current.innerText = Math.round(targets.val3);
-          },
-        });
+          tracks.forEach((track) => {
+            const targetPercent = parseFloat(track.dataset.targetPercent) || 0;
+            tl.fromTo(
+              track,
+              { yPercent: 0 },
+              {
+                yPercent: -targetPercent,
+                duration: 2.2,
+                ease: 'power3.out',
+              },
+              0 // Start all digits and all cards simultaneously at time 0 so they finish at the exact same moment
+            );
+          });
+        }
       }
     },
     { scope: sectionRef }
@@ -87,69 +176,35 @@ export const AboutSection = () => {
         {/* Top Header Block */}
         <div className="section-header sec-about__header about-markeio_top forteve-about__top">
           <div className="section-badge sec-about__badge forteve-about__badge">
-            <SubtitleMarquee text="About Forteve — " />
+            <SubtitleMarquee text="About Algofort — " />
           </div>
           <div className="section-description sec-about__desc sec-about__content about-markeio_content scrub_letter forteve-about__content" ref={textRef}>
             <p>
-              At Forteve, we believe marketing isn't about selling it's about connecting. We're a full-service marketing agency built to help brands grow with purpose and data-driven precision. From crafting compelling stories to executing campaigns that convert, we blend strategy to turn attention into action.
+              At Algofort, we believe technology isn't just about code — it's about connecting and delivering impact. We're a digital solutions agency built to help brands grow with purpose and engineering precision. From architecting intelligent software to executing digital strategies, we combine technology and creativity to build solutions that drive growth.
             </p>
           </div>
         </div>
 
-        {/* Stats Cards Grid */}
-        <div ref={cardsRef} className="sec-about__cards about-markeio_cards forteve-about__cards">
-          
-          {/* Card 1 */}
-          <div className="content-card sec-about__card about-card about-card--mint forteve-about__card">
-            <div className="about-card_icon">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-            </div>
-            <div className="about-card_bottom">
-              <div className="about-card_number">
-                <span ref={num1Ref}>0</span><span className="about-card_plus">+</span>
+        {/* 4 Stat Cards Grid with Slot Machine / Odometer Roll Effect */}
+        <div ref={cardsRef} className="why-us-cards-grid">
+          {statsCardsData.map((card) => (
+            <div key={card.id} className="why-us-card">
+              <div className="framer-corner-icons" aria-hidden="true">
+                <svg className="corner-icon top-left" viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#000" strokeWidth="1.2"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg>
+                <svg className="corner-icon bottom-left" viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#000" strokeWidth="1.2"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg>
+                <svg className="corner-icon bottom-right" viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#000" strokeWidth="1.2"><rect x="1" y="1" width="8" height="8"/></svg>
               </div>
-              <div className="about-card_label">Years Experience</div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="content-card sec-about__card about-card about-card--lavender forteve-about__card">
-            <div className="about-card_icon">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-                <path d="M4 22h16" />
-                <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34" />
-                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z" />
-              </svg>
-            </div>
-            <div className="about-card_bottom">
-              <div className="about-card_number">
-                <span ref={num2Ref}>0</span><span className="about-card_plus">+</span>
+              <div className="why-us-ghost-number" aria-hidden="true">{card.ghost}</div>
+              <div className="why-us-card-top">
+                <div className="why-us-card-number-wrap">
+                  <OdometerNumber value={card.target} suffix={card.suffix} />
+                </div>
               </div>
-              <div className="about-card_label">Growing Team</div>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="content-card sec-about__card about-card about-card--mint forteve-about__card">
-            <div className="about-card_icon">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-            </div>
-            <div className="about-card_bottom">
-              <div className="about-card_number">
-                <span ref={num3Ref}>0</span><span className="about-card_plus">+</span>
+              <div className="why-us-card-bottom">
+                <p className="why-us-card-desc">{card.desc}</p>
               </div>
-              <div className="about-card_label">Successful Projects</div>
             </div>
-          </div>
-
+          ))}
         </div>
 
       </div>

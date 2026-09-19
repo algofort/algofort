@@ -1,11 +1,11 @@
 import '../index.css';
 
 export const metadata = {
-  title: 'Forteve Agency | Designing Your Digital World',
+  title: 'Algofort | AI, Custom Software & Digital Transformation',
   description:
-    'Forteve is a modern agency designing brands, websites, and digital products that combine beautiful visuals with measurable business results.',
+    'Algofort is a technology and digital solutions agency engineering custom software, intelligent AI solutions, and high-performance digital platforms.',
   icons: {
-    icon: '/assets/favicon.svg',
+    icon: '/assets/favicon.png',
   },
 };
 

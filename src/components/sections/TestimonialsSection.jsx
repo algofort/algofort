@@ -14,27 +14,27 @@ const testimonialsData = [
   {
     name: 'Ahsan Raza',
     role: 'CEO at QuickBasket (Karachi)',
-    text: '“Forteve turned our idea into a fully functional app faster than we expected. Their team was responsive, professional, and highly skilled. We couldn’t have asked for a better tech partner.”',
+    text: '“Algofort turned our idea into a fully functional app faster than we expected. Their team was responsive, professional, and highly skilled. We couldn’t have asked for a better tech partner.”',
   },
   {
     name: 'Zainab Fatima',
     role: 'Founder of GlamNest (Lahore)',
-    text: '“The branding work Forteve did for us completely transformed our online presence — everything now feels more premium and professional.”',
+    text: '“The branding work Algofort did for us completely transformed our online presence — everything now feels more premium and professional.”',
   },
   {
     name: 'Bilal Shahid',
     role: 'CTO at PayWell Solutions (Islamabad)',
-    text: '“Working with Forteve on our fintech product was a game-changer. They understood the complexity of our requirements and delivered a secure, scalable solution on time.”',
+    text: '“Working with Algofort on our fintech product was a game-changer. They understood the complexity of our requirements and delivered a secure, scalable solution on time.”',
   },
   {
     name: 'Hira Javed',
     role: 'Marketing Head at Al-Karim Fabrics (Faisalabad)',
-    text: '“We approached Forteve for our website revamp, and the results were incredible. The new design is sleek, fast, and mobile-friendly — exactly what our customers needed.”',
+    text: '“We approached Algofort for our website revamp, and the results were incredible. The new design is sleek, fast, and mobile-friendly — exactly what our customers needed.”',
   },
   {
     name: 'Usman Tariq',
     role: 'Co-founder at SmartElectro.pk (Rawalpindi)',
-    text: '“Forteve’s digital marketing team helped us boost our sales by over 40% in just three months. Their strategies are data-driven, creative, and highly effective.”',
+    text: '“Algofort’s digital marketing team helped us boost our sales by over 40% in just three months. Their strategies are data-driven, creative, and highly effective.”',
   },
 ];
 

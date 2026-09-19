@@ -4,6 +4,7 @@ import { AboutSection } from '../components/sections/AboutSection';
 import { ShowreelSection } from '../components/sections/ShowreelSection';
 import { ServicesSection } from '../components/sections/ServicesSection';
 import { ProjectsSection } from '../components/sections/ProjectsSection';
+import { AvexaWorksSection } from '../components/sections/AvexaWorksSection';
 import { TechStackSection } from '../components/sections/TechStackSection';
 import { TestimonialsSection } from '../components/sections/TestimonialsSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
@@ -27,8 +28,9 @@ export default function Home() {
           <ServicesSection />
           <ProcessSection />
           <ShowreelSection />
-          <ProjectsSection />
-          <TechStackSection />
+          {/* Temporary hidden: <ProjectsSection /> */}
+          <AvexaWorksSection />
+          {/* Temporary hidden: <TechStackSection /> */}
           <TestimonialsSection />
           <FaqSection />
           <CtaSection />

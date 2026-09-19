@@ -9,15 +9,27 @@
 }
 
 .step-container {
-  max-width: 1460px;
+  max-width: var(--site-container-max-w, 1600px);
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 var(--site-container-padding-x, 2rem);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   overflow: visible;
+}
+
+@media (max-width: 1024px) {
+  .step-container {
+    padding: 0 var(--site-container-padding-tablet, 1.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .step-container {
+    padding: 0 var(--site-container-padding-mobile, 1.25rem);
+  }
 }
 
 .step-wrap {

@@ -88,9 +88,24 @@
   font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
 }
 
+.sec-cta__title {
+  color: #ffffff !important;
+  font-family: var(--_typography---h2--h2-font-family) !important;
+  font-size: var(--_typography---h2--h2-font-size) !important;
+  line-height: var(--_typography---h2--h2-line-height) !important;
+  font-weight: var(--_typography---h2--h2-font-weight, 700) !important;
+  letter-spacing: var(--_typography---h2--h2-letter-spacing) !important;
+  text-transform: uppercase !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.sec-cta__title .text-color-secondary {
+  color: var(--brand-orange) !important;
+}
+
 .cta-description {
   color: rgba(255, 255, 255, 0.8) !important;
-  margin-top: 1.5rem;
+  margin-top: 0 !important;
   font-size: 1.15rem;
   font-weight: 400;
   max-width: 90%;

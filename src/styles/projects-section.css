@@ -8,14 +8,20 @@
 
 .projects-container {
   width: 100%;
-  max-width: 1600px;
+  max-width: var(--site-container-max-w, 1600px);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--site-container-padding-x, 2rem);
+}
+
+@media (max-width: 1024px) {
+  .projects-container {
+    padding: 0 var(--site-container-padding-tablet, 1.5rem);
+  }
 }
 
 @media (max-width: 768px) {
   .projects-container {
-    padding: 0 1.25rem;
+    padding: 0 var(--site-container-padding-mobile, 1.25rem);
   }
 }
 
@@ -222,7 +228,7 @@
 }
 
 .projects-item-name a:hover .projects-item-title-bold {
-  color: #e87c0d;
+  color: var(--brand-orange);
 }
 
 .projects-item-name a:hover {

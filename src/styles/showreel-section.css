@@ -1,4 +1,4 @@
-/* Showreel / @2026 Forteve Section Styles */
+/* Showreel / @2026 Algofort Section Styles */
 
 .section_showreel {
   position: relative;
@@ -27,8 +27,6 @@
   position: sticky;
   top: 0;
   overflow: hidden;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
 }
 
 .showreel_scroll-note {
@@ -97,7 +95,7 @@
   z-index: 3;
   pointer-events: none;
   text-transform: uppercase;
-  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
+  font-family: 'Clash Display', sans-serif !important;
 }
 
 .showreel_heading._1 {
@@ -130,7 +128,7 @@
   letter-spacing: -0.02em;
   white-space: nowrap;
   text-transform: uppercase;
-  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
+  font-family: 'Clash Display', sans-serif !important;
 }
 
 .showreel_play-icon-wrap {

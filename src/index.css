@@ -3,6 +3,7 @@
 @import "./styles/forteve.shared.08906c3c1.css";
 @import "./styles/process-section.css";
 @import "./styles/projects-section.css";
+@import "./styles/avexa-works-section.css";
 @import "./styles/techstack-section.css";
 @import "./styles/testimonials-section.css";
 @import "./styles/faq-section.css";
@@ -11,35 +12,138 @@
 @import "./styles/footer-section.css";
 @import "tailwindcss";
 
+/* ==========================================================================
+   Clash Display Local Fonts
+   ========================================================================== */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/6925673228ef131b45e43cd1_ClashDisplay-Extralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/692567327d9fc4360bbabcc9_ClashDisplay-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/69256733850ba8e6a26aa636_ClashDisplay-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/692567324063e321fe0e18b2_ClashDisplay-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/69256732d1e36e6ab9dcc340_ClashDisplay-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/6925673287d6a5eea5a68225_ClashDisplay-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback aliases for Clashdisplay & Mona Sans Narrow overrides */
+@font-face {
+  font-family: 'Clashdisplay';
+  src: url('/fonts/6925673287d6a5eea5a68225_ClashDisplay-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clashdisplay';
+  src: url('/fonts/69256732d1e36e6ab9dcc340_ClashDisplay-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clashdisplay';
+  src: url('/fonts/692567324063e321fe0e18b2_ClashDisplay-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clashdisplay';
+  src: url('/fonts/69256733850ba8e6a26aa636_ClashDisplay-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Brand Fonts */
   --font-family-primary: 'Mona Sans', system-ui, -apple-system, sans-serif;
   --font-family-heading: 'Mona Sans Narrow', 'Mona Sans', system-ui, sans-serif;
+  --_typography---font-family--primary: "Mona Sans Narrow", Impact, sans-serif;
+  --_font-family---heading-font: 'Mona Sans Narrow', sans-serif;
+
+  /* ==========================================================================
+     GLOBAL BRAND COLOR CONFIGURATION (Change here with 1 edit to update all)
+     ========================================================================== */
+  --brand-orange: #f47a1f;
+  --brand-orange-rgb: 244, 122, 31;
+  --brand-secondary: var(--brand-orange);
+  --brand-accent: var(--brand-orange);
 
   /* Theme Tokens */
   --forteve-primary: #0b0c10;
-  --forteve-secondary: #e87c0d;
-  --forteve-accent: #e87c0d;
-  --_colors---primary--accent: #e87c0d;
-  --_colors---primary--secondary: #e87c0d;
+  --forteve-secondary: var(--brand-orange);
+  --forteve-accent: var(--brand-orange);
+  --_colors---primary--accent: var(--brand-orange);
+  --_colors---primary--secondary: var(--brand-orange);
   --forteve-bg: #ffffff;
   --forteve-surface: #181920;
   --forteve-text: #ffffff;
   --forteve-text-muted: #9CA3AF;
   --forteve-border: rgba(255, 255, 255, 0.08);
 
-  --container-max-w: 1600px;
+  /* ==========================================================================
+     GLOBAL CONTAINER CONFIGURATION (Change here with 1 edit to update all sections)
+     ========================================================================== */
+  --site-container-max-w: 1600px;
+  --site-container-padding-x: 2rem;
+  --site-container-padding-tablet: 1.5rem;
+  --site-container-padding-mobile: 1.25rem;
+
+  /* Backward-compatible alias */
+  --container-max-w: var(--site-container-max-w);
 }
 
-/* Global Brand Secondary & Accent Color Utility Classes (#e87c0d) */
+/* Global Brand Secondary & Accent Color Utility Classes (Dynamic: var(--brand-orange)) */
 .text-color-secondary,
 .text-color-accent {
-  color: #e87c0d !important;
+  color: var(--brand-orange) !important;
 }
 
 .bg-color-secondary,
 .bg-color-accent {
-  background-color: #e87c0d !important;
+  background-color: var(--brand-orange) !important;
 }
 
 body {
@@ -84,10 +188,12 @@ body {
   background-color: #f4f4f2 !important;
 }
 
-/* Services Section: 0 top padding because preceding About section has 160px (10rem) bottom padding */
-.sec-services {
+/* Services Section: Full Black Background */
+.sec-services,
+.section-home-service {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  background-color: #000000 !important;
 }
 
 /* Single-Direction Section Gap Rule: Exactly 160px (10rem) Total Gap Between Adjacent Sections */
@@ -167,10 +273,21 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-h1, h2, h3, h4, h5, h6, .header-title, .font-heading, .font-narrow {
+h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
   font-family: var(--font-family-heading) !important;
   font-stretch: condensed;
   text-transform: uppercase !important;
+}
+
+/* Clash Display: ONLY for Hero Banner H1, Footer Brand watermark, and Showreel Section */
+.sec-banner__title,
+.header-title,
+.footer_brand,
+.footer_brand_word,
+.showreel_heading,
+.showreel_play-text {
+  font-family: 'Clash Display', sans-serif !important;
+  font-stretch: normal !important;
 }
 
 /* Service Marquee Continuous Infinite Animation */
@@ -207,17 +324,44 @@ h1, h2, h3, h4, h5, h6, .header-title, .font-heading, .font-narrow {
 }
 
 /* Text & Icon Swipe Hover Animation (A-to-Z matching original Webflow template) */
+.social-icon-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.social-icon-wrap .social-icon {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.social-icon-wrap .social-icon svg {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  display: block !important;
+}
+
 .nav-text-wrap .nav-text,
 .navigation-link-wrap .navigation-link-text,
-.main-button-block .button-text,
-.social-icon-wrap .social-icon {
+.main-button-block .button-text {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   display: block;
 }
 
 .nav-link:hover .nav-text,
 .navigation-link:hover .navigation-link-text,
-.main-button:hover .button-text {
+.main-button:hover .button-text,
+.social-link:hover .social-icon {
   transform: translateY(-100%) !important;
 }
 
@@ -229,52 +373,120 @@ h1, h2, h3, h4, h5, h6, .header-title, .font-heading, .font-narrow {
   transform: rotate(90deg) !important;
 }
 
-@layer components {
-  /* Site Layout Container Symmetry */
-  .site-container {
-    width: 100%;
-    margin-inline: auto;
-    padding-inline: 1.25rem;
-  }
+/* ==========================================================================
+   UNIFIED DYNAMIC CONTAINER SYSTEM FOR ALL 1600PX SECTIONS
+   Controls container max-width and horizontal padding (0 2rem) dynamically
+   ========================================================================== */
+.site-container,
+.container-large,
+.sec-banner__container,
+.sec-about__container,
+.sec-services__container,
+.step-container,
+.sec-process__container,
+.sec-avexa-works__container,
+.sec-projects__container,
+.projects-container,
+.sec-tools__container,
+.tools-container,
+.sec-testimonials__container,
+.cb-summary-container,
+.sec-faq__container,
+.cb-faq-container,
+.sec-cta__container {
+  max-width: var(--site-container-max-w, 1600px) !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--site-container-padding-x, 2rem) !important;
+  padding-right: var(--site-container-padding-x, 2rem) !important;
+  box-sizing: border-box !important;
+}
 
-  @media (min-width: 1025px) and (max-width: 1440px) {
-    .site-container,
-    .nav-content-wrapper {
-      padding-inline: 30px !important;
-    }
-  }
+/* Header is 100% Full Width across the entire viewport */
+.sec-header,
+.site-header,
+.navbar,
+.sec-header .container-large,
+.sec-header .sec-header__container-full,
+.sec-header .nav-content-wrapper,
+.sec-header__wrapper {
+  max-width: 100% !important;
+  width: 100% !important;
+}
 
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .nav-content-wrapper {
-      padding-inline: 30px !important;
-    }
-  }
+.sec-header .nav-content-wrapper,
+.sec-header__wrapper {
+  padding-left: clamp(1.25rem, 3vw, 3.5rem) !important;
+  padding-right: clamp(1.25rem, 3vw, 3.5rem) !important;
+}
 
-  @media (min-width: 1441px) {
-    .site-container {
-      max-width: 1600px;
-      padding-inline: 0;
-    }
-  }
+/* Prevent double padding when containers or helper wrappers are nested */
+.site-container .container-large,
+.site-container .padding-global,
+.site-container .step-container,
+.site-container .tools-container,
+.site-container .cb-summary-container,
+.site-container .cb-faq-container,
+.site-container .projects-container,
+.site-container .works-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: 100% !important;
+}
 
-  /* Section Structural Layout */
-  .site-section {
-    position: relative;
-    width: 100%;
+/* Section Structural Layout */
+.site-section {
+  position: relative;
+  width: 100%;
+}
+
+/* Tablet Breakpoint (<= 1024px) */
+@media (max-width: 1024px) {
+  .site-container,
+  .container-large,
+  .sec-banner__container,
+  .sec-about__container,
+  .sec-services__container,
+  .step-container,
+  .sec-process__container,
+  .sec-avexa-works__container,
+  .sec-projects__container,
+  .projects-container,
+  .sec-tools__container,
+  .tools-container,
+  .sec-testimonials__container,
+  .cb-summary-container,
+  .sec-faq__container,
+  .cb-faq-container,
+  .sec-cta__container {
+    padding-left: var(--site-container-padding-tablet, 1.5rem) !important;
+    padding-right: var(--site-container-padding-tablet, 1.5rem) !important;
   }
 }
 
-/* Global 1600px Max-Width Override for All Sections & Containers */
-.container-large,
-.site-container,
-.sec-banner__container,
-.sec-about__container,
-.container-xlarge,
-.container-medium {
-  max-width: 1600px !important;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+/* Mobile Breakpoint (<= 768px) */
+@media (max-width: 768px) {
+  .site-container,
+  .container-large,
+  .sec-banner__container,
+  .sec-about__container,
+  .sec-services__container,
+  .step-container,
+  .sec-process__container,
+  .sec-avexa-works__container,
+  .sec-projects__container,
+  .projects-container,
+  .sec-tools__container,
+  .tools-container,
+  .sec-testimonials__container,
+  .cb-summary-container,
+  .sec-faq__container,
+  .cb-faq-container,
+  .sec-cta__container {
+    padding-left: var(--site-container-padding-mobile, 1.25rem) !important;
+    padding-right: var(--site-container-padding-mobile, 1.25rem) !important;
+  }
 }
 
 /* Unified Global Main Button Specification */
@@ -323,35 +535,46 @@ h1, h2, h3, h4, h5, h6, .header-title, .font-heading, .font-narrow {
 }
 
 /* Back To Top Floating Brand Button Styles */
-.back-to-top-btn {
+.back-to-top-wrap {
   position: fixed !important;
   bottom: 2.25rem !important;
   right: 2.25rem !important;
+  z-index: 99990 !important;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5rem) scale(0.85);
+  will-change: transform, opacity;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.back-to-top-wrap.is-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top-btn {
   width: 3.25rem !important;
   height: 3.25rem !important;
   border-radius: 50% !important;
-  background-color: #e87c0d !important;
+  background-color: var(--brand-orange) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
-  z-index: 99990 !important;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease !important;
-  box-shadow: 0 10px 25px rgba(232, 124, 13, 0.4) !important;
-}
-
-.back-to-top-btn.is-visible {
-  opacity: 1 !important;
-  pointer-events: auto !important;
+  box-shadow: 0 10px 25px rgba(var(--brand-orange-rgb), 0.4) !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+  will-change: transform;
 }
 
 .back-to-top-btn:hover {
   background-color: #05080c !important;
   box-shadow: 0 14px 30px rgba(5, 8, 12, 0.45) !important;
-  transform: translateY(-3px) !important;
+}
+
+.back-to-top-btn:active {
+  transform: scale(0.92) !important;
 }
 
 .back-to-top-icon-wrap {
@@ -395,5 +618,64 @@ h1, h2, h3, h4, h5, h6, .header-title, .font-heading, .font-narrow {
   visibility: hidden;
 }
 
+/* ==========================================================================
+   HERO BANNER TITLE: Fully Responsive REM Scale (Eliminates 20vw on Laptop/Desktop)
+   ========================================================================== */
+.header-title,
+.sec-banner__title {
+  font-family: 'Clash Display', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.01em !important;
+  text-align: center !important;
+  font-size: 12.5rem !important; /* Default for standard laptop / desktop */
+}
 
+/* Large Displays (1440px and above) */
+@media screen and (min-width: 1440px) {
+  .header-title,
+  .sec-banner__title {
+    font-size: 13rem !important;
+  }
+}
 
+/* Standard Laptops (1200px to 1439px, e.g. 1366x768, 1280x800) */
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+  .header-title,
+  .sec-banner__title {
+    font-size: 12rem !important;
+  }
+}
+
+/* Small Laptops & Landscape Tablets (992px to 1199px, e.g. 1024x768) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .header-title,
+  .sec-banner__title {
+    font-size: 9.5rem !important;
+  }
+}
+
+/* Portrait Tablets (768px to 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .header-title,
+  .sec-banner__title {
+    font-size: 7.5rem !important;
+  }
+}
+
+/* Mobile Landscape & Phablets (480px to 767px) */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .header-title,
+  .sec-banner__title {
+    font-size: 5.25rem !important;
+  }
+}
+
+/* Mobile Phones (< 480px) */
+@media screen and (max-width: 479px) {
+  .header-title,
+  .sec-banner__title {
+    font-size: 3.75rem !important;
+  }
+}

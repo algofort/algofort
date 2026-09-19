@@ -30,7 +30,6 @@ export function ShowreelSection() {
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.1,
-          invalidateOnRefresh: true,
         },
       });
 
@@ -89,6 +88,12 @@ export function ShowreelSection() {
           0.95
         );
       }
+
+      if (typeof document !== 'undefined' && document.fonts) {
+        document.fonts.ready.then(() => {
+          ScrollTrigger.refresh();
+        });
+      }
     });
 
     return () => mm.revert();
@@ -123,7 +128,7 @@ export function ShowreelSection() {
                 />
 
                 <div ref={playWrapperRef} className="showreel_play-wrapper">
-                  <h2 className="showreel_play-text">Play Forteve</h2>
+                  <h2 className="showreel_play-text">Play Algofort</h2>
                   <div className="showreel_play-icon-wrap">
                     <img
                       src="/assets/play-icon.svg"
@@ -135,7 +140,7 @@ export function ShowreelSection() {
                 </div>
               </div>
 
-              <h2 className="showreel_heading _2">Forteve</h2>
+              <h2 className="showreel_heading _2">Algofort</h2>
             </div>
           </div>
         </div>
@@ -160,7 +165,7 @@ export function ShowreelSection() {
             </button>
             <iframe
               src="https://www.youtube.com/embed/p1CLeATYZUQ?autoplay=1"
-              title="Forteve Showreel"
+              title="Algofort Showreel"
               width="100%"
               height="100%"
               frameBorder="0"

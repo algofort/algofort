@@ -4354,7 +4354,7 @@ blockquote {
 
 .video-overlay {
   z-index: 1;
-  background-color: #e87c0d;
+  background-color: var(--brand-orange);
   position: absolute;
   inset: 0%;
   mix-blend-mode: soft-light;
@@ -5305,7 +5305,7 @@ blockquote {
 
 .section-home-service {
   border-radius: var(--_sizes---border-radius--xhuge);
-  background-color: var(--background-color--secondary-background);
+  background-color: #000000 !important;
 }
 
 .service-content-grid {
@@ -6855,7 +6855,7 @@ blockquote {
   }
 
   .header-title {
-    font-size: 18rem;
+    font-size: 13rem;
   }
 
   .copyright-symbol {

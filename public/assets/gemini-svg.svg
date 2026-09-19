@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://api.fontshare.com/v2/css?f[]=clash-display@700&amp;display=swap');
+
+      .clash-text {
+        font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 96px;
+        font-weight: 700;
+        fill: #05080C;
+        letter-spacing: 6px;
+        text-anchor: middle;
+        dominant-baseline: central;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#F8FAFC" rx="16" />
+
+  <!-- Text Element -->
+  <text x="50%" y="50%" class="clash-text">ALGOFORT</text>
+</svg>

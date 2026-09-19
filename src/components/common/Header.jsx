@@ -58,7 +58,7 @@ export const Header = () => {
       id="top" 
       role="banner"
     >
-      <div className="container-large">
+      <div className="sec-header__container-full w-full">
         <div className="nav-content-wrapper sec-header__wrapper">
           
           {/* Logo */}
@@ -66,13 +66,13 @@ export const Header = () => {
             <a aria-current="page" className="logo-link sec-header__logo-link w-inline-block w--current" href="#top">
               <div className="logo-wrap">
                 <img 
-                  alt="Forteve Logo" 
+                  alt="Algofort Logo" 
                   className="logo sec-header__logo-img" 
                   loading="eager" 
                   src="/assets/logo.png" 
                 />
                 <img 
-                  alt="Forteve Logo" 
+                  alt="Algofort Logo" 
                   className="logo sec-header__logo-img" 
                   loading="eager" 
                   src="/assets/logo.png" 
@@ -99,8 +99,8 @@ export const Header = () => {
                         <div className="navigation-link-block">
                           <a className="navigation-link w-inline-block w--current" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">CRM Development</div>
-                              <div className="navigation-link-text">CRM Development</div>
+                              <div className="navigation-link-text">Web Development</div>
+                              <div className="navigation-link-text">Web Development</div>
                             </div>
                             <div className="navigation-number">(01)</div>
                           </a>
@@ -109,8 +109,8 @@ export const Header = () => {
                         <div className="navigation-link-block">
                           <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">CMS Development</div>
-                              <div className="navigation-link-text">CMS Development</div>
+                              <div className="navigation-link-text">UI/UX Development</div>
+                              <div className="navigation-link-text">UI/UX Development</div>
                             </div>
                             <div className="navigation-number">(02)</div>
                           </a>
@@ -119,8 +119,8 @@ export const Header = () => {
                         <div className="navigation-link-block">
                           <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">Web App Development</div>
-                              <div className="navigation-link-text">Web App Development</div>
+                              <div className="navigation-link-text">Mobile App</div>
+                              <div className="navigation-link-text">Mobile App</div>
                             </div>
                             <div className="navigation-number">(03)</div>
                           </a>
@@ -129,8 +129,8 @@ export const Header = () => {
                         <div className="navigation-link-block">
                           <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">Software Development</div>
-                              <div className="navigation-link-text">Software Development</div>
+                              <div className="navigation-link-text">Custom Software</div>
+                              <div className="navigation-link-text">Custom Software</div>
                             </div>
                             <div className="navigation-number">(04)</div>
                           </a>
@@ -139,30 +139,10 @@ export const Header = () => {
                         <div className="navigation-link-block">
                           <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">Mobile App Development</div>
-                              <div className="navigation-link-text">Mobile App Development</div>
+                              <div className="navigation-link-text">SEO</div>
+                              <div className="navigation-link-text">SEO</div>
                             </div>
                             <div className="navigation-number">(05)</div>
-                          </a>
-                        </div>
-
-                        <div className="navigation-link-block">
-                          <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
-                            <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">Digital Marketing Agency</div>
-                              <div className="navigation-link-text">Digital Marketing Agency</div>
-                            </div>
-                            <div className="navigation-number">(06)</div>
-                          </a>
-                        </div>
-
-                        <div className="navigation-link-block">
-                          <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
-                            <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">UI / UX Design</div>
-                              <div className="navigation-link-text">UI / UX Design</div>
-                            </div>
-                            <div className="navigation-number">(07)</div>
                           </a>
                         </div>
 
