@@ -98,18 +98,18 @@ export function AvexaWorksSection() {
             // Progress from 0 (just entered viewport) to 1 (fully covering current card)
             const progress = 1 - nextTop / viewportHeight;
 
-            const scale = 1 - progress * 0.06; // scale 1.0 down to 0.94
-            const brightness = 1 - progress * 0.6; // brightness 1.0 down to 0.4
-            const opacity = 1 - progress * 0.35; // opacity 1.0 down to 0.65
+            const scale = (1 - progress * 0.3).toFixed(4); // scale 1.0 down to 0.7
+            const brightness = (1 - progress * 0.5).toFixed(4); // brightness 1.0 down to 0.5
+            const opacity = (1 - progress * 0.3).toFixed(4); // opacity 1.0 down to 0.7
 
             item.style.transform = `scale(${scale})`;
             item.style.filter = `brightness(${brightness})`;
             item.style.opacity = `${opacity}`;
           } else if (nextTop <= 0) {
             // Fully covered
-            item.style.transform = 'scale(0.94)';
-            item.style.filter = 'brightness(0.4)';
-            item.style.opacity = '0.65';
+            item.style.transform = 'scale(0.7)';
+            item.style.filter = 'brightness(0.5)';
+            item.style.opacity = '0.7';
           } else {
             // Not yet overlapped
             item.style.transform = 'scale(1)';
