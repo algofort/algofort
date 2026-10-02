@@ -107,31 +107,42 @@ export function initAllHeadingsAnimation() {
   const selectors = [
     '.heading-style-h2',
     '.section-title',
+    '.alg-works-intro-title',
     '.works-intro-title',
+    '.alg-services-title',
     '.sec-services__title',
+    '.alg-testimonials-title',
     '.sec-testimonials__title',
+    '.alg-faq-title',
     '.sec-faq__title',
+    '.alg-cta-title',
     '.sec-cta__title',
     '.sec-projects__title',
     '.sec-tools__title',
+    '.alg-process-heading-text',
     '.sec-process .heading-text',
+    '.alg-works-title',
     '.work-title',
+    '.alg-footer-heading',
     '.footer_heading',
   ];
 
   const headings = document.querySelectorAll(selectors.join(', '));
   headings.forEach((heading) => {
-    // Exclude hero banner and showreel lightbox which have their own animations
+    // Exclude hero banner, navbar, and showreel lightbox which have their own animations
     if (
       heading.closest('#sec-banner') ||
       heading.closest('.sec-banner') ||
+      heading.closest('.alg-hero') ||
       heading.closest('.navbar') ||
       heading.closest('.sec-header') ||
-      heading.closest('.showreel_lightbox')
+      heading.closest('.alg-header') ||
+      heading.closest('.showreel_lightbox') ||
+      heading.closest('.alg-showreel-lightbox')
     ) {
       return;
     }
-    const trigger = heading.closest('.work-item') || heading;
+    const trigger = heading.closest('.alg-works-item') || heading.closest('.work-item') || heading;
     initTitleAnimation(heading, { trigger, start: 'top 85%', stagger: 0.02 });
   });
 

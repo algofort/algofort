@@ -24,9 +24,9 @@ export const Header = () => {
   useEffect(() => {
     if (!drawerRef.current) return;
     const drawerEl = drawerRef.current;
-    const contentWrap = drawerEl.querySelector('.navigation-content-wrap');
-    const opacityBg = drawerEl.querySelector('.navigation-opacity');
-    const links = drawerEl.querySelectorAll('.navigation-link-block');
+    const contentWrap = drawerEl.querySelector('.alg-header-drawer-content-wrap, .navigation-content-wrap');
+    const opacityBg = drawerEl.querySelector('.alg-header-drawer-opacity, .navigation-opacity');
+    const links = drawerEl.querySelectorAll('.alg-header-drawer-link-block, .navigation-link-block');
 
     if (navOpen) {
       gsap.set(drawerEl, { display: 'block' });
@@ -58,7 +58,7 @@ export const Header = () => {
 
   return (
     <div 
-      className={`navbar site-header sec-header w-nav ${navOpen ? 'w--nav-menu-open' : ''}`} 
+      className={`alg-header navbar site-header sec-header w-nav ${navOpen ? 'w--nav-menu-open' : ''}`} 
       data-animation="default" 
       data-collapse="all" 
       data-duration="0" 
@@ -68,22 +68,22 @@ export const Header = () => {
       id="top" 
       role="banner"
     >
-      <div className="sec-header__container-full w-full">
-        <div className="nav-content-wrapper sec-header__wrapper">
+      <div className="alg-header-container sec-header__container-full w-full">
+        <div className="alg-header-content-wrapper nav-content-wrapper sec-header__wrapper">
           
           {/* Logo */}
-          <div className="logo-wrapper sec-header__logo-wrapper" id="w-node-_775fe0a9-7eeb-54f2-c56b-580613a9104a-13a91046">
-            <a aria-current="page" className="logo-link sec-header__logo-link w-inline-block w--current" href="#top">
-              <div className="logo-wrap">
+          <div className="alg-header-logo-wrapper logo-wrapper sec-header__logo-wrapper" id="w-node-_775fe0a9-7eeb-54f2-c56b-580613a9104a-13a91046">
+            <a aria-current="page" className="alg-header-logo-link logo-link sec-header__logo-link w-inline-block w--current" href="#top">
+              <div className="alg-header-logo-wrap logo-wrap">
                 <img 
                   alt="Algofort Logo" 
-                  className="logo sec-header__logo-img" 
+                  className="alg-header-logo-img logo sec-header__logo-img" 
                   loading="eager" 
                   src="/assets/logo.png" 
                 />
                 <img 
                   alt="Algofort Logo" 
-                  className="logo sec-header__logo-img" 
+                  className="alg-header-logo-img logo sec-header__logo-img" 
                   loading="eager" 
                   src="/assets/logo.png" 
                 />
@@ -95,18 +95,18 @@ export const Header = () => {
           {/* Webflow Overlay Navigation Drawer */}
           <nav 
             ref={drawerRef}
-            className={`navigation sec-header__nav-drawer w-nav-menu ${navOpen ? 'w--nav-menu-open' : ''}`} 
+            className={`alg-header-drawer navigation sec-header__nav-drawer w-nav-menu ${navOpen ? 'w--nav-menu-open' : ''}`} 
             role="navigation"
             style={{ display: 'none' }}
           >
-            <div className="navigation-container">
-              <div className="navigation-content-wrap" id="w-node-_775fe0a9-7eeb-54f2-c56b-580613a91055-13a91046">
+            <div className="alg-header-drawer-container navigation-container">
+              <div className="alg-header-drawer-content-wrap navigation-content-wrap" id="w-node-_775fe0a9-7eeb-54f2-c56b-580613a91055-13a91046">
                 <div className="navigation-content-block">
                   <div className="navigation-content">
                     <div className="w-layout-grid navigation-inner-grid">
                       <div className="navigation-content-list">
                         
-                        <div className="navigation-link-block">
+                        <div className="alg-header-drawer-link-block navigation-link-block">
                           <a className="navigation-link w-inline-block w--current" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Web Development</div>
@@ -116,7 +116,7 @@ export const Header = () => {
                           </a>
                         </div>
 
-                        <div className="navigation-link-block">
+                        <div className="alg-header-drawer-link-block navigation-link-block">
                           <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">UI/UX Development</div>
@@ -126,7 +126,7 @@ export const Header = () => {
                           </a>
                         </div>
 
-                        <div className="navigation-link-block">
+                        <div className="alg-header-drawer-link-block navigation-link-block">
                           <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Mobile App</div>
@@ -136,7 +136,7 @@ export const Header = () => {
                           </a>
                         </div>
 
-                        <div className="navigation-link-block">
+                        <div className="alg-header-drawer-link-block navigation-link-block">
                           <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Custom Software</div>
@@ -146,7 +146,7 @@ export const Header = () => {
                           </a>
                         </div>
 
-                        <div className="navigation-link-block">
+                        <div className="alg-header-drawer-link-block navigation-link-block">
                           <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">SEO</div>
@@ -180,7 +180,7 @@ export const Header = () => {
                   <div className="navigation-background"></div>
                 </div>
               </div>
-              <div className="navigation-opacity" onClick={() => setNavOpen(false)}></div>
+              <div className="alg-header-drawer-opacity navigation-opacity" onClick={() => setNavOpen(false)}></div>
             </div>
           </nav>
 

@@ -1,5 +1,6 @@
-/* Showreel / @2026 Algofort Section Styles */
+/* Showreel / @2026 Algofort Section Styles (Standardized alg-showreel) */
 
+.alg-showreel,
 .section_showreel {
   position: relative;
   width: 100%;
@@ -7,6 +8,7 @@
   color: #05080C;
 }
 
+.alg-showreel-wrap,
 .showreel_wrap {
   flex-flow: column;
   justify-content: flex-start;
@@ -18,6 +20,7 @@
   --_animations---animation-padding: 0rem;
 }
 
+.alg-showreel-sticky,
 .showreel_sticky {
   justify-content: center;
   align-items: center;
@@ -29,6 +32,7 @@
   overflow: hidden;
 }
 
+.alg-showreel-scroll-note,
 .showreel_scroll-note {
   z-index: 2;
   color: rgba(5, 8, 12, 0.6);
@@ -41,6 +45,7 @@
   pointer-events: none;
 }
 
+.alg-showreel-lightbox,
 .showreel_lightbox {
   padding: var(--_animations---animation-padding, 0rem);
   justify-content: center;
@@ -56,6 +61,7 @@
   will-change: width, height, padding;
 }
 
+.alg-showreel-img-wrap,
 .showreel_img-wrap {
   border-radius: var(--_animations---animation-border-radius, 1rem);
   justify-content: center;
@@ -71,6 +77,7 @@
   will-change: border-radius;
 }
 
+.alg-showreel-img,
 .showreel_img {
   object-fit: cover;
   width: 100vw;
@@ -84,6 +91,7 @@
   will-change: transform;
 }
 
+.alg-showreel-heading,
 .showreel_heading {
   font-size: 3.5rem;
   line-height: 105%;
@@ -98,14 +106,17 @@
   font-family: 'Clash Display', sans-serif !important;
 }
 
+.alg-showreel-heading-1,
 .showreel_heading._1 {
   right: calc(100% + 0.75rem);
 }
 
+.alg-showreel-heading-2,
 .showreel_heading._2 {
   left: calc(100% + 0.75rem);
 }
 
+.alg-showreel-play-wrapper,
 .showreel_play-wrapper {
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
@@ -120,6 +131,7 @@
   cursor: pointer;
 }
 
+.alg-showreel-play-text,
 .showreel_play-text {
   color: #ffffff;
   font-size: 3.5rem;
@@ -132,6 +144,7 @@
   font-family: 'Clash Display', sans-serif !important;
 }
 
+.alg-showreel-play-icon-wrap,
 .showreel_play-icon-wrap {
   position: relative;
   width: 4rem;
@@ -149,7 +162,8 @@
   cursor: pointer;
 }
 
-/* Sonar Wave 1px Borders Animation (Compact Linking Light Black Waves) */
+/* Sonar Wave 1px Borders Animation */
+.alg-showreel-sonar-wave,
 .showreel_play-icon-wrap .sonar-wave {
   position: absolute;
   inset: -1px;
@@ -161,14 +175,17 @@
   will-change: transform, opacity;
 }
 
+.alg-showreel-sonar-wave-1,
 .showreel_play-icon-wrap .sonar-wave-1 {
   animation-delay: 0s;
 }
 
+.alg-showreel-sonar-wave-2,
 .showreel_play-icon-wrap .sonar-wave-2 {
   animation-delay: 1s;
 }
 
+.alg-showreel-sonar-wave-3,
 .showreel_play-icon-wrap .sonar-wave-3 {
   animation-delay: 2s;
 }
@@ -187,11 +204,13 @@
   }
 }
 
+.alg-showreel-lightbox:hover .alg-showreel-play-icon-wrap,
 .showreel_lightbox:hover .showreel_play-icon-wrap {
   transform: scale(1.1);
   background-color: rgba(0, 0, 0, 0.85);
 }
 
+.alg-showreel-play-icon,
 .showreel_play-icon {
   position: relative;
   z-index: 2;
@@ -200,6 +219,7 @@
 }
 
 /* Modal Popup Styles */
+.alg-showreel-modal-overlay,
 .showreel-modal-overlay {
   position: fixed;
   inset: 0;
@@ -223,6 +243,7 @@
   }
 }
 
+.alg-showreel-modal-content,
 .showreel-modal-content {
   position: relative;
   width: 100%;
@@ -235,7 +256,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Close button outside video in the top-right corner of screen/overlay */
+/* Close button outside video in top-right corner */
+.alg-showreel-modal-close,
 .showreel-modal-close {
   position: fixed;
   top: 2rem;
@@ -261,6 +283,7 @@
               color 0.2s ease;
 }
 
+.alg-showreel-modal-close:hover,
 .showreel-modal-close:hover {
   transform: scale(1.1) rotate(90deg);
   background-color: rgba(255, 255, 255, 0.22);
@@ -268,15 +291,18 @@
   color: #ffffff;
 }
 
+.alg-showreel-modal-close:active,
 .showreel-modal-close:active {
   transform: scale(0.95);
 }
 
+.alg-showreel-modal-close:focus-visible,
 .showreel-modal-close:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 3px;
 }
 
+.alg-showreel-modal-close svg,
 .showreel-modal-close svg {
   display: block;
   pointer-events: none;
@@ -284,17 +310,20 @@
 
 /* Responsive Overrides (max-width: 991px) */
 @media screen and (max-width: 991px) {
+  .alg-showreel-wrap,
   .showreel_wrap {
     padding: 0.75rem;
     height: auto;
   }
 
+  .alg-showreel-sticky,
   .showreel_sticky {
     height: auto;
     position: relative;
     top: auto;
   }
 
+  .alg-showreel-lightbox,
   .showreel_lightbox {
     padding: 0rem;
     aspect-ratio: 16 / 9;
@@ -302,10 +331,12 @@
     width: 100%;
   }
 
+  .alg-showreel-img-wrap,
   .showreel_img-wrap {
     border-radius: 1.5rem;
   }
 
+  .alg-showreel-img,
   .showreel_img {
     width: 100%;
     min-width: auto;
@@ -313,23 +344,28 @@
     min-height: auto;
   }
 
+  .alg-showreel-heading,
   .showreel_heading {
     display: none;
   }
 
+  .alg-showreel-play-text,
   .showreel_play-text {
     font-size: 2.5rem;
   }
 
+  .alg-showreel-scroll-note,
   .showreel_scroll-note {
     display: none;
   }
 
+  .alg-showreel-play-icon-wrap,
   .showreel_play-icon-wrap {
     width: 3.5rem;
     height: 3.5rem;
   }
 
+  .alg-showreel-play-icon,
   .showreel_play-icon {
     width: 0.75rem;
   }
@@ -337,10 +373,12 @@
 
 /* Tablet & Mobile Landscape Overrides (max-width: 767px) */
 @media screen and (max-width: 767px) {
+  .alg-showreel-modal-overlay,
   .showreel-modal-overlay {
     padding: 1rem;
   }
 
+  .alg-showreel-modal-close,
   .showreel-modal-close {
     top: 1.25rem;
     right: 1.25rem;
@@ -351,24 +389,29 @@
 
 /* Mobile Portrait Overrides (max-width: 479px) */
 @media screen and (max-width: 479px) {
+  .alg-showreel-play-text,
   .showreel_play-text {
     font-size: 1.75rem;
   }
 
+  .alg-showreel-lightbox,
   .showreel_lightbox {
     aspect-ratio: 1;
   }
 
+  .alg-showreel-play-wrapper,
   .showreel_play-wrapper {
     flex-flow: wrap;
     width: 90%;
   }
 
+  .alg-showreel-play-icon-wrap,
   .showreel_play-icon-wrap {
     width: 3rem;
     height: 3rem;
   }
 
+  .alg-showreel-modal-close,
   .showreel-modal-close {
     top: 1rem;
     right: 1rem;

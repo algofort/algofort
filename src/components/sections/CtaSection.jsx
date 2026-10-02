@@ -1,105 +1,72 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../utils/titleAnimation';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const availableServices = [
-  'Branding',
-  'Website',
-  'Mobile App',
-  'Web Application',
-  'Digital Marketing',
+  'Website Design',
+  'Software Development',
+  'AI Development',
+  'App Development',
+  'DevOps & Cloud',
+  'UI/UX Design',
 ];
 
 export function CtaSection() {
-  const containerRef = useRef(null);
+  const sectionRef = useRef(null);
   const bgImgRef = useRef(null);
+
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
     email: '',
-    selectedServices: ['Branding', 'Web Application'],
+    selectedServices: ['Website Design'],
     message: '',
   });
+
   const [submitted, setSubmitted] = useState(false);
 
-  // Attach exact GSAP hover & parallax scroll animation to CTA section
-  useGSAP(() => {
-    if (!containerRef.current) return;
-
-    const titleEl = containerRef.current.querySelector('.sec-cta__title');
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const titleEl = sectionRef.current.querySelector('.alg-cta-title, .sec-cta__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
     }
+  }, []);
 
-    // Smooth parallax scroll effect on background image
-    if (bgImgRef.current) {
-      gsap.to(bgImgRef.current, {
-        yPercent: -20,
+  useEffect(() => {
+    if (!bgImgRef.current || !sectionRef.current) return;
+
+    const anim = gsap.fromTo(
+      bgImgRef.current,
+      { yPercent: -15 },
+      {
+        yPercent: 15,
         ease: 'none',
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: sectionRef.current,
           start: 'top bottom',
           end: 'bottom top',
           scrub: true,
         },
-      });
-    }
+      }
+    );
 
-    const buttons = containerRef.current.querySelectorAll('.main-button');
-
-    buttons.forEach((btn) => {
-      const texts = btn.querySelectorAll('.button-text');
-      const icon = btn.querySelector('.button-icon');
-
-      const onMouseEnter = () => {
-        if (texts.length >= 2) {
-          gsap.to(texts, { yPercent: -100, duration: 0.35, ease: 'power2.out' });
-        }
-        if (icon) {
-          gsap.to(icon, { rotate: 90, duration: 0.35, ease: 'power2.out' });
-        }
-      };
-
-      const onMouseLeave = () => {
-        if (texts.length) {
-          gsap.to(texts, { yPercent: 0, duration: 0.35, ease: 'power2.out' });
-        }
-        if (icon) {
-          gsap.to(icon, { rotate: 0, duration: 0.35, ease: 'power2.out' });
-        }
-      };
-
-      btn.addEventListener('mouseenter', onMouseEnter);
-      btn.addEventListener('mouseleave', onMouseLeave);
-    });
-  }, { scope: containerRef });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        fullName: '',
-        phone: '',
-        email: '',
-        selectedServices: ['Branding', 'Web Application'],
-        message: '',
-      });
-    }, 4000);
-  };
+    return () => {
+      anim.kill();
+    };
+  }, []);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const toggleService = (service) => {
@@ -114,36 +81,41 @@ export function CtaSection() {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
-    <section ref={containerRef} className="site-section sec-cta section_cta" id="sec-cta">
-      <div className="padding-global is-tiny">
-        <div className="cta_component">
-          {/* Background image with vertical parallax scroll effect */}
-          <div className="cta_bg_wrap">
+    <section ref={sectionRef} className="alg-cta site-section sec-cta cta-section" id="sec-cta">
+      <div className="alg-cta-wrapper cta_wrapper">
+        <div className="alg-cta-component cta_component">
+          {/* Background Image with Parallax & Dark Gradient Overlay */}
+          <div className="alg-cta-bg-wrap cta_bg_wrap">
             <img
               ref={bgImgRef}
               src="/assets/showreel.png"
               alt="CTA Background"
-              className="cta_bg_img"
+              className="alg-cta-bg-img cta_bg_img"
             />
-            <div className="cta_bg_overlay"></div>
+            <div className="alg-cta-bg-overlay cta_bg_overlay"></div>
           </div>
 
           <div className="padding-section-medium" style={{ paddingTop: '2rem' }}></div>
           <div className="padding-global" style={{ width: '100%' }}>
-            <div className="site-container sec-cta__container cta_content">
+            <div className="alg-cta-container alg-cta-content site-container sec-cta__container cta_content">
               {/* Left Column Header */}
-              <div className="section-header sec-cta__header cta_left_column">
-                <div className="section-badge sec-cta__badge">
-                  <SubtitleMarquee text="Get Started — " variant="light" />
+              <div className="alg-cta-left-col section-header sec-cta__header cta_left_column">
+                <div className="alg-cta-badge section-badge sec-cta__badge">
+                  <SubtitleMarquee text="Get Started ✦ " variant="light" />
                 </div>
                 <div className="text-align-left">
                   <div className="text-color-white">
-                    <h2 className="heading-style-h2 section-title sec-cta__title">
+                    <h2 className="alg-cta-title heading-style-h2 section-title sec-cta__title">
                       Start <br />
                       <span className="text-color-secondary">Project</span>
                     </h2>
-                    <p className="section-description sec-cta__desc cta-description alg-text">
+                    <p className="alg-cta-desc section-description sec-cta__desc cta-description alg-text">
                       Let us collaborate to build something extraordinary and elevate your brand to the next level.
                     </p>
                   </div>
@@ -152,7 +124,7 @@ export function CtaSection() {
                 <div className="fade-in fade-in-left">
                   <a
                     href="tel:+923233678383"
-                    className="main-button alternate-button w-inline-block"
+                    className="alg-cta-button main-button alternate-button w-inline-block"
                   >
                     <div className="main-button-block">
                       <div className="button-text alternate-text">+92 323 3678383</div>
@@ -169,12 +141,12 @@ export function CtaSection() {
               </div>
 
               {/* Right Column (Glassmorphism Contact Form) */}
-              <div className="cta_right_column">
-                <div className="glass-container" style={{ borderRadius: '1.5rem', padding: '1px' }}>
-                  <div className="glass-filter"></div>
-                  <div className="glass-overlay"></div>
-                  <div className="glass-specular"></div>
-                  <div className="glass-content">
+              <div className="alg-cta-right-col cta_right_column">
+                <div className="alg-cta-glass-container glass-container" style={{ borderRadius: '1.5rem', padding: '1px' }}>
+                  <div className="alg-cta-glass-filter glass-filter"></div>
+                  <div className="alg-cta-glass-overlay glass-overlay"></div>
+                  <div className="alg-cta-glass-specular glass-specular"></div>
+                  <div className="alg-cta-glass-content glass-content">
                     {submitted ? (
                       <div style={{ textAlign: 'center', padding: '3rem 1rem', color: '#ffffff' }}>
                         <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>
@@ -185,10 +157,10 @@ export function CtaSection() {
                         </p>
                       </div>
                     ) : (
-                      <form className="cta_form" onSubmit={handleSubmit}>
+                      <form className="alg-cta-form cta_form" onSubmit={handleSubmit}>
                         {/* Row 1: Full Name & Phone Number */}
-                        <div className="form_row two-cols">
-                          <div className="form_group">
+                        <div className="alg-cta-form-row form_row two-cols">
+                          <div className="alg-cta-form-group form_group">
                             <label htmlFor="fullName">Full Name</label>
                             <input
                               type="text"
@@ -200,7 +172,7 @@ export function CtaSection() {
                               required
                             />
                           </div>
-                          <div className="form_group">
+                          <div className="alg-cta-form-group form_group">
                             <label htmlFor="phone">Phone Number</label>
                             <input
                               type="tel"
@@ -215,7 +187,7 @@ export function CtaSection() {
                         </div>
 
                         {/* Row 2: Email Address */}
-                        <div className="form_group">
+                        <div className="alg-cta-form-group form_group">
                           <label htmlFor="email">Email Address</label>
                           <input
                             type="email"
@@ -229,16 +201,16 @@ export function CtaSection() {
                         </div>
 
                         {/* Row 3: Service Pill Buttons */}
-                        <div className="form_group">
+                        <div className="alg-cta-form-group form_group">
                           <label>Service</label>
-                          <div className="service-pills-row">
+                          <div className="alg-cta-pills-row service-pills-row">
                             {availableServices.map((service) => {
                               const isSelected = formData.selectedServices.includes(service);
                               return (
                                 <button
                                   type="button"
                                   key={service}
-                                  className={`service-pill-btn ${isSelected ? 'active' : ''}`}
+                                  className={`alg-cta-pill-btn service-pill-btn ${isSelected ? 'active' : ''}`}
                                   onClick={() => toggleService(service)}
                                 >
                                   {service}
@@ -249,7 +221,7 @@ export function CtaSection() {
                         </div>
 
                         {/* Row 4: Message */}
-                        <div className="form_group">
+                        <div className="alg-cta-form-group form_group">
                           <label htmlFor="message">Message</label>
                           <textarea
                             id="message"
@@ -264,7 +236,7 @@ export function CtaSection() {
                         {/* Row 5: Submit Button */}
                         <button
                           type="submit"
-                          className="main-button alternate-button w-inline-block"
+                          className="alg-cta-button main-button alternate-button w-inline-block"
                           style={{ border: 'none', cursor: 'pointer', alignSelf: 'flex-start', marginTop: '0.5rem' }}
                         >
                           <div className="main-button-block">

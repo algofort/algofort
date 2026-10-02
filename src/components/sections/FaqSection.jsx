@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React, { useRef, useEffect } from 'react';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../utils/titleAnimation';
@@ -12,17 +12,9 @@ if (typeof window !== 'undefined') {
 
 const faqData = [
   {
-    question: 'What does the typical website redesign or revamp process look like?',
+    question: 'What types of projects do you typically work on?',
     paragraphs: [
-      'Every project starts with understanding your business, users and goals. Before designing anything, we analyze your current website, identify pain points and define opportunities for improvement.',
-      "Our typical process includes Discovery, UX research, information architecture, wireframing, UI design, prototyping, development, QA and launch. Throughout the project, you'll have full visibility into progress, regular design reviews and direct communication with our team.",
-      "Whether it's a landing page or a large enterprise platform, our goal is always the same: create a website that looks exceptional, performs flawlessly and helps your business grow.",
-    ],
-  },
-  {
-    question: 'What services does Cuberto provide?',
-    paragraphs: [
-      'We offer end-to-end digital design and development services, allowing our clients to work with a single experienced team from strategy to launch.',
+      'We work with brands, technology startups and established companies across a wide range of digital projects.',
       'Depending on your needs, we can help with brand identity, UX research, product strategy, user experience design, interface design, motion design, frontend and backend development, CMS implementation, performance optimization and ongoing support.',
       'Some clients come to us for a single landing page, while others trust us to build complete digital products from the ground up. We adapt our process to every project while maintaining the same level of quality throughout.',
     ],
@@ -136,8 +128,8 @@ function FaqDivider() {
   }, []);
 
   return (
-    <div className="cb-faq-divider">
-      <div className="cb-divider" ref={dividerRef}></div>
+    <div className="alg-faq-divider cb-faq-divider">
+      <div className="alg-faq-divider-line cb-divider" ref={dividerRef}></div>
     </div>
   );
 }
@@ -147,38 +139,38 @@ export function FaqSection() {
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    const titleEl = sectionRef.current.querySelector('.sec-faq__title');
+    const titleEl = sectionRef.current.querySelector('.alg-faq-title, .sec-faq__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
     }
   }, []);
 
   return (
-    <section ref={sectionRef} className="site-section sec-faq cb-faq" id="sec-faq">
-      <div className="site-container sec-faq__container cb-faq-container -lg">
-        <div className="section-header sec-faq__header cb-faq-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '4rem' }}>
-          <div className="section-badge sec-faq__badge">
-            <SubtitleMarquee text="Frequently Asked Questions — " />
+    <section ref={sectionRef} className="alg-faq site-section sec-faq cb-faq" id="sec-faq">
+      <div className="alg-faq-container site-container sec-faq__container cb-faq-container -lg">
+        <div className="alg-faq-header section-header sec-faq__header cb-faq-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '4rem' }}>
+          <div className="alg-faq-badge section-badge sec-faq__badge">
+            <SubtitleMarquee text="Frequently Asked Questions ✦ " />
           </div>
-          <h2 className="heading-style-h2 section-title sec-faq__title" style={{ marginBottom: 0 }}>
+          <h2 className="alg-faq-title heading-style-h2 section-title sec-faq__title" style={{ marginBottom: 0 }}>
             Frequently Ask <br />
-            <span className="text-color-secondary">Question</span>
+            <span className="alg-faq-title-secondary text-color-secondary">Question</span>
           </h2>
         </div>
-        <div className="cb-faq-items">
+        <div className="alg-faq-items cb-faq-items">
           <FaqDivider />
 
           {faqData.map((item, idx) => (
             <div key={idx}>
-              <details className="cb-faq-item">
-                <summary className="cb-faq-item-toggle">
-                  <span className="cb-faq-item-title">{item.question}</span>
-                  <span className="cb-faq-item-arr"></span>
+              <details className="alg-faq-item cb-faq-item">
+                <summary className="alg-faq-item-toggle cb-faq-item-toggle">
+                  <span className="alg-faq-item-title cb-faq-item-title">{item.question}</span>
+                  <span className="alg-faq-item-arrow cb-faq-item-arr"></span>
                 </summary>
-                <div className="cb-faq-item-content">
-                  <div className="cb-faq-item-text">
+                <div className="alg-faq-item-content cb-faq-item-content">
+                  <div className="alg-faq-item-text cb-faq-item-text">
                     {item.paragraphs.map((p, pIdx) => (
-                      <p key={pIdx} className="alg-text">{p}</p>
+                      <p key={pIdx} className="alg-faq-text alg-text">{p}</p>
                     ))}
                   </div>
                 </div>

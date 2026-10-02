@@ -1,5 +1,5 @@
 /* === Tech Stack Section Styles (Fluid Responsive Cover Layout) === */
-.tools-section {
+.alg-tools,\n.tools-section {
   width: 100%;
   background-color: #F4F4F2;
   position: relative;
@@ -12,7 +12,7 @@
   }
 }
 
-.tools-container {
+.alg-tools-container,\n.tools-container {
   width: 100%;
   max-width: var(--site-container-max-w, 1600px);
   margin: 0 auto;
@@ -39,7 +39,7 @@
   margin-bottom: 3.5rem;
 }
 
-.tools-icons-container {
+.alg-tools-dock-container,\n.tools-icons-container {
   width: 100%;
   max-width: 1600px;
   overflow: visible;
@@ -51,7 +51,7 @@
   margin-top: -58px;
 }
 
-.tools-icons-row {
+.alg-tools-icons-row,\n.tools-icons-row {
   height: clamp(6.5rem, 10vw, 9.5rem);
   display: flex;
   align-items: flex-end;
@@ -62,7 +62,7 @@
   width: 100%;
 }
 
-.tool-icon {
+.alg-tools-icon,\n.tool-icon {
   width: clamp(3.5rem, 5.8vw, 6.5rem) !important;
   height: clamp(3.5rem, 5.8vw, 6.5rem) !important;
   aspect-ratio: 1 / 1;
@@ -73,7 +73,7 @@
   flex-shrink: 0;
 }
 
-.tool-icon-inner {
+.alg-tools-icon-inner,\n.tool-icon-inner {
   width: 100% !important;
   height: 100% !important;
   position: absolute;
@@ -115,7 +115,7 @@
 
 
 
-.tool-tooltip {
+.alg-tools-tooltip,\n.tool-tooltip {
   position: absolute;
   top: calc(100% + 12px);
   left: 50%;

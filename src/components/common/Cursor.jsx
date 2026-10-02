@@ -45,7 +45,7 @@ export const Cursor = () => {
     renderCursor();
 
     const handleMouseOver = (e) => {
-      if (e.target.closest('a, button, .cb-btn_more, .about-card, .cb-feature-item, .social-link, .nav-link, .menu-button, [role="button"]')) {
+      if (e.target.closest('a, button, .cb-btn_more, .about-card, .alg-about-card, .cb-feature-item, .social-link, .alg-hero-social-link, .nav-link, .alg-footer-nav-link, .menu-button, .alg-header-menu-btn, [role="button"]')) {
         cursor.classList.add('-pointer');
       } else {
         cursor.classList.remove('-pointer');

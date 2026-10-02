@@ -170,7 +170,7 @@ export const BannerSection = () => {
       tl.to(social4, { opacity: 1, y: 0, duration: 0.2 }, '-=0.12');
     }
 
-    const visualWrap = container.querySelector('.gsap-wrapper');
+    const visualWrap = container.querySelector('.alg-hero-gsap-wrapper, .gsap-wrapper');
     if (!visualWrap) return;
 
     const handleMouseMove = (e) => {
@@ -230,19 +230,19 @@ export const BannerSection = () => {
   }, { scope: containerRef });
 
   return (
-    <header id="sec-banner" ref={containerRef} className="site-section section-home-header sec-banner">
-      <div className="w-layout-grid header-component-grid sec-banner__grid">
+    <header id="sec-banner" ref={containerRef} className="alg-hero site-section section-home-header sec-banner">
+      <div className="alg-hero-container w-layout-grid header-component-grid sec-banner__grid">
         
         {/* Main Header Copy */}
-        <div className="header-content-wrap sec-banner__content-wrap" id="w-node-e3d40d27-f8bf-23a1-bff7-5262c35d051f-fc8c1483">
-          <div className="copyright-symbol sec-banner__symbol">®</div>
-          <h1 className="header-title section-title sec-banner__title">Algofort</h1>
-          <div className="header-description section-description sec-banner__desc">Designing Your Digital World</div>
+        <div className="alg-hero-content header-content-wrap sec-banner__content-wrap" id="w-node-e3d40d27-f8bf-23a1-bff7-5262c35d051f-fc8c1483">
+          <div className="alg-hero-symbol copyright-symbol sec-banner__symbol">®</div>
+          <h1 className="alg-hero-title header-title section-title sec-banner__title">Algofort</h1>
+          <div className="alg-hero-text header-description section-description sec-banner__desc">Designing Your Digital World</div>
         </div>
 
         {/* Video Background */}
-        <div className="background-video-wrap sec-banner__video-wrap">
-          <div className="background-video w-background-video w-background-video-atom">
+        <div className="alg-hero-video-wrap background-video-wrap sec-banner__video-wrap">
+          <div className="alg-hero-video background-video w-background-video w-background-video-atom">
             <video 
               autoPlay 
               loop 
@@ -257,7 +257,7 @@ export const BannerSection = () => {
               <source src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm" type="video/webm" />
             </video>
           </div>
-          <div className="video-overlay"></div>
+          <div className="alg-hero-video-overlay video-overlay"></div>
         </div>
 
         {/* Bottom Social Links & Service Marquee */}
@@ -380,7 +380,7 @@ export const BannerSection = () => {
 
         {/* GSAP Image Trail Visual Wrapper */}
         <div className="gsap-component sec-banner__gsap-trail">
-          <div className="gsap-wrapper">
+          <div className="alg-hero-gsap-wrapper gsap-wrapper">
             <div className="gsap-block">
               <div className="gsap-image-wrap">
                 <img alt="" className="placeholder-image" src="/assets/68ee74b7102caefef6ce7894_image.svg" />

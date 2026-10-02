@@ -146,7 +146,7 @@ export const BackToTop = () => {
 
   return (
     <div
-      className={`back-to-top-wrap ${isVisible ? 'is-visible' : ''}`}
+      className={`alg-back-to-top-wrap back-to-top-wrap ${isVisible ? 'is-visible' : ''}`}
       onClick={scrollToTop}
       role="button"
       tabIndex={0}
@@ -162,12 +162,12 @@ export const BackToTop = () => {
         ref={btnRef}
         type="button"
         onClick={scrollToTop}
-        className="back-to-top-btn"
+        className="alg-back-to-top-btn back-to-top-btn"
         aria-label="Back to top"
       >
-        <div className="back-to-top-icon-wrap">
+        <div className="alg-back-to-top-icon-wrap back-to-top-icon-wrap">
           <svg
-            className="back-to-top-icon"
+            className="alg-back-to-top-icon back-to-top-icon"
             width="20"
             height="20"
             viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ export const BackToTop = () => {
             <polyline points="5 12 12 5 19 12" />
           </svg>
           <svg
-            className="back-to-top-icon"
+            className="alg-back-to-top-icon back-to-top-icon"
             width="20"
             height="20"
             viewBox="0 0 24 24"

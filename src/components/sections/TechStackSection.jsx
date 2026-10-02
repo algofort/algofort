@@ -44,11 +44,11 @@ function ToolIcon({ id, label, index }) {
   const src = `/dock-icons/${id}.png`;
 
   return (
-    <div className="tool-icon" style={{ '--delay': `${index * 0.03}s` }}>
-      <div className="tool-icon-inner">
+    <div className="alg-tools-icon tool-icon" style={{ '--delay': `${index * 0.03}s` }}>
+      <div className="alg-tools-icon-inner tool-icon-inner">
         <img src={src} alt={label} />
       </div>
-      <div className="tool-tooltip">{label}</div>
+      <div className="alg-tools-tooltip tool-tooltip">{label}</div>
     </div>
   );
 }
@@ -228,23 +228,23 @@ export function TechStackSection() {
   }, []);
 
   return (
-    <section className="site-section sec-tools tools-section" id="sec-tools" ref={sectionRef}>
-      <div className="site-container sec-tools__container tools-container">
+    <section className="alg-tools site-section sec-tools tools-section" id="sec-tools" ref={sectionRef}>
+      <div className="alg-tools-container site-container sec-tools__container tools-container">
         {/* Header matching FAQ & Services title style */}
-        <div className="section-header sec-tools__header tools-header">
-          <div className="section-badge sec-tools__badge">
+        <div className="alg-tools-header section-header sec-tools__header tools-header">
+          <div className="alg-tools-badge section-badge sec-tools__badge">
             <SubtitleMarquee text="Tech Stack & Tools — " variant="dark" />
           </div>
-          <h2 className="heading-style-h2 section-title sec-tools__title" style={{ color: '#05080C' }}>
+          <h2 className="alg-tools-title heading-style-h2 section-title sec-tools__title" style={{ color: '#05080C' }}>
             Our Tech <br />
             <span className="text-color-secondary">Stack</span>
           </h2>
         </div>
 
         {/* Dock Magnification Grid Rows using custom PNG logos */}
-        <div className="tools-icons-container" id="dockContainer" ref={dockRef}>
+        <div className="alg-tools-dock-container tools-icons-container" id="dockContainer" ref={dockRef}>
           {techRowsData.map((rowItems, rowIndex) => (
-            <div key={`row-${rowIndex}`} className="tools-icons-row">
+            <div key={`row-${rowIndex}`} className="alg-tools-icons-row tools-icons-row">
               {rowItems.map((tool, itemIndex) => (
                 <ToolIcon
                   key={`${tool.id}-${itemIndex}`}
@@ -257,8 +257,8 @@ export function TechStackSection() {
           ))}
         </div>
 
-        <div className="tools-footer">
-          <p className="section-description sec-tools__desc tools-desc alg-text">
+        <div className="alg-tools-footer tools-footer">
+          <p className="alg-tools-desc section-description sec-tools__desc tools-desc alg-text">
             We design products that live in the digital world: intuitive UX, sharp UI, immersive 3D and
             motion. From research to launch, we craft bold, seamless experiences.
           </p>

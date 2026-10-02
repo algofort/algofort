@@ -137,23 +137,23 @@ export function ProjectsSection() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} id="sec-projects" className="site-section sec-projects projects-section">
-      <div className="site-container sec-projects__container projects-container">
-        <div className="projects-grid">
+    <section ref={containerRef} id="sec-projects" className="alg-projects site-section sec-projects projects-section">
+      <div className="alg-projects-container site-container sec-projects__container projects-container">
+        <div className="alg-projects-grid projects-grid">
           {/* Left Column: Sticky Title & Description */}
-          <div className="section-header sec-projects__header projects-static-col">
+          <div className="alg-projects-header section-header sec-projects__header projects-static-col">
             <div className="projects-static-inner">
-              <div className="section-badge sec-projects__badge">
+              <div className="alg-projects-badge section-badge sec-projects__badge">
                 <SubtitleMarquee text="Featured Projects — " variant="dark" />
               </div>
-              <h2 className="heading-style-h2 section-title sec-projects__title projects-title">
+              <h2 className="alg-projects-title heading-style-h2 section-title sec-projects__title projects-title">
                 Featured <br />
                 <span className="text-color-secondary">Projects</span>
               </h2>
-              <p className="section-description sec-projects__desc projects-descr alg-text">
+              <p className="alg-projects-desc section-description sec-projects__desc projects-descr alg-text">
                 Explore our portfolio of digital products, software solutions, and technology experiences built by Algofort.
               </p>
-              <div className="projects-btn-wrap">
+              <div className="alg-projects-btn-wrap projects-btn-wrap">
                 <Link href="/projects" className="main-button footer-submit-btn w-inline-block">
                   <div className="main-button-block">
                     <div className="button-text">All Works</div>
@@ -171,22 +171,22 @@ export function ProjectsSection() {
           </div>
 
           {/* Right Column: Scrollable Projects */}
-          <div className="projects-scroll-col">
-            <div className="projects-items-list">
+          <div className="alg-projects-scroll-col projects-scroll-col">
+            <div className="alg-projects-list projects-items-list">
               {projectsData.map((project) => (
-                <div key={project.id} className="projects-item">
-                  <Link href="/projects" className="projects-item-media">
-                    <div className="projects-item-img-wrap">
+                <div key={project.id} className="alg-projects-item projects-item">
+                  <Link href="/projects" className="alg-projects-item-media projects-item-media">
+                    <div className="alg-projects-item-img-wrap projects-item-img-wrap">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="projects-item-img"
+                        className="alg-projects-item-img projects-item-img"
                         loading="lazy"
                       />
                     </div>
-                    <div className="projects-item-tags">
+                    <div className="alg-projects-item-tags projects-item-tags">
                       {project.tags.map((tag, idx) => (
-                        <span key={idx} className="projects-tag">
+                        <span key={idx} className="alg-projects-tag projects-tag">
                           {tag}
                         </span>
                       ))}

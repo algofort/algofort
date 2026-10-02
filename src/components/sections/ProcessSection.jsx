@@ -57,7 +57,7 @@ export function ProcessSection() {
     const START_OFFSET_X = 235;
 
     if (section) {
-      const headings = section.querySelectorAll('.heading-text');
+      const headings = section.querySelectorAll('.alg-process-heading-text, .heading-text');
       headings.forEach((heading) => {
         initTitleAnimation(heading, { trigger: section, start: 'top 85%', stagger: 0.02 });
       });
@@ -110,40 +110,40 @@ export function ProcessSection() {
         strategy="afterInteractive"
       />
 
-      <section className="site-section sec-process step-process-section" id="sec-process" ref={sectionRef}>
-        <div className="site-container sec-process__container step-container">
-          <div className="step-wrap">
+      <section className="alg-process site-section sec-process step-process-section" id="sec-process" ref={sectionRef}>
+        <div className="alg-process-container site-container sec-process__container step-container">
+          <div className="alg-process-wrap step-wrap">
             {/* Pre-Title Sticky Badge */}
-            <div className="section-header sec-process__header step-header" style={{ marginBottom: 0 }}>
-              <div className="section-badge sec-process__badge" style={{ marginBottom: 0 }}>
-                <SubtitleMarquee text="From Concept to Launch — " />
+            <div className="alg-process-header section-header sec-process__header step-header" style={{ marginBottom: 0 }}>
+              <div className="alg-process-badge section-badge sec-process__badge" style={{ marginBottom: 0 }}>
+                <SubtitleMarquee text="From Concept to Launch ✦ " />
               </div>
             </div>
 
             {/* 3-Column Step Content Layout */}
-            <div className="step-content">
+            <div className="alg-process-content step-content">
               {/* Left Column Sticky Title */}
-              <div className="section-title sec-process__title title-column title-left" id="titleLeft" ref={titleLeftRef}>
-                <h3 className="heading-text">Your ideas</h3>
-                <h3 className="heading-text">
-                  into <span className="brand-script">Brand</span>
+              <div className="alg-process-title-col alg-process-title-left section-title sec-process__title title-column title-left" id="titleLeft" ref={titleLeftRef}>
+                <h3 className="alg-process-heading-text heading-text">Your ideas</h3>
+                <h3 className="alg-process-heading-text heading-text">
+                  into <span className="alg-process-brand-script brand-script">Brand</span>
                 </h3>
               </div>
 
               {/* Middle Column: Cards List */}
-              <div className="cards-column">
-                <div className="cards-empty-space"></div>
+              <div className="alg-process-cards-col cards-column">
+                <div className="alg-process-cards-spacer cards-empty-space"></div>
 
                 {processSteps.map((item, index) => (
-                  <div key={item.step} className="process-card" data-step={index + 1}>
-                    <div className="process-card-inner">
-                      <div className="card-head">
-                        <h3 className="card-title">{item.title}</h3>
-                        <div className="card-count-icon">
-                          <span className="step-num">{item.step}</span>
+                  <div key={item.step} className="alg-process-card process-card" data-step={index + 1}>
+                    <div className="alg-process-card-inner process-card-inner">
+                      <div className="alg-process-card-head card-head">
+                        <h3 className="alg-process-card-title card-title">{item.title}</h3>
+                        <div className="alg-process-card-count card-count-icon">
+                          <span className="alg-process-step-num step-num">{item.step}</span>
                         </div>
                       </div>
-                      <div className="card-illustration">
+                      <div className="alg-process-card-illustration card-illustration">
                         <dotlottie-player
                           src={item.lottieSrc}
                           background="transparent"
@@ -153,16 +153,16 @@ export function ProcessSection() {
                           autoplay
                         ></dotlottie-player>
                       </div>
-                      <p className="card-desc alg-text">{item.description}</p>
+                      <p className="alg-process-card-desc card-desc alg-text">{item.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Right Column Sticky Title */}
-              <div className="title-column title-right" id="titleRight" ref={titleRightRef}>
-                <h3 className="heading-text">transform</h3>
-                <h3 className="heading-text">stories</h3>
+              <div className="alg-process-title-col alg-process-title-right title-column title-right" id="titleRight" ref={titleRightRef}>
+                <h3 className="alg-process-heading-text heading-text">transform</h3>
+                <h3 className="alg-process-heading-text heading-text">stories</h3>
               </div>
             </div>
           </div>

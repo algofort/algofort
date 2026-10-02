@@ -1,5 +1,6 @@
-/* CTA Section Styles - Original Webflow Glassmorphism Theme */
+/* CTA Section Styles - Standardized alg-cta */
 
+.alg-cta,
 .section_cta,
 .sec-cta {
   position: relative;
@@ -15,6 +16,7 @@
   padding-right: 0.75rem !important;
 }
 
+.alg-cta-component,
 .cta_component {
   border-radius: 1.5rem !important;
   background-color: #0b0c10 !important;
@@ -28,6 +30,7 @@
   padding: 4rem 2rem;
 }
 
+.alg-cta-bg-wrap,
 .cta_bg_wrap {
   position: absolute;
   top: 0;
@@ -39,6 +42,7 @@
   pointer-events: none;
 }
 
+.alg-cta-bg-img,
 .cta_bg_img {
   position: absolute;
   top: -15%;
@@ -50,281 +54,213 @@
   will-change: transform;
 }
 
+.alg-cta-bg-overlay,
 .cta_bg_overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
-}
-
-.cta_content {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  max-width: 1600px !important;
-  margin: 0 auto;
-  align-items: center !important;
-  width: 100%;
-  z-index: 3;
-  position: relative;
-}
-
-.cta_left_column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.text-align-left {
-  text-align: left !important;
-}
-
-.heading-style-h1 {
-  font-size: 4vw !important;
-  line-height: 1.2 !important;
-  font-weight: 500;
-  color: #ffffff;
-  text-transform: uppercase;
-  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
-}
-
-.sec-cta__title {
-  color: #ffffff !important;
-  font-family: var(--_typography---h2--h2-font-family) !important;
-  font-size: var(--_typography---h2--h2-font-size) !important;
-  line-height: var(--_typography---h2--h2-line-height) !important;
-  font-weight: var(--_typography---h2--h2-font-weight, 700) !important;
-  letter-spacing: var(--_typography---h2--h2-letter-spacing) !important;
-  text-transform: uppercase !important;
-  margin-bottom: 1.25rem !important;
-}
-
-.sec-cta__title .text-color-secondary {
-  color: var(--brand-orange) !important;
-}
-
-.cta-description {
-  color: rgba(255, 255, 255, 0.8) !important;
-  margin-top: 0 !important;
-  font-size: 1.15rem;
-  font-weight: 400;
-  max-width: 90%;
-  line-height: 1.5;
-}
-
-.spacer-large {
-  height: 2.5rem;
-}
-
-.fade-in-left {
-  width: max-content !important;
-  justify-content: flex-start !important;
-  width: 100%;
-}
-
-.cta_right_column {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-/* Original Webflow Translucent Glassmorphism Form Container */
-.glass-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.02) !important;
-  border-radius: 1.5rem !important;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) !important;
-  color: #ffffff !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2);
-  width: 100%;
-  padding: 1px;
-}
-
-.glass-filter,
-.glass-overlay,
-.glass-specular {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(11, 12, 16, 0.4) 0%, rgba(11, 12, 16, 0.85) 100%);
   pointer-events: none;
 }
 
-.glass-filter {
-  z-index: 0;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  filter: saturate(120%) brightness(1.15);
-}
-
-.glass-overlay {
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.glass-specular {
-  z-index: 2;
-  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 0 10px rgba(255, 255, 255, 0.05);
-}
-
-.glass-content {
+.alg-cta-content,
+.cta_content {
   position: relative;
   z-index: 3;
+  width: 100%;
   display: flex;
-  flex: 1 1 auto;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
-  padding: 2rem !important;
+  gap: 4rem;
+}
+
+.alg-cta-left-col,
+.cta_left_column {
+  flex: 1;
+  max-width: 500px;
+}
+
+.alg-cta-title,
+.sec-cta__title {
+  color: #ffffff !important;
+}
+
+.alg-cta-desc,
+.cta-description {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.alg-cta-right-col,
+.cta_right_column {
+  flex: 1.2;
+  max-width: 600px;
   width: 100%;
 }
 
+/* Glassmorphism Container */
+.alg-cta-glass-container,
+.glass-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.alg-cta-glass-content,
+.glass-content {
+  position: relative;
+  z-index: 5;
+  padding: 2.5rem;
+}
+
+/* Form Styles */
+.alg-cta-form,
 .cta_form {
-  background: transparent;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  width: 100%;
-  margin-top: 0 !important;
 }
 
+.alg-cta-form-row.two-cols,
 .form_row.two-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 1rem;
 }
 
+@media (max-width: 640px) {
+  .alg-cta-form-row.two-cols,
+  .form_row.two-cols {
+    flex-direction: column;
+  }
+}
+
+.alg-cta-form-group,
 .form_group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1;
 }
 
+.alg-cta-form-group label,
 .form_group label {
-  color: #ffffff !important;
-  font-weight: 500 !important;
-  font-size: 0.9rem !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Original Pill Form Inputs & Textarea */
+.alg-cta-form-group input,
+.alg-cta-form-group textarea,
 .form_group input,
 .form_group textarea {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: #ffffff !important;
-  border-radius: 30px !important;
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
-  padding-top: 0.875rem !important;
-  padding-bottom: 0.875rem !important;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  outline: none;
   font-family: inherit;
-  font-size: 0.95rem !important;
-  width: 100%;
-  box-sizing: border-box;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form_group textarea {
-  border-radius: 20px !important;
-  padding-top: 1rem !important;
-  resize: vertical;
-  min-height: 110px;
-}
-
-.form_group input::placeholder,
-.form_group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
+.alg-cta-form-group input:focus,
+.alg-cta-form-group textarea:focus,
 .form_group input:focus,
 .form_group textarea:focus {
-  outline: none !important;
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
-/* Glassmorphism Pill Buttons for Services */
+.alg-cta-form-group textarea,
+.form_group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Service Pills */
+.alg-cta-pills-row,
 .service-pills-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  width: 100%;
+  gap: 0.5rem;
   margin-top: 0.25rem;
 }
 
+.alg-cta-pill-btn,
 .service-pill-btn {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  font-size: 0.95rem !important;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.825rem;
   font-weight: 500;
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
-  padding-top: 0.875rem !important;
-  padding-bottom: 0.875rem !important;
-  min-height: 3rem !important;
-  border-radius: 30px !important;
   cursor: pointer;
   transition: all 0.2s ease;
-  user-select: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box !important;
 }
 
+.alg-cta-pill-btn:hover,
 .service-pill-btn:hover {
-  background: rgba(255, 255, 255, 0.18) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
+.alg-cta-pill-btn.active,
 .service-pill-btn.active {
-  background: #ffffff !important;
-  border: 1px solid #ffffff !important;
-  color: #0b0c10 !important;
+  background: #ffffff;
+  color: #05080C;
+  border-color: #ffffff;
   font-weight: 600;
 }
 
-.form_disclaimer {
-  font-size: 0.75rem !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  margin: 0;
-}
-
-/* Responsive Overrides */
+/* Responsive Rules */
 @media (max-width: 991px) {
+  .alg-cta-content,
   .cta_content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 3rem;
   }
 
-  .heading-style-h1 {
-    font-size: 2.5rem !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .heading-style-h1 {
-    font-size: 2.5rem !important;
-  }
-
-  .form_row.two-cols {
-    grid-template-columns: 1fr;
+  .alg-cta-left-col,
+  .cta_left_column {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
+  .alg-cta-left-col .text-align-left,
+  .cta_left_column .text-align-left {
+    text-align: center;
+  }
+
+  .alg-cta-right-col,
+  .cta_right_column {
+    max-width: 100%;
+  }
+
+  .alg-cta-component,
+  .cta_component {
+    padding: 3rem 1.25rem;
+  }
+
+  .alg-cta-glass-content,
   .glass-content {
-    padding: 1.5rem !important;
-  }
-
-  .cta_note {
-    top: 1.5rem;
+    padding: 1.5rem;
   }
 }

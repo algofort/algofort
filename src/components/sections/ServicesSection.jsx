@@ -49,84 +49,84 @@ const servicesData = [
 function splitTextIntoSpans(el) {
   if (!el || el.dataset.splitDone) return el.querySelectorAll('.char');
 
-  const text = el.textContent.trim();
-  el.innerHTML = '';
-  const charArray = [];
+  const text = el.textContent;
+  el.textContent = '';
+  const words = text.split(' ');
 
-  const words = text.split(/\s+/);
-  words.forEach((wordStr, wIdx) => {
+  words.forEach((word, wIdx) => {
     const wordSpan = document.createElement('span');
     wordSpan.className = 'word';
     wordSpan.style.display = 'inline-block';
-    wordSpan.style.whiteSpace = 'nowrap';
 
-    wordStr.split('').forEach((cStr) => {
+    const chars = word.split('');
+    chars.forEach((char) => {
       const charSpan = document.createElement('span');
       charSpan.className = 'char';
       charSpan.style.display = 'inline-block';
-      charSpan.style.willChange = 'transform';
-      charSpan.textContent = cStr;
+      charSpan.textContent = char;
       wordSpan.appendChild(charSpan);
-      charArray.push(charSpan);
     });
 
     el.appendChild(wordSpan);
     if (wIdx < words.length - 1) {
-      const space = document.createTextNode(' ');
-      el.appendChild(space);
+      el.appendChild(document.createTextNode(' '));
     }
   });
 
   el.dataset.splitDone = 'true';
-  return charArray;
+  return el.querySelectorAll('.char');
 }
 
-export const ServicesSection = () => {
+export function ServicesSection() {
   const containerRef = useRef(null);
 
   useGSAP(() => {
     if (!containerRef.current) return;
 
-    const mainTitle = containerRef.current.querySelector('.sec-services__title');
+    // 1. Initial Char Slide-Up Title Animation
+    const mainTitle = containerRef.current.querySelector('.alg-services-title, .sec-services__title');
     if (mainTitle) {
       initTitleAnimation(mainTitle, { start: 'top 85%', stagger: 0.02 });
     }
 
-    // 2. Service Cards Interactions with Letter-by-Letter Stagger & 3D Mouse Follow
-    const serviceGrids = containerRef.current.querySelectorAll('.service-content-grid');
-    serviceGrids.forEach((grid) => {
-      const imageWrap = grid.querySelector('.service-image-wrap');
-      const titles = grid.querySelectorAll('.service-title');
-      const numberText = grid.querySelector('.service-text.is-number');
+    // 2. Interactive Service Hover Animation (Text Flip + Smooth Image Pop)
+    const serviceGrids = containerRef.current.querySelectorAll('.alg-services-card, .service-content-grid');
 
-      // Split titles into words and chars
-      const allChars = [];
-      titles.forEach((titleEl) => {
-        const chars = splitTextIntoSpans(titleEl);
-        allChars.push(chars);
+    serviceGrids.forEach((grid) => {
+      const imageWrap = grid.querySelector('.alg-services-card-image-wrap, .service-image-wrap');
+      const titles = grid.querySelectorAll('.alg-services-card-title, .service-title');
+      const numberText = grid.querySelector('.alg-services-card-number, .service-text.is-number');
+
+      // Split each duplicate h2 into chars for stagger flip effect
+      titles.forEach((title) => {
+        splitTextIntoSpans(title);
       });
 
-      if (imageWrap) {
-        gsap.set(imageWrap, {
-          opacity: 0,
-          scale: 0.5,
-          pointerEvents: 'none',
-        });
-      }
-
-      let xTo = imageWrap ? gsap.quickTo(imageWrap, 'x', { duration: 0.35, ease: 'power2.out' }) : null;
-      let yTo = imageWrap ? gsap.quickTo(imageWrap, 'y', { duration: 0.35, ease: 'power2.out' }) : null;
-      let rotateYTo = imageWrap ? gsap.quickTo(imageWrap, 'rotationY', { duration: 0.35, ease: 'power2.out' }) : null;
-      let rotateZTo = imageWrap ? gsap.quickTo(imageWrap, 'rotation', { duration: 0.35, ease: 'power2.out' }) : null;
+      let mouseMoveHandler = null;
 
       const onMouseEnter = () => {
-        allChars.forEach((chars) => {
-          if (chars.length) {
+        // Only run on desktop/tablet where hover makes sense
+        if (window.innerWidth <= 767) return;
+
+        // Flip Title Text Animation
+        titles.forEach((title, tIdx) => {
+          const chars = title.querySelectorAll('.char');
+          if (tIdx === 0) {
+            // First title (top) slides UP and out
             gsap.to(chars, {
               yPercent: -100,
               duration: 0.4,
-              ease: 'power2.out',
-              stagger: 0.02,
+              ease: 'power3.out',
+              stagger: 0.015,
+              overwrite: 'auto',
+            });
+          } else {
+            // Second title (bottom) slides UP and into view
+            gsap.to(chars, {
+              yPercent: -100,
+              duration: 0.4,
+              ease: 'power3.out',
+              stagger: 0.015,
               overwrite: 'auto',
             });
           }
@@ -138,40 +138,52 @@ export const ServicesSection = () => {
 
         if (imageWrap) {
           gsap.to(imageWrap, {
-            opacity: 1,
             scale: 1,
+            opacity: 1,
             duration: 0.4,
-            ease: 'back.out(1.4)',
+            ease: 'back.out(1.5)',
             overwrite: 'auto',
           });
+
+          // Floating cursor follow image
+          mouseMoveHandler = (evt) => {
+            const rect = grid.getBoundingClientRect();
+            const relX = evt.clientX - rect.left;
+            const relY = evt.clientY - rect.top;
+
+            gsap.to(imageWrap, {
+              x: relX - 120,
+              y: relY - 140,
+              duration: 0.25,
+              ease: 'power1.out',
+              overwrite: 'auto',
+            });
+          };
+
+          grid.addEventListener('mousemove', mouseMoveHandler);
         }
       };
 
-      const onMouseMove = (e) => {
-        if (!imageWrap) return;
-        const rect = grid.getBoundingClientRect();
-        const relativeX = e.clientX - rect.left - rect.width / 2;
-        const relativeY = e.clientY - rect.top - rect.height / 2;
-
-        const moveX = relativeX * 0.35;
-        const moveY = relativeY * 0.35;
-        const rotY = (relativeX / rect.width) * 20;
-        const rotZ = (relativeX / rect.width) * -8;
-
-        if (xTo) xTo(moveX);
-        if (yTo) yTo(moveY);
-        if (rotateYTo) rotateYTo(rotY);
-        if (rotateZTo) rotateZTo(rotZ);
-      };
-
       const onMouseLeave = () => {
-        allChars.forEach((chars) => {
-          if (chars.length) {
+        if (window.innerWidth <= 767) return;
+
+        // Restore Title Chars to Default Position
+        titles.forEach((title, tIdx) => {
+          const chars = title.querySelectorAll('.char');
+          if (tIdx === 0) {
             gsap.to(chars, {
               yPercent: 0,
-              duration: 0.4,
+              duration: 0.35,
               ease: 'power2.out',
-              stagger: 0.02,
+              stagger: 0.01,
+              overwrite: 'auto',
+            });
+          } else {
+            gsap.to(chars, {
+              yPercent: 0,
+              duration: 0.35,
+              ease: 'power2.out',
+              stagger: 0.01,
               overwrite: 'auto',
             });
           }
@@ -182,35 +194,33 @@ export const ServicesSection = () => {
         }
 
         if (imageWrap) {
+          if (mouseMoveHandler) {
+            grid.removeEventListener('mousemove', mouseMoveHandler);
+            mouseMoveHandler = null;
+          }
+
           gsap.to(imageWrap, {
+            scale: 0,
             opacity: 0,
-            scale: 0.5,
-            duration: 0.3,
-            ease: 'power2.inOut',
+            duration: 0.25,
+            ease: 'power2.in',
             overwrite: 'auto',
-            onComplete: () => {
-              if (xTo) xTo(0);
-              if (yTo) yTo(0);
-              if (rotateYTo) rotateYTo(0);
-              if (rotateZTo) rotateZTo(0);
-            },
           });
         }
       };
 
       grid.addEventListener('mouseenter', onMouseEnter);
-      grid.addEventListener('mousemove', onMouseMove);
       grid.addEventListener('mouseleave', onMouseLeave);
     });
 
-    // 3. Main Button Hover Slide
-    const buttons = containerRef.current.querySelectorAll('.main-button');
+    // 3. All Services Button Hover Animation
+    const buttons = containerRef.current.querySelectorAll('.alg-services-button, .main-button');
     buttons.forEach((btn) => {
       const icon = btn.querySelector('.button-icon');
       const texts = btn.querySelectorAll('.button-text');
 
       const onMouseEnter = () => {
-        if (texts.length >= 2) {
+        if (texts.length > 0) {
           gsap.to(texts, { yPercent: -100, duration: 0.35, ease: 'power2.out' });
         }
         if (icon) {
@@ -219,7 +229,7 @@ export const ServicesSection = () => {
       };
 
       const onMouseLeave = () => {
-        if (texts.length) {
+        if (texts.length > 0) {
           gsap.to(texts, { yPercent: 0, duration: 0.35, ease: 'power2.out' });
         }
         if (icon) {
@@ -233,24 +243,24 @@ export const ServicesSection = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} id="sec-services" className="site-section sec-services section-home-service">
-      <div className="site-container sec-services__container padding-global">
+    <section ref={containerRef} id="sec-services" className="alg-services site-section sec-services section-home-service">
+      <div className="alg-services-container site-container sec-services__container padding-global">
         <div className="container-large">
           <div className="padding-section-large">
             {/* Top Header Grid */}
-            <div className="section-header sec-services__header w-layout-grid top-grid">
+            <div className="alg-services-header section-header sec-services__header w-layout-grid top-grid">
               <div className="max-width-large">
-                <div className="section-badge sec-services__badge">
-                  <SubtitleMarquee text="Our Services — " />
+                <div className="alg-services-badge section-badge sec-services__badge">
+                  <SubtitleMarquee text="Our Services ✦ " />
                 </div>
 
-                <h2 className="heading-style-h2 section-title sec-services__title text-color-alternate">
-                  Creative <span className="text-color-secondary">Solutions</span>
+                <h2 className="alg-services-title heading-style-h2 section-title sec-services__title text-color-alternate">
+                  Creative <span className="alg-services-title-secondary text-color-secondary">Solutions</span>
                 </h2>
               </div>
 
-              <div className="button-item">
-                <Link href="/services" className="main-button alternate-button w-inline-block">
+              <div className="alg-services-button-item button-item">
+                <Link href="/services" className="alg-services-button main-button alternate-button w-inline-block">
                   <div className="main-button-block">
                     <div className="button-text alternate-text">All Services</div>
                     <div className="button-text alternate-text">All Services</div>
@@ -269,32 +279,32 @@ export const ServicesSection = () => {
             <div className="dark-line"></div>
 
             {/* Service Items Component */}
-            <div className="service-component">
+            <div className="alg-services-component service-component">
               {servicesData.map((service) => (
-                <div key={service.id} className="w-layout-grid service-content-grid">
-                  <div className="service-content-item">
-                    <div className="service-text is-number">{service.num}</div>
+                <div key={service.id} className="alg-services-card service-content-grid w-layout-grid">
+                  <div className="alg-services-card-item service-content-item">
+                    <div className="alg-services-card-number service-text is-number">{service.num}</div>
                   </div>
 
-                  <div className="service-content-item">
-                    <div className="service-title-wrap">
-                      <h2 className="service-title is-top">{service.title}</h2>
-                      <h2 className="service-title is-bottom">{service.title}</h2>
+                  <div className="alg-services-card-item service-content-item">
+                    <div className="alg-services-card-title-wrap service-title-wrap">
+                      <h2 className="alg-services-card-title service-title is-top">{service.title}</h2>
+                      <h2 className="alg-services-card-title service-title is-bottom">{service.title}</h2>
                     </div>
 
-                    <div className="service-image-wrap">
+                    <div className="alg-services-card-image-wrap service-image-wrap">
                       <img
                         src={service.image}
                         loading="lazy"
                         alt={`Image - ${service.title}`}
-                        className="service-image"
+                        className="alg-services-card-image service-image"
                       />
                     </div>
                   </div>
 
-                  <div className="service-content-item">
-                    <div className="service-content">
-                      <p className="service-text alg-text">{service.text}</p>
+                  <div className="alg-services-card-item service-content-item">
+                    <div className="alg-services-card-content service-content">
+                      <p className="alg-services-card-text service-text alg-text">{service.text}</p>
                     </div>
                   </div>
                 </div>
@@ -305,4 +315,4 @@ export const ServicesSection = () => {
       </div>
     </section>
   );
-};
+}

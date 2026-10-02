@@ -46,8 +46,8 @@ export function TestimonialsSection() {
     if (!el) return;
 
     const titleEl =
-      document.querySelector('#sec-testimonials .sec-testimonials__title') ||
-      el.closest('.sec-testimonials')?.querySelector('.sec-testimonials__title');
+      document.querySelector('#sec-testimonials .alg-testimonials-title, #sec-testimonials .sec-testimonials__title') ||
+      el.closest('.alg-testimonials, .sec-testimonials')?.querySelector('.alg-testimonials-title, .sec-testimonials__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
     }
@@ -66,27 +66,27 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="site-section sec-testimonials cb-summary" id="sec-testimonials">
-      <div className="site-container sec-testimonials__container cb-summary-container -lg">
-        <div className="section-header sec-testimonials__header cb-summary-header">
-          <div className="section-badge sec-testimonials__badge" style={{ marginBottom: 0 }}>
-            <SubtitleMarquee text="Our Testimonials — " variant="dark" />
+    <section className="alg-testimonials site-section sec-testimonials cb-summary" id="sec-testimonials">
+      <div className="alg-testimonials-container site-container sec-testimonials__container cb-summary-container -lg">
+        <div className="alg-testimonials-header section-header sec-testimonials__header cb-summary-header">
+          <div className="alg-testimonials-badge section-badge sec-testimonials__badge" style={{ marginBottom: 0 }}>
+            <SubtitleMarquee text="Our Testimonials ✦ " variant="dark" />
           </div>
-          <h2 className="heading-style-h2 section-title sec-testimonials__title" style={{ color: '#05080C', textAlign: 'left' }}>
+          <h2 className="alg-testimonials-title heading-style-h2 section-title sec-testimonials__title" style={{ color: '#05080C', textAlign: 'left' }}>
             Trusted By <br />
-            <span className="text-color-secondary">Our Clients</span>
+            <span className="alg-testimonials-title-secondary text-color-secondary">Our Clients</span>
           </h2>
         </div>
 
-        <div className="cb-summary-testimonials" id="testimonials" ref={containerRef}>
+        <div className="alg-testimonials-grid cb-summary-testimonials" id="testimonials" ref={containerRef}>
           {testimonialsData.map((item, idx) => (
-            <div key={idx} className="cb-summary-testimonial">
-              <div className="cb-summary-testimonial-quotes" />
-              <div className="cb-summary-testimonial-text">{item.text}</div>
-              <div className="cb-summary-testimonial-divider" />
-              <div className="cb-summary-testimonial-author">
-                <div className="cb-summary-author-name">{item.name}</div>
-                <div className="cb-summary-author-role">{item.role}</div>
+            <div key={idx} className="alg-testimonials-card cb-summary-testimonial">
+              <div className="alg-testimonials-quotes cb-summary-testimonial-quotes" />
+              <div className="alg-testimonials-text cb-summary-testimonial-text">{item.text}</div>
+              <div className="alg-testimonials-divider cb-summary-testimonial-divider" />
+              <div className="alg-testimonials-author cb-summary-testimonial-author">
+                <div className="alg-testimonials-author-name cb-summary-author-name">{item.name}</div>
+                <div className="alg-testimonials-author-role cb-summary-author-role">{item.role}</div>
               </div>
             </div>
           ))}

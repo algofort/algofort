@@ -115,12 +115,12 @@ export function ShowreelSection() {
 
   return (
     <>
-      <section className="site-section sec-showreel section_showreel" id="sec-showreel">
-        <div ref={wrapRef} className="showreel_wrap">
-          <div ref={stickyRef} className="showreel_sticky">
+      <section className="alg-showreel site-section sec-showreel section_showreel" id="sec-showreel">
+        <div ref={wrapRef} className="alg-showreel-wrap showreel_wrap">
+          <div ref={stickyRef} className="alg-showreel-sticky showreel_sticky">
             <div
               ref={lightboxRef}
-              className="showreel_lightbox"
+              className="alg-showreel-lightbox showreel_lightbox"
               onClick={() => setIsVideoOpen(true)}
               role="button"
               tabIndex={0}
@@ -130,21 +130,21 @@ export function ShowreelSection() {
                 }
               }}
             >
-              <h2 className="showreel_heading _1">©2026</h2>
+              <h2 className="alg-showreel-heading alg-showreel-heading-1 showreel_heading _1">©2026</h2>
 
-              <div className="showreel_img-wrap">
+              <div className="alg-showreel-img-wrap showreel_img-wrap">
                 <img
                   ref={imgRef}
                   src="/assets/BG_IMAGE.webp"
                   alt="A man standing in the middle of a dark room."
-                  className="showreel_img"
+                  className="alg-showreel-img showreel_img"
                   loading="eager"
                 />
 
-                <div ref={playWrapperRef} className="showreel_play-wrapper">
-                  <h2 className="showreel_play-text">Play Algofort</h2>
+                <div ref={playWrapperRef} className="alg-showreel-play-wrapper showreel_play-wrapper">
+                  <h2 className="alg-showreel-play-text showreel_play-text">Play Algofort</h2>
                   <div
-                    className="showreel_play-icon-wrap"
+                    className="alg-showreel-play-icon-wrap showreel_play-icon-wrap"
                     onClick={(e) => {
                       e.stopPropagation();
                       setIsVideoOpen(true);
@@ -153,20 +153,20 @@ export function ShowreelSection() {
                     tabIndex={0}
                     aria-label="Play video"
                   >
-                    <span className="sonar-wave sonar-wave-1" aria-hidden="true" />
-                    <span className="sonar-wave sonar-wave-2" aria-hidden="true" />
-                    <span className="sonar-wave sonar-wave-3" aria-hidden="true" />
+                    <span className="alg-showreel-sonar-wave alg-showreel-sonar-wave-1 sonar-wave sonar-wave-1" aria-hidden="true" />
+                    <span className="alg-showreel-sonar-wave alg-showreel-sonar-wave-2 sonar-wave sonar-wave-2" aria-hidden="true" />
+                    <span className="alg-showreel-sonar-wave alg-showreel-sonar-wave-3 sonar-wave sonar-wave-3" aria-hidden="true" />
                     <img
                       src="/assets/play-icon.svg"
                       alt="Play icon"
-                      className="showreel_play-icon"
+                      className="alg-showreel-play-icon showreel_play-icon"
                       loading="lazy"
                     />
                   </div>
                 </div>
               </div>
 
-              <h2 className="showreel_heading _2">Algofort</h2>
+              <h2 className="alg-showreel-heading alg-showreel-heading-2 showreel_heading _2">Algofort</h2>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@ export function ShowreelSection() {
       {/* Video Modal Lightbox */}
       {isVideoOpen && (
         <div
-          className="showreel-modal-overlay"
+          className="alg-showreel-modal-overlay showreel-modal-overlay"
           onClick={() => setIsVideoOpen(false)}
           role="dialog"
           aria-modal="true"
@@ -184,7 +184,7 @@ export function ShowreelSection() {
           {/* Close button outside the video in top-right corner of screen/overlay */}
           <button
             type="button"
-            className="showreel-modal-close"
+            className="alg-showreel-modal-close showreel-modal-close"
             onClick={(e) => {
               e.stopPropagation();
               setIsVideoOpen(false);
@@ -208,7 +208,7 @@ export function ShowreelSection() {
           </button>
 
           <div
-            className="showreel-modal-content"
+            className="alg-showreel-modal-content showreel-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
