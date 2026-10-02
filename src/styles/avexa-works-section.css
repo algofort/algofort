@@ -7,20 +7,41 @@
   position: relative;
   background-color: #000000;
   width: 100%;
-  padding-top: 10rem;
-  padding-bottom: 8rem;
+  padding: 8rem 20px !important;
   overflow: visible;
+}
+
+.sec-avexa-works__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Works Intro / Header (Matches site heading styles and width) */
 .works-intro {
   width: 100%;
-  padding-bottom: 3.5rem;
+  padding-bottom: 4rem !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 4rem !important;
+}
+
+.works-intro-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 3rem;
+  flex: 1 1 auto;
+}
+
+.works-intro-right {
+  flex: 0 1 560px;
+  max-width: 560px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .works-intro-badge {
@@ -30,9 +51,14 @@
 }
 
 /* Inherits .heading-style-h2 for identical font-size, font-family, and responsive scaling */
-.works-intro-title {
+.sec-avexa-works .works-intro-title,
+.works-intro .works-intro-title,
+.works-intro-left .works-intro-title,
+.works-intro-title,
+.sec-avexa-works h2 {
   color: #ffffff !important;
-  margin-bottom: 1.5rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .works-intro-desc {
@@ -40,8 +66,9 @@
   font-size: 1.2rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
-  max-width: 650px;
-  margin: 0;
+  max-width: 100%;
+  margin: 0 !important;
+  padding-bottom: 0.35rem;
 }
 
 /* Works Main Container: Matches site-container (1600px max width) */
@@ -279,6 +306,7 @@
   .works-intro {
     padding-bottom: 2.5rem;
     margin-bottom: 2rem;
+    gap: 2rem;
   }
 
   .work-item {
@@ -331,10 +359,34 @@
   }
 }
 
+@media (max-width: 991px) {
+  .works-intro {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+  }
+
+  .works-intro-left {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .works-intro-right {
+    max-width: 100% !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .works-intro-desc {
+    max-width: 100% !important;
+    padding-bottom: 0 !important;
+    font-size: 1.05rem;
+  }
+}
+
 @media (max-width: 768px) {
   .sec-avexa-works {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding: 4rem 20px !important;
   }
 
   .works-intro {
@@ -342,8 +394,15 @@
     margin-bottom: 1.5rem;
   }
 
+  .works-container {
+    gap: 40px !important;
+  }
+
   .work-item {
-    padding: 30px 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .work-thumbnail {

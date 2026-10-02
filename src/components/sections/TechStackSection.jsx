@@ -258,7 +258,7 @@ export function TechStackSection() {
         </div>
 
         <div className="tools-footer">
-          <p className="section-description sec-tools__desc tools-desc">
+          <p className="section-description sec-tools__desc tools-desc alg-text">
             We design products that live in the digital world: intuitive UX, sharp UI, immersive 3D and
             motion. From research to launch, we craft bold, seamless experiences.
           </p>

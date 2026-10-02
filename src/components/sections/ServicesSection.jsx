@@ -294,7 +294,7 @@ export const ServicesSection = () => {
 
                   <div className="service-content-item">
                     <div className="service-content">
-                      <p className="service-text">{service.text}</p>
+                      <p className="service-text alg-text">{service.text}</p>
                     </div>
                   </div>
                 </div>

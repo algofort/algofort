@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
+import { initTitleAnimation } from '../../utils/titleAnimation';
 
 const processSteps = [
   {
@@ -55,6 +56,13 @@ export function ProcessSection() {
 
     const START_OFFSET_X = 235;
 
+    if (section) {
+      const headings = section.querySelectorAll('.heading-text');
+      headings.forEach((heading) => {
+        initTitleAnimation(heading, { trigger: section, start: 'top 85%', stagger: 0.02 });
+      });
+    }
+
     function clamp(v, min, max) {
       return Math.max(min, Math.min(max, v));
     }
@@ -106,8 +114,8 @@ export function ProcessSection() {
         <div className="site-container sec-process__container step-container">
           <div className="step-wrap">
             {/* Pre-Title Sticky Badge */}
-            <div className="section-header sec-process__header step-header" style={{ marginBottom: '2.5rem' }}>
-              <div className="section-badge sec-process__badge">
+            <div className="section-header sec-process__header step-header" style={{ marginBottom: 0 }}>
+              <div className="section-badge sec-process__badge" style={{ marginBottom: 0 }}>
                 <SubtitleMarquee text="From Concept to Launch — " />
               </div>
             </div>
@@ -145,7 +153,7 @@ export function ProcessSection() {
                           autoplay
                         ></dotlottie-player>
                       </div>
-                      <p className="card-desc">{item.description}</p>
+                      <p className="card-desc alg-text">{item.description}</p>
                     </div>
                   </div>
                 ))}

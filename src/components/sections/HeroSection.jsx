@@ -63,7 +63,7 @@ export const HeroSection = () => {
             Architecting <span className="bg-gradient-to-r from-white via-indigo-200 to-[#6366F1] bg-clip-text text-transparent">High-Impact</span> Digital Experiences
           </h1>
 
-          <p className="section-description sec-hero__desc max-w-2xl mt-6">
+          <p className="section-description sec-hero__desc max-w-2xl mt-6 alg-text">
             We partner with visionary startups and enterprise brands to design, engineer, and scale state-of-the-art web applications with flawless performance.
           </p>
 
@@ -85,7 +85,7 @@ export const HeroSection = () => {
               <Code2 className="w-6 h-6 text-[#6366F1]" />
             </div>
             <h3 className="section-subtitle sec-hero__card-title text-xl mb-2">Modern Architecture</h3>
-            <p className="text-sm text-[#9CA3AF] leading-relaxed">
+            <p className="text-sm text-[#9CA3AF] leading-relaxed alg-text">
               Clean React components built with strict BEM symmetry, TypeScript precision, and zero bloated code.
             </p>
           </div>
@@ -95,7 +95,7 @@ export const HeroSection = () => {
               <Cpu className="w-6 h-6 text-[#6366F1]" />
             </div>
             <h3 className="section-subtitle sec-hero__card-title text-xl mb-2">GSAP Powered</h3>
-            <p className="text-sm text-[#9CA3AF] leading-relaxed">
+            <p className="text-sm text-[#9CA3AF] leading-relaxed alg-text">
               Fluid 60fps micro-interactions and ScrollTrigger animations engineered for maximum GPU performance.
             </p>
           </div>
@@ -105,7 +105,7 @@ export const HeroSection = () => {
               <Rocket className="w-6 h-6 text-[#6366F1]" />
             </div>
             <h3 className="section-subtitle sec-hero__card-title text-xl mb-2">High Performance</h3>
-            <p className="text-sm text-[#9CA3AF] leading-relaxed">
+            <p className="text-sm text-[#9CA3AF] leading-relaxed alg-text">
               Lightning-fast Core Web Vitals, zero layout shift, optimized image assets, and strict security standards.
             </p>
           </div>

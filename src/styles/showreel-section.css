@@ -117,6 +117,7 @@
   pointer-events: auto;
   opacity: 0;
   will-change: opacity, transform;
+  cursor: pointer;
 }
 
 .showreel_play-text {
@@ -132,6 +133,7 @@
 }
 
 .showreel_play-icon-wrap {
+  position: relative;
   width: 4rem;
   height: 4rem;
   aspect-ratio: 1;
@@ -144,6 +146,45 @@
   display: flex;
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Sonar Wave 1px Borders Animation (Compact Linking Light Black Waves) */
+.showreel_play-icon-wrap .sonar-wave {
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 0;
+  animation: sonarWave 3s cubic-bezier(0.16, 0.84, 0.44, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.showreel_play-icon-wrap .sonar-wave-1 {
+  animation-delay: 0s;
+}
+
+.showreel_play-icon-wrap .sonar-wave-2 {
+  animation-delay: 1s;
+}
+
+.showreel_play-icon-wrap .sonar-wave-3 {
+  animation-delay: 2s;
+}
+
+@keyframes sonarWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }
 
 .showreel_lightbox:hover .showreel_play-icon-wrap {
@@ -152,6 +193,8 @@
 }
 
 .showreel_play-icon {
+  position: relative;
+  z-index: 2;
   width: 1rem;
   height: auto;
 }
@@ -163,6 +206,7 @@
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,27 +235,51 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Close button outside video in the top-right corner of screen/overlay */
 .showreel-modal-close {
-  position: absolute;
-  top: -3.5rem;
-  right: 0;
-  color: #fff;
-  background: transparent;
-  border: none;
-  font-size: 1.25rem;
-  font-weight: 600;
-  cursor: pointer;
+  position: fixed;
+  top: 2rem;
+  right: 2.5rem;
+  z-index: 10000;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color 0.2s ease;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
 }
 
 .showreel-modal-close:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1) rotate(90deg);
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+.showreel-modal-close:active {
+  transform: scale(0.95);
+}
+
+.showreel-modal-close:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.showreel-modal-close svg {
+  display: block;
+  pointer-events: none;
 }
 
 /* Responsive Overrides (max-width: 991px) */
@@ -267,6 +335,20 @@
   }
 }
 
+/* Tablet & Mobile Landscape Overrides (max-width: 767px) */
+@media screen and (max-width: 767px) {
+  .showreel-modal-overlay {
+    padding: 1rem;
+  }
+
+  .showreel-modal-close {
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
 /* Mobile Portrait Overrides (max-width: 479px) */
 @media screen and (max-width: 479px) {
   .showreel_play-text {
@@ -285,5 +367,12 @@
   .showreel_play-icon-wrap {
     width: 3rem;
     height: 3rem;
+  }
+
+  .showreel-modal-close {
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }

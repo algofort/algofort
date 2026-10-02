@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
+import { initTitleAnimation } from '../../utils/titleAnimation';
 
 const worksData = [
   {
@@ -71,6 +72,18 @@ export function AvexaWorksSection() {
     const cursor = cursorRef.current;
     const cards = sectionEl.querySelectorAll('.work-card');
     const globalCursor = document.querySelector('.cb-cursor');
+
+    const introTitle = sectionEl.querySelector('.works-intro-title');
+    if (introTitle) {
+      initTitleAnimation(introTitle, { start: 'top 85%', stagger: 0.02 });
+    }
+
+    workItems.forEach((item) => {
+      const cardTitle = item.querySelector('.work-title');
+      if (cardTitle) {
+        initTitleAnimation(cardTitle, { trigger: item, start: 'top 80%', stagger: 0.02 });
+      }
+    });
 
     /* --------------------------------------------------------------------------
        1. Stacking Scroll Effects for Desktop
@@ -215,16 +228,20 @@ export function AvexaWorksSection() {
       <div className="site-container sec-avexa-works__container">
         {/* Intro Header */}
         <div className="works-intro">
-          <div className="section-badge sec-projects__badge" style={{ marginBottom: '1rem' }}>
-            <SubtitleMarquee text="Online Marketing Services — " variant="dark" />
+          <div className="works-intro-left">
+            <div className="section-badge sec-projects__badge">
+              <SubtitleMarquee text="Online Marketing Services — " variant="dark" />
+            </div>
+            <h2 className="heading-style-h2 section-title sec-projects__title works-intro-title">
+              Internet <br />
+              <span className="text-color-secondary">Outreach</span>
+            </h2>
           </div>
-          <h2 className="heading-style-h2 section-title sec-projects__title works-intro-title">
-            Internet <br />
-            <span className="text-color-secondary">Outreach</span>
-          </h2>
-          <p className="section-description sec-projects__desc works-intro-desc">
-            Algofort is here as always to help you grow your business with an improved online visibility and an online presence. Our services in digital marketing include but are not limited to:
-          </p>
+          <div className="works-intro-right">
+            <p className="section-description sec-projects__desc works-intro-desc alg-text">
+              Algofort is here as always to help you grow your business with an improved online visibility and an online presence. Our services in digital marketing include but are not limited to:
+            </p>
+          </div>
         </div>
 
         {/* Works Container with Stacking Sticky Items */}
@@ -256,11 +273,11 @@ export function AvexaWorksSection() {
                   </div>
 
                   <div className="work-header">
-                    <h3 className="work-title">
+                    <h2 className="work-title">
                       <span className="work-title-word">{work.titleWord1}</span>
                       <span className="work-title-word">{work.titleWord2}</span>
-                    </h3>
-                    <p className="work-description">{work.description}</p>
+                    </h2>
+                    <p className="work-description alg-text">{work.description}</p>
                   </div>
 
                   <div className="meta-tag align-right">

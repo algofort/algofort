@@ -179,7 +179,7 @@ export const AboutSection = () => {
             <SubtitleMarquee text="About Algofort — " />
           </div>
           <div className="section-description sec-about__desc sec-about__content about-markeio_content scrub_letter forteve-about__content" ref={textRef}>
-            <p>
+            <p className="alg-text">
               At Algofort, we believe technology isn't just about code — it's about connecting and delivering impact. We're a digital solutions agency built to help brands grow with purpose and engineering precision. From architecting intelligent software to executing digital strategies, we combine technology and creativity to build solutions that drive growth.
             </p>
           </div>
@@ -201,7 +201,7 @@ export const AboutSection = () => {
                 </div>
               </div>
               <div className="why-us-card-bottom">
-                <p className="why-us-card-desc">{card.desc}</p>
+                <p className="why-us-card-desc alg-text">{card.desc}</p>
               </div>
             </div>
           ))}

@@ -179,13 +179,55 @@ body {
   font-size: clamp(1.1rem, 1.5vw, 1.35rem) !important;
 }
 
+/* ==========================================================================
+   Header Menu Hamburger / Close ("X") Icon Toggle (Desktop & Mobile)
+   ========================================================================== */
+.menu-button,
+.sec-header__menu-btn {
+  cursor: pointer !important;
+}
+
+.menu-button-wrap {
+  overflow: visible !important;
+}
+
+.menu-line {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.35s ease !important;
+  transform-origin: center center !important;
+  border-radius: 2px !important;
+  will-change: transform;
+}
+
+/* Close Icon "X" State - smooth morph on both desktop & mobile */
+.menu-button.w--open .menu-line.top,
+.menu-line.top.open {
+  transform: translateY(4px) rotate(45deg) !important;
+}
+
+.menu-button.w--open .menu-line.bottom,
+.menu-line.bottom.open {
+  transform: translateY(-4px) rotate(-45deg) !important;
+}
 
 /* About Section Custom Padding & Background */
 .sec-about,
 .section_about-markeio {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
+  padding: 8rem 20px !important;
   background-color: #f4f4f2 !important;
+}
+
+/* About Section Inner Container: Remove left/right padding to prevent double padding with section */
+.sec-about .sec-about__container,
+.section_about-markeio .sec-about__container,
+.sec-about .forteve-about__container,
+.section_about-markeio .forteve-about__container,
+.sec-about > .site-container,
+.section_about-markeio > .site-container,
+.sec-about > .container-large,
+.section_about-markeio > .container-large,
+.sec-about__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Services Section: Full Black Background */
@@ -196,28 +238,248 @@ body {
   background-color: #000000 !important;
 }
 
-/* Single-Direction Section Gap Rule: Exactly 160px (10rem) Total Gap Between Adjacent Sections */
-.step-process-section,
-.projects-section,
-.tools-section,
-.cb-summary,
+/* Services Section (sec-services__container) Custom Padding */
+.sec-services .sec-services__container,
+.section-home-service .sec-services__container,
+.sec-services__container {
+  padding: 8rem 20px !important;
+}
+
+/* Services Section: Zero top & bottom padding for .padding-section-large */
+.sec-services .padding-section-large,
+.section-home-service .padding-section-large {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ==========================================================================
+   Services Section (sec-services__container) Layout & Responsiveness
+   ========================================================================== */
+.sec-services .top-grid,
+.sec-services__header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  width: 100% !important;
+  gap: 2rem !important;
+}
+
+@media screen and (max-width: 991px) {
+  /* On tablet & mobile: move 'All Services' button directly below heading */
+  .sec-services .top-grid,
+  .sec-services__header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 1.5rem !important;
+  }
+
+  .sec-services .button-item,
+  .sec-services__header .button-item {
+    margin-left: 0 !important;
+    margin-top: 0.25rem !important;
+    margin-bottom: 0 !important;
+    align-self: flex-start !important;
+    justify-self: flex-start !important;
+    width: auto !important;
+  }
+
+  .sec-services__title {
+    font-size: clamp(2.25rem, 5.5vw, 3.8rem) !important;
+    line-height: 1.1 !important;
+    word-break: break-word !important;
+  }
+
+  /* Equal uniform gap between number, title, and text on mobile/tablet */
+  .sec-services .service-content-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.85rem !important;
+    padding-top: 2.25rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .sec-services .service-content-grid > .service-content-item {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Reset relative positioning and top offset on number */
+  .sec-services .service-text.is-number {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    display: block !important;
+  }
+
+  .sec-services .service-title-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .sec-services .service-title {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .sec-services .service-content,
+  .sec-services .service-content p,
+  .sec-services .service-text {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sec-services .service-content-grid {
+    gap: 0.75rem !important;
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sec-services .top-grid,
+  .sec-services__header {
+    gap: 1.25rem !important;
+  }
+
+  .sec-services__title {
+    font-size: clamp(1.85rem, 7.5vw, 2.35rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .sec-services .main-button.alternate-button {
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .sec-services .service-content-grid {
+    gap: 0.65rem !important;
+    padding-top: 1.4rem !important;
+    padding-bottom: 1.4rem !important;
+  }
+}
+
+/* Process Section (sec-process / step-process-section) Custom Padding */
+.sec-process,
+.step-process-section {
+  padding: 8rem 20px !important;
+}
+
+/* Process Section Inner Container: Remove left/right padding to prevent double padding with section */
+.sec-process .sec-process__container,
+.step-process-section .sec-process__container,
+.sec-process .step-container,
+.step-process-section .step-container,
+.sec-process > .site-container,
+.step-process-section > .site-container,
+.sec-process__container,
+.step-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Process Section Header & Badge: Zero margin-bottom */
+.sec-process .sec-process__header,
+.step-process-section .step-header,
+.sec-process__header,
+.step-header,
+.sec-process .sec-process__badge,
+.step-process-section .sec-process__badge,
+.sec-process .section-badge,
+.step-process-section .section-badge,
+.sec-process__badge {
+  margin-bottom: 0 !important;
+}
+
+/* Avexa Works / Online Marketing Services Section Custom Padding */
+.sec-avexa-works,
+#sec-projects.sec-avexa-works,
+.sec-avexa-works.projects-section,
+.works-section {
+  padding: 8rem 20px !important;
+}
+
+/* Avexa Works Section Inner Container: Remove left/right padding to prevent double padding with section */
+.sec-avexa-works .sec-avexa-works__container,
+.sec-avexa-works .sec-projects__container,
+.sec-avexa-works > .site-container,
+.sec-avexa-works__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Testimonials Section (sec-testimonials / cb-summary) Custom Padding */
+.sec-testimonials,
+#sec-testimonials.sec-testimonials,
+.sec-testimonials.cb-summary,
+.site-section.sec-testimonials {
+  padding: 8rem 20px !important;
+}
+
+/* Testimonials Section Inner Container: Remove left/right padding to prevent double padding with section */
+.sec-testimonials .sec-testimonials__container,
+.sec-testimonials .cb-summary-container,
+.sec-testimonials > .site-container,
+.sec-testimonials__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* FAQ Section (sec-faq / cb-faq) Custom Padding: Top 0, Left/Right 20px, Bottom 8rem */
+.sec-faq,
+#sec-faq.sec-faq,
+.sec-faq.cb-faq,
+.site-section.sec-faq,
 .cb-faq {
+  padding: 0 20px 8rem 20px !important;
+  padding-top: 0 !important;
+}
+
+/* FAQ Section Inner Container: Remove left/right padding to prevent double padding with section */
+.sec-faq .sec-faq__container,
+.sec-faq .cb-faq-container,
+.sec-faq > .site-container,
+.sec-faq__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Single-Direction Section Gap Rule: Exactly 160px (10rem) Total Gap Between Adjacent Sections */
+.tools-section {
   padding-top: 10rem !important;
   padding-bottom: 0 !important;
 }
 
-/* CTA Section Outer Gap: 160px (10rem) Top Padding */
+/* CTA Section Outer Gap: Zero Top Padding */
 .sec-cta,
 .section_cta {
-  padding-top: 10rem !important;
+  padding-top: 0 !important;
   padding-bottom: 0.75rem !important;
+}
+
+@media (max-width: 1024px) {
+  .sec-process,
+  .step-process-section {
+    padding: 4rem 20px !important;
+  }
 }
 
 @media (max-width: 768px) {
   .sec-about,
   .section_about-markeio {
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    padding: 4rem 20px !important;
   }
 
   .sec-services {
@@ -225,18 +487,54 @@ body {
     padding-bottom: 0 !important;
   }
 
-  .step-process-section,
-  .projects-section,
-  .tools-section,
-  .cb-summary,
+  .sec-services .sec-services__container,
+  .section-home-service .sec-services__container,
+  .sec-services__container {
+    padding: 4rem 20px !important;
+  }
+
+  .sec-process,
+  .step-process-section {
+    padding: 4rem 20px !important;
+  }
+
+  .cards-column .cards-empty-space,
+  .sec-process .cards-empty-space,
+  .step-process-section .cards-empty-space {
+    display: none !important;
+  }
+
+  .sec-avexa-works,
+  #sec-projects.sec-avexa-works,
+  .sec-avexa-works.projects-section,
+  .works-section {
+    padding: 4rem 20px !important;
+  }
+
+  .sec-testimonials,
+  #sec-testimonials.sec-testimonials,
+  .sec-testimonials.cb-summary,
+  .site-section.sec-testimonials {
+    padding: 4rem 20px !important;
+  }
+
+  .sec-faq,
+  #sec-faq.sec-faq,
+  .sec-faq.cb-faq,
+  .site-section.sec-faq,
   .cb-faq {
+    padding: 0 20px 4rem 20px !important;
+    padding-top: 0 !important;
+  }
+
+  .tools-section {
     padding-top: 5rem !important;
     padding-bottom: 0 !important;
   }
 
   .sec-cta,
   .section_cta {
-    padding-top: 5rem !important;
+    padding-top: 0 !important;
     padding-bottom: 0.75rem !important;
   }
 }
@@ -380,12 +678,6 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
 .site-container,
 .container-large,
 .sec-banner__container,
-.sec-about__container,
-.sec-services__container,
-.step-container,
-.sec-process__container,
-.sec-avexa-works__container,
-.sec-projects__container,
 .projects-container,
 .sec-tools__container,
 .tools-container,
@@ -446,12 +738,6 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
   .site-container,
   .container-large,
   .sec-banner__container,
-  .sec-about__container,
-  .sec-services__container,
-  .step-container,
-  .sec-process__container,
-  .sec-avexa-works__container,
-  .sec-projects__container,
   .projects-container,
   .sec-tools__container,
   .tools-container,
@@ -470,12 +756,6 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
   .site-container,
   .container-large,
   .sec-banner__container,
-  .sec-about__container,
-  .sec-services__container,
-  .step-container,
-  .sec-process__container,
-  .sec-avexa-works__container,
-  .sec-projects__container,
   .projects-container,
   .sec-tools__container,
   .tools-container,
@@ -487,6 +767,47 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
     padding-left: var(--site-container-padding-mobile, 1.25rem) !important;
     padding-right: var(--site-container-padding-mobile, 1.25rem) !important;
   }
+}
+
+/* Avexa Works First Container: Zero horizontal padding across all viewports */
+.sec-avexa-works .sec-avexa-works__container,
+.sec-avexa-works .sec-projects__container,
+.sec-avexa-works > .site-container,
+.sec-avexa-works__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* About Section First Container: Zero horizontal padding across all viewports */
+.sec-about .sec-about__container,
+.section_about-markeio .sec-about__container,
+.sec-about .forteve-about__container,
+.section_about-markeio .forteve-about__container,
+.sec-about > .site-container,
+.section_about-markeio > .site-container,
+.sec-about > .container-large,
+.section_about-markeio > .container-large,
+.sec-about__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Testimonials Section First Container: Zero horizontal padding across all viewports */
+.sec-testimonials .sec-testimonials__container,
+.sec-testimonials .cb-summary-container,
+.sec-testimonials > .site-container,
+.sec-testimonials__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* FAQ Section First Container: Zero horizontal padding across all viewports */
+.sec-faq .sec-faq__container,
+.sec-faq .cb-faq-container,
+.sec-faq > .site-container,
+.sec-faq__container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Unified Global Main Button Specification */
@@ -574,7 +895,11 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
 }
 
 .back-to-top-btn:active {
-  transform: scale(0.92) !important;
+  opacity: 0.88 !important;
+}
+
+.back-to-top-btn:active .back-to-top-icon-wrap {
+  transform: scale(0.85);
 }
 
 .back-to-top-icon-wrap {
@@ -585,6 +910,7 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
+  pointer-events: none !important;
 }
 
 .back-to-top-icon {
@@ -592,6 +918,7 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
   height: 1.25rem !important;
   flex-shrink: 0 !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  pointer-events: none !important;
 }
 
 .back-to-top-btn:hover .back-to-top-icon {
@@ -678,4 +1005,313 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
   .sec-banner__title {
     font-size: 3.75rem !important;
   }
+}
+
+/* ==========================================================================
+   About Section: Mobile-Only Full-Width Description (.section-description)
+   Strictly scoped to .sec-about to prevent affecting any other section
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  .sec-about .sec-about__header,
+  .section_about-markeio .about-markeio_top,
+  .forteve-about .forteve-about__top {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.75rem !important;
+    margin-bottom: 3.5rem !important;
+  }
+
+  .sec-about .section-description,
+  .sec-about .sec-about__desc,
+  .sec-about .sec-about__content,
+  .section_about-markeio .about-markeio_content,
+  .forteve-about .forteve-about__content {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .sec-about .section-description p,
+  .sec-about .sec-about__desc p,
+  .section_about-markeio .about-markeio_content p {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(1.4rem, 6vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+    text-transform: uppercase !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+}
+
+/* ==========================================================================
+   Process Section: Match heading-style-h2 typography & Brand color
+   Strictly scoped to .step-process-section / .sec-process
+   ========================================================================== */
+.step-process-section .heading-text,
+.sec-process .heading-text {
+  font-family: var(--_typography---h2--h2-font-family, "Mona Sans Narrow", Impact, sans-serif) !important;
+  font-weight: var(--_typography---h2--h2-font-weight, 700) !important;
+  letter-spacing: var(--_typography---h2--h2-letter-spacing, 0.02em) !important;
+  text-transform: uppercase !important;
+  line-height: 1.05 !important;
+}
+
+.step-process-section .brand-script,
+.sec-process .brand-script {
+  font-family: 'Instrument Serif', Georgia, serif !important;
+  font-style: italic !important;
+  text-transform: uppercase !important;
+  color: var(--brand-orange) !important;
+}
+
+/* ==========================================================================
+   Global Section Badge & Subtitle Marquee Unified Design System
+   Ensures uniform font style, size, badge dimensions, and spacing with headings
+   across ALL sections while strictly preserving section color schemes
+   ========================================================================== */
+.section-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.25rem !important;
+  vertical-align: middle !important;
+  position: relative !important;
+}
+
+.subtitle-component {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.625rem !important;
+  width: 17rem !important;
+  max-width: 100% !important;
+  height: 2.25rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.25rem !important;
+  white-space: nowrap !important;
+  position: relative !important;
+}
+
+.section-badge .subtitle-component {
+  margin-bottom: 0 !important;
+}
+
+/* Unified typography for all subtitles & badges */
+.section-badge .subtitle,
+.subtitle-component .subtitle,
+.subtitle {
+  font-family: "Mona Sans", "Suisse Intl", Arial, sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+  padding-right: 1rem !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Uniform asterisk icon styling */
+.section-badge .asterisk,
+.subtitle-component .asterisk,
+.asterisk {
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+}
+
+/* Uniform subtitle block mask & dimensions */
+.section-badge .subtitle-block,
+.subtitle-component .subtitle-block,
+.subtitle-block {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 2rem !important;
+  overflow: hidden !important;
+  position: relative !important;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 85%, transparent 100%) !important;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 85%, transparent 100%) !important;
+}
+
+/* Heading spacing normalization below section-badge */
+.section-header > .section-badge + .heading-style-h2,
+.section-header > .section-badge + .section-title,
+.works-intro-left > .section-badge + .heading-style-h2,
+.works-intro > .section-badge + .heading-style-h2,
+.tools-header > .section-badge + .heading-style-h2,
+.cb-summary-header > .section-badge + .heading-style-h2,
+.cb-faq-header > .section-badge + .heading-style-h2,
+.cta_left_column > .section-badge + div .heading-style-h2 {
+  margin-top: 0 !important;
+}
+
+/* Desktop-specific exception for About section split-column layout */
+@media screen and (min-width: 769px) {
+  .sec-about .section-badge,
+  .section_about-markeio .section-badge {
+    margin-bottom: 0 !important;
+    padding-top: 0.35rem !important;
+  }
+}
+
+/* Mobile responsive badge scaling */
+@media screen and (max-width: 768px) {
+  .section-badge {
+    margin-bottom: 1rem !important;
+  }
+
+  .section-badge .subtitle,
+  .subtitle-component .subtitle,
+  .subtitle {
+    font-size: 0.875rem !important;
+  }
+
+  .section-badge .subtitle-component,
+  .subtitle-component {
+    width: 15rem !important;
+    height: 2rem !important;
+  }
+
+  .section-badge .asterisk,
+  .subtitle-component .asterisk,
+  .asterisk {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+}
+
+/* Avexa Works Section / Online Marketing Services H2 Heading Margin Reset */
+.sec-avexa-works .works-intro-title,
+.sec-avexa-works .heading-style-h2,
+.sec-avexa-works .work-title,
+.sec-avexa-works h2 {
+  margin-bottom: 0 !important;
+}
+
+/* Avexa Works Section Mobile Only: Remove work-item top/bottom margins and set 40px gap */
+@media (max-width: 768px) {
+  .sec-avexa-works .works-container {
+    gap: 40px !important;
+  }
+
+  .sec-avexa-works .work-item {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Testimonials Section Header & Badge Margin Reset */
+.sec-testimonials .sec-testimonials__header,
+.sec-testimonials .cb-summary-header,
+.sec-testimonials__header,
+.sec-testimonials .sec-testimonials__badge,
+.sec-testimonials .section-badge,
+.sec-testimonials__badge {
+  margin-bottom: 0 !important;
+}
+
+/* Algofort Standard Body Paragraph Text Utility */
+p.alg-text,
+.alg-text {
+  letter-spacing: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* Footer Email Link: Normal Case Reset */
+.footer_email_link,
+.footer_email_link .nav-text,
+.footer_email_link .nav-text-wrap span {
+  text-transform: none !important;
+}
+
+/* Projects / Avexa Works Section: works-intro padding-bottom & margin-bottom 4rem */
+.sec-avexa-works .works-intro,
+#sec-projects .works-intro {
+  padding-bottom: 4rem !important;
+  margin-bottom: 4rem !important;
+}
+
+/* FAQ Section: Header margin-bottom 4rem */
+.sec-faq .sec-faq__header,
+.sec-faq .cb-faq-header,
+.sec-faq__header,
+.cb-faq-header {
+  margin-bottom: 4rem !important;
+}
+
+/* FAQ Section: Title margin-bottom zero reset */
+.sec-faq .sec-faq__title,
+.sec-faq .heading-style-h2,
+.sec-faq h2,
+.sec-faq__title {
+  margin-bottom: 0 !important;
+}
+
+/* Footer Newsletter Form: Focus-within subtle dark border without shadow */
+.footer_newsletter_form {
+  border: 1px solid transparent !important;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer_newsletter_form:focus-within {
+  box-shadow: none !important;
+  border-color: rgba(5, 8, 12, 0.35) !important;
+}
+
+/* ==========================================================================
+   Custom Scrollbar Design (#f47a1f)
+   - Vertical (Right Browser Scrollbar)
+   - Horizontal (Bottom Scrollbar)
+   ========================================================================== */
+
+/* Standard CSS for Firefox & Modern Browsers */
+html,
+body,
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #f47a1f rgba(0, 0, 0, 0.04);
+}
+
+/* WebKit & Blink Browsers (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 9px;  /* Right browser scrollbar (vertical) */
+  height: 9px; /* Bottom browser scrollbar (horizontal) */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f47a1f;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.25s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #e0680f;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #cb5908;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

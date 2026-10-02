@@ -18,7 +18,7 @@ import { SmoothScroll } from '../components/common/SmoothScroll';
 export default function Home() {
   return (
     <SmoothScroll>
-      <div className="page-wrapper min-h-screen bg-[#f4f4f2] text-[#05080C]">
+      <div className="page-wrapper min-h-screen bg-[#f4f4f2] text-[#05080C]" id="top">
         <Cursor />
         <Header />
         <BackToTop />

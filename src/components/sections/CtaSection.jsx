@@ -134,7 +134,7 @@ export function CtaSection() {
             <div className="site-container sec-cta__container cta_content">
               {/* Left Column Header */}
               <div className="section-header sec-cta__header cta_left_column">
-                <div className="section-badge sec-cta__badge" style={{ marginBottom: '1.5rem' }}>
+                <div className="section-badge sec-cta__badge">
                   <SubtitleMarquee text="Get Started — " variant="light" />
                 </div>
                 <div className="text-align-left">
@@ -143,7 +143,7 @@ export function CtaSection() {
                       Start <br />
                       <span className="text-color-secondary">Project</span>
                     </h2>
-                    <p className="section-description sec-cta__desc cta-description">
+                    <p className="section-description sec-cta__desc cta-description alg-text">
                       Let us collaborate to build something extraordinary and elevate your brand to the next level.
                     </p>
                   </div>
@@ -180,7 +180,7 @@ export function CtaSection() {
                         <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>
                           Thank you!
                         </h3>
-                        <p style={{ color: 'rgba(255,255,255,0.8)' }}>
+                        <p style={{ color: 'rgba(255,255,255,0.8)' }} className="alg-text">
                           Your submission has been received! We will contact you soon.
                         </p>
                       </div>

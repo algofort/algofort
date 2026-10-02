@@ -17,6 +17,20 @@ export function ShowreelSection() {
   
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
+  // Close modal on Escape key press
+  useEffect(() => {
+    if (!isVideoOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsVideoOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isVideoOpen]);
+
   useEffect(() => {
     // Only run scroll animation on desktop screens (>991px)
     let mm = gsap.matchMedia();
@@ -129,7 +143,19 @@ export function ShowreelSection() {
 
                 <div ref={playWrapperRef} className="showreel_play-wrapper">
                   <h2 className="showreel_play-text">Play Algofort</h2>
-                  <div className="showreel_play-icon-wrap">
+                  <div
+                    className="showreel_play-icon-wrap"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsVideoOpen(true);
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Play video"
+                  >
+                    <span className="sonar-wave sonar-wave-1" aria-hidden="true" />
+                    <span className="sonar-wave sonar-wave-2" aria-hidden="true" />
+                    <span className="sonar-wave sonar-wave-3" aria-hidden="true" />
                     <img
                       src="/assets/play-icon.svg"
                       alt="Play icon"
@@ -151,18 +177,40 @@ export function ShowreelSection() {
         <div
           className="showreel-modal-overlay"
           onClick={() => setIsVideoOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Algofort Showreel Video"
         >
+          {/* Close button outside the video in top-right corner of screen/overlay */}
+          <button
+            type="button"
+            className="showreel-modal-close"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsVideoOpen(false);
+            }}
+            aria-label="Close modal"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+
           <div
             className="showreel-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              className="showreel-modal-close"
-              onClick={() => setIsVideoOpen(false)}
-              aria-label="Close modal"
-            >
-              ✕ Close
-            </button>
             <iframe
               src="https://www.youtube.com/embed/p1CLeATYZUQ?autoplay=1"
               title="Algofort Showreel"

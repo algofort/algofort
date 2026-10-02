@@ -409,12 +409,28 @@
 
   .about-markeio_top {
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: flex-start;
+    gap: 1.75rem;
     margin-bottom: 3.5rem;
+    width: 100%;
   }
 
-  .about-markeio_content p {
-    font-size: 1.8rem !important;
+  .sec-about .section-description,
+  .section_about-markeio .about-markeio_content,
+  .sec-about .sec-about__desc,
+  .sec-about .sec-about__content {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .sec-about .section-description p,
+  .section_about-markeio .about-markeio_content p {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(1.4rem, 6vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+    text-transform: uppercase !important;
   }
 
   .about-markeio_cards {
@@ -2149,8 +2165,8 @@ img {
 
   .service-text.is-number {
     font-size: 0.876rem;
-    position: relative;
-    top: 8px;
+    position: static;
+    top: auto;
   }
 }
 
@@ -2242,18 +2258,28 @@ img {
 /* ==========================================================================
    EXPLICIT OVERRIDES FOR CREATIVE SOLUTIONS (SERVICES SECTION)
    ========================================================================== */
-.section-home-service .top-grid {
+.section-home-service .top-grid,
+.sec-services .top-grid,
+.sec-services__header {
   display: flex !important;
   justify-content: space-between !important;
   align-items: flex-end !important;
   width: 100% !important;
+  gap: 2rem !important;
 }
 
-.section-home-service .heading-style-h2 {
+.section-home-service .heading-style-h2,
+.sec-services__title {
   margin-bottom: 0 !important;
+  font-family: 'Clash Display', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(3rem, 5vw, 5rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em !important;
 }
 
-.section-home-service .button-item {
+.section-home-service .button-item,
+.sec-services .button-item {
   justify-self: end !important;
   align-self: flex-end !important;
   margin-left: auto !important;
@@ -2261,15 +2287,19 @@ img {
   display: flex !important;
   justify-content: flex-end !important;
   padding-bottom: 0 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+  flex-shrink: 0 !important;
 }
 
 .section-home-service .main-button.alternate-button {
   width: auto !important;
   max-width: max-content !important;
   display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 1.25rem 2.25rem !important;
   border-radius: 100px !important;
+  white-space: nowrap !important;
 }
 
 .section-home-service .service-content-grid {
@@ -2277,9 +2307,10 @@ img {
   grid-template-columns: 0.25fr 1.25fr 1fr !important;
   align-items: center !important;
   width: 100% !important;
-  padding-top: 4rem !important;
+  padding-top: 3.5rem !important;
   padding-bottom: 3rem !important;
   position: relative !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
 .section-home-service .service-content-grid > .service-content-item:nth-child(3) {
@@ -2292,7 +2323,7 @@ img {
 
 .section-home-service .service-content {
   width: 100% !important;
-  max-width: 20rem !important;
+  max-width: 22rem !important;
   text-align: left !important;
   margin-left: auto !important;
 }
@@ -2370,13 +2401,16 @@ img {
 @media screen and (min-width: 1920px) {
   .section-home-service .service-title-wrap,
   .section-home-service .service-title {
-    height: 5.25rem !important;
-    font-size: 5.25rem !important;
+    height: 5.5rem !important;
+    font-size: 5.5rem !important;
     text-align: left !important;
   }
 }
 
 @media screen and (max-width: 1200px) {
+  .section-home-service .service-content-grid {
+    grid-template-columns: 0.2fr 1.3fr 1fr !important;
+  }
   .section-home-service .service-title-wrap,
   .section-home-service .service-title {
     height: 4.5rem !important;
@@ -2385,37 +2419,281 @@ img {
   }
 }
 
+/* ==========================================================================
+   TABLET RESPONSIVENESS (<= 991px):
+   - Move "All Services" button directly below heading
+   - Stack service grid items vertically
+   ========================================================================== */
 @media screen and (max-width: 991px) {
-  .section-home-service .service-content-grid {
-    grid-template-columns: 1fr !important;
+  .section-home-service .padding-section-large {
+    padding-top: 5rem !important;
+    padding-bottom: 5.5rem !important;
   }
-  .section-home-service .service-content-grid > .service-content-item:nth-child(3) {
-    justify-self: start !important;
+
+  /* Top Header Grid switches to column so button moves BELOW heading */
+  .section-home-service .top-grid,
+  .sec-services .top-grid,
+  .sec-services__header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 1.5rem !important;
+  }
+
+  .section-home-service .button-item,
+  .sec-services .button-item {
+    justify-self: flex-start !important;
+    align-self: flex-start !important;
+    margin-left: 0 !important;
+    margin-top: 0.25rem !important;
+    margin-bottom: 0 !important;
+    justify-content: flex-start !important;
+    width: auto !important;
+  }
+
+  .section-home-service .heading-style-h2,
+  .sec-services__title {
+    font-size: clamp(2.5rem, 5.5vw, 3.8rem) !important;
+    line-height: 1.1 !important;
+    word-break: break-word !important;
+  }
+  .section-home-service .spacer-xlarge {
+    height: 3rem !important;
+  }
+
+  /* Tablet & Mobile: Flex column for card items with 100% uniform gap */
+  .section-home-service .service-content-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 0.85rem !important;
+    padding-top: 2.25rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .section-home-service .service-content-grid > .service-content-item {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: flex-start !important;
     justify-content: flex-start !important;
   }
-  .section-home-service .service-title-wrap,
+
+  /* Reset relative position, top offset, and margins on number */
+  .section-home-service .service-text.is-number {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.15rem !important;
+    line-height: 1.2 !important;
+    display: block !important;
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  .section-home-service .service-title-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    height: clamp(2.25rem, 5.5vw, 3.75rem) !important;
+  }
+
   .section-home-service .service-title {
-    height: 3.75rem !important;
-    font-size: 3.75rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: clamp(2.25rem, 5.5vw, 3.75rem) !important;
+    font-size: clamp(2.25rem, 5.5vw, 3.75rem) !important;
     text-align: left !important;
+    line-height: 1 !important;
+  }
+
+  .section-home-service .service-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .section-home-service .service-text,
+  .section-home-service .service-content p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    color: rgba(255, 255, 255, 0.75) !important;
   }
 }
 
+/* ==========================================================================
+   MOBILE LANDSCAPE & PHABLETS (<= 767px)
+   ========================================================================== */
 @media screen and (max-width: 767px) {
-  .section-home-service .service-title-wrap,
+  .section-home-service .padding-section-large {
+    padding-top: 3.75rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .section-home-service .top-grid,
+  .sec-services .top-grid,
+  .sec-services__header {
+    gap: 1.25rem !important;
+  }
+
+  .section-home-service .button-item,
+  .sec-services .button-item {
+    margin-top: 0.15rem !important;
+  }
+
+  .section-home-service .heading-style-h2,
+  .sec-services__title {
+    font-size: clamp(2rem, 6.5vw, 2.85rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .section-home-service .main-button.alternate-button {
+    padding: 1rem 1.85rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .section-home-service .spacer-xlarge {
+    height: 2.25rem !important;
+  }
+
+  /* Equal gap between number, title, and text on mobile */
+  .section-home-service .service-content-grid {
+    gap: 0.75rem !important;
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+
+  .section-home-service .service-text.is-number {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-home-service .service-title-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: clamp(1.85rem, 6.5vw, 2.65rem) !important;
+  }
+
   .section-home-service .service-title {
-    height: 2.85rem !important;
-    font-size: 2.85rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: clamp(1.85rem, 6.5vw, 2.65rem) !important;
+    font-size: clamp(1.85rem, 6.5vw, 2.65rem) !important;
     text-align: left !important;
+    line-height: 1 !important;
+  }
+
+  .section-home-service .service-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .section-home-service .service-text,
+  .section-home-service .service-content p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
   }
 }
 
+/* ==========================================================================
+   MOBILE PHONES (<= 479px)
+   ========================================================================== */
 @media screen and (max-width: 479px) {
-  .section-home-service .service-title-wrap,
+  .section-home-service .padding-section-large {
+    padding-top: 2.75rem !important;
+    padding-bottom: 3.25rem !important;
+  }
+
+  .section-home-service .top-grid,
+  .sec-services .top-grid,
+  .sec-services__header {
+    gap: 1rem !important;
+  }
+
+  .section-home-service .heading-style-h2,
+  .sec-services__title {
+    font-size: clamp(1.75rem, 7.5vw, 2.35rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .section-home-service .main-button.alternate-button {
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .section-home-service .spacer-xlarge {
+    height: 1.75rem !important;
+  }
+
+  /* Equal gap between number, title, and text on small phones */
+  .section-home-service .service-content-grid {
+    gap: 0.65rem !important;
+    padding-top: 1.4rem !important;
+    padding-bottom: 1.4rem !important;
+  }
+
+  .section-home-service .service-text.is-number {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0.925rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-home-service .service-title-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: clamp(1.5rem, 7vw, 1.95rem) !important;
+  }
+
   .section-home-service .service-title {
-    height: 2rem !important;
-    font-size: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: clamp(1.5rem, 7vw, 1.95rem) !important;
+    font-size: clamp(1.5rem, 7vw, 1.95rem) !important;
     text-align: left !important;
+    line-height: 1 !important;
+  }
+
+  .section-home-service .service-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .section-home-service .service-text,
+  .section-home-service .service-content p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* Touch screen optimization: disable floating hover image on touch */
+@media (hover: none) and (pointer: coarse) {
+  .section-home-service .service-image-wrap {
+    display: none !important;
   }
 }
 

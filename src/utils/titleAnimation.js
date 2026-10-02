@@ -69,10 +69,12 @@ export function splitTextIntoChars(el) {
  * Animates a section title element with character slide-up stagger animation on scroll.
  */
 export function initTitleAnimation(titleEl, options = {}) {
-  if (!titleEl) return;
+  if (!titleEl || titleEl.dataset.titleAnimated) return;
 
   const chars = splitTextIntoChars(titleEl);
   if (!chars.length) return;
+
+  titleEl.dataset.titleAnimated = 'true';
 
   gsap.fromTo(
     chars,
@@ -94,4 +96,44 @@ export function initTitleAnimation(titleEl, options = {}) {
       },
     }
   );
+}
+
+/**
+ * Automatically finds and initializes title animation on all section headings across the page.
+ */
+export function initAllHeadingsAnimation() {
+  if (typeof window === 'undefined') return;
+
+  const selectors = [
+    '.heading-style-h2',
+    '.section-title',
+    '.works-intro-title',
+    '.sec-services__title',
+    '.sec-testimonials__title',
+    '.sec-faq__title',
+    '.sec-cta__title',
+    '.sec-projects__title',
+    '.sec-tools__title',
+    '.sec-process .heading-text',
+    '.work-title',
+    '.footer_heading',
+  ];
+
+  const headings = document.querySelectorAll(selectors.join(', '));
+  headings.forEach((heading) => {
+    // Exclude hero banner and showreel lightbox which have their own animations
+    if (
+      heading.closest('#sec-banner') ||
+      heading.closest('.sec-banner') ||
+      heading.closest('.navbar') ||
+      heading.closest('.sec-header') ||
+      heading.closest('.showreel_lightbox')
+    ) {
+      return;
+    }
+    const trigger = heading.closest('.work-item') || heading;
+    initTitleAnimation(heading, { trigger, start: 'top 85%', stagger: 0.02 });
+  });
+
+  ScrollTrigger.refresh();
 }

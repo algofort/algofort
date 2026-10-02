@@ -1,41 +1,41 @@
-/* === Cuberto FAQ Section Styles === */
-
-.cb-faq {
-  color: #05080C;
-  background: #F4F4F2;
-  padding: 10rem 0;
-}
-
+.sec-faq,
+.cb-faq,
 .cb-faq.-inverse {
   color: #05080C;
   background: #F4F4F2;
-  padding: 10rem 0;
+  padding: 0 20px 8rem 20px !important;
+  padding-top: 0 !important;
+}
+
+.cb-faq-header,
+.sec-faq__header {
+  margin-bottom: 4rem !important;
 }
 
 .cb-faq h2,
-.cb-faq-header h2 {
+.cb-faq-header h2,
+.sec-faq__title {
   color: #05080C !important;
+  margin-bottom: 0 !important;
 }
 
 .cb-faq-container,
-.cb-faq-container.-lg {
+.cb-faq-container.-lg,
+.sec-faq .sec-faq__container,
+.sec-faq .cb-faq-container {
   width: 100%;
   max-width: var(--site-container-max-w, 1600px);
   margin: 0 auto;
-  padding: 0 var(--site-container-padding-x, 2rem);
-}
-
-@media (max-width: 1024px) {
-  .cb-faq-container,
-  .cb-faq-container.-lg {
-    padding: 0 var(--site-container-padding-tablet, 1.5rem);
-  }
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 @media (max-width: 768px) {
-  .cb-faq-container,
-  .cb-faq-container.-lg {
-    padding: 0 var(--site-container-padding-mobile, 1.25rem);
+  .sec-faq,
+  .cb-faq,
+  .cb-faq.-inverse {
+    padding: 0 20px 4rem 20px !important;
+    padding-top: 0 !important;
   }
 }
 

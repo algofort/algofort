@@ -115,17 +115,18 @@
   align-items: center;
   justify-content: space-between;
   background-color: #f4f4f2 !important;
-  border: none !important;
+  border: 1px solid transparent !important;
   border-radius: 9999px;
   padding: 0.35rem 0.35rem 0.35rem 1.25rem;
   max-width: 100% !important;
   width: 100% !important;
-  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .footer_newsletter_form:focus-within {
   background-color: #eeeeec !important;
-  box-shadow: 0 0 0 2px var(--brand-orange) !important;
+  box-shadow: none !important;
+  border-color: rgba(5, 8, 12, 0.35) !important;
 }
 
 .footer_newsletter_input {
@@ -391,6 +392,11 @@
   color: #05080C;
   text-decoration: none;
   display: block;
+  text-transform: none !important;
+}
+
+.footer_email_link .nav-text {
+  text-transform: none !important;
 }
 
 .footer_offline_section {

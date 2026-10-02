@@ -5,7 +5,12 @@ export const metadata = {
   description:
     'Algofort is a technology and digital solutions agency engineering custom software, intelligent AI solutions, and high-performance digital platforms.',
   icons: {
-    icon: '/assets/favicon.png',
+    icon: [
+      { url: '/assets/fav.jpg', type: 'image/jpeg' },
+      { url: '/fav.jpg', type: 'image/jpeg' },
+    ],
+    shortcut: '/assets/fav.jpg',
+    apple: '/assets/fav.jpg',
   },
 };
 
@@ -13,6 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/assets/fav.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/assets/fav.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/assets/fav.jpg" />
+
         {/* Google Fonts: Mona Sans */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

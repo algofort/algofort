@@ -11,29 +11,101 @@ if (typeof window !== 'undefined') {
 export const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
   const btnRef = useRef(null);
+  const isScrollingRef = useRef(false);
 
-  useEffect(() => {
-    // 1. Entrance and Exit scroll listener
-    const handleScroll = () => {
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      if (scrollY > 350) {
-        setIsVisible(true);
-      } else if (scrollY < 180) {
-        setIsVisible(false);
-      }
+  // Check scroll position to show/hide the button
+  const handleScroll = (customY) => {
+    const scrollY =
+      typeof customY === 'number'
+        ? customY
+        : window.scrollY || window.pageYOffset || document.documentElement?.scrollTop || 0;
+
+    if (scrollY > 350) {
+      setIsVisible(true);
+    } else if (scrollY < 180) {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = (e) => {
+    if (e) {
+      e.preventDefault?.();
+      e.stopPropagation?.();
+    }
+
+    if (isScrollingRef.current) return;
+    isScrollingRef.current = true;
+
+    // Detect real Lenis instance safely
+    const lenis =
+      (typeof window !== 'undefined' &&
+        window.__lenisInstance &&
+        typeof window.__lenisInstance.scrollTo === 'function'
+        ? window.__lenisInstance
+        : null) ||
+      (typeof window !== 'undefined' &&
+        window.lenis &&
+        typeof window.lenis.scrollTo === 'function'
+        ? window.lenis
+        : null);
+
+    const onFinish = () => {
+      isScrollingRef.current = false;
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
-    handleScroll();
+    if (lenis) {
+      try {
+        lenis.scrollTo(0, {
+          duration: 1.25,
+          force: true,
+          lock: false,
+          onComplete: onFinish,
+        });
+      } catch {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      setTimeout(onFinish, 1400);
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      setTimeout(onFinish, 1000);
+    }
+  };
 
-    // 2. GSAP ScrollTrigger with scrub: true for smooth mouse scroll slide-up at footer
+  useEffect(() => {
+    const onScroll = () => handleScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    // Also connect to Lenis scroll event if present
+    const lenis =
+      typeof window !== 'undefined' &&
+      window.__lenisInstance &&
+      typeof window.__lenisInstance.on === 'function'
+        ? window.__lenisInstance
+        : null;
+
+    let lenisUnsub = null;
+    if (lenis) {
+      lenisUnsub = lenis.on('scroll', (e) => {
+        handleScroll(e.scroll);
+      });
+    }
+
+    const rafId = requestAnimationFrame(() => {
+      handleScroll();
+    });
+
+    // GSAP ScrollTrigger with scrub: true for smooth mouse scroll slide-up at footer
     const footerEl = document.querySelector('.footer') || document.querySelector('footer');
+    const btn = btnRef.current;
     let ctx;
-    if (footerEl && btnRef.current) {
+    if (footerEl && btn) {
       ctx = gsap.context(() => {
         gsap.fromTo(
-          btnRef.current,
+          btn,
           { y: 0 },
           {
             y: -76, // Slide up by 76px (-4.75rem) to cleanly clear footer bottom menu
@@ -54,29 +126,38 @@ export const BackToTop = () => {
       }, 300);
 
       return () => {
+        cancelAnimationFrame(rafId);
         clearTimeout(refreshTimeout);
-        window.removeEventListener('scroll', handleScroll);
-        window.removeEventListener('resize', handleScroll);
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+        if (lenisUnsub) lenisUnsub();
         if (ctx) ctx.revert();
       };
     }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (lenisUnsub) lenisUnsub();
       if (ctx) ctx.revert();
     };
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
   return (
-    <div className={`back-to-top-wrap ${isVisible ? 'is-visible' : ''}`}>
+    <div
+      className={`back-to-top-wrap ${isVisible ? 'is-visible' : ''}`}
+      onClick={scrollToTop}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          scrollToTop(e);
+        }
+      }}
+      aria-label="Back to top"
+      style={{ cursor: 'pointer' }}
+    >
       <button
         ref={btnRef}
         type="button"

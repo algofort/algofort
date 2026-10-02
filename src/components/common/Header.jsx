@@ -12,6 +12,16 @@ export const Header = () => {
   };
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && navOpen) {
+        setNavOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [navOpen]);
+
+  useEffect(() => {
     if (!drawerRef.current) return;
     const drawerEl = drawerRef.current;
     const contentWrap = drawerEl.querySelector('.navigation-content-wrap');
@@ -214,8 +224,15 @@ export const Header = () => {
               className={`menu-button sec-header__menu-btn w-nav-button ${navOpen ? 'w--open' : ''}`}
               id="w-node-_775fe0a9-7eeb-54f2-c56b-580613a910ac-13a91046"
               onClick={toggleNav}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggleNav();
+                }
+              }}
               role="button"
-              aria-label="Toggle navigation menu"
+              aria-label={navOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={navOpen}
               tabIndex={0}
             >
               <div className="menu-button-container">

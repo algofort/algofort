@@ -1,11 +1,12 @@
 /* CTA Section Styles - Original Webflow Glassmorphism Theme */
 
-.section_cta {
+.section_cta,
+.sec-cta {
   position: relative;
   width: 100%;
   background-color: #F4F4F2 !important;
   color: #ffffff;
-  padding-top: 1rem;
+  padding-top: 0 !important;
   padding-bottom: 2rem;
 }
 

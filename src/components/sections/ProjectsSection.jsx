@@ -143,14 +143,14 @@ export function ProjectsSection() {
           {/* Left Column: Sticky Title & Description */}
           <div className="section-header sec-projects__header projects-static-col">
             <div className="projects-static-inner">
-              <div className="section-badge sec-projects__badge" style={{ marginBottom: '1rem' }}>
+              <div className="section-badge sec-projects__badge">
                 <SubtitleMarquee text="Featured Projects — " variant="dark" />
               </div>
               <h2 className="heading-style-h2 section-title sec-projects__title projects-title">
                 Featured <br />
                 <span className="text-color-secondary">Projects</span>
               </h2>
-              <p className="section-description sec-projects__desc projects-descr">
+              <p className="section-description sec-projects__desc projects-descr alg-text">
                 Explore our portfolio of digital products, software solutions, and technology experiences built by Algofort.
               </p>
               <div className="projects-btn-wrap">

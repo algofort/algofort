@@ -156,11 +156,11 @@ export function FaqSection() {
   return (
     <section ref={sectionRef} className="site-section sec-faq cb-faq" id="sec-faq">
       <div className="site-container sec-faq__container cb-faq-container -lg">
-        <div className="section-header sec-faq__header cb-faq-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem', marginBottom: '2.5rem' }}>
+        <div className="section-header sec-faq__header cb-faq-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '4rem' }}>
           <div className="section-badge sec-faq__badge">
             <SubtitleMarquee text="Frequently Asked Questions — " />
           </div>
-          <h2 className="heading-style-h2 section-title sec-faq__title">
+          <h2 className="heading-style-h2 section-title sec-faq__title" style={{ marginBottom: 0 }}>
             Frequently Ask <br />
             <span className="text-color-secondary">Question</span>
           </h2>
@@ -178,7 +178,7 @@ export function FaqSection() {
                 <div className="cb-faq-item-content">
                   <div className="cb-faq-item-text">
                     {item.paragraphs.map((p, pIdx) => (
-                      <p key={pIdx}>{p}</p>
+                      <p key={pIdx} className="alg-text">{p}</p>
                     ))}
                   </div>
                 </div>

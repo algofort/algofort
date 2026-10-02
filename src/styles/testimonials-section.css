@@ -1,7 +1,7 @@
-/* === Testimonials Section Styles (Fan-Out Card Animation & Full 1600px Cover) === */
+.sec-testimonials,
 .cb-summary {
   -webkit-tap-highlight-color: transparent;
-  padding: 10rem 0;
+  padding: 8rem 20px !important;
   background: #f4f4f2;
   overflow: hidden;
   position: relative;
@@ -9,33 +9,35 @@
 }
 
 .cb-summary-container,
-.cb-summary-container.-lg {
+.cb-summary-container.-lg,
+.sec-testimonials .sec-testimonials__container,
+.sec-testimonials .cb-summary-container {
   width: 100%;
   max-width: var(--site-container-max-w, 1600px);
   margin: 0 auto;
-  padding: 0 var(--site-container-padding-x, 2rem);
-}
-
-@media (max-width: 1024px) {
-  .cb-summary-container,
-  .cb-summary-container.-lg {
-    padding: 0 var(--site-container-padding-tablet, 1.5rem);
-  }
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 @media (max-width: 768px) {
-  .cb-summary-container,
-  .cb-summary-container.-lg {
-    padding: 0 var(--site-container-padding-mobile, 1.25rem);
+  .sec-testimonials,
+  .cb-summary {
+    padding: 4rem 20px !important;
   }
 }
 
 .cb-summary-header {
-  margin: 0 0 4rem 0;
+  margin: 0 0 0 0 !important;
+  margin-bottom: 0 !important;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+}
+
+.sec-testimonials__badge,
+.sec-testimonials .section-badge {
+  margin-bottom: 0 !important;
 }
 
 .cb-summary-testimonials {
