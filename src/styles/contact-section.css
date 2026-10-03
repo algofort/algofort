@@ -195,15 +195,6 @@
 }
 
 .alg-contact-info-label {
-  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #888888;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.alg-contact-info-value {
   font-family: 'Clash Display', 'Mona Sans Narrow', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
@@ -212,6 +203,16 @@
   text-transform: uppercase;
   word-break: normal;
   overflow-wrap: normal;
+}
+
+.alg-contact-info-value {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #777777;
+  line-height: 1.45;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .alg-contact-info-timing {
