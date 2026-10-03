@@ -14,6 +14,7 @@
   background: transparent !important;
   color: #05080c;
   overflow: hidden;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
 }
 
 /* Ambient Decorative Curved Wave Ribbons */
@@ -136,6 +137,7 @@
   margin-bottom: 0 !important;
   color: #05080c !important;
   text-align: left !important;
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
   text-transform: uppercase !important;
   word-break: keep-all !important;
   overflow-wrap: normal !important;
@@ -144,7 +146,7 @@
 
 .alg-contact-desc {
   color: #555555 !important;
-  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   font-size: 1.025rem;
   line-height: 1.65;
   max-width: 530px;
@@ -220,18 +222,18 @@
 }
 
 .alg-contact-info-label {
-  font-family: 'Clash Display', 'Mona Sans Narrow', sans-serif;
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
   font-size: 0.95rem;
   font-weight: 700;
   color: #111111;
   line-height: 1.35;
-  text-transform: uppercase;
+  text-transform: uppercase !important;
   word-break: normal;
   overflow-wrap: normal;
 }
 
 .alg-contact-info-value {
-  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   font-size: 0.8rem;
   font-weight: 600;
   color: #777777;
@@ -241,7 +243,7 @@
 }
 
 .alg-contact-info-timing {
-  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   font-size: 0.8rem;
   color: #777777;
   font-weight: 500;
@@ -321,7 +323,7 @@
 .alg-contact-form-group label,
 .alg-contact .alg-cta-form-group label,
 .alg-contact .form_group label {
-  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   font-size: 0.75rem;
   font-weight: 700;
   color: #111111;
@@ -341,7 +343,7 @@
   padding: 0.85rem 1.15rem;
   font-size: 0.95rem;
   color: #111111;
-  font-family: inherit;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   box-sizing: border-box;
   width: 100%;
   transition: all 0.2s ease;
@@ -356,6 +358,7 @@
 .alg-contact .form_group input::placeholder,
 .alg-contact .form_group textarea::placeholder {
   color: #9ca3af;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   font-weight: 400;
 }
 
@@ -406,7 +409,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: inherit;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   box-shadow: none !important;
 }
 
@@ -434,6 +437,12 @@
   cursor: pointer;
   align-self: flex-start;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
+}
+
+.alg-contact .main-button-block,
+.alg-contact .button-text {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
 }
 
 .alg-contact .main-button.alternate-button:hover {
@@ -466,15 +475,16 @@
 }
 
 .alg-contact-success-title {
-  font-family: 'Clash Display', 'Mona Sans Narrow', sans-serif;
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
   font-size: 1.85rem;
   font-weight: 700;
   color: #111111;
   margin-bottom: 0.65rem;
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 }
 
 .alg-contact-success-desc {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   color: #666666;
   max-width: 420px;
   margin: 0 auto;
