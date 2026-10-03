@@ -170,8 +170,48 @@ All major section titles must feature character-by-character entrance stagger:
 .spacer-xhuge    { padding-top: 8rem; }     /* 128px */
 ```
 
-### 4.3 Element Margins & Gaps
-* **Section Badge Bottom Margin**: `1.25rem` (`20px`) (`margin-bottom: 1.25rem !important;`) on Desktop, `1rem` on Mobile.
+### 4.3 Section Subtitle to Heading Spacing (Mandatory Site-Wide Rule)
+
+> [!IMPORTANT]
+> **Strict Site-Wide Spacing Constraint**: The vertical space between each **section subtitle (badge)** and the **heading directly beneath it** must strictly remain **between 1rem (16px) and 1.25rem (20px maximum)** across all sections and pages on the entire website.
+>
+> Under no circumstances should any section allow a larger gap (such as 30px, 40px, or 50px) between its subtitle and heading.
+
+#### Exact Spacing Specifications:
+* **Desktop (`>= 992px`)**: Exactly `1.25rem` (`20px`) maximum:
+  * `.section-badge { margin-bottom: 1.25rem !important; }` (or `gap: 1.25rem;` in flex-column headers)
+  * `.section-header > .section-badge + .heading-style-h2 { margin-top: 0 !important; }`
+* **Tablet / Mobile (`<= 991px`)**: Exactly `1rem` (`16px`):
+  * `.section-badge { margin-bottom: 1rem !important; }` (or `gap: 1rem;` in flex-column headers)
+  * `.heading-style-h2 { margin-top: 0 !important; }`
+
+#### Home Page Baseline Audit (Verified Across All Sections):
+1. **Services Section (`#sec-services`)**:
+   - Structure: `.section-badge.sec-services__badge` followed by `h2.heading-style-h2`
+   - Spacing: Badge `margin-bottom: 1.25rem` (20px) -> Heading `margin-top: 0`. Net gap = **20px** (Desktop) / **16px** (Mobile).
+2. **Avexa Works Section (`#sec-projects`)**:
+   - Structure: `.section-badge.sec-projects__badge` followed by `h2.heading-style-h2.works-intro-title`
+   - Spacing: Badge `margin-bottom: 1.25rem` (20px) -> Heading `margin-top: 0`. Net gap = **20px** (Desktop) / **16px** (Mobile).
+3. **Testimonials Section (`#sec-testimonials`)**:
+   - Structure: `.alg-testimonials-header` (flex-column) with `gap: 1rem` (16px) and badge `margin-bottom: 0`.
+   - Spacing: Net gap = **16px** (1rem).
+4. **FAQ Section (`#sec-faq`)**:
+   - Structure: `.alg-faq-header` with `.section-badge` followed by `h2.heading-style-h2.alg-faq-title`
+   - Spacing: Badge `margin-bottom: 1.25rem` (20px) -> Heading `margin-top: 0`. Net gap = **20px** (Desktop) / **16px** (Mobile).
+5. **CTA Section (`#sec-cta`)**:
+   - Structure: `.alg-cta-badge.section-badge` followed by `h2.heading-style-h2.alg-cta-title`
+   - Spacing: Badge `margin-bottom: 1.25rem` (20px) -> Heading `margin-top: 0`. Net gap = **20px** (Desktop) / **16px** (Mobile).
+6. **Process Section (`#sec-process`)**:
+   - Structure: `.alg-process-wrap` flex-column with badge header followed by sticky titles
+   - Spacing: Net gap = **12px to 16px**.
+
+#### Implementation Rules for Future Pages:
+* Always ensure `.heading-style-h2` resets any top margin (`margin-top: 0 !important;`) when positioned beneath `.section-badge`.
+* Do not apply ad-hoc padding or spacers (e.g. `.spacer-small`, `.spacer-medium`) between a section badge and its heading.
+* If a flex container is used for the header (`display: flex; flex-direction: column;`), set `gap: 1rem` (16px) to `1.25rem` (20px) and set `.section-badge { margin-bottom: 0; }`.
+
+### 4.4 Element Margins & Gaps
+* **Section Badge Bottom Margin**: `1.25rem` (`20px`) (`margin-bottom: 1.25rem !important;`) on Desktop, `1rem` (`16px`) on Mobile.
 * **H2 Heading Bottom Margin**: `3.5rem` (`56px`) (`margin-bottom: 3.5rem !important;`).
 * **Section Header to H2**: When directly preceded by `.section-badge`, `.heading-style-h2` has `margin-top: 0 !important;`.
 * **Grid Gaps**:
@@ -179,7 +219,7 @@ All major section titles must feature character-by-character entrance stagger:
   * Stat cards / why-us cards: `1.5rem` (`24px`) or `10px` in tight grids
   * FAQ accordion items: `0` top padding, `4rem` header bottom margin
 
-### 4.4 Border Radius Hierarchy
+### 4.5 Border Radius Hierarchy
 * **Small**: `0.5rem` (`8px`) (`--_sizes---border-radius--small`)
 * **Medium**: `0.75rem` (`12px`) (`--_sizes---border-radius--medium`) - Input fields, tags
 * **Large**: `1rem` (`16px`) (`--_sizes---border-radius--large`) - Card internal items
@@ -266,7 +306,8 @@ Future pages **must** reuse the following existing components. Never create cust
 * **Styles**:
   * Width: `17rem` (`15rem` on mobile)
   * Height: `2.25rem` (`2rem` on mobile)
-  * Margin-bottom: `1.25rem !important;` (`1rem` on mobile)
+  * Margin-bottom: `1.25rem !important;` (`20px` on desktop, `1rem` / `16px` on mobile)
+  * **Spacing to Heading**: Strictly `1rem` (`16px`) to `1.25rem` (`20px maximum`) site-wide. Heading below badge must have `margin-top: 0 !important;` (See Section 4.3).
   * Text: `0.95rem`, uppercase, font-weight `600`, letter-spacing `-0.01em`
   * Horizontal gradient fade mask on left and right edges.
   * Continuous loop marquee animation (`10s` infinite linear).

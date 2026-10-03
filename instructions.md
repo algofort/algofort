@@ -37,6 +37,7 @@ When creating or modifying any internal page or component:
      </div>
      ```
    - Do not invent custom pill badges or static labels; always use `SubtitleMarquee`.
+   - **Subtitle-to-Heading Spacing Rule**: The vertical gap between each `.section-badge` and the heading beneath it must strictly remain **between 1rem (16px) and 1.25rem (20px maximum)** site-wide. Ensure `margin-top: 0 !important;` on the following heading, and never insert spacer divs or extra padding between badge and heading.
 3. **Signature Dual-Text Rolling Button**:
    - Every CTA button must use the signature rolling button pattern:
      ```jsx
@@ -70,6 +71,7 @@ When creating or modifying any internal page or component:
 6. **Spacing & Rhythmic Contrast**:
    - Standard section padding: `8rem` desktop, `5rem` tablet, `4rem` mobile.
    - Container max-width: `1600px` (`--site-container-max-w: 1600px;`) with `2rem` inline padding on desktop (`1.5rem` tablet, `1.25rem` mobile).
+   - **Subtitle to Heading Spacing**: Strictly `1rem` (`16px`) to `1.25rem` (`20px maximum`) site-wide.
    - Alternate gracefully between dark containers and light canvas sections.
 
 ---
