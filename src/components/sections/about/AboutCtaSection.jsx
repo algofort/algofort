@@ -28,7 +28,10 @@ export function AboutCtaSection() {
     if (!section) return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const titles = section.querySelectorAll('.sec-about-cta__title');
+    const title01 = section.querySelector('.cta-title._01');
+    const title02 = section.querySelector('.cta-title._02');
+    const title03 = section.querySelector('.cta-title._03');
+    const title04 = section.querySelector('.cta-title._04');
     const subtitle = section.querySelector('.sec-about-cta__badge');
     const button = section.querySelector('.cta-button-block');
     const overlayTop = section.querySelector('.cta-overlay.top');
@@ -36,34 +39,56 @@ export function AboutCtaSection() {
     const topContent = section.querySelector('.cta-top-content');
 
     if (prefersReduced) {
-      gsap.set([titles, subtitle, button], { yPercent: 0, opacity: 1 });
+      gsap.set([title01, title02, title03, title04, subtitle, button], { yPercent: 0, opacity: 1 });
+      gsap.set([overlayTop, overlayBottom], { display: 'none' });
       return undefined;
     }
 
     const ctx = gsap.context(() => {
-      gsap.set(titles, { yPercent: 110 });
+      // Keyframe 0: Completely hidden at top of CTA
+      gsap.set(topContent, { opacity: 1 });
+      gsap.set([title01, title02], { yPercent: 140, opacity: 0 });
+      gsap.set([title03, title04], { yPercent: -140, opacity: 0 });
       gsap.set(subtitle, { yPercent: 100, opacity: 0 });
-      gsap.set(button, { yPercent: 110 });
-      gsap.set(overlayTop, { yPercent: -100 });
-      gsap.set(overlayBottom, { yPercent: 100 });
+      gsap.set(button, { yPercent: 140, opacity: 0 });
+      gsap.set(overlayTop, { yPercent: 0 });
+      gsap.set(overlayBottom, { yPercent: 0 });
 
+      // Continuous scrubbed timeline over the 300vh scroll track
       const tl = gsap.timeline({
-        defaults: { ease: 'none' },
         scrollTrigger: {
           trigger: section,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.6,
+          scrub: 0.5,
         },
       });
 
-      tl.to(topContent, { opacity: 0, duration: 0.5 }, 0)
-        .to(subtitle, { yPercent: 0, opacity: 1, duration: 0.6 }, 0.15)
-        .to(titles, { yPercent: 0, duration: 1, stagger: 0.2 }, 0.25)
-        .to(button, { yPercent: 0, duration: 0.6 }, 1.2)
-        .to({}, { duration: 0.8 })
-        .to(overlayTop, { yPercent: 0, duration: 1 }, '>-0.1')
-        .to(overlayBottom, { yPercent: 0, duration: 1 }, '<');
+      // 1. Reveal Phase (0% - 40%): curtains open, top hint fades out, words reveal from masks
+      tl.to(topContent, { opacity: 0, duration: 0.15, ease: 'power1.out' }, 0)
+        .to(overlayTop, { yPercent: -100, duration: 0.25, ease: 'power2.inOut' }, 0)
+        .to(overlayBottom, { yPercent: 100, duration: 0.25, ease: 'power2.inOut' }, 0)
+        .to(title01, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.08)
+        .to(title04, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.08)
+        .to(title02, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.18)
+        .to(title03, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.18)
+        .to(subtitle, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.22)
+        .to(button, { yPercent: 0, opacity: 1, duration: 0.22, ease: 'power1.out' }, 0.30)
+
+      // 2. Resting View Phase (40% - 70%): full message held prominently
+        .to({}, { duration: 0.25 })
+
+      // 3. Exit Phase (70% - 92%): all text and button cleanly hide when scrolling down
+        .to(title01, { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.68)
+        .to(title02, { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.70)
+        .to(title03, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.68)
+        .to(title04, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.70)
+        .to(subtitle, { yPercent: -100, opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.66)
+        .to(button, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.70)
+
+      // 4. Closing Curtain Phase (82% - 100%): overlays close to transition to footer
+        .to(overlayTop, { yPercent: 0, duration: 0.2, ease: 'power2.inOut' }, 0.80)
+        .to(overlayBottom, { yPercent: 0, duration: 0.2, ease: 'power2.inOut' }, 0.80);
     }, section);
 
     const t = setTimeout(() => ScrollTrigger.refresh(), 200);

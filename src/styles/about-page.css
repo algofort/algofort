@@ -1095,6 +1095,8 @@
   margin-bottom: 1.25rem !important;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 
 @media screen and (max-width: 991px) {
@@ -1114,11 +1116,12 @@
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   position: relative;
   overflow: hidden;
   line-height: 1;
+  padding: 0.25rem 0;
 }
 
 @media screen and (max-width: 991px) {
@@ -1289,7 +1292,7 @@
 
 .call-to-action .cta-overlay-wrap,
 .sec-about-cta .cta-overlay-wrap {
-  z-index: 5;
+  z-index: 35;
   flex-flow: column;
   justify-content: center;
   position: absolute;
