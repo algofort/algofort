@@ -105,7 +105,9 @@
   margin-bottom: 0 !important;
 }
 
-/* Heading: LET’S BUILD SOMETHING GREAT TOGETHER (Inherits .heading-style-h2 for identical font, size and brand aesthetics) */
+/* Heading: LET’S BUILD SOMETHING GREAT (Inherits .heading-style-h2 for identical font, size and brand aesthetics) */
+.sec-contact .heading-style-h2,
+.sec-contact .alg-contact-title,
 .alg-contact-title,
 .sec-contact__title {
   margin-top: 0 !important;

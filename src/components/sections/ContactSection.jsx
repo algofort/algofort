@@ -111,7 +111,7 @@ export function ContactSection() {
                 </div>
                 <h2
                   className="alg-contact-title heading-style-h2 section-title sec-contact__title"
-                  style={{ color: '#05080C', textAlign: 'left' }}
+                  style={{ color: '#05080C', textAlign: 'left', marginBottom: 0 }}
                 >
                   Let’s Build Something <br />
                   <span className="alg-contact-title-secondary text-color-secondary">Great</span>

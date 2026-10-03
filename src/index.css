@@ -1282,6 +1282,14 @@ p.alg-text,
   margin-bottom: 0 !important;
 }
 
+/* Contact Section: Heading margin-bottom zero reset */
+.sec-contact .heading-style-h2,
+.sec-contact .alg-contact-title,
+.sec-contact__title,
+.alg-contact-title {
+  margin-bottom: 0 !important;
+}
+
 /* Footer Newsletter Form: Focus-within subtle dark border without shadow */
 .footer_newsletter_form {
   border: 1px solid transparent !important;
