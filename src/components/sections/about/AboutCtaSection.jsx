@@ -10,9 +10,6 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const VIDEO_BASE =
-  '/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29';
-
 /**
  * About CTA — 1:1 rebuild of unusually.webflow.io/about `.call-to-action`.
  * Tall scroll track (300vh) with a sticky 100vh video stage. As the user scrolls:
@@ -103,20 +100,31 @@ export function AboutCtaSection() {
           <div className="detail-text">Keep scrolling</div>
         </div>
 
-        {/* Ambient video background */}
-        <div className="cta-video-wrap">
-          <video
-            className="cta-background-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster={`${VIDEO_BASE}-poster-00001.jpg`}
-          >
-            <source src={`${VIDEO_BASE}-transcode.mp4`} type="video/mp4" />
-            <source src={`${VIDEO_BASE}-transcode.webm`} type="video/webm" />
-          </video>
-          <div className="video-overlay"></div>
+        {/* Ambient video background (matches home page banner video) */}
+        <div className="cta-video-wrap alg-hero-video-wrap background-video-wrap">
+          <div className="alg-hero-video background-video w-background-video w-background-video-atom">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              data-object-fit="cover"
+              style={{
+                backgroundImage:
+                  'url("/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg")',
+              }}
+            >
+              <source
+                src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
+                type="video/webm"
+              />
+            </video>
+          </div>
+          <div className="alg-hero-video-overlay video-overlay"></div>
         </div>
 
         {/* Content */}
