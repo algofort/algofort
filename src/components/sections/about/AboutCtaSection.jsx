@@ -42,50 +42,42 @@ export function AboutCtaSection() {
     }
 
     const ctx = gsap.context(() => {
-      // Keyframe 0: Completely hidden at top of CTA
+      // Keyframe 0 (0%): Initial state matching Webflow a-24
       gsap.set(topContent, { opacity: 1 });
-      gsap.set([title01, title02], { yPercent: 140, opacity: 0 });
-      gsap.set([title03, title04], { yPercent: -140, opacity: 0 });
-      gsap.set(subtitle, { yPercent: 100, opacity: 0 });
-      gsap.set(button, { yPercent: 140, opacity: 0 });
+      gsap.set([title01, title02], { yPercent: 110 });
+      gsap.set([title03, title04], { yPercent: -110 });
+      gsap.set(subtitle, { opacity: 0 });
+      gsap.set(button, { yPercent: 100 });
       gsap.set(overlayTop, { yPercent: 0 });
       gsap.set(overlayBottom, { yPercent: 0 });
 
-      // Continuous scrubbed timeline over the 300vh scroll track
+      // Continuous scrubbed timeline over the scroll track matching Webflow a-24 (smoothing: 100)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.5,
+          scrub: 0.8,
         },
       });
 
-      // 1. Reveal Phase (0% - 40%): curtains open, top hint fades out, words reveal from masks
-      tl.to(topContent, { opacity: 0, duration: 0.15, ease: 'power1.out' }, 0)
-        .to(overlayTop, { yPercent: -100, duration: 0.25, ease: 'power2.inOut' }, 0)
-        .to(overlayBottom, { yPercent: 100, duration: 0.25, ease: 'power2.inOut' }, 0)
-        .to(title01, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.08)
-        .to(title04, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.08)
-        .to(title02, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.18)
-        .to(title03, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.18)
-        .to(subtitle, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.22)
-        .to(button, { yPercent: 0, opacity: 1, duration: 0.22, ease: 'power1.out' }, 0.30)
+      // Keyframe 0% -> 20%: curtains open, words _01 & _04 reveal, hint fades out
+      tl.to(topContent, { opacity: 0, duration: 0.15, ease: 'none' }, 0)
+        .to(overlayTop, { yPercent: -100, duration: 0.20, ease: 'none' }, 0)
+        .to(overlayBottom, { yPercent: 110, duration: 0.20, ease: 'none' }, 0)
+        .to(title01, { yPercent: 0, duration: 0.20, ease: 'none' }, 0)
+        .to(title04, { yPercent: 0, duration: 0.20, ease: 'none' }, 0)
 
-      // 2. Resting View Phase (40% - 75%): full message held prominently
-        .to({}, { duration: 0.35 })
+      // Keyframe 20% -> 40%: words _02 & _03 reveal, subtitle fades in
+        .to(title02, { yPercent: 0, duration: 0.20, ease: 'none' }, 0.20)
+        .to(title03, { yPercent: 0, duration: 0.20, ease: 'none' }, 0.20)
+        .to(subtitle, { opacity: 1, duration: 0.20, ease: 'none' }, 0.20)
 
-      // 3. Exit Phase (75% - 96%): all text and button cleanly hide when scrolling down
-        .to(title01, { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.75)
-        .to(title02, { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77)
-        .to(title03, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.75)
-        .to(title04, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77)
-        .to(subtitle, { yPercent: -100, opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.73)
-        .to(button, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77)
+      // Keyframe 20% -> 50%: button slides into place
+        .to(button, { yPercent: 0, duration: 0.30, ease: 'none' }, 0.20)
 
-      // 4. Closing Curtain Phase (80% - 100%): overlays close to transition cleanly to footer
-        .to(overlayTop, { yPercent: 0, duration: 0.2, ease: 'power2.inOut' }, 0.80)
-        .to(overlayBottom, { yPercent: 0, duration: 0.2, ease: 'power2.inOut' }, 0.80);
+      // Keyframe 50% -> 100%: Section holds completely in view as footer approaches
+        .to({}, { duration: 0.50 }, 0.50);
     }, section);
 
     const t = setTimeout(() => ScrollTrigger.refresh(), 200);
