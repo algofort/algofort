@@ -65,7 +65,7 @@ export function AboutProcessSection() {
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-about-process__title">
-                <span className="process-heading-main">Work</span>{' '}
+                <span className="text-color-alternate">Work</span>{' '}
                 <span className="text-color-secondary">Process</span>
               </h2>
             </div>
@@ -79,7 +79,7 @@ export function AboutProcessSection() {
 
           {/* Process 3-Column Grid */}
           <div className="process-component">
-            <div className="process-component-grid">
+            <div className="w-layout-grid process-component-grid">
               {processSteps.map((step) => (
                 <div
                   key={step.number}
@@ -87,11 +87,11 @@ export function AboutProcessSection() {
                 >
                   <div className="process-number">{step.number}</div>
                   <h3 className="process-title heading-style-h3">
-                    <span className="process-title-main">{step.titlePrimary}</span>
+                    {step.titlePrimary}
                     <br />
                     <span className="text-color-secondary">{step.titleAccent}</span>
                   </h3>
-                  <p className="process-desc section-description">
+                  <p className="text-size-regular text-color-secondary section-description">
                     {step.description}
                   </p>
                 </div>
