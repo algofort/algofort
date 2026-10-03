@@ -10,6 +10,9 @@
 @import "./styles/showreel-section.css";
 @import "./styles/cta-section.css";
 @import "./styles/footer-section.css";
+@import "./styles/page-banner.css";
+@import "./styles/not-found-section.css";
+@import "./styles/contact-section.css";
 @import "tailwindcss";
 
 /* ==========================================================================
@@ -94,6 +97,25 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+/* ==========================================================================
+   Instrument Serif & Plus Jakarta Sans Local Fonts
+   ========================================================================== */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/google/instrument-serif-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/google/plus-jakarta-sans-variable.woff2') format('woff2');
 }
 
 :root {

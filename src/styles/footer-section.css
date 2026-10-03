@@ -9,7 +9,7 @@
    - Bottom Bar: Copyright on Left, Legal & Privacy on Right
    ========================================================================== */
 
-.alg-footer,\n.footer {
+.footer {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   background-color: #F4F4F2 !important;
@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-.alg-footer-wrap,\n.footer_wrap {
+.footer_wrap {
   position: relative !important;
   z-index: 1;
   border-radius: 1.5rem !important;
@@ -32,7 +32,7 @@
 }
 
 /* Background Calligraphic "Letter G" Watermark on Right */
-.alg-footer-watermark,\n.footer_watermark {
+.footer_watermark {
   position: absolute;
   top: -8%;
   right: -5%;
@@ -49,7 +49,7 @@
   user-select: none;
 }
 
-.alg-footer-watermark img,\n.alg-footer-watermark svg,\n.footer_watermark img,
+.footer_watermark img,
 .footer_watermark svg {
   width: 100%;
   height: 100%;
@@ -58,7 +58,7 @@
 }
 
 /* Footer Inner Content Container */
-.alg-footer-content,\n.footer_content {
+.footer_content {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -69,7 +69,7 @@
 /* ==========================================================================
    MAIN 2-PANE LAYOUT
    ========================================================================== */
-.alg-footer-main-layout,\n.footer_main_layout {
+.footer_main_layout {
   display: grid;
   grid-template-columns: 1fr 1.65fr;
   gap: 4.5rem;
@@ -80,19 +80,19 @@
 /* ==========================================================================
    LEFT PANE: Newsletter (Top) & Social Media Rows (Bottom)
    ========================================================================== */
-.alg-footer-left-pane,\n.footer_left_pane {
+.footer_left_pane {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 3.5rem;
 }
 
-.alg-footer-col-newsletter,\n.footer_col_newsletter {
+.footer_col_newsletter {
   display: flex;
   flex-direction: column;
 }
 
-.alg-footer-heading,\n.footer_heading {
+.footer_heading {
   font-family: var(--font-family-primary);
   font-size: clamp(2rem, 2.5vw, 2.75rem);
   font-weight: 700;
@@ -102,7 +102,7 @@
   margin: 0 0 0.85rem 0;
 }
 
-.alg-footer-subtext,\n.footer_subtext {
+.footer_subtext {
   color: #6B7280;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -110,7 +110,7 @@
   margin: 0 0 1.75rem 0;
 }
 
-.alg-footer-newsletter-form,\n.footer_newsletter_form {
+.footer_newsletter_form {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -123,13 +123,13 @@
   transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.alg-footer-newsletter-form:focus-within,\n.footer_newsletter_form:focus-within {
+.footer_newsletter_form:focus-within {
   background-color: #eeeeec !important;
   box-shadow: none !important;
   border-color: rgba(5, 8, 12, 0.35) !important;
 }
 
-.alg-footer-newsletter-input,\n.footer_newsletter_input {
+.footer_newsletter_input {
   background: transparent;
   border: none;
   outline: none;
@@ -139,12 +139,12 @@
   font-family: var(--font-family-primary);
 }
 
-.alg-footer-newsletter-input::placeholder,\n.footer_newsletter_input::placeholder {
+.footer_newsletter_input::placeholder {
   color: #9CA3AF;
   font-weight: 400;
 }
 
-.alg-footer-newsletter-btn,\n.footer_newsletter_btn {
+.footer_newsletter_btn {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
@@ -159,12 +159,12 @@
   transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.alg-footer-newsletter-btn:hover,\n.footer_newsletter_btn:hover {
+.footer_newsletter_btn:hover {
   background-color: var(--brand-orange) !important;
   transform: scale(1.05);
 }
 
-.alg-footer-form-success,\n.footer_form_success {
+.footer_form_success {
   margin-top: 0.85rem;
   font-size: 0.875rem;
   color: #10B981;
@@ -172,13 +172,13 @@
 }
 
 /* Social Media Rows in Left Pane */
-.alg-footer-social-list,\n.footer_social_list {
+.footer_social_list {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.alg-footer-social-row,\n.footer_social_row {
+.footer_social_row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -193,7 +193,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.alg-footer-social-left,\n.footer_social_left {
+.footer_social_left {
   display: flex;
   align-items: center;
   gap: 0.85rem;
@@ -201,7 +201,7 @@
   font-weight: 500;
 }
 
-.alg-footer-social-icon,\n.footer_social_icon {
+.footer_social_icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,7 +212,7 @@
   transition: color 0.25s ease;
 }
 
-.alg-footer-social-arrow,\n.footer_social_arrow {
+.footer_social_arrow {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,7 +257,7 @@
 /* ==========================================================================
    RIGHT PANE: Main Links + Get in Touch (Right-Aligned) + ALGOFORT (Bottom)
    ========================================================================== */
-.alg-footer-right-pane,\n.footer_right_pane {
+.footer_right_pane {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -265,7 +265,7 @@
   width: 100%;
 }
 
-.alg-footer-right-top,\n.footer_right_top {
+.footer_right_top {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
@@ -273,12 +273,12 @@
 }
 
 /* Main Links (Left of Right Pane) */
-.alg-footer-col-links,\n.footer_col_links {
+.footer_col_links {
   display: flex;
   flex-direction: column;
 }
 
-.alg-footer-label,\n.footer_label {
+.footer_label {
   font-size: 0.875rem;
   font-weight: 500;
   color: #9CA3AF;
@@ -286,20 +286,21 @@
   text-transform: capitalize;
 }
 
-.alg-footer-links-grid,\n.footer_links_grid {
+.footer_links_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
-.alg-footer-links-col,\n.footer_links_col {
+.footer_links_col {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
 }
 
 /* Dual-Text Swipe Hover on Navigation Links */
-.alg-footer-nav-link,\n.footer_nav_link.nav-link {
+.footer_nav_link,
+.footer_nav_link.nav-link {
   display: inline-flex !important;
   align-items: center !important;
   overflow: hidden !important;
@@ -311,9 +312,10 @@
   font-size: 0.95rem !important;
   font-weight: 500 !important;
   cursor: pointer;
+  border-radius: 0 !important;
 }
 
-.alg-footer-nav-link,\n.footer_nav_link .nav-text-wrap {
+.footer_nav_link .nav-text-wrap {
   display: flex !important;
   flex-direction: column !important;
   height: 1.35em !important;
@@ -321,7 +323,7 @@
   position: relative !important;
 }
 
-.alg-footer-nav-link,\n.footer_nav_link .nav-text {
+.footer_nav_link .nav-text {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease !important;
   display: block !important;
   line-height: 1.35em !important;
@@ -329,20 +331,20 @@
   color: #1F2937 !important;
 }
 
-.alg-footer-nav-link,\n.footer_nav_link:hover .nav-text {
+.footer_nav_link:hover .nav-text {
   transform: translateY(-100%) !important;
   color: var(--brand-orange) !important;
 }
 
 /* Get in touch & Offline (Right-Aligned in Right Pane) */
-.alg-footer-col-contact,\n.footer_col_contact {
+.footer_col_contact {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
 }
 
-.alg-footer-contact-section,\n.footer_contact_section {
+.footer_contact_section {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -351,7 +353,7 @@
   width: 100%;
 }
 
-.alg-footer-phone-link,\n.footer_phone_link {
+.footer_phone_link {
   font-size: 1.15rem;
   font-weight: 700;
   color: #05080C;
@@ -360,8 +362,8 @@
   margin-bottom: 0.35rem;
 }
 
-.alg-footer-phone-link,\n.footer_phone_link .nav-text-wrap,
-.alg-footer-email-link,\n.footer_email_link .nav-text-wrap {
+.footer_phone_link .nav-text-wrap,
+.footer_email_link .nav-text-wrap {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-end !important;
@@ -370,8 +372,8 @@
   position: relative !important;
 }
 
-.alg-footer-phone-link,\n.footer_phone_link .nav-text,
-.alg-footer-email-link,\n.footer_email_link .nav-text {
+.footer_phone_link .nav-text,
+.footer_email_link .nav-text {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease !important;
   display: block !important;
   line-height: 1.35em !important;
@@ -380,13 +382,13 @@
   text-align: right !important;
 }
 
-.alg-footer-phone-link,\n.footer_phone_link:hover .nav-text,
-.alg-footer-email-link,\n.footer_email_link:hover .nav-text {
+.footer_phone_link:hover .nav-text,
+.footer_email_link:hover .nav-text {
   transform: translateY(-100%) !important;
   color: var(--brand-orange) !important;
 }
 
-.alg-footer-email-link,\n.footer_email_link {
+.footer_email_link {
   font-size: 1.35rem;
   font-weight: 700;
   color: #05080C;
@@ -395,11 +397,11 @@
   text-transform: none !important;
 }
 
-.alg-footer-email-link,\n.footer_email_link .nav-text {
+.footer_email_link .nav-text {
   text-transform: none !important;
 }
 
-.alg-footer-offline-section,\n.footer_offline_section {
+.footer_offline_section {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -407,14 +409,14 @@
   width: 100%;
 }
 
-.alg-footer-studio-title,\n.footer_studio_title {
+.footer_studio_title {
   font-size: 1rem;
   font-weight: 700;
   color: #05080C;
   margin-bottom: 0.35rem;
 }
 
-.alg-footer-address-text,\n.footer_address_text {
+.footer_address_text {
   font-size: 0.9rem;
   color: #6B7280;
   line-height: 1.55;
@@ -427,7 +429,7 @@
    GIANT BRAND WORDMARK (ALGOFORT in Clash Display SVG)
    100% width, height fit-content, zero gap on left & right
    ========================================================================== */
-.alg-footer-brand-display,\n.footer_brand_display {
+.footer_brand_display {
   display: block;
   width: 100%;
   height: fit-content;
@@ -436,7 +438,7 @@
   line-height: 0;
 }
 
-.alg-footer-brand-svg,\n.footer_brand_svg {
+.footer_brand_svg {
   width: 100% !important;
   height: auto !important;
   max-height: fit-content;
@@ -456,7 +458,7 @@
 /* ==========================================================================
    BOTTOM BAR: Divider & Copyright / Legal
    ========================================================================== */
-.alg-footer-bottom-bar,\n.footer_bottom_bar {
+.footer_bottom_bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -469,31 +471,31 @@
   gap: 1rem;
 }
 
-.alg-footer-bottom-left,\n.footer_bottom_left {
+.footer_bottom_left {
   display: flex;
   align-items: center;
   font-weight: 500;
 }
 
-.alg-footer-bottom-right,\n.footer_bottom_right {
+.footer_bottom_right {
   display: flex;
   align-items: center;
   gap: 0.65rem;
   flex-wrap: wrap;
 }
 
-.alg-footer-bottom-dot,\n.footer_bottom_dot {
+.footer_bottom_dot {
   opacity: 0.5;
 }
 
-.alg-footer-legal-link,\n.footer_legal_link {
+.footer_legal_link {
   color: #6B7280;
   text-decoration: none;
   display: inline-flex !important;
   align-items: center !important;
 }
 
-.alg-footer-legal-link,\n.footer_legal_link .nav-text-wrap {
+.footer_legal_link .nav-text-wrap {
   display: flex !important;
   flex-direction: column !important;
   height: 1.35em !important;
@@ -501,7 +503,7 @@
   position: relative !important;
 }
 
-.alg-footer-legal-link,\n.footer_legal_link .nav-text {
+.footer_legal_link .nav-text {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease !important;
   display: block !important;
   line-height: 1.35em !important;
@@ -509,7 +511,7 @@
   color: #6B7280 !important;
 }
 
-.alg-footer-legal-link,\n.footer_legal_link:hover .nav-text {
+.footer_legal_link:hover .nav-text {
   transform: translateY(-100%) !important;
   color: var(--brand-orange) !important;
 }

@@ -1,0 +1,235 @@
+/* ==========================================================================
+   PageBanner Stylesheet - Subpage Hero Banner
+   Matches the Home BannerSection aesthetics with ~50vh height, 
+   dynamic centered title, breadcrumbs, inset floating cockpit frame,
+   and bulletproof zoom in/out resilience.
+   ========================================================================== */
+
+.sec-page-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(420px, 46vh, 520px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 1600px) {
+  .sec-page-banner {
+    min-height: clamp(440px, 45vh, 540px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sec-page-banner {
+    min-height: 400px;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* Background Video Inset Card Layering (Matching Home Cockpit Inset) */
+.sec-page-banner .background-video-wrap,
+.sec-page-banner .sec-banner__video-wrap {
+  position: absolute;
+  inset: 0%;
+  margin: 10px;
+  border-radius: var(--_sizes---border-radius--xhuge, 2rem);
+  overflow: hidden;
+  z-index: 1;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-page-banner .background-video-wrap,
+  .sec-page-banner .sec-banner__video-wrap {
+    margin: 8px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sec-page-banner .background-video-wrap,
+  .sec-page-banner .sec-banner__video-wrap {
+    margin: 6px;
+    border-radius: 1.5rem;
+  }
+}
+
+/* Flex Column Layout preventing any overlap between content and bottom bar */
+.sec-page-banner__grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: inherit;
+  box-sizing: border-box;
+}
+
+/* Center Content Area - provides ample clearance for the header floating above */
+.sec-page-banner__content-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 5;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: clamp(5rem, 8.5vh, 6.75rem);
+  padding-bottom: clamp(1rem, 2vh, 1.5rem);
+  padding-left: clamp(1rem, 3vw, 2.5rem);
+  padding-right: clamp(1rem, 3vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+/* Page Title (Clash Display, responsive scale - slightly smaller & refined) */
+.sec-page-banner__title {
+  font-family: 'Clash Display', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.015em !important;
+  font-size: clamp(1.85rem, 3.4vw, 3.15rem) !important;
+  margin: 0 0 0.85rem 0 !important;
+  visibility: hidden;
+  text-align: center;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* Word spacing guarantee for GSAP character splits */
+.sec-page-banner__title .word {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 0.28em;
+}
+
+.sec-page-banner__title .word:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-page-banner__title {
+    font-size: clamp(1.75rem, 4.5vw, 2.75rem) !important;
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sec-page-banner__content-wrap {
+    padding-top: 4.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .sec-page-banner__title {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+    margin-bottom: 0.65rem !important;
+  }
+}
+
+/* Breadcrumbs Container & List */
+.sec-page-banner__breadcrumb-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  margin-top: 0.25rem;
+  z-index: 6;
+}
+
+.sec-page-banner__breadcrumb-nav {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  padding: 0.45rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.sec-page-banner__breadcrumb-nav:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.sec-page-banner__breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.sec-page-banner__breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sec-page-banner__breadcrumb-link {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sec-page-banner__breadcrumb-link:hover {
+  color: #ffffff;
+}
+
+.sec-page-banner__breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+}
+
+.sec-page-banner__breadcrumb-current {
+  color: var(--brand-orange, #f47a1f);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Bottom Bar - matches the exact bottom gap of the home hero section */
+.sec-page-banner__bottom-wrap {
+  width: 100%;
+  margin-top: auto;
+  padding-bottom: 2rem;
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+.sec-page-banner .header-bottom-wrap {
+  bottom: 0 !important;
+  position: relative !important;
+}
+
+@media screen and (max-width: 767px) {
+  .sec-page-banner__bottom-wrap {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sec-page-banner__breadcrumb-list {
+    font-size: 0.8rem;
+    gap: 0.35rem;
+  }
+}

@@ -9,37 +9,37 @@ const processSteps = [
   {
     step: '01',
     title: 'Ideate',
-    lottieSrc: 'https://lottie.host/5aeb5bda-63f7-49fc-b2d6-81df76599a72/KioKSWlbTl.lottie',
+    lottieSrc: '/lottie/process-ideate.lottie',
     description: 'Collaborate with our team to define your idea, project scope, goals, requirements, timeline, and estimated budget.',
   },
   {
     step: '02',
     title: 'Design',
-    lottieSrc: 'https://lottie.host/6061747f-d3f2-4d89-94d9-35c8c81a067c/D1LnhwOosu.lottie',
+    lottieSrc: '/lottie/process-design.lottie',
     description: 'We create wireframes and interactive UI/UX prototypes to visualize the user journey and overall product experience.',
   },
   {
     step: '03',
     title: 'Develop',
-    lottieSrc: 'https://lottie.host/5e1a6144-941d-45fc-a500-740ee084fe14/o0CPGfjO3v.lottie',
+    lottieSrc: '/lottie/process-develop.lottie',
     description: 'Our developers turn the approved designs into a secure, scalable, responsive, and high-performance digital product.',
   },
   {
     step: '04',
     title: 'Test',
-    lottieSrc: 'https://lottie.host/6658c38e-fa43-4e4b-b62e-3bdecadcc38d/eCg4pRlW23.lottie',
+    lottieSrc: '/lottie/process-test.lottie',
     description: 'We rigorously test the product across devices and scenarios, identifying and resolving bugs before launch.',
   },
   {
     step: '05',
     title: 'Launch',
-    lottieSrc: 'https://lottie.host/aae54178-245a-43f9-9eba-a563736b433b/aTyFiJsZwj.lottie',
+    lottieSrc: '/lottie/process-launch.lottie',
     description: 'Once everything is ready, we deploy your product and monitor its performance to ensure a smooth launch and rollout.',
   },
   {
     step: '06',
     title: 'Support',
-    lottieSrc: 'https://lottie.host/bb3494c9-4d1d-46ff-827b-8cfdbe280433/fnJY1SY0cI.lottie',
+    lottieSrc: '/lottie/process-support.lottie',
     description: 'We provide ongoing maintenance, updates, bug fixes, and performance optimization to help your product grow and scale.',
   },
 ];
@@ -106,7 +106,7 @@ export function ProcessSection() {
   return (
     <>
       <Script
-        src="https://cdn.jsdelivr.net/npm/@dotlottie/player-component@v1.3.0/dist/dotlottie-player.js"
+        src="/scripts/dotlottie-player.js"
         strategy="afterInteractive"
       />
 

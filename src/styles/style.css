@@ -6,8 +6,8 @@
 /* Font face imports */
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-light.woff2") format("woff2"),
-    url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-light.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-light.woff2") format("woff2"),
+    url("/fonts/suisseintl/suisseintl-light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -15,8 +15,8 @@
 
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-regular.woff2") format("woff2"),
-    url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-regular.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-regular.woff2") format("woff2"),
+    url("/fonts/suisseintl/suisseintl-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -24,8 +24,8 @@
 
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-medium.woff2") format("woff2"),
-    url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-medium.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-medium.woff2") format("woff2"),
+    url("/fonts/suisseintl/suisseintl-medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -33,8 +33,8 @@
 
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-semibold.woff2") format("woff2"),
-    url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-semibold.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-semibold.woff2") format("woff2"),
+    url("/fonts/suisseintl/suisseintl-semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -42,8 +42,8 @@
 
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-bold.woff2") format("woff2"),
-    url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-bold.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-bold.woff2") format("woff2"),
+    url("/fonts/suisseintl/suisseintl-bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -123,7 +123,7 @@
 /* ==========================================================================
    Algofort Why-Us Cards Grid (Forteve Typography)
    ========================================================================== */
-.alg-about-cards-grid,\n.alg-about-card,\n.why-us-cards-grid {
+.why-us-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -133,7 +133,7 @@
   margin-top: 3.5rem;
 }
 
-.alg-about-card,\n.why-us-card {
+.why-us-card {
   position: relative;
   background-color: #ffffff !important;
   border-radius: 8px;
@@ -196,18 +196,18 @@
   letter-spacing: -0.03em;
 }
 
-.alg-about-card,\n.why-us-card-top {
+.why-us-card-top {
   position: relative;
   z-index: 2;
 }
 
-.alg-about-card,\n.why-us-card-number-wrap {
+.why-us-card-number-wrap {
   display: inline-flex;
   align-items: baseline;
 }
 
 /* Main Number Heading */
-.alg-about-card,\n.why-us-card-number {
+.why-us-card-number {
   font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
   font-stretch: condensed !important;
   text-transform: uppercase !important;
@@ -261,7 +261,7 @@
   color: inherit;
 }
 
-.alg-about-card,\n.why-us-card-bottom {
+.why-us-card-bottom {
   position: relative;
   z-index: 2;
   margin-top: auto;
@@ -269,7 +269,7 @@
 }
 
 /* Description Text */
-.alg-about-card,\n.why-us-card-desc {
+.why-us-card-desc {
   font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
   font-size: 16px;
   line-height: 1.4;
@@ -280,16 +280,16 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .alg-about-cards-grid,\n.alg-about-card,\n.why-us-cards-grid {
+  .why-us-cards-grid {
     gap: 10px;
   }
 
-  .alg-about-card,\n.why-us-card {
+  .why-us-card {
     padding: 32px 24px 28px 24px;
     min-height: 360px;
   }
 
-  .alg-about-card,\n.why-us-card-number {
+  .why-us-card-number {
     font-size: 54px !important;
   }
 
@@ -299,28 +299,28 @@
 }
 
 @media screen and (max-width: 991px) {
-  .alg-about-cards-grid,\n.alg-about-card,\n.why-us-cards-grid {
+  .why-us-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .alg-about-cards-grid,\n.alg-about-card,\n.why-us-cards-grid {
+  .why-us-cards-grid {
     grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  .alg-about-card,\n.why-us-card {
+  .why-us-card {
     min-height: 320px;
     padding: 30px 24px 24px 24px;
   }
 
-  .alg-about-card,\n.why-us-card-bottom {
+  .why-us-card-bottom {
     padding-top: 40px;
   }
 
-  .alg-about-card,\n.why-us-card-number {
+  .why-us-card-number {
     font-size: 48px !important;
   }
 
@@ -974,40 +974,40 @@ details[open]::details-content {
 /* Font face imports */
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-light.woff2") format("woff2"),
-       url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-light.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-light.woff2") format("woff2"),
+       url("/fonts/suisseintl/suisseintl-light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-regular.woff2") format("woff2"),
-       url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-regular.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-regular.woff2") format("woff2"),
+       url("/fonts/suisseintl/suisseintl-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-medium.woff2") format("woff2"),
-       url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-medium.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-medium.woff2") format("woff2"),
+       url("/fonts/suisseintl/suisseintl-medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-semibold.woff2") format("woff2"),
-       url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-semibold.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-semibold.woff2") format("woff2"),
+       url("/fonts/suisseintl/suisseintl-semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Suisse Intl";
-  src: url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-bold.woff2") format("woff2"),
-       url("https://cuberto.com/assets/fonts/suisseintl/suisseintl-bold.woff") format("woff");
+  src: url("/fonts/suisseintl/suisseintl-bold.woff2") format("woff2"),
+       url("/fonts/suisseintl/suisseintl-bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -2302,7 +2302,7 @@ img {
   white-space: nowrap !important;
 }
 
-.alg-services .alg-services-card,\n.alg-services .alg-services-card-content,\n.section-home-service .service-content-grid {
+.section-home-service .service-content-grid {
   display: grid !important;
   grid-template-columns: 0.25fr 1.25fr 1fr !important;
   align-items: center !important;
@@ -2313,7 +2313,7 @@ img {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
-.alg-services .alg-services-card,\n.alg-services .alg-services-card-content,\n.section-home-service .service-content-grid > .service-content-item:nth-child(3) {
+.section-home-service .service-content-grid > .service-content-item:nth-child(3) {
   justify-self: end !important;
   width: 100% !important;
   display: flex !important;
@@ -2321,14 +2321,14 @@ img {
   text-align: left !important;
 }
 
-.alg-services .alg-services-card-content,\n.section-home-service .service-content {
+.section-home-service .service-content {
   width: 100% !important;
   max-width: 22rem !important;
   text-align: left !important;
   margin-left: auto !important;
 }
 
-.alg-services .alg-services-card-title,\n.section-home-service .service-title-wrap {
+.section-home-service .service-title-wrap {
   display: block !important;
   height: 5.25rem !important;
   overflow: hidden !important;
@@ -2337,7 +2337,7 @@ img {
   padding: 0 !important;
 }
 
-.alg-services .alg-services-card-title,\n.section-home-service .service-title {
+.section-home-service .service-title {
   z-index: 3 !important;
   font-family: var(--_typography---font-family--primary), "Mona Sans Narrow", Impact, sans-serif !important;
   color: var(--primary-color--white, #ffffff) !important;
@@ -2355,25 +2355,25 @@ img {
   transform: none !important;
 }
 
-.alg-services .alg-services-card-title,\n.section-home-service .service-title.is-top {
+.section-home-service .service-title.is-top {
   position: relative !important;
   top: 0 !important;
   left: 0 !important;
   text-align: left !important;
 }
 
-.alg-services .alg-services-card-title,\n.section-home-service .service-title.is-bottom {
+.section-home-service .service-title.is-bottom {
   position: absolute !important;
   top: 100% !important;
   left: 0 !important;
   text-align: left !important;
 }
 
-.alg-services .alg-services-card,\n.alg-services .alg-services-card-content,\n.section-home-service .service-content-grid:hover .service-title {
+.section-home-service .service-content-grid:hover .service-title {
   transform: none !important;
 }
 
-.alg-services .alg-services-card-image-wrap,\n.section-home-service .service-image-wrap {
+.section-home-service .service-image-wrap {
   z-index: 1 !important;
   width: 12rem !important;
   height: 12rem !important;
@@ -2391,16 +2391,16 @@ img {
   pointer-events: none !important;
 }
 
-.alg-services .alg-services-card-title,\n.section-home-service .service-title-wrap,
-.alg-services .alg-services-card-title,\n.section-home-service .service-title,
-.alg-services .alg-services-card-title,\n.section-home-service .service-title .word,
-.alg-services .alg-services-card-title,\n.section-home-service .service-title .char {
+.section-home-service .service-title-wrap,
+.section-home-service .service-title,
+.section-home-service .service-title .word,
+.section-home-service .service-title .char {
   text-align: left !important;
 }
 
 @media screen and (min-width: 1920px) {
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title-wrap,
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title {
+  .section-home-service .service-title-wrap,
+  .section-home-service .service-title {
     height: 5.5rem !important;
     font-size: 5.5rem !important;
     text-align: left !important;
@@ -2408,11 +2408,11 @@ img {
 }
 
 @media screen and (max-width: 1200px) {
-  .alg-services .alg-services-card,\n.alg-services .alg-services-card-content,\n.section-home-service .service-content-grid {
+  .section-home-service .service-content-grid {
     grid-template-columns: 0.2fr 1.3fr 1fr !important;
   }
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title-wrap,
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title {
+  .section-home-service .service-title-wrap,
+  .section-home-service .service-title {
     height: 4.5rem !important;
     font-size: 4.5rem !important;
     text-align: left !important;
@@ -2462,7 +2462,7 @@ img {
   }
 
   /* Tablet & Mobile: Flex column for card items with 100% uniform gap */
-  .alg-services .alg-services-card,\n.alg-services .alg-services-card-content,\n.section-home-service .service-content-grid {
+  .section-home-service .service-content-grid {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -2472,7 +2472,7 @@ img {
     padding-bottom: 2rem !important;
   }
 
-  .alg-services .alg-services-card,\n.alg-services .alg-services-card-content,\n.section-home-service .service-content-grid > .service-content-item {
+  .section-home-service .service-content-grid > .service-content-item {
     display: block !important;
     width: 100% !important;
     margin: 0 !important;
@@ -2497,14 +2497,14 @@ img {
     color: rgba(255, 255, 255, 0.45) !important;
   }
 
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title-wrap {
+  .section-home-service .service-title-wrap {
     margin: 0 !important;
     padding: 0 !important;
     display: block !important;
     height: clamp(2.25rem, 5.5vw, 3.75rem) !important;
   }
 
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title {
+  .section-home-service .service-title {
     margin: 0 !important;
     padding: 0 !important;
     height: clamp(2.25rem, 5.5vw, 3.75rem) !important;
@@ -2513,7 +2513,7 @@ img {
     line-height: 1 !important;
   }
 
-  .alg-services .alg-services-card-content,\n.section-home-service .service-content {
+  .section-home-service .service-content {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
@@ -2522,7 +2522,7 @@ img {
   }
 
   .section-home-service .service-text,
-  .alg-services .alg-services-card-content,\n.section-home-service .service-content p {
+  .section-home-service .service-content p {
     margin: 0 !important;
     padding: 0 !important;
     font-size: 1.05rem !important;
@@ -2567,7 +2567,7 @@ img {
   }
 
   /* Equal gap between number, title, and text on mobile */
-  .alg-services .alg-services-card,\n.alg-services .alg-services-card-content,\n.section-home-service .service-content-grid {
+  .section-home-service .service-content-grid {
     gap: 0.75rem !important;
     padding-top: 1.75rem !important;
     padding-bottom: 1.75rem !important;
@@ -2584,13 +2584,13 @@ img {
     line-height: 1.2 !important;
   }
 
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title-wrap {
+  .section-home-service .service-title-wrap {
     margin: 0 !important;
     padding: 0 !important;
     height: clamp(1.85rem, 6.5vw, 2.65rem) !important;
   }
 
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title {
+  .section-home-service .service-title {
     margin: 0 !important;
     padding: 0 !important;
     height: clamp(1.85rem, 6.5vw, 2.65rem) !important;
@@ -2599,13 +2599,13 @@ img {
     line-height: 1 !important;
   }
 
-  .alg-services .alg-services-card-content,\n.section-home-service .service-content {
+  .section-home-service .service-content {
     margin: 0 !important;
     padding: 0 !important;
   }
 
   .section-home-service .service-text,
-  .alg-services .alg-services-card-content,\n.section-home-service .service-content p {
+  .section-home-service .service-content p {
     margin: 0 !important;
     padding: 0 !important;
     font-size: 0.95rem !important;
@@ -2644,7 +2644,7 @@ img {
   }
 
   /* Equal gap between number, title, and text on small phones */
-  .alg-services .alg-services-card,\n.alg-services .alg-services-card-content,\n.section-home-service .service-content-grid {
+  .section-home-service .service-content-grid {
     gap: 0.65rem !important;
     padding-top: 1.4rem !important;
     padding-bottom: 1.4rem !important;
@@ -2661,13 +2661,13 @@ img {
     line-height: 1.2 !important;
   }
 
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title-wrap {
+  .section-home-service .service-title-wrap {
     margin: 0 !important;
     padding: 0 !important;
     height: clamp(1.5rem, 7vw, 1.95rem) !important;
   }
 
-  .alg-services .alg-services-card-title,\n.section-home-service .service-title {
+  .section-home-service .service-title {
     margin: 0 !important;
     padding: 0 !important;
     height: clamp(1.5rem, 7vw, 1.95rem) !important;
@@ -2676,13 +2676,13 @@ img {
     line-height: 1 !important;
   }
 
-  .alg-services .alg-services-card-content,\n.section-home-service .service-content {
+  .section-home-service .service-content {
     margin: 0 !important;
     padding: 0 !important;
   }
 
   .section-home-service .service-text,
-  .alg-services .alg-services-card-content,\n.section-home-service .service-content p {
+  .section-home-service .service-content p {
     margin: 0 !important;
     padding: 0 !important;
     font-size: 0.875rem !important;
@@ -2692,7 +2692,7 @@ img {
 
 /* Touch screen optimization: disable floating hover image on touch */
 @media (hover: none) and (pointer: coarse) {
-  .alg-services .alg-services-card-image-wrap,\n.section-home-service .service-image-wrap {
+  .section-home-service .service-image-wrap {
     display: none !important;
   }
 }

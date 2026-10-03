@@ -47,7 +47,7 @@ export const Footer = () => {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const heading = document.querySelector('.alg-footer-heading, .footer_heading');
+    const heading = document.querySelector('.footer_heading');
     if (heading) {
       initTitleAnimation(heading, { start: 'top 85%', stagger: 0.02 });
     }
@@ -65,46 +65,46 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="alg-footer footer">
+    <footer className="footer">
       <div className="padding-global is-tiny">
-        <div className="alg-footer-wrap footer_wrap">
+        <div className="footer_wrap">
 
           {/* Artistic Calligraphic "Letter G" Watermark on Right */}
-          <div className="alg-footer-watermark footer_watermark" aria-hidden="true">
+          <div className="footer_watermark" aria-hidden="true">
             <img 
               src="/assets/footer-watermark.svg" 
               alt="" 
-              className="alg-footer-watermark-img footer_watermark_img" 
+              className="footer_watermark_img" 
               loading="lazy"
             />
           </div>
 
-          <div className="alg-footer-content footer_content">
+          <div className="footer_content">
             
             {/* Unified 2-Pane Main Layout */}
-            <div className="alg-footer-main-layout footer_main_layout">
+            <div className="footer_main_layout">
 
               {/* LEFT PANE: Newsletter (Top) & Social Media Rows (Bottom) */}
-              <div className="alg-footer-left-pane footer_left_pane">
+              <div className="footer_left_pane">
                 
                 {/* Stay connected & Newsletter */}
-                <div className="alg-footer-col-newsletter footer_col_newsletter">
-                  <h2 className="alg-footer-heading footer_heading">Stay connected</h2>
-                  <p className="alg-footer-subtext footer_subtext alg-text">
-                    Join our newsletter for tips, updates, and project highlights — only the good stuff.
+                <div className="footer_col_newsletter">
+                  <h2 className="footer_heading">Stay connected</h2>
+                  <p className="footer_subtext alg-text">
+                    Join our newsletter for tips, updates, and project highlights—only the good stuff.
                   </p>
-                  <form className="alg-footer-newsletter-form footer_newsletter_form" onSubmit={handleSubmit}>
+                  <form className="footer_newsletter_form" onSubmit={handleSubmit}>
                     <input
                       type="email"
                       placeholder="Enter email address*"
-                      className="alg-footer-newsletter-input footer_newsletter_input"
+                      className="footer_newsletter_input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                     <button
                       type="submit"
-                      className="alg-footer-newsletter-btn footer_newsletter_btn"
+                      className="footer_newsletter_btn"
                       aria-label="Submit newsletter subscription"
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -114,30 +114,30 @@ export const Footer = () => {
                     </button>
                   </form>
                   {submitted && (
-                    <div className="alg-footer-form-success footer_form_success">
+                    <div className="footer_form_success">
                       ✓ Thank you! Your email has been registered.
                     </div>
                   )}
                 </div>
 
                 {/* Social Links List with arrows */}
-                <div className="alg-footer-social-list footer_social_list">
+                <div className="footer_social_list">
                   {socialLinks.map((social) => (
                     <a
                       key={social.name}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="alg-footer-social-row footer_social_row"
+                      className="footer_social_row"
                     >
-                      <div className="alg-footer-social-left footer_social_left">
-                        <span className="alg-footer-social-icon footer_social_icon">{social.icon}</span>
+                      <div className="footer_social_left">
+                        <span className="footer_social_icon">{social.icon}</span>
                         <div className="nav-text-wrap">
                           <span className="nav-text">{social.name}</span>
                           <span className="nav-text">{social.name}</span>
                         </div>
                       </div>
-                      <div className="alg-footer-social-arrow footer_social_arrow">
+                      <div className="footer_social_arrow">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12"></line>
                           <polyline points="12 5 19 12 12 19"></polyline>
@@ -150,35 +150,35 @@ export const Footer = () => {
               </div>
 
               {/* RIGHT PANE: Main Links + Get in Touch (Right-Aligned) on Top; ALGOFORT (Bottom) */}
-              <div className="alg-footer-right-pane footer_right_pane">
+              <div className="footer_right_pane">
                 
                 {/* Top of Right Pane: Main Links (left) and Get in touch (right) */}
-                <div className="alg-footer-right-top footer_right_top">
+                <div className="footer_right_top">
 
                   {/* Main links (Left sub-col) */}
-                  <div className="alg-footer-col-links footer_col_links">
-                    <div className="alg-footer-label footer_label">Main links</div>
-                    <div className="alg-footer-links-grid footer_links_grid">
-                      <div className="alg-footer-links-col footer_links_col">
-                        <a href="#top" className="alg-footer-nav-link footer_nav_link nav-link">
+                  <div className="footer_col_links">
+                    <div className="footer_label">Main links</div>
+                    <div className="footer_links_grid">
+                      <div className="footer_links_col">
+                        <a href="#top" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Home</div>
                             <div className="nav-text">Home</div>
                           </div>
                         </a>
-                        <a href="#sec-about" className="alg-footer-nav-link footer_nav_link nav-link">
+                        <a href="#sec-about" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">About us</div>
                             <div className="nav-text">About us</div>
                           </div>
                         </a>
-                        <a href="#sec-services" className="alg-footer-nav-link footer_nav_link nav-link">
+                        <a href="#sec-services" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Services</div>
                             <div className="nav-text">Services</div>
                           </div>
                         </a>
-                        <a href="#sec-projects" className="alg-footer-nav-link footer_nav_link nav-link">
+                        <a href="#sec-projects" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Projects</div>
                             <div className="nav-text">Projects</div>
@@ -186,20 +186,20 @@ export const Footer = () => {
                         </a>
                       </div>
 
-                      <div className="alg-footer-links-col footer_links_col">
-                        <a href="#contact-cta" className="alg-footer-nav-link footer_nav_link nav-link">
+                      <div className="footer_links_col">
+                        <a href="#contact-cta" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Contact us</div>
                             <div className="nav-text">Contact us</div>
                           </div>
                         </a>
-                        <a href="#sec-faq" className="alg-footer-nav-link footer_nav_link nav-link">
+                        <a href="#sec-faq" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">FAQ</div>
                             <div className="nav-text">FAQ</div>
                           </div>
                         </a>
-                        <a href="#sec-services" className="alg-footer-nav-link footer_nav_link nav-link">
+                        <a href="#sec-services" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Blog</div>
                             <div className="nav-text">Blog</div>
@@ -210,16 +210,16 @@ export const Footer = () => {
                   </div>
 
                   {/* Get in touch & Offline (Right-Aligned sub-col) */}
-                  <div className="alg-footer-col-contact footer_col_contact">
-                    <div className="alg-footer-contact-section footer_contact_section">
-                      <div className="alg-footer-label footer_label">Get in touch</div>
-                      <a href="tel:+12135555555" className="alg-footer-phone-link footer_phone_link">
+                  <div className="footer_col_contact">
+                    <div className="footer_contact_section">
+                      <div className="footer_label">Get in touch</div>
+                      <a href="tel:+12135555555" className="footer_phone_link">
                         <div className="nav-text-wrap">
                           <span className="nav-text">+1 (213) 555-5555</span>
                           <span className="nav-text">+1 (213) 555-5555</span>
                         </div>
                       </a>
-                      <a href="mailto:hello@algofort.com" className="alg-footer-email-link footer_email_link">
+                      <a href="mailto:hello@algofort.com" className="footer_email_link">
                         <div className="nav-text-wrap">
                           <span className="nav-text">hello@algofort.com</span>
                           <span className="nav-text">hello@algofort.com</span>
@@ -227,10 +227,10 @@ export const Footer = () => {
                       </a>
                     </div>
 
-                    <div className="alg-footer-offline-section footer_offline_section">
-                      <div className="alg-footer-label footer_label">Offline</div>
-                      <div className="alg-footer-studio-title footer_studio_title">Algofort Studio</div>
-                      <p className="alg-footer-address-text footer_address_text alg-text">
+                    <div className="footer_offline_section">
+                      <div className="footer_label">Offline</div>
+                      <div className="footer_studio_title">Algofort Studio</div>
+                      <p className="footer_address_text alg-text">
                         412 Melrose Avenue, Suite 210, Los Angeles, CA 90036, USA
                       </p>
                     </div>
@@ -239,20 +239,26 @@ export const Footer = () => {
                 </div>
 
                 {/* Bottom of Right Pane: ALGOFORT SVG Wordmark */}
-                <div className="alg-footer-brand-display footer_brand_display">
+                <div className="footer_brand_display">
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     viewBox="0 -76 565 86" 
                     width="100%" 
                     height="auto"
-                    className="alg-footer-brand-svg footer_brand_svg"
+                    className="footer_brand_svg"
                     role="img"
                     aria-label="ALGOFORT"
                     style={{ width: '100%', height: 'fit-content' }}
                   >
                     <defs>
                       <style>{`
-                        @import url('https://api.fontshare.com/v2/css?f[]=clash-display@700&display=swap');
+                        @font-face {
+                          font-family: 'Clash Display';
+                          src: url('/fonts/6925673287d6a5eea5a68225_ClashDisplay-Bold.otf') format('opentype');
+                          font-weight: 700;
+                          font-style: normal;
+                          font-display: swap;
+                        }
 
                         .fit-text {
                           font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -272,19 +278,19 @@ export const Footer = () => {
             </div>
 
             {/* Bottom Bar: Divider & Copyright (Left) / Legal (Right) */}
-            <div className="alg-footer-bottom-bar footer_bottom_bar">
-              <div className="alg-footer-bottom-left footer_bottom_left">
+            <div className="footer_bottom_bar">
+              <div className="footer_bottom_left">
                 <span>© 2026 Algofort. All rights reserved</span>
               </div>
-              <div className="alg-footer-bottom-right footer_bottom_right">
-                <a href="#privacy" className="alg-footer-legal-link footer_legal_link">
+              <div className="footer_bottom_right">
+                <a href="#privacy" className="footer_legal_link">
                   <div className="nav-text-wrap">
                     <span className="nav-text">Privacy Policy</span>
                     <span className="nav-text">Privacy Policy</span>
                   </div>
                 </a>
-                <span className="alg-footer-bottom-dot footer_bottom_dot">•</span>
-                <a href="#terms" className="alg-footer-legal-link footer_legal_link">
+                <span className="footer_bottom_dot">•</span>
+                <a href="#terms" className="footer_legal_link">
                   <div className="nav-text-wrap">
                     <span className="nav-text">Terms of Service</span>
                     <span className="nav-text">Terms of Service</span>

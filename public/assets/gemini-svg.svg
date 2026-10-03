@@ -1,7 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
   <defs>
     <style>
-      @import url('https://api.fontshare.com/v2/css?f[]=clash-display@700&amp;display=swap');
+      @font-face {
+        font-family: 'Clash Display';
+        src: url('/fonts/6925673287d6a5eea5a68225_ClashDisplay-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
 
       .clash-text {
         font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, sans-serif;

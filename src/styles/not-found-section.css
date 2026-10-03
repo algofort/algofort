@@ -1,0 +1,277 @@
+/* ==========================================================================
+   NotFoundSection Stylesheet - 20px Inset Full-Height Card
+   Matches the Home Banner frame with 20px top, bottom, left, right gap.
+   Top-Left: Small Header-Sized Algofort Logo
+   Bottom-Left: Copyright Notice
+   Left Column: Big Outline 404
+   Right Column: Heading (homepage style), Description & Home Page Button.
+   ========================================================================== */
+
+/* Outer Viewport Wrapper with 20px Gap on Top, Bottom, Left, Right */
+.sec-not-found-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f4f4f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-not-found-wrapper {
+    height: auto;
+    min-height: 100vh;
+    padding: 16px;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sec-not-found-wrapper {
+    padding: 12px;
+  }
+}
+
+/* Full Height/Width Floating Dark Card */
+.sec-not-found-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  background-color: #0b0c10;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  padding: 4.5rem 2.5rem;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-not-found-card {
+    min-height: calc(100vh - 32px);
+    border-radius: 20px;
+    padding: 4.5rem 1.5rem 3.5rem;
+  }
+}
+
+/* Top-Left Logo matching header banner size */
+.sec-not-found__top-left {
+  position: absolute;
+  top: 2.25rem;
+  left: 2.75rem;
+  z-index: 15;
+}
+
+.sec-not-found__logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.sec-not-found__logo-link:hover {
+  opacity: 0.85;
+}
+
+.sec-not-found__logo-img {
+  height: 1.65rem;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-not-found__top-left {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .sec-not-found__logo-img {
+    height: 1.45rem;
+  }
+}
+
+/* Bottom-Left Copyright Notice */
+.sec-not-found__bottom-left {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 2.75rem;
+  z-index: 15;
+}
+
+.sec-not-found__copyright {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-not-found__bottom-left {
+    bottom: 1.25rem;
+    left: 1.5rem;
+  }
+
+  .sec-not-found__copyright {
+    font-size: 0.78rem;
+  }
+}
+
+/* Cyber Grid Pattern Background */
+.sec-not-found__bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ambient Nebula Glow Behind Left Column & Background */
+.sec-not-found__nebula {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-width: 850px;
+  height: 75%;
+  max-height: 620px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(99, 102, 241, 0.24) 0%,
+    rgba(126, 20, 255, 0.16) 35%,
+    rgba(244, 122, 31, 0.08) 65%,
+    transparent 80%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 2-Column Grid: Left (404) & Right (Heading + Description + Button) */
+.sec-not-found__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  justify-content: center;
+  gap: 4.5rem;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+  padding: 1.5rem 3.5rem;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1200px) {
+  .sec-not-found__grid {
+    gap: 3rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .sec-not-found__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+}
+
+/* Left Column: Big Wireframe 404 */
+.sec-not-found__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sec-not-found__number-outline {
+  font-family: 'Clash Display', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(8rem, 16vw, 17.5rem) !important;
+  line-height: 0.85 !important;
+  letter-spacing: -0.04em !important;
+  color: transparent !important;
+  -webkit-text-stroke: 2px rgba(244, 122, 31, 0.55);
+  text-shadow: 0 0 60px rgba(244, 122, 31, 0.18);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Right Column: Heading, Description, Button */
+.sec-not-found__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-not-found__right {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+/* Heading in exact homepage section-title style */
+.sec-not-found__title {
+  margin: 0 0 1.25rem 0 !important;
+  font-size: clamp(2.4rem, 3.8vw, 3.8rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Description Text */
+.sec-not-found__desc {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+  max-width: 540px;
+  margin: 0 0 2.25rem 0;
+}
+
+/* Button Item Container */
+.sec-not-found__button-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-not-found__button-item {
+    justify-content: center;
+  }
+}
+
+/* Ensure button text in 404 maintains crisp contrast and uppercase */
+.sec-not-found__button-item .button-text.alternate-text {
+  color: var(--primary-color--black, #05080c) !important;
+}
+
+.sec-not-found__button-item .main-button.alternate-button {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sec-not-found__button-item .main-button.alternate-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(244, 122, 31, 0.25);
+}

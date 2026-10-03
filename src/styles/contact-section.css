@@ -1,0 +1,515 @@
+/* ==========================================================================
+   ContactSection Stylesheet - Matching Attached Visual Reference
+   Follows design.md, instructions.md, and exact user-specified visual layout.
+   Left: Star badge line, Bold Heading, Paragraph, 2-Column Contact Info Grid
+   Right: Elevated White Card with Full Name, Phone, Email, Service Pills, Message, Submit Button
+   Bottom: Google Maps Embed
+   Ambient: Soft warm canvas with subtle glowing orange gradient wave ribbons
+   ========================================================================== */
+
+.alg-contact,
+.sec-contact {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 10% 90%, rgba(244, 122, 31, 0.06) 0%, transparent 50%),
+              radial-gradient(circle at 90% 10%, rgba(244, 122, 31, 0.06) 0%, transparent 50%),
+              #fbfbf9 !important;
+  color: #05080c;
+  overflow: hidden;
+}
+
+/* Ambient Decorative Curved Wave Ribbons */
+.alg-contact-bg-wave {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.alg-contact-bg-wave--top-right {
+  top: -80px;
+  right: -80px;
+  width: 600px;
+  height: 600px;
+}
+
+.alg-contact-bg-wave--bottom-left {
+  bottom: -60px;
+  left: -80px;
+  width: 700px;
+  height: 400px;
+}
+
+.alg-contact-inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+}
+
+@media screen and (max-width: 991px) {
+  .alg-contact-inner {
+    padding-top: 3.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* ==========================================================================
+   2-Column Main Layout Grid
+   ========================================================================== */
+.alg-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 4.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1200px) {
+  .alg-contact-grid {
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .alg-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* ==========================================================================
+   Left Column: Badge Line, Heading, Paragraph, 2-Col Contact Info
+   ========================================================================== */
+.alg-contact-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Badge with Star & Line */
+.alg-contact-badge-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.alg-contact-badge-star {
+  width: 18px;
+  height: 18px;
+  color: var(--brand-orange, #f47a1f);
+  flex-shrink: 0;
+}
+
+.alg-contact-badge-divider {
+  width: 34px;
+  height: 1.5px;
+  background-color: var(--brand-orange, #f47a1f);
+  opacity: 0.75;
+}
+
+.alg-contact-badge-text {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Heading: LET’S BUILD SOMETHING GREAT TOGETHER */
+.alg-contact-title {
+  margin-top: 0 !important;
+  margin-bottom: 1.25rem !important;
+  color: #0e0e0e !important;
+  font-family: 'Clash Display', 'Mona Sans Narrow', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2.35rem, 3.8vw, 3.75rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.alg-contact-desc {
+  color: #555555 !important;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 1.025rem;
+  line-height: 1.65;
+  max-width: 530px;
+  margin: 0 0 2.75rem 0 !important;
+}
+
+@media screen and (max-width: 640px) {
+  .alg-contact-desc {
+    font-size: 0.95rem;
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* 2-Column Contact Info Grid */
+.alg-contact-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.25rem 2rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 540px) {
+  .alg-contact-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.alg-contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alg-contact-info-item:hover {
+  transform: translateY(-2px);
+}
+
+.alg-contact-info-icon-circle {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 50%;
+  background: rgba(244, 122, 31, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-orange, #f47a1f);
+  transition: all 0.25s ease;
+  margin-top: 2px;
+}
+
+.alg-contact-info-item:hover .alg-contact-info-icon-circle {
+  background: var(--brand-orange, #f47a1f);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.alg-contact-info-icon-circle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.alg-contact-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.alg-contact-info-label {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.alg-contact-info-value {
+  font-family: 'Clash Display', 'Mona Sans Narrow', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.35;
+  text-transform: uppercase;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.alg-contact-info-timing {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.8rem;
+  color: #777777;
+  font-weight: 500;
+  margin-top: 0.1rem;
+}
+
+/* ==========================================================================
+   Right Column: Elevated White Floating Card
+   ========================================================================== */
+.alg-contact-right-col {
+  width: 100%;
+}
+
+.alg-contact-form-card {
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@media screen and (max-width: 640px) {
+  .alg-contact-form-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 20px;
+  }
+}
+
+/* Form Styles */
+.alg-contact-form,
+.alg-contact .alg-cta-form,
+.alg-contact .cta_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.alg-contact-form-row.two-cols,
+.alg-contact .alg-cta-form-row.two-cols,
+.alg-contact .form_row.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 640px) {
+  .alg-contact-form-row.two-cols,
+  .alg-contact .alg-cta-form-row.two-cols,
+  .alg-contact .form_row.two-cols {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+  }
+}
+
+.alg-contact-form-group,
+.alg-contact .alg-cta-form-group,
+.alg-contact .form_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.alg-contact-form-group label,
+.alg-contact .alg-cta-form-group label,
+.alg-contact .form_group label {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.alg-contact-form-group input,
+.alg-contact-form-group textarea,
+.alg-contact .alg-cta-form-group input,
+.alg-contact .alg-cta-form-group textarea,
+.alg-contact .form_group input,
+.alg-contact .form_group textarea {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.85rem 1.15rem;
+  font-size: 0.95rem;
+  color: #111111;
+  font-family: inherit;
+  box-sizing: border-box;
+  width: 100%;
+  transition: all 0.2s ease;
+  outline: none;
+  box-shadow: none;
+}
+
+.alg-contact-form-group input::placeholder,
+.alg-contact-form-group textarea::placeholder,
+.alg-contact .alg-cta-form-group input::placeholder,
+.alg-contact .alg-cta-form-group textarea::placeholder,
+.alg-contact .form_group input::placeholder,
+.alg-contact .form_group textarea::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.alg-contact-form-group input:focus,
+.alg-contact-form-group textarea:focus,
+.alg-contact .alg-cta-form-group input:focus,
+.alg-contact .alg-cta-form-group textarea:focus,
+.alg-contact .form_group input:focus,
+.alg-contact .form_group textarea:focus {
+  border-color: var(--brand-orange, #f47a1f);
+  box-shadow: 0 0 0 3px rgba(244, 122, 31, 0.12);
+}
+
+.alg-contact-form-group textarea,
+.alg-contact .alg-cta-form-group textarea,
+.alg-contact .form_group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* Service Pills Matching Attached Image */
+.alg-contact-pills-row,
+.alg-contact .alg-cta-pills-row,
+.alg-contact .service-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.alg-contact-pill-btn,
+.alg-contact .alg-cta-pill-btn,
+.alg-contact .service-pill-btn {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  padding: 0.55rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.825rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  box-shadow: none !important;
+}
+
+.alg-contact-pill-btn:hover,
+.alg-contact .alg-cta-pill-btn:hover,
+.alg-contact .service-pill-btn:hover {
+  border-color: var(--brand-orange, #f47a1f);
+  color: var(--brand-orange, #f47a1f);
+}
+
+.alg-contact-pill-btn.active,
+.alg-contact .alg-cta-pill-btn.active,
+.alg-contact .service-pill-btn.active {
+  background: var(--brand-orange, #f47a1f);
+  color: #ffffff;
+  border-color: var(--brand-orange, #f47a1f);
+  font-weight: 600;
+}
+
+/* Submit Button: SUBMIT → */
+.alg-contact-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 0.65rem;
+}
+
+.alg-contact-submit-btn {
+  background: var(--brand-orange, #f47a1f);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.95rem 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  box-shadow: 0 10px 24px -4px rgba(244, 122, 31, 0.45);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Clash Display', 'Mona Sans Narrow', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.alg-contact-submit-btn:hover {
+  background: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -4px rgba(244, 122, 31, 0.55);
+}
+
+.alg-contact-btn-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+.alg-contact-submit-btn:hover .alg-contact-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Success Message */
+.alg-contact-success {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  color: #111111;
+}
+
+.alg-contact-success-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+}
+
+.alg-contact-success-icon-wrap svg {
+  width: 32px;
+  height: 32px;
+}
+
+.alg-contact-success-title {
+  font-family: 'Clash Display', 'Mona Sans Narrow', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+.alg-contact-success-desc {
+  color: #666666;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Subsay nichay map: Google Maps Embed Wrapper
+   ========================================================================== */
+.alg-contact-map-wrapper {
+  margin-top: 4.5rem;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  line-height: 0;
+  box-sizing: border-box;
+  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.05);
+}
+
+.alg-contact-map-iframe {
+  width: 100%;
+  height: 450px;
+  display: block;
+  border: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .alg-contact-map-wrapper {
+    margin-top: 3rem;
+    border-radius: 20px;
+  }
+  .alg-contact-map-iframe {
+    height: 350px;
+  }
+}

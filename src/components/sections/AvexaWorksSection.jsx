@@ -15,7 +15,7 @@ const worksData = [
       'We empower your brand by creating and sharing beneficial content that educates, attracts, and engages potential customers.',
     image: '/images/work-1.jpeg',
     alt: 'Content Marketing & Copywriting - Algofort',
-    category: 'Development • Read More ↗',
+    category: 'Development · Read More →',
     reversed: false,
     link: 'https://www.algofort.com/copywriting-services/',
   },
@@ -28,7 +28,7 @@ const worksData = [
       'Engage with audiences on trending platforms to promote and enhance visibility to your brand.',
     image: '/images/work-2.jpg',
     alt: 'Social Media Marketing - Algofort',
-    category: 'Development • Read More ↗',
+    category: 'Development · Read More →',
     reversed: true,
     link: 'https://www.algofort.com/social-media-marketing/',
   },
@@ -41,7 +41,7 @@ const worksData = [
       'Direct traffic and leads to your site through targeted advertising campaigns.',
     image: '/images/work-3.jpeg',
     alt: 'PPC Pay-Per-Click Advertising - Algofort',
-    category: 'Development • Read More ↗',
+    category: 'Development · Read More →',
     reversed: false,
     link: 'https://www.algofort.com/',
   },
@@ -51,12 +51,12 @@ const worksData = [
     titleWord1: 'SEO',
     titleWord2: 'Optimization',
     description:
-      'Increase organic visibility and drive relevant users through strategic search engine optimization.',
+      'Improving your ranking on the search results so that user foot fall to your site with organic traffic increases.',
     image: '/images/work-4.jpeg',
-    alt: 'Search Engine Optimization SEO - Algofort',
-    category: 'Development • Read More ↗',
+    alt: 'Search Engine Optimization - Algofort',
+    category: 'Development · Read More →',
     reversed: true,
-    link: 'https://www.algofort.com/search-engine-optimization-seo-services/',
+    link: 'https://www.algofort.com/local-seo-services/',
   },
 ];
 
@@ -68,18 +68,18 @@ export function AvexaWorksSection() {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
 
-    const workItems = Array.from(sectionEl.querySelectorAll('.alg-works-item, .work-item'));
+    const workItems = Array.from(sectionEl.querySelectorAll('.work-item'));
     const cursor = cursorRef.current;
-    const cards = sectionEl.querySelectorAll('.alg-works-card, .work-card');
+    const cards = sectionEl.querySelectorAll('.work-card');
     const globalCursor = document.querySelector('.cb-cursor');
 
-    const introTitle = sectionEl.querySelector('.alg-works-intro-title, .works-intro-title');
+    const introTitle = sectionEl.querySelector('.works-intro-title');
     if (introTitle) {
       initTitleAnimation(introTitle, { start: 'top 85%', stagger: 0.02 });
     }
 
     workItems.forEach((item) => {
-      const cardTitle = item.querySelector('.alg-works-title, .work-title');
+      const cardTitle = item.querySelector('.work-title');
       if (cardTitle) {
         initTitleAnimation(cardTitle, { trigger: item, start: 'top 80%', stagger: 0.02 });
       }
@@ -108,25 +108,29 @@ export function AvexaWorksSection() {
           const nextTop = nextRect.top;
 
           if (nextTop < viewportHeight && nextTop > 0) {
+            // Progress from 0 (just entered viewport) to 1 (fully covering current card)
             const progress = 1 - nextTop / viewportHeight;
 
-            const scale = (1 - progress * 0.3).toFixed(4);
-            const brightness = (1 - progress * 0.5).toFixed(4);
-            const opacity = (1 - progress * 0.3).toFixed(4);
+            const scale = (1 - progress * 0.3).toFixed(4); // scale 1.0 down to 0.7
+            const brightness = (1 - progress * 0.5).toFixed(4); // brightness 1.0 down to 0.5
+            const opacity = (1 - progress * 0.3).toFixed(4); // opacity 1.0 down to 0.7
 
             item.style.transform = `scale(${scale})`;
             item.style.filter = `brightness(${brightness})`;
             item.style.opacity = `${opacity}`;
           } else if (nextTop <= 0) {
+            // Fully covered
             item.style.transform = 'scale(0.7)';
             item.style.filter = 'brightness(0.5)';
             item.style.opacity = '0.7';
           } else {
+            // Not yet overlapped
             item.style.transform = 'scale(1)';
             item.style.filter = 'brightness(1)';
             item.style.opacity = '1';
           }
         } else {
+          // Last card remains normal
           item.style.transform = 'scale(1)';
           item.style.filter = 'brightness(1)';
           item.style.opacity = '1';
@@ -175,17 +179,17 @@ export function AvexaWorksSection() {
       cursorAnimId = requestAnimationFrame(animateCursor);
     };
 
-    if (window.innerWidth > 1024 && cursor) {
-      cursorAnimId = requestAnimationFrame(animateCursor);
-      window.addEventListener('mousemove', onMouseMove, { passive: true });
+    if (cursor && window.innerWidth > 1024) {
+      window.addEventListener('mousemove', onMouseMove);
+      animateCursor();
 
       const handleMouseEnterCard = () => {
-        cursor.classList.add('is-active');
+        cursor.classList.add('active');
         if (globalCursor) globalCursor.style.opacity = '0';
       };
 
       const handleMouseLeaveCard = () => {
-        cursor.classList.remove('is-active');
+        cursor.classList.remove('active');
         if (globalCursor) globalCursor.style.opacity = '';
       };
 
@@ -218,66 +222,67 @@ export function AvexaWorksSection() {
     <section
       ref={sectionRef}
       id="sec-projects"
-      className="alg-works site-section sec-avexa-works projects-section works-section"
+      className="site-section sec-avexa-works projects-section works-section"
       aria-label="Online Marketing Services"
     >
-      <div className="alg-works-container site-container sec-avexa-works__container">
+      <div className="site-container sec-avexa-works__container">
         {/* Intro Header */}
-        <div className="alg-works-intro works-intro">
-          <div className="alg-works-intro-left works-intro-left">
-            <div className="alg-works-badge section-badge sec-projects__badge">
-              <SubtitleMarquee text="Online Marketing Services ✦ " variant="dark" />
+        <div className="works-intro">
+          <div className="works-intro-left">
+            <div className="section-badge sec-projects__badge">
+              <SubtitleMarquee text="Online Marketing Services — " variant="dark" />
             </div>
-            <h2 className="alg-works-intro-title heading-style-h2 section-title sec-projects__title works-intro-title">
+            <h2 className="heading-style-h2 section-title sec-projects__title works-intro-title">
               Internet <br />
-              <span className="alg-works-title-secondary text-color-secondary">Outreach</span>
+              <span className="text-color-secondary">Outreach</span>
             </h2>
           </div>
-          <div className="alg-works-intro-right works-intro-right">
-            <p className="alg-works-intro-desc section-description sec-projects__desc works-intro-desc alg-text">
+          <div className="works-intro-right">
+            <p className="section-description sec-projects__desc works-intro-desc alg-text">
               Algofort is here as always to help you grow your business with an improved online visibility and an online presence. Our services in digital marketing include but are not limited to:
             </p>
           </div>
         </div>
 
         {/* Works Container with Stacking Sticky Items */}
-        <div className="alg-works-cards-list works-container">
+        <div className="works-container">
           {worksData.map((work, index) => (
-            <article key={work.id} className="alg-works-item work-item" id={work.id}>
+            <article key={work.id} className="work-item" id={work.id}>
               <Link
                 href={work.link}
-                className={`alg-works-card work-card ${work.reversed ? 'alg-works-card-reversed card-reversed' : ''}`}
+                className={`work-card ${work.reversed ? 'card-reversed' : ''}`}
                 aria-label={`${work.titleWord1} ${work.titleWord2} - Algofort`}
               >
                 {/* Thumbnail Column */}
-                <div className="alg-works-thumbnail work-thumbnail">
-                  <div className="alg-works-image-wrapper work-image-wrapper">
+                <div className="work-thumbnail">
+                  <div className="work-image-wrapper">
                     <img
                       src={work.image}
                       alt={work.alt}
-                      className="alg-works-image work-image"
+                      className="work-image"
                       loading={index === 0 ? 'eager' : 'lazy'}
                     />
                   </div>
                 </div>
 
                 {/* Info Column */}
-                <div className="alg-works-info work-info">
-                  <div className="alg-works-tag meta-tag align-left">
-                    <span className="alg-works-tag-slash tag-slash">/</span>
-                    <span className="alg-works-tag-label tag-label">{work.code}</span>
+                <div className="work-info">
+                  <div className="meta-tag align-left">
+                    <span className="tag-slash">/</span>
+                    <span className="tag-label">{work.code}</span>
                   </div>
 
-                  <div className="alg-works-header work-header">
-                    <h2 className="alg-works-title work-title">
-                      <span className="alg-works-title-word work-title-word">{work.titleWord1}</span>
-                      <span className="alg-works-title-word work-title-word">{work.titleWord2}</span>
+                  <div className="work-header">
+                    <h2 className="work-title">
+                      <span className="work-title-word">{work.titleWord1}</span>
+                      <span className="work-title-word">{work.titleWord2}</span>
                     </h2>
-                    <p className="alg-works-desc work-description alg-text">{work.description}</p>
+                    <p className="work-description alg-text">{work.description}</p>
                   </div>
 
-                  <div className="alg-works-footer work-footer">
-                    <span className="alg-works-category work-category">{work.category}</span>
+                  <div className="meta-tag align-right">
+                    <span className="tag-slash">/</span>
+                    <span className="tag-label">{work.category}</span>
                   </div>
                 </div>
               </Link>
@@ -286,9 +291,9 @@ export function AvexaWorksSection() {
         </div>
       </div>
 
-      {/* Floating View Cursor */}
-      <div ref={cursorRef} className="alg-works-view-cursor view-cursor" aria-hidden="true">
-        <span>VIEW</span>
+      {/* Interactive Custom Cursor ("VIEW") */}
+      <div ref={cursorRef} className="avexa-custom-cursor" aria-hidden="true">
+        <span>View</span>
       </div>
     </section>
   );
