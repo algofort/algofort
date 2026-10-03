@@ -59,10 +59,10 @@ export function AboutAwardsSection() {
     <section
       ref={sectionRef}
       id="sec-about-awards"
-      className="site-section sec-about-awards section-about-awards"
+      className="site-section sec-about-awards"
     >
       <div className="site-container sec-about-awards__container container-large padding-global">
-        <div className="padding-section-large">
+        <div className="padding-section-large sec-about-awards__padding">
           
           {/* Top Row with Heading & Button */}
           <div className="w-layout-grid top-grid section-header sec-about-awards__header">
@@ -81,7 +81,7 @@ export function AboutAwardsSection() {
             </div>
 
             <div className="margin-bottom margin-small sec-about-awards__cta">
-              <Link href="/contact" className="main-button w-inline-block">
+              <Link href="/contact" className="main-button sec-about-awards__btn w-inline-block">
                 <div className="main-button-block">
                   <div className="button-text">Get in touch</div>
                   <div className="button-text">Get in touch</div>
@@ -99,7 +99,7 @@ export function AboutAwardsSection() {
           <div className="spacer-xlarge"></div>
 
           {/* Interactive Awards Component */}
-          <div className="award-component">
+          <div className="award-component sec-about-awards__grid">
             {/* Table Header */}
             <div className="award-wrapper award-header-row">
               <div className="award-item">
@@ -115,7 +115,7 @@ export function AboutAwardsSection() {
 
             {/* Award Data Rows */}
             {awardsData.map((item) => (
-              <div key={item.id} className="award-wrapper award-row-interactive">
+              <div key={item.id} className="award-wrapper content-card sec-about-awards__card award-row-interactive">
                 <div className="award-item">
                   <div className="award-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

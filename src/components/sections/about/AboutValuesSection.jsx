@@ -73,9 +73,9 @@ export function AboutValuesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="sec-about-values" className="site-section sec-about-values section-about-values">
+    <section ref={sectionRef} id="sec-about-values" className="site-section sec-about-values">
       <div className="site-container sec-about-values__container container-large padding-global">
-        <div className="padding-section-large">
+        <div className="padding-section-large sec-about-values__padding">
           
           {/* Header */}
           <div className="top-grid section-header sec-about-values__header">
@@ -99,10 +99,10 @@ export function AboutValuesSection() {
           <div className="spacer-xlarge"></div>
 
           {/* 2-Column Layout */}
-          <div className="w-layout-grid values-component-grid">
+          <div className="w-layout-grid values-component-grid sec-about-values__grid">
             
             {/* Left Column: Outlined Sticky Frame */}
-            <div className="outlined-image-wrapper">
+            <div className="outlined-image-wrapper sec-about-values__image-wrapper">
               <div className="cover-image-wrap">
                 <img
                   src="/assets/68f800db63fd513ee96c96c2_medium-shot-business-woman-with-laptop.jpg"
@@ -114,16 +114,16 @@ export function AboutValuesSection() {
             </div>
 
             {/* Right Column: 4 Value Cards */}
-            <div className="value-content-block">
+            <div className="value-content-block sec-about-values__content">
               <div className="w-layout-grid value-inner-grid">
                 {valuePillars.map((pillar) => (
                   <div key={pillar.id} className="value-content-item content-card sec-about-values__card">
                     <div className="value-icon">{pillar.icon}</div>
-                    <h3 className="value-title heading-style-h3">
+                    <h3 className="value-title heading-style-h3 sec-about-values__subtitle">
                       <span className="value-title-main">{pillar.titleMain}</span>
                       <span className="text-color-secondary">{pillar.titleAccent}</span>
                     </h3>
-                    <p className="text-size-regular text-color-grey section-description">
+                    <p className="alg-text text-size-regular text-color-grey section-description sec-about-values__desc">
                       {pillar.description}
                     </p>
                   </div>

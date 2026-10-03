@@ -49,10 +49,10 @@ export function AboutProcessSection() {
     <section
       ref={sectionRef}
       id="sec-about-process"
-      className="site-section sec-about-process section-about-process"
+      className="site-section sec-about-process"
     >
       <div className="site-container sec-about-process__container container-large padding-global">
-        <div className="padding-section-large">
+        <div className="padding-section-large sec-about-process__padding">
           
           {/* Header Row */}
           <div className="w-layout-grid top-grid section-header sec-about-process__header">
@@ -79,19 +79,19 @@ export function AboutProcessSection() {
 
           {/* Process 3-Column Grid */}
           <div className="process-component">
-            <div className="w-layout-grid process-component-grid">
+            <div className="w-layout-grid process-component-grid sec-about-process__grid">
               {processSteps.map((step) => (
                 <div
                   key={step.number}
                   className={`process-content-wrap _${step.number} content-card sec-about-process__card`}
                 >
-                  <div className="process-number">{step.number}</div>
-                  <h3 className="process-title heading-style-h3">
+                  <div className="process-number font-mono">{step.number}</div>
+                  <h3 className="process-title heading-style-h3 sec-about-process__subtitle">
                     {step.titlePrimary}
                     <br />
                     <span className="text-color-secondary">{step.titleAccent}</span>
                   </h3>
-                  <p className="text-size-regular text-color-secondary section-description">
+                  <p className="alg-text text-size-regular text-color-secondary section-description sec-about-process__desc">
                     {step.description}
                   </p>
                 </div>

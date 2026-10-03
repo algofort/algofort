@@ -23,13 +23,13 @@ export function AboutStorySection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="sec-about-story" className="site-section sec-about-story section-about-story">
+    <section ref={sectionRef} id="sec-about-story" className="site-section sec-about-story">
       <div className="site-container sec-about-story__container container-large padding-global">
-        <div className="padding-section-large">
+        <div className="padding-section-large sec-about-story__padding">
           <div className="intro-component-grid">
             
-            {/* Subtitle Badge */}
-            <div className="spacer-small">
+            {/* Standardized Section Header */}
+            <div className="section-header sec-about-story__header text-center">
               <div className="center-subtitle">
                 <div className="section-badge sec-about-story__badge">
                   <SubtitleMarquee
@@ -39,20 +39,17 @@ export function AboutStorySection() {
                   />
                 </div>
               </div>
+              <h2 className="heading-style-h2 intro-text story section-title sec-about-story__title">
+                <span className="story-heading-main">From Vision to Impact, Crafting ㋡ Brands That </span>
+                <span className="text-color-secondary">Inspire and Endure.</span>
+              </h2>
             </div>
 
             {/* Main Story Content */}
             <div className="our-story-content">
-              <h2 className="intro-text story section-title sec-about-story__title">
-                <span className="story-heading-main">From Vision to Impact, Crafting ㋡ Brands That </span>
-                <span className="text-color-secondary">Inspire and Endure.</span>
-              </h2>
-
-              <div className="spacer-large"></div>
-
               <div className="intro-description-wrap">
                 <div className="our-story-wrap">
-                  <p className="text-size-medium text-align-center section-description sec-about-story__description">
+                  <p className="alg-text text-size-medium text-align-center section-description sec-about-story__desc">
                     Born from a passion for design and innovation, we set out to redefine how brands communicate in the digital era. What started as a small creative studio evolved into a full-service branding agency — blending strategy, art, and technology to craft experiences that inspire and endure.
                   </p>
                 </div>
@@ -61,7 +58,7 @@ export function AboutStorySection() {
 
                 {/* Button Group: Get in touch + Our Portfolio */}
                 <div className="button-group-wrap center">
-                  <Link href="/contact" className="main-button w-inline-block">
+                  <Link href="/contact" className="main-button sec-about-story__btn w-inline-block">
                     <div className="main-button-block">
                       <div className="button-text">Get in touch</div>
                       <div className="button-text">Get in touch</div>

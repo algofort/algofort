@@ -84,10 +84,10 @@ export function AboutTeamSection() {
     <section
       ref={sectionRef}
       id="sec-about-members"
-      className="site-section sec-about-members section-about-members"
+      className="site-section sec-about-members"
     >
       <div className="site-container sec-about-members__container container-large padding-global">
-        <div className="padding-section-large">
+        <div className="padding-section-large sec-about-members__padding">
           
           {/* Header */}
           <div className="top-grid section-header sec-about-members__header">
@@ -109,7 +109,7 @@ export function AboutTeamSection() {
           <div className="spacer-xlarge"></div>
 
           {/* 2x2 Team Grid */}
-          <div className="w-layout-grid team-members-grid">
+          <div className="w-layout-grid team-members-grid sec-about-members__grid">
             {teamMembers.map((member) => (
               <div
                 key={member.id}
@@ -137,7 +137,7 @@ export function AboutTeamSection() {
                         
                         {/* Name and Role */}
                         <div className="member-content">
-                          <h3 className="member-name heading-style-h3">{member.name}</h3>
+                          <h3 className="member-name heading-style-h3 sec-about-members__name">{member.name}</h3>
                           <div className="spacer-xsmall"></div>
                           <div className="member-postion-text">{member.role}</div>
                         </div>
@@ -223,7 +223,7 @@ export function AboutTeamSection() {
                             <div className="spacer-medium"></div>
 
                             {/* Bio Description */}
-                            <div className="member-description">{member.description}</div>
+                            <p className="alg-text member-description section-description sec-about-members__desc">{member.description}</p>
                           </div>
                         </div>
 

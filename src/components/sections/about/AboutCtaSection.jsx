@@ -26,16 +26,16 @@ export function AboutCtaSection() {
     <section
       ref={sectionRef}
       id="sec-about-cta"
-      className="site-section sec-about-cta call-to-action"
+      className="site-section sec-about-cta"
     >
       <div className="site-container sec-about-cta__container container-large padding-global">
-        <div className="cta-container">
+        <div className="cta-container sec-about-cta__inner">
           
           <div className="cta-content-wrap">
             <div className="cta-content">
               
-              {/* Subtitle Marquee */}
-              <div className="cta-subtitle">
+              {/* Subtitle Marquee Badge */}
+              <div className="section-badge sec-about-cta__badge cta-subtitle">
                 <SubtitleMarquee
                   text="Bring Ideas To Life — "
                   variant="dark"
@@ -45,17 +45,17 @@ export function AboutCtaSection() {
 
               {/* Giant Title: LET'S BUILD YOUR BRAND */}
               <div className="cta-title-wrap">
-                <h2 className="cta-title _01">Let’s</h2>
-                <h2 className="cta-title _02">
+                <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _01">Let’s</h2>
+                <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _02">
                   <span className="text-color-secondary _02">Build</span>
                 </h2>
               </div>
 
               <div className="cta-title-wrap">
-                <h2 className="cta-title _03">
+                <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _03">
                   <span className="text-color-secondary _03">Your</span>
                 </h2>
-                <h2 className="cta-title _04">Brand</h2>
+                <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _04">Brand</h2>
               </div>
 
               {/* CTA Button */}
@@ -63,7 +63,7 @@ export function AboutCtaSection() {
                 <div className="cta-button-block">
                   <Link
                     href="/contact"
-                    className="main-button w-inline-block"
+                    className="main-button sec-about-cta__btn w-inline-block"
                   >
                     <div className="main-button-block">
                       <div className="button-text">Get in Touch</div>

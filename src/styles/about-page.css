@@ -11,17 +11,14 @@
    -------------------------------------------------------------------------- */
 .sec-about-story__title,
 .sec-about-values__title,
-.sec-about-process__title,
 .sec-about-awards__title,
 .sec-about-members__title,
 .cta-title,
 .story-heading-main,
 .values-heading-main,
-.process-heading-main,
 .awards-heading-main,
 .team-heading-main,
 .value-title-main,
-.process-title-main,
 .member-name {
   color: #05080c !important;
   visibility: visible !important;
@@ -42,6 +39,47 @@
 .text-color-secondary,
 .text-color-secondary .char {
   color: var(--brand-orange, #f47a1f) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Strict Subtitle-to-Heading Spacing Rule (1rem / 16px to 20px Maximum)
+   -------------------------------------------------------------------------- */
+.sec-about-story .section-badge,
+.sec-about-values .section-badge,
+.sec-about-process .section-badge,
+.sec-about-awards .section-badge,
+.sec-about-members .section-badge,
+.sec-about-cta .section-badge,
+.sec-about-cta .cta-subtitle {
+  margin-bottom: 1.25rem !important; /* Exactly 20px maximum on Desktop */
+}
+
+@media screen and (max-width: 991px) {
+  .sec-about-story .section-badge,
+  .sec-about-values .section-badge,
+  .sec-about-process .section-badge,
+  .sec-about-awards .section-badge,
+  .sec-about-members .section-badge,
+  .sec-about-cta .section-badge,
+  .sec-about-cta .cta-subtitle {
+    margin-bottom: 1rem !important; /* Exactly 16px on Tablet/Mobile */
+  }
+}
+
+/* Ensure all section titles reset margin-top to 0 beneath the subtitle badge */
+.sec-about-story .heading-style-h2,
+.sec-about-values .heading-style-h2,
+.sec-about-process .heading-style-h2,
+.sec-about-awards .heading-style-h2,
+.sec-about-members .heading-style-h2,
+.sec-about-cta .heading-style-h2,
+.sec-about-story__title,
+.sec-about-values__title,
+.sec-about-process__title,
+.sec-about-awards__title,
+.sec-about-members__title,
+.sec-about-cta__title {
+  margin-top: 0 !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -113,7 +151,7 @@
   text-transform: uppercase !important;
   color: #05080c !important;
   letter-spacing: -0.015em;
-  margin: 1.5rem auto;
+  margin: 0 auto 2.5rem auto !important;
   text-align: center;
 }
 
@@ -441,7 +479,7 @@
 }
 
 .sec-about-process .sec-about-process__title {
-  margin-top: 0.75rem;
+  margin-top: 0 !important;
   margin-bottom: 0;
   font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
   text-transform: uppercase !important;
@@ -892,7 +930,13 @@
 }
 
 .sec-about-cta .cta-subtitle {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem !important;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-about-cta .cta-subtitle {
+    margin-bottom: 1rem !important;
+  }
 }
 
 .sec-about-cta .cta-title-wrap {
