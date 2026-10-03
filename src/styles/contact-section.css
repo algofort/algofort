@@ -425,48 +425,19 @@
   font-weight: 600;
 }
 
-/* Submit Button: SUBMIT → */
-.alg-contact-form-actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 0.65rem;
-}
-
-.alg-contact-submit-btn {
-  background: var(--brand-orange, #f47a1f);
-  color: #ffffff;
-  border: none;
-  border-radius: 50px;
-  padding: 0.95rem 2.5rem;
-  font-size: 0.95rem;
-  font-weight: 700;
+/* Contact Form Submit Button: main-button alternate-button matching Webflow template */
+.alg-contact .main-button.alternate-button {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  box-shadow: 0 10px 24px -4px rgba(244, 122, 31, 0.45);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  font-family: 'Clash Display', 'Mona Sans Narrow', sans-serif;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  align-self: flex-start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.alg-contact-submit-btn:hover {
-  background: #ea580c;
+.alg-contact .main-button.alternate-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px -4px rgba(244, 122, 31, 0.55);
-}
-
-.alg-contact-btn-arrow {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.25s ease;
-}
-
-.alg-contact-submit-btn:hover .alg-contact-btn-arrow {
-  transform: translateX(4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Success Message */

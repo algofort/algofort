@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
@@ -32,7 +32,7 @@ export function ContactSection() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  useGSAP(() => {
+  useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const container = containerRef.current;
     if (!container) return;
@@ -40,9 +40,27 @@ export function ContactSection() {
     // Heading letter-by-letter entrance animation
     const titleEl = container.querySelector('.alg-contact-title');
     if (titleEl) {
-      initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
+      delete titleEl.dataset.titleAnimated;
+      const anim = initTitleAnimation(titleEl, {
+        trigger: titleEl,
+        start: 'top 85%',
+        stagger: 0.02,
+      });
+
+      const timer = setTimeout(() => {
+        if (typeof window !== 'undefined' && window.ScrollTrigger) {
+          window.ScrollTrigger.refresh();
+        }
+      }, 150);
+
+      return () => {
+        clearTimeout(timer);
+        if (anim && anim.scrollTrigger) anim.scrollTrigger.kill();
+        if (anim) anim.kill();
+        delete titleEl.dataset.titleAnimated;
+      };
     }
-  }, { scope: containerRef });
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -282,14 +300,22 @@ export function ContactSection() {
                     </div>
 
                     {/* Row 5: Submit Button */}
-                    <div className="alg-contact-form-actions">
-                      <button type="submit" className="alg-contact-submit-btn">
-                        <span>SUBMIT</span>
-                        <svg className="alg-contact-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                      </button>
-                    </div>
+                    <button
+                      type="submit"
+                      className="alg-cta-button main-button alternate-button w-inline-block"
+                      style={{ border: 'none', cursor: 'pointer', alignSelf: 'flex-start', marginTop: '0.5rem' }}
+                    >
+                      <div className="main-button-block">
+                        <div className="button-text alternate-text">Submit</div>
+                        <div className="button-text alternate-text">Submit</div>
+                      </div>
+                      <img
+                        loading="lazy"
+                        src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                        alt="Star Icon"
+                        className="button-icon"
+                      />
+                    </button>
 
                   </form>
                 )}

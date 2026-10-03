@@ -69,14 +69,29 @@ export function splitTextIntoChars(el) {
  * Animates a section title element with character slide-up stagger animation on scroll.
  */
 export function initTitleAnimation(titleEl, options = {}) {
-  if (!titleEl || titleEl.dataset.titleAnimated) return;
+  if (!titleEl) return null;
+
+  // If already animated with an active ScrollTrigger, avoid duplicate
+  if (titleEl.dataset.titleAnimated) {
+    const existing = ScrollTrigger.getAll().find(
+      (st) => st.trigger === titleEl || (options.trigger && st.trigger === options.trigger)
+    );
+    if (existing) return existing.animation;
+  }
 
   const chars = splitTextIntoChars(titleEl);
-  if (!chars.length) return;
+  if (!chars.length) return null;
 
   titleEl.dataset.titleAnimated = 'true';
 
-  gsap.fromTo(
+  // Clear any dead/stale ScrollTrigger on this element
+  ScrollTrigger.getAll().forEach((st) => {
+    if (st.trigger === titleEl || (options.trigger && st.trigger === options.trigger)) {
+      st.kill();
+    }
+  });
+
+  return gsap.fromTo(
     chars,
     {
       yPercent: 110,
@@ -107,6 +122,8 @@ export function initAllHeadingsAnimation() {
   const selectors = [
     '.heading-style-h2',
     '.section-title',
+    '.alg-contact-title',
+    '.sec-contact__title',
     '.alg-works-intro-title',
     '.works-intro-title',
     '.alg-services-title',
