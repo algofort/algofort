@@ -141,17 +141,17 @@ export function AboutCtaSection() {
             </div>
 
             <div className="cta-title-wrap">
-              <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _01">Let’s</h2>
-              <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _02">
-                <span className="text-color-secondary">Build</span>
+              <h2 className="cta-title sec-about-cta__title _01">Let’s</h2>
+              <h2 className="cta-title sec-about-cta__title _02">
+                <span className="text-color-secondary _02">Build</span>
               </h2>
             </div>
 
             <div className="cta-title-wrap">
-              <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _03">
-                <span className="text-color-secondary">Your</span>
+              <h2 className="cta-title sec-about-cta__title _03">
+                <span className="text-color-secondary _03">Your</span>
               </h2>
-              <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _04">Brand</h2>
+              <h2 className="cta-title sec-about-cta__title _04">Brand</h2>
             </div>
 
             <div className="cta-button-wrap">
