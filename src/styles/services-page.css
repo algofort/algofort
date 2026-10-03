@@ -1,0 +1,368 @@
+/* ==========================================================================
+   Our Services Page Stylesheet (.sec-services-page)
+   - Strict White/Light Canvas Version of Home Page Our Services Section
+   - Single Source of Truth (SSOT) adhering to design.md and instructions.md
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Section Spacing Architecture
+   - Desktop standard spacing: 8rem top & bottom
+   - Tablet: 5rem, Mobile: 4rem
+   -------------------------------------------------------------------------- */
+.sec-services-page {
+  position: relative;
+  width: 100%;
+  background: transparent;
+}
+
+.sec-services-page .sec-services-page__padding {
+  padding-top: 8rem !important;
+  padding-bottom: 8rem !important;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-services-page .sec-services-page__padding {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sec-services-page .sec-services-page__padding {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Header & Typography
+   - Subtitle-to-heading spacing: 1.25rem (20px max desktop, 16px mobile)
+   - Mona Sans Narrow with text-transform: uppercase !important
+   -------------------------------------------------------------------------- */
+.sec-services-page .sec-services-page__badge {
+  margin-bottom: 1.25rem !important;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-services-page .sec-services-page__badge {
+    margin-bottom: 1rem !important;
+  }
+}
+
+.sec-services-page .top-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-services-page .top-grid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+.sec-services-page .sec-services-page__title {
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase !important;
+  color: #05080c !important;
+  letter-spacing: -0.02em;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.sec-services-page .sec-services-page__title .services-heading-main {
+  color: #05080c !important;
+}
+
+.sec-services-page .sec-services-page__title .text-color-secondary {
+  color: var(--brand-orange, #f47a1f) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Top-Right CTA Button (Dark Button on Light Canvas)
+   -------------------------------------------------------------------------- */
+.sec-services-page .button-item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sec-services-page .main-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 2.25rem !important;
+  border-radius: 100px !important;
+  background-color: #05080c !important;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+.sec-services-page .main-button:hover {
+  background-color: var(--brand-orange, #f47a1f) !important;
+  transform: translateY(-2px);
+}
+
+.sec-services-page .main-button-block {
+  display: flex;
+  flex-direction: column;
+  height: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.sec-services-page .button-text {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  white-space: nowrap;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sec-services-page .button-icon {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Divider Line
+   -------------------------------------------------------------------------- */
+.sec-services-page .dividing-line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.08);
+  margin-top: 3.5rem;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-services-page .dividing-line {
+    margin-top: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Services List Items (White Version)
+   - Exact 1:1 Layout & Interaction of Home Page Services Section
+   -------------------------------------------------------------------------- */
+.sec-services-page .service-component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-services-page .service-content-grid {
+  display: grid !important;
+  grid-template-columns: 0.25fr 1.25fr 1fr !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding-top: 3.5rem !important;
+  padding-bottom: 3rem !important;
+  position: relative !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sec-services-page .service-content-grid:hover {
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+.sec-services-page .service-content-item {
+  perspective: 1000px;
+}
+
+.sec-services-page .service-content-grid > .service-content-item:nth-child(3) {
+  justify-self: end !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  text-align: left !important;
+}
+
+/* Service Number */
+.sec-services-page .service-text.is-number {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
+  font-size: 1.15rem !important;
+  line-height: 1.2 !important;
+  color: rgba(5, 8, 12, 0.45) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.sec-services-page .service-content-grid:hover .service-text.is-number {
+  color: var(--brand-orange, #f47a1f) !important;
+}
+
+/* Service Title Wrap with Dual Row Split Text */
+.sec-services-page .service-title-wrap {
+  display: block !important;
+  height: 5.25rem !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sec-services-page .service-title {
+  z-index: 3 !important;
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
+  color: #05080c !important;
+  text-transform: uppercase !important;
+  font-size: 5.25rem !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 5.25rem !important;
+  white-space: nowrap !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.sec-services-page .service-title.is-top {
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.sec-services-page .service-title.is-bottom {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+}
+
+.sec-services-page .service-title .word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.sec-services-page .service-title .char {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Floating 3D Preview Image */
+.sec-services-page .service-image-wrap {
+  z-index: 2 !important;
+  width: 13rem !important;
+  height: 13rem !important;
+  position: absolute !important;
+  inset: -50% 0% 0% 15% !important;
+  pointer-events: none !important;
+  transition: none !important;
+  border-radius: 1.25rem !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 48px rgba(5, 8, 12, 0.16) !important;
+}
+
+.sec-services-page .service-image {
+  border-radius: 1.25rem !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  pointer-events: none !important;
+}
+
+/* Service Content / Description */
+.sec-services-page .service-content {
+  width: 100% !important;
+  max-width: 24rem !important;
+  text-align: left !important;
+  margin-left: auto !important;
+}
+
+.sec-services-page .service-text.alg-text {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555555 !important;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout & Media Queries
+   - Tablet & Mobile: Stacked layout identical to Home Page
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+  .sec-services-page .service-content-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 0.85rem !important;
+    padding-top: 2.25rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .sec-services-page .service-content-grid > .service-content-item {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
+  .sec-services-page .service-text.is-number {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.15rem !important;
+    line-height: 1.2 !important;
+    display: block !important;
+  }
+
+  .sec-services-page .service-title-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    height: clamp(2.25rem, 5.5vw, 3.75rem) !important;
+  }
+
+  .sec-services-page .service-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: clamp(2.25rem, 5.5vw, 3.75rem) !important;
+    font-size: clamp(2.25rem, 5.5vw, 3.75rem) !important;
+    line-height: 1 !important;
+  }
+
+  .sec-services-page .service-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .sec-services-page .service-text.alg-text {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .sec-services-page .service-image-wrap {
+    display: none !important;
+  }
+}
