@@ -269,7 +269,7 @@ export function ContactSection() {
                     </div>
 
                     {/* Row 4: Message */}
-                    <div className="alg-contact-form-group alg-cta-form-group form_group">
+                    <div className="alg-contact-form-group alg-contact-form-group--message alg-cta-form-group form_group">
                       <label htmlFor="message">MESSAGE</label>
                       <textarea
                         id="message"

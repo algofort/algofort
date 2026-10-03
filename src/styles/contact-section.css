@@ -59,7 +59,7 @@
 .alg-contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
-  align-items: center;
+  align-items: stretch;
   gap: 4.5rem;
   width: 100%;
   box-sizing: border-box;
@@ -76,6 +76,27 @@
     grid-template-columns: 1fr;
     gap: 3.5rem;
   }
+
+  .alg-contact-left-col,
+  .alg-contact-right-col,
+  .alg-contact-form-card,
+  .alg-contact-form {
+    height: auto;
+  }
+
+  .alg-contact-left-col {
+    justify-content: flex-start;
+  }
+
+  .alg-contact-info-grid {
+    margin-top: 0;
+  }
+
+  .alg-contact-form-group--message textarea,
+  .alg-contact-form-group textarea {
+    min-height: 120px;
+    height: auto;
+  }
 }
 
 /* ==========================================================================
@@ -85,7 +106,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
+  height: 100%;
 }
 
 /* Header & Badge (Matching Homepage Subtitle Marquee & Heading Style) */
@@ -142,6 +165,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 2.25rem 2rem;
   width: 100%;
+  margin-top: auto;
 }
 
 @media screen and (max-width: 540px) {
@@ -230,6 +254,9 @@
    ========================================================================== */
 .alg-contact-right-col {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .alg-contact-form-card {
@@ -239,6 +266,9 @@
   padding: 3rem;
   box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.02);
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   position: relative;
 }
@@ -257,6 +287,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.35rem;
+  height: 100%;
+  flex: 1;
 }
 
 .alg-contact-form-row.two-cols,
@@ -336,10 +368,18 @@
   box-shadow: 0 0 0 3px rgba(244, 122, 31, 0.12);
 }
 
+.alg-contact-form-group--message {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.alg-contact-form-group--message textarea,
 .alg-contact-form-group textarea,
 .alg-contact .alg-cta-form-group textarea,
 .alg-contact .form_group textarea {
-  min-height: 110px;
+  flex: 1;
+  min-height: 140px;
   resize: vertical;
 }
 
