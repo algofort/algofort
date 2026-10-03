@@ -81,7 +81,11 @@ export function AboutCtaSection() {
         .to(title03, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.75)
         .to(title04, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77)
         .to(subtitle, { yPercent: -100, opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.73)
-        .to(button, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77);
+        .to(button, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77)
+
+      // 4. Closing Curtain Phase (80% - 100%): overlays close to transition cleanly to footer
+        .to(overlayTop, { yPercent: 0, duration: 0.2, ease: 'power2.inOut' }, 0.80)
+        .to(overlayBottom, { yPercent: 0, duration: 0.2, ease: 'power2.inOut' }, 0.80);
     }, section);
 
     const t = setTimeout(() => ScrollTrigger.refresh(), 200);
