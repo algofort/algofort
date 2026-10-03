@@ -8,24 +8,24 @@ import { initTitleAnimation } from '../../../utils/titleAnimation';
 const processSteps = [
   {
     number: '01',
-    titlePrimary: 'Discovery',
-    titleAccent: 'Phase',
+    titlePrimary: 'Our',
+    titleAccent: 'Vision',
     description:
-      'We begin by understanding your brand’s vision, audience, and goals — laying the foundation for a clear creative direction and meaningful strategy.',
+      'To stand as a preeminent global leader in digital innovation, delivering intelligent, scalable, and sustainable technologies that drive sustained competitive advantage.',
   },
   {
     number: '02',
-    titlePrimary: 'Design',
-    titleAccent: 'Creation',
+    titlePrimary: 'Our',
+    titleAccent: 'Mission',
     description:
-      'Our team transforms insights into visual concepts, crafting bold and cohesive designs that express your identity across every digital touchpoint.',
+      'To engineer intuitive, high-impact enterprise solutions that eliminate digital friction, champion purposeful technology, and foster enduring client partnerships rooted in accountability and high performance.',
   },
   {
     number: '03',
-    titlePrimary: 'Brand',
-    titleAccent: 'Delivery',
+    titlePrimary: 'Our',
+    titleAccent: 'Promise',
     description:
-      'We finalize and launch your brand assets with precision, ensuring every detail communicates consistency, quality, and lasting emotional impact.',
+      'Algofort pledges to keep your organization at the technological vanguard, serving as a trusted strategic partner dedicated to your innovation, expansion, and enduring market success.',
   },
 ];
 
@@ -59,14 +59,14 @@ export function AboutProcessSection() {
             <div className="max-width-large">
               <div className="section-badge sec-about-process__badge">
                 <SubtitleMarquee
-                  text="How we work — "
+                  text="Strategic Purpose — "
                   variant="dark"
                   icon="/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-about-process__title">
-                <span className="text-color-alternate">Work</span>{' '}
-                <span className="text-color-secondary">Process</span>
+                <span className="text-color-alternate">Mission &</span>{' '}
+                <span className="text-color-secondary">Vision</span>
               </h2>
             </div>
 

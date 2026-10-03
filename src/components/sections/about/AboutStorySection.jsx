@@ -40,7 +40,7 @@ export function AboutStorySection() {
                 </div>
               </div>
               <h2 className="heading-style-h2 intro-text story section-title sec-about-story__title">
-                <span className="story-heading-main">From Vision to Impact, Crafting ㋡ Brands That </span>
+                <span className="story-heading-main">Architecting the Future, Today — Crafting ㋡ Solutions That </span>
                 <span className="text-color-secondary">Inspire and Endure.</span>
               </h2>
             </div>
@@ -50,7 +50,7 @@ export function AboutStorySection() {
               <div className="intro-description-wrap">
                 <div className="our-story-wrap">
                   <p className="alg-text text-size-medium text-align-center section-description sec-about-story__desc">
-                    Born from a passion for design and innovation, we set out to redefine how brands communicate in the digital era. What started as a small creative studio evolved into a full-service branding agency — blending strategy, art, and technology to craft experiences that inspire and endure.
+                    Algofort was founded upon a clear principle: delivering advanced technical capabilities engineered for seamless, human-centric usability. Established by visionary technologists and innovators, we set out to bridge the gap between complex digital systems and strategic commercial reality — building intelligent, intuitive, and future-ready solutions that empower businesses to grow and thrive in a rapidly evolving digital world.
                   </p>
                 </div>
 

@@ -8,34 +8,34 @@ import { initTitleAnimation } from '../../../utils/titleAnimation';
 
 const awardsData = [
   {
-    id: 'space',
-    project: 'Space',
+    id: 'emerging-tech',
+    project: 'Best Emerging Tech Company',
     year: '2025',
-    award: 'CSS Design Awards',
+    award: 'Industry Innovation Honors',
   },
   {
-    id: 'mobile',
-    project: 'Mobile',
+    id: 'global-it-leaders',
+    project: 'Top 10 Global IT Innovators',
     year: '2024',
-    award: 'Awwwards',
+    award: 'World Technology Vanguard',
   },
   {
-    id: 'reality',
-    project: 'Reality',
+    id: 'innovation-excellence',
+    project: 'Innovation Excellence Award',
     year: '2023',
-    award: 'CSS Design Awards',
+    award: 'Digital Modernization Pathfinder',
   },
   {
-    id: 'ecology',
-    project: 'Ecology',
+    id: 'enterprise-architecture',
+    project: 'CSS Design Distinction',
     year: '2022',
-    award: 'Awwwards',
+    award: 'Enterprise System Architecture',
   },
   {
-    id: 'beyond',
-    project: 'Beyond',
+    id: 'digital-transformation',
+    project: 'Global Digital Recognition',
     year: '2021',
-    award: 'CSS Design Awards',
+    award: 'Transformation Engineering',
   },
 ];
 
@@ -69,14 +69,14 @@ export function AboutAwardsSection() {
             <div className="max-width-xlarge">
               <div className="section-badge sec-about-awards__badge">
                 <SubtitleMarquee
-                  text="Award Highlights — "
+                  text="Recognitions & Honors — "
                   variant="dark"
                   icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-about-awards__title">
-                <span className="awards-heading-main">Recognized</span>
-                <span className="text-color-secondary"> Excellence</span>
+                <span className="awards-heading-main">Recognitions &</span>
+                <span className="text-color-secondary"> Achievements</span>
               </h2>
             </div>
 

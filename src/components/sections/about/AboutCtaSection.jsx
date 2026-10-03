@@ -58,6 +58,16 @@ export function AboutCtaSection() {
                 <h2 className="heading-style-h2 section-title cta-title sec-about-cta__title _04">Brand</h2>
               </div>
 
+              {/* Client Testimonial */}
+              <div className="cta-testimonial-wrap" style={{ maxWidth: '44rem', margin: '2rem auto 0 auto', textAlign: 'center' }}>
+                <p className="alg-text text-size-regular" style={{ fontStyle: 'italic', color: '#555555', fontSize: '1.05rem', lineHeight: '1.65' }}>
+                  “Algofort delivered a solution that substantially exceeded our benchmarks. Their team was professional, responsive, and always focused on our goals.”
+                </p>
+                <div style={{ marginTop: '0.5rem', fontWeight: '700', fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--brand-orange, #f47a1f)' }}>
+                  — Ian Salater, Client Testimonial
+                </div>
+              </div>
+
               {/* CTA Button */}
               <div className="cta-button-wrap">
                 <div className="cta-button-block">
