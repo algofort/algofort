@@ -86,32 +86,6 @@ export function ContactSection() {
 
   return (
     <section ref={containerRef} id="sec-contact" className="alg-contact site-section sec-contact">
-      {/* Decorative Ambient Background Wave Ribbons */}
-      <div className="alg-contact-bg-wave alg-contact-bg-wave--top-right" aria-hidden="true">
-        <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M550,50 C450,150 500,350 350,450 C200,550 50,450 50,450" stroke="url(#orange-grad-tr)" strokeWidth="60" strokeLinecap="round" opacity="0.32" filter="blur(20px)" />
-          <path d="M580,20 C420,120 480,320 300,420" stroke="url(#orange-grad-tr)" strokeWidth="2.5" opacity="0.4" />
-          <defs>
-            <linearGradient id="orange-grad-tr" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#f47a1f" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#f47a1f" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      <div className="alg-contact-bg-wave alg-contact-bg-wave--bottom-left" aria-hidden="true">
-        <svg viewBox="0 0 700 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-50,350 C150,380 250,320 450,220 C600,150 680,80 750,50" stroke="url(#orange-grad-bl)" strokeWidth="45" strokeLinecap="round" opacity="0.35" filter="blur(18px)" />
-          <path d="M-80,360 C120,390 280,330 480,230 C620,160 700,90 780,60" stroke="url(#orange-grad-bl)" strokeWidth="2.5" opacity="0.45" />
-          <defs>
-            <linearGradient id="orange-grad-bl" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#f47a1f" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#f47a1f" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
 
       <div className="alg-contact-container site-container sec-contact__container container-large padding-global">
         <div className="padding-section-large alg-contact-inner">
@@ -222,11 +196,11 @@ export function ContactSection() {
                     </p>
                   </div>
                 ) : (
-                  <form className="alg-contact-form alg-cta-form cta_form" onSubmit={handleSubmit}>
+                  <form className="alg-contact-form" onSubmit={handleSubmit}>
                     
                     {/* Row 1: Full Name & Phone Number (two-cols) */}
-                    <div className="alg-contact-form-row alg-cta-form-row form_row two-cols">
-                      <div className="alg-contact-form-group alg-cta-form-group form_group">
+                    <div className="alg-contact-form-row two-cols">
+                      <div className="alg-contact-form-group">
                         <label htmlFor="fullName">FULL NAME</label>
                         <input
                           type="text"
@@ -238,7 +212,7 @@ export function ContactSection() {
                           required
                         />
                       </div>
-                      <div className="alg-contact-form-group alg-cta-form-group form_group">
+                      <div className="alg-contact-form-group">
                         <label htmlFor="phone">PHONE NUMBER</label>
                         <input
                           type="tel"
@@ -253,7 +227,7 @@ export function ContactSection() {
                     </div>
 
                     {/* Row 2: Email Address */}
-                    <div className="alg-contact-form-group alg-cta-form-group form_group">
+                    <div className="alg-contact-form-group">
                       <label htmlFor="email">EMAIL ADDRESS</label>
                       <input
                         type="email"
@@ -267,16 +241,16 @@ export function ContactSection() {
                     </div>
 
                     {/* Row 3: Service Pill Buttons */}
-                    <div className="alg-contact-form-group alg-cta-form-group form_group">
+                    <div className="alg-contact-form-group">
                       <label>SERVICE</label>
-                      <div className="alg-contact-pills-row alg-cta-pills-row service-pills-row">
+                      <div className="alg-contact-pills-row">
                         {availableServices.map((service) => {
                           const isSelected = formData.selectedServices.includes(service);
                           return (
                             <button
                               type="button"
                               key={service}
-                              className={`alg-contact-pill-btn alg-cta-pill-btn service-pill-btn ${isSelected ? 'active' : ''}`}
+                              className={`alg-contact-pill-btn ${isSelected ? 'active' : ''}`}
                               onClick={() => toggleService(service)}
                             >
                               {service}
@@ -287,7 +261,7 @@ export function ContactSection() {
                     </div>
 
                     {/* Row 4: Message */}
-                    <div className="alg-contact-form-group alg-contact-form-group--message alg-cta-form-group form_group">
+                    <div className="alg-contact-form-group alg-contact-form-group--message">
                       <label htmlFor="message">MESSAGE</label>
                       <textarea
                         id="message"

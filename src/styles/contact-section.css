@@ -11,15 +11,14 @@
 .sec-contact {
   position: relative;
   width: 100%;
-  background: radial-gradient(circle at 10% 90%, rgba(244, 122, 31, 0.06) 0%, transparent 50%),
-              radial-gradient(circle at 90% 10%, rgba(244, 122, 31, 0.06) 0%, transparent 50%),
-              #fbfbf9 !important;
+  background: transparent !important;
   color: #05080c;
   overflow: hidden;
 }
 
 /* Ambient Decorative Curved Wave Ribbons */
 .alg-contact-bg-wave {
+  display: none !important;
   position: absolute;
   pointer-events: none;
   z-index: 0;
@@ -297,6 +296,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
+  flex: 0 0 auto !important;
 }
 
 @media screen and (max-width: 640px) {
@@ -315,6 +315,7 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  flex: 0 0 auto !important;
 }
 
 .alg-contact-form-group label,
@@ -369,7 +370,7 @@
 }
 
 .alg-contact-form-group--message {
-  flex: 1;
+  flex: 1 1 auto !important;
   display: flex;
   flex-direction: column;
 }
