@@ -75,20 +75,16 @@ export function AboutCtaSection() {
         .to(subtitle, { yPercent: 0, opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.22)
         .to(button, { yPercent: 0, opacity: 1, duration: 0.22, ease: 'power1.out' }, 0.30)
 
-      // 2. Resting View Phase (40% - 70%): full message held prominently
-        .to({}, { duration: 0.25 })
+      // 2. Resting View Phase (40% - 75%): full message held prominently
+        .to({}, { duration: 0.35 })
 
-      // 3. Exit Phase (70% - 92%): all text and button cleanly hide when scrolling down
-        .to(title01, { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.68)
-        .to(title02, { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.70)
-        .to(title03, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.68)
-        .to(title04, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.70)
-        .to(subtitle, { yPercent: -100, opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.66)
-        .to(button, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.70)
-
-      // 4. Closing Curtain Phase (82% - 100%): overlays close to transition to footer
-        .to(overlayTop, { yPercent: 0, duration: 0.2, ease: 'power2.inOut' }, 0.80)
-        .to(overlayBottom, { yPercent: 0, duration: 0.2, ease: 'power2.inOut' }, 0.80);
+      // 3. Exit Phase (75% - 96%): all text and button cleanly hide when scrolling down
+        .to(title01, { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.75)
+        .to(title02, { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77)
+        .to(title03, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.75)
+        .to(title04, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77)
+        .to(subtitle, { yPercent: -100, opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.73)
+        .to(button, { yPercent: 140, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.77);
     }, section);
 
     const t = setTimeout(() => ScrollTrigger.refresh(), 200);
