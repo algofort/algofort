@@ -5,6 +5,8 @@ import { Cursor } from '../../components/common/Cursor';
 import { BackToTop } from '../../components/common/BackToTop';
 import { SmoothScroll } from '../../components/common/SmoothScroll';
 import { ServicesListSection } from '../../components/sections/services/ServicesListSection';
+import { TestimonialsSection } from '../../components/sections/TestimonialsSection';
+import { FaqSection } from '../../components/sections/FaqSection';
 import '../../styles/services-page.css';
 
 export const metadata = {
@@ -29,6 +31,8 @@ export default function ServicesPage() {
             ]}
           />
           <ServicesListSection />
+          <TestimonialsSection />
+          <FaqSection />
         </main>
         <Footer />
       </div>

@@ -17,20 +17,20 @@
 
 .sec-services-page .sec-services-page__padding {
   padding-top: 8rem !important;
-  padding-bottom: 8rem !important;
+  padding-bottom: 0 !important;
 }
 
 @media screen and (max-width: 991px) {
   .sec-services-page .sec-services-page__padding {
     padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    padding-bottom: 0 !important;
   }
 }
 
 @media screen and (max-width: 767px) {
   .sec-services-page .sec-services-page__padding {
     padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
+    padding-bottom: 0 !important;
   }
 }
 
