@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
 
@@ -46,6 +47,11 @@ export function AboutAwardsSection() {
     const titleEl = sectionRef.current.querySelector('.sec-about-awards__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }, 150);
     }
   }, []);
 
@@ -69,7 +75,8 @@ export function AboutAwardsSection() {
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-about-awards__title">
-                Recognized<span className="text-color-secondary"> Excellence</span>
+                <span className="awards-heading-main">Recognized</span>
+                <span className="text-color-secondary"> Excellence</span>
               </h2>
             </div>
 

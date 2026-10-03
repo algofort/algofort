@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
 
@@ -63,6 +64,11 @@ export function AboutValuesSection() {
     const titleEl = sectionRef.current.querySelector('.sec-about-values__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }, 150);
     }
   }, []);
 
@@ -84,7 +90,8 @@ export function AboutValuesSection() {
                 </div>
               </div>
               <h2 className="heading-style-h2 text-align-center section-title sec-about-values__title">
-                Vision <span className="text-color-secondary">Pillars</span>
+                <span className="values-heading-main">Vision</span>{' '}
+                <span className="text-color-secondary">Pillars</span>
               </h2>
             </div>
           </div>
@@ -113,7 +120,7 @@ export function AboutValuesSection() {
                   <div key={pillar.id} className="value-content-item content-card sec-about-values__card">
                     <div className="value-icon">{pillar.icon}</div>
                     <h3 className="value-title heading-style-h3">
-                      {pillar.titleMain}
+                      <span className="value-title-main">{pillar.titleMain}</span>
                       <span className="text-color-secondary">{pillar.titleAccent}</span>
                     </h3>
                     <p className="text-size-regular text-color-grey section-description">

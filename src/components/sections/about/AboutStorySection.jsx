@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
 
@@ -12,7 +13,12 @@ export function AboutStorySection() {
     if (!sectionRef.current) return;
     const titleEl = sectionRef.current.querySelector('.sec-about-story__title');
     if (titleEl) {
-      initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.015 });
+      initTitleAnimation(titleEl, { start: 'top 95%', stagger: 0.015 });
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }, 150);
     }
   }, []);
 
@@ -38,7 +44,7 @@ export function AboutStorySection() {
             {/* Main Story Content */}
             <div className="our-story-content">
               <h2 className="intro-text story section-title sec-about-story__title">
-                From Vision to Impact, Crafting ㋡ Brands That{' '}
+                <span className="story-heading-main">From Vision to Impact, Crafting ㋡ Brands That </span>
                 <span className="text-color-secondary">Inspire and Endure.</span>
               </h2>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
 
@@ -36,6 +37,11 @@ export function AboutProcessSection() {
     const titleEl = sectionRef.current.querySelector('.sec-about-process__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }, 150);
     }
   }, []);
 
@@ -59,7 +65,7 @@ export function AboutProcessSection() {
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-about-process__title">
-                <span className="text-color-alternate">Work</span>{' '}
+                <span className="process-heading-main">Work</span>{' '}
                 <span className="text-color-secondary">Process</span>
               </h2>
             </div>
@@ -73,7 +79,7 @@ export function AboutProcessSection() {
 
           {/* Process 3-Column Grid */}
           <div className="process-component">
-            <div className="w-layout-grid process-component-grid">
+            <div className="process-component-grid">
               {processSteps.map((step) => (
                 <div
                   key={step.number}
@@ -81,11 +87,11 @@ export function AboutProcessSection() {
                 >
                   <div className="process-number">{step.number}</div>
                   <h3 className="process-title heading-style-h3">
-                    {step.titlePrimary}
+                    <span className="process-title-main">{step.titlePrimary}</span>
                     <br />
                     <span className="text-color-secondary">{step.titleAccent}</span>
                   </h3>
-                  <p className="text-size-regular text-color-secondary section-description">
+                  <p className="process-desc section-description">
                     {step.description}
                   </p>
                 </div>
