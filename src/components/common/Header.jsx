@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import gsap from 'gsap';
 
 export const Header = () => {
@@ -73,7 +74,7 @@ export const Header = () => {
           
           {/* Logo */}
           <div className="alg-header-logo-wrapper logo-wrapper sec-header__logo-wrapper" id="w-node-_775fe0a9-7eeb-54f2-c56b-580613a9104a-13a91046">
-            <a aria-current="page" className="alg-header-logo-link logo-link sec-header__logo-link w-inline-block w--current" href="#top">
+            <Link aria-current="page" className="alg-header-logo-link logo-link sec-header__logo-link w-inline-block" href="/">
               <div className="alg-header-logo-wrap logo-wrap">
                 <img 
                   alt="Algofort Logo" 
@@ -88,7 +89,7 @@ export const Header = () => {
                   src="/assets/logo.png" 
                 />
               </div>
-            </a>
+            </Link>
             <div className="logo-text-block"></div>
           </div>
 
@@ -107,60 +108,60 @@ export const Header = () => {
                       <div className="navigation-content-list">
                         
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <a className="navigation-link w-inline-block w--current" href="#sec-services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Web Development</div>
                               <div className="navigation-link-text">Web Development</div>
                             </div>
                             <div className="navigation-number">(01)</div>
-                          </a>
+                          </Link>
                         </div>
 
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">UI/UX Development</div>
                               <div className="navigation-link-text">UI/UX Development</div>
                             </div>
                             <div className="navigation-number">(02)</div>
-                          </a>
+                          </Link>
                         </div>
 
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Mobile App</div>
                               <div className="navigation-link-text">Mobile App</div>
                             </div>
                             <div className="navigation-number">(03)</div>
-                          </a>
+                          </Link>
                         </div>
 
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Custom Software</div>
                               <div className="navigation-link-text">Custom Software</div>
                             </div>
                             <div className="navigation-number">(04)</div>
-                          </a>
+                          </Link>
                         </div>
 
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <a className="navigation-link w-inline-block" href="#sec-services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">SEO</div>
                               <div className="navigation-link-text">SEO</div>
                             </div>
                             <div className="navigation-number">(05)</div>
-                          </a>
+                          </Link>
                         </div>
 
                       </div>
 
                       <div className="navigation-button-wrap" id="w-node-_775fe0a9-7eeb-54f2-c56b-580613a91087-13a91046">
                         <div className="navigation-button-block">
-                          <a className="main-button btn-primary sec-header__btn w-inline-block" href="#contact-cta" onClick={() => setNavOpen(false)}>
+                          <Link className="main-button btn-primary sec-header__btn w-inline-block" href="/contact" onClick={() => setNavOpen(false)}>
                             <div className="main-button-block">
                               <div className="button-text">Get in Touch</div>
                               <div className="button-text">Get in Touch</div>
@@ -171,7 +172,7 @@ export const Header = () => {
                               loading="lazy" 
                               src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg" 
                             />
-                          </a>
+                          </Link>
                         </div>
                       </div>
 
@@ -187,36 +188,36 @@ export const Header = () => {
           {/* Quick Nav Bar */}
           <div className="nav-wrapper sec-header__nav-wrapper">
             <div className="nav-link-block">
-              <a className="nav-link w-inline-block w--current" href="#top">
+              <Link className="nav-link w-inline-block" href="/">
                 <div className="nav-text-wrap">
                   <div className="nav-text">Home</div>
                   <div className="nav-text">Home</div>
                 </div>
-              </a>
-              <a className="nav-link w-inline-block" href="#sec-about">
+              </Link>
+              <Link className="nav-link w-inline-block" href="/about">
                 <div className="nav-text-wrap">
                   <div className="nav-text">About</div>
                   <div className="nav-text">About</div>
                 </div>
-              </a>
-              <a className="nav-link w-inline-block" href="#sec-services">
+              </Link>
+              <Link className="nav-link w-inline-block" href="/services">
                 <div className="nav-text-wrap">
                   <div className="nav-text">Services</div>
                   <div className="nav-text">Services</div>
                 </div>
-              </a>
-              <a className="nav-link w-inline-block" href="#sec-projects">
+              </Link>
+              <Link className="nav-link w-inline-block" href="/#sec-projects">
                 <div className="nav-text-wrap">
                   <div className="nav-text">Portfolio</div>
                   <div className="nav-text">Portfolio</div>
                 </div>
-              </a>
-              <a className="nav-link w-inline-block" href="#contact-cta">
+              </Link>
+              <Link className="nav-link w-inline-block" href="/contact">
                 <div className="nav-text-wrap">
                   <div className="nav-text">Contact</div>
                   <div className="nav-text">Contact</div>
                 </div>
-              </a>
+              </Link>
             </div>
 
             {/* Hamburger Toggle Button */}

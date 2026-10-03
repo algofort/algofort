@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { initTitleAnimation } from '../../utils/titleAnimation';
 
 const socialLinks = [
@@ -160,51 +161,51 @@ export const Footer = () => {
                     <div className="footer_label">Main links</div>
                     <div className="footer_links_grid">
                       <div className="footer_links_col">
-                        <a href="#top" className="footer_nav_link nav-link">
+                        <Link href="/" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Home</div>
                             <div className="nav-text">Home</div>
                           </div>
-                        </a>
-                        <a href="#sec-about" className="footer_nav_link nav-link">
+                        </Link>
+                        <Link href="/about" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">About us</div>
                             <div className="nav-text">About us</div>
                           </div>
-                        </a>
-                        <a href="#sec-services" className="footer_nav_link nav-link">
+                        </Link>
+                        <Link href="/services" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Services</div>
                             <div className="nav-text">Services</div>
                           </div>
-                        </a>
-                        <a href="#sec-projects" className="footer_nav_link nav-link">
+                        </Link>
+                        <Link href="/#sec-projects" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Projects</div>
                             <div className="nav-text">Projects</div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
 
                       <div className="footer_links_col">
-                        <a href="#contact-cta" className="footer_nav_link nav-link">
+                        <Link href="/contact" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Contact us</div>
                             <div className="nav-text">Contact us</div>
                           </div>
-                        </a>
-                        <a href="#sec-faq" className="footer_nav_link nav-link">
+                        </Link>
+                        <Link href="/#sec-faq" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">FAQ</div>
                             <div className="nav-text">FAQ</div>
                           </div>
-                        </a>
-                        <a href="#sec-services" className="footer_nav_link nav-link">
+                        </Link>
+                        <Link href="/services" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Blog</div>
                             <div className="nav-text">Blog</div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
