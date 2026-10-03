@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { SubtitleMarquee } from '../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../utils/titleAnimation';
 
 if (typeof window !== 'undefined') {
@@ -103,20 +104,19 @@ export function ContactSection() {
             {/* Left Column: Heading, Description & 2-Col Contact Cards */}
             <div className="alg-contact-left-col">
               
-              {/* Badge with Orange Star and Line */}
-              <div className="alg-contact-badge-line">
-                <svg className="alg-contact-badge-star" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07 19.07 4.93" strokeWidth="2.5" strokeLinecap="round"/>
-                </svg>
-                <span className="alg-contact-badge-divider"></span>
-                <span className="alg-contact-badge-text">GET IN TOUCH</span>
+              {/* Header matching homepage subtitle marquee & heading style */}
+              <div className="alg-contact-header section-header sec-contact__header" style={{ marginBottom: 0 }}>
+                <div className="alg-contact-badge section-badge sec-contact__badge" style={{ marginBottom: 0 }}>
+                  <SubtitleMarquee text="Get In Touch ✦ " variant="dark" />
+                </div>
+                <h2
+                  className="alg-contact-title heading-style-h2 section-title sec-contact__title"
+                  style={{ color: '#05080C', textAlign: 'left' }}
+                >
+                  Let’s Build Something <br />
+                  <span className="alg-contact-title-secondary text-color-secondary">Great Together</span>
+                </h2>
               </div>
-
-              {/* Main Heading */}
-              <h2 className="section-title alg-contact-title sec-contact__title text-color-dark">
-                LET’S BUILD SOMETHING <br />
-                <span className="text-color-secondary">GREAT TOGETHER</span>
-              </h2>
 
               {/* Paragraph */}
               <p className="section-description alg-contact-desc sec-contact__desc alg-text">
@@ -170,21 +170,7 @@ export function ContactSection() {
                   </div>
                 </a>
 
-                {/* 4. Send email */}
-                <a href="mailto:info@algofort.com" className="alg-contact-info-item" aria-label="Send email">
-                  <div className="alg-contact-info-icon-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <rect width="20" height="16" x="2" y="4" rx="2"/>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                    </svg>
-                  </div>
-                  <div className="alg-contact-info-text">
-                    <span className="alg-contact-info-label">SEND EMAIL</span>
-                    <span className="alg-contact-info-value">INFO@ALGOFORT.COM</span>
-                  </div>
-                </a>
-
-                {/* 5. Contact info */}
+                {/* 4. Contact info */}
                 <a href="tel:+17708847207" className="alg-contact-info-item" aria-label="Contact info">
                   <div className="alg-contact-info-icon-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -193,7 +179,7 @@ export function ContactSection() {
                   </div>
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">CONTACT INFO</span>
-                    <span className="alg-contact-info-value">+17708847207</span>
+                    <span className="alg-contact-info-value">+1 (770) 884-7207</span>
                     <span className="alg-contact-info-timing">Timing: 7PM to 7AM</span>
                   </div>
                 </a>
