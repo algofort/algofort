@@ -114,7 +114,7 @@ export function ContactSection() {
                   style={{ color: '#05080C', textAlign: 'left' }}
                 >
                   Let’s Build Something <br />
-                  <span className="alg-contact-title-secondary text-color-secondary">Great Together</span>
+                  <span className="alg-contact-title-secondary text-color-secondary">Great</span>
                 </h2>
               </div>
 
