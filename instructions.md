@@ -138,25 +138,43 @@ export default function SubPage() {
 
 ---
 
-## 5. Strict BEM Dual-Class Convention
+## 5. Strict BEM Dual-Class Convention & Class Rules
 
-To preserve global stylesheet symmetry and avoid conflicting style leakage:
-1. **Never invent arbitrary ad-hoc class names** (e.g. `.custom-box-3`, `.my-title`).
+To maintain absolute architectural symmetry across all pages and prevent CSS namespace collisions or style leakage:
+1. **Never invent arbitrary ad-hoc class names** (e.g. `.custom-box-3`, `.my-title`, `.card-wrap-new`).
 2. **Dual-class convention is mandatory**:
-   - **Global Shared Class (Symmetry)**: Connects to site-wide typography, spacing, and reset rules.
-   - **Unique Scoped Class (Modifier)**: Identifies the specific section.
+   - **Global Shared Class (Symmetry & Inheritance)**: Connects the element to site-wide typography clamps, uppercase transforms, resets, spacing, and CSS variable tokens.
+   - **Unique Scoped Class (Modifier & Targeting)**: Identifies the specific section, provides scoping for custom component CSS in `src/styles/`, and provides safe targets for GSAP selector animations (`gsap.to('.sec-[name]__card', ...)`).
 
-### Class Taxonomy Reference:
-| Element | Global Symmetrical Class | Section Scoped Class | Example for "Services" |
+### Class Prefix Conventions:
+* `sec-[name]`: Root section block (`.sec-services`, `.sec-projects`, `.sec-about`, `.sec-contact`, `.sec-faq`).
+* `sec-[name]__[elem]`: Section child element (`.sec-services__header`, `.sec-about__card`).
+* `sec-[name]--[mod]`: Section modifier/variant (`.sec-banner--subpage`).
+* `alg-[component]`: Reusable Algofort custom components (`.alg-text`, `.alg-cta-badge`, `.alg-cta-title`, `.alg-testimonials-header`, `.alg-faq-header`, `.alg-contact-grid`).
+
+### Comprehensive Class Taxonomy Reference:
+| Element | Global Symmetrical Class | Section Scoped Class | Example JSX |
 | :--- | :--- | :--- | :--- |
-| **Parent Section** | `.site-section` | `.sec-[name]` + `id="sec-[name]"` | `class="site-section sec-services" id="sec-services"` |
-| **Inner Container** | `.site-container` | `.sec-[name]__container` | `class="site-container sec-services__container container-large padding-global"` |
-| **Section Header** | `.section-header` | `.sec-[name]__header` | `class="section-header sec-services__header"` |
-| **Section Eyebrow** | `.section-badge` | `.sec-[name]__badge` | `class="section-badge sec-services__badge"` |
-| **Section Heading** | `.heading-style-h2.section-title` | `.sec-[name]__title` | `class="heading-style-h2 section-title sec-services__title"` |
-| **Description** | `p.alg-text.section-description` | `.sec-[name]__desc` | `class="alg-text section-description sec-services__desc"` |
-| **Cards / Grid items** | `.content-card` | `.sec-[name]__card` | `class="content-card sec-services__card"` |
-| **Buttons / CTA** | `.main-button.alternate-button` | `.sec-[name]__btn` | `class="main-button alternate-button sec-services__btn"` |
+| **Parent Section** | `.site-section` | `.sec-[name]` + `id="sec-[name]"` | `<section id="sec-services" className="site-section sec-services">` |
+| **Inner Container** | `.site-container.container-large.padding-global` | `.sec-[name]__container` | `<div className="site-container sec-services__container container-large padding-global">` |
+| **Section Padding** | `.padding-section-large` (or `-medium`) | `.sec-[name]__padding` | `<div className="padding-section-large sec-services__padding">` |
+| **Section Header** | `.section-header` | `.sec-[name]__header` | `<div className="section-header sec-services__header">` |
+| **Section Eyebrow** | `.section-badge` | `.sec-[name]__badge` | `<div className="section-badge sec-services__badge">` |
+| **Section Heading** | `.heading-style-h2.section-title` | `.sec-[name]__title` | `<h2 className="heading-style-h2 section-title sec-services__title">` |
+| **Subheading H3** | `.heading-style-h3` | `.sec-[name]__subtitle` | `<h3 className="heading-style-h3 sec-services__subtitle">` |
+| **Description** | `p.alg-text.section-description` | `.sec-[name]__desc` | `<p className="alg-text section-description sec-services__desc">` |
+| **Content Grid** | `.section-content` | `.sec-[name]__grid` | `<div className="section-content sec-services__grid">` |
+| **Cards / Grid items** | `.content-card` | `.sec-[name]__card` | `<div className="content-card sec-services__card">` |
+| **Card Inner Body** | `.content-card__inner` | `.sec-[name]__card-inner` | `<div className="content-card__inner sec-services__card-inner">` |
+| **Buttons / CTA** | `.main-button.alternate-button.w-inline-block` | `.sec-[name]__btn` | `<Link className="main-button alternate-button sec-services__btn w-inline-block">` |
+
+### Strict Class Rules (Do's & Don'ts):
+* [x] **DO**: Always pair a global symmetrical class with a scoped section BEM class.
+* [x] **DO**: Always maintain `text-transform: uppercase !important;` on all classes referencing `Mona Sans Narrow`.
+* [x] **DO**: Scope all component CSS rules under their parent `.sec-[name]` inside `src/styles/[name]-section.css`.
+* [!] **DO NOT**: Never write un-scoped raw CSS rules in global stylesheets that target generic tags (`h2`, `p`, `.card`).
+* [!] **DO NOT**: Never omit `.heading-style-h2.section-title` from an H2 tag or `.main-button.alternate-button` from CTA buttons.
+* [!] **DO NOT**: Never use Tailwind arbitrary colors that clash with brand tokens; always use `--brand-orange`, `#05080c`, `#f4f4f2`.
 
 ---
 

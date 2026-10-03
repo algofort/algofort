@@ -65,6 +65,77 @@ Every section created on any page must strictly follow this semantic structure:
 </section>
 ```
 
+### 1.4 CSS Class Architecture & Dual-Class System (Mandatory Rules)
+
+To maintain absolute architectural symmetry across all pages and prevent CSS namespace collisions or style leakage, Algofort enforces a **Dual-Class Architecture (Global Framework Class + Scoped BEM Modifier Class)**.
+
+#### 1. Why the Dual-Class System is Mandatory:
+* **Global Shared Class (Symmetry & Inheritance)**: Links the element directly to global stylesheet rules (`src/index.css`), responsive fluid font clamps, uppercase typography transforms, CSS variable color tokens, and universal layout resets.
+* **Scoped BEM Modifier Class (Isolation & Animation Targeting)**: Provides an isolated scope for page-specific layout, grid columns, unique spacing tweaks, and safe GSAP selector targeting (`gsap.to('.sec-about__card', ...)`), ensuring component rules never leak into other sections.
+
+```html
+<!-- MANDATORY DUAL-CLASS PATTERN -->
+<div class="[global-symmetrical-class] [scoped-section-modifier] [utility-classes]">
+```
+
+#### 2. Class Prefix Conventions:
+| Prefix | Type | Purpose | Examples |
+| :--- | :--- | :--- | :--- |
+| `sec-[name]` | Scoped Block | Primary identifier for a section wrapper | `.sec-services`, `.sec-projects`, `.sec-about`, `.sec-contact`, `.sec-faq`, `.sec-cta` |
+| `sec-[name]__[elem]` | Scoped Element | BEM child element within a section | `.sec-services__header`, `.sec-about__card`, `.sec-contact__form` |
+| `sec-[name]--[mod]` | Scoped Modifier | Variant or theme state of a section | `.sec-banner--subpage`, `.sec-services--dark` |
+| `alg-[component]` | Bespoke Component | Reusable Algofort custom UI components | `.alg-text`, `.alg-cta-badge`, `.alg-cta-title`, `.alg-testimonials-header`, `.alg-faq-header`, `.alg-contact-grid` |
+| `heading-style-[level]` | Global Typography | Standardized fluid typography scale | `.heading-style-h1`, `.heading-style-h2`, `.heading-style-h3` |
+| `text-color-[token]` | Global Color Utility | Brand token color override | `.text-color-secondary`, `.text-color-accent`, `.text-color-alternate` |
+| `bg-color-[token]` | Global Background | Brand token background override | `.bg-color-secondary`, `.bg-color-accent` |
+| `padding-[scope]` | Global Spacing | Standardized responsive section padding | `.padding-section-large`, `.padding-section-medium`, `.padding-global` |
+| `is-[state]` / `open` | State Classes | Interactive JS/DOM active states | `.is-active`, `.open`, `.w--open`, `.is-disabled` |
+
+#### 3. Complete Class Taxonomy & Element Mapping:
+Every section and internal page element must map to this exact dual-class taxonomy:
+
+| Element Role | Global Symmetrical Class | Section-Scoped BEM Class | Full Mandatory JSX / HTML Example |
+| :--- | :--- | :--- | :--- |
+| **Section Root** | `.site-section` | `.sec-[name]` + `id="sec-[name]"` | `<section id="sec-about" className="site-section sec-about">` |
+| **Outer Container** | `.site-container.container-large.padding-global` | `.sec-[name]__container` | `<div className="site-container sec-about__container container-large padding-global">` |
+| **Section Padding Wrapper** | `.padding-section-large` (or `-medium`) | `.sec-[name]__padding` | `<div className="padding-section-large sec-about__padding">` |
+| **Section Header Group** | `.section-header` | `.sec-[name]__header` | `<div className="section-header sec-about__header">` |
+| **Subtitle Eyebrow Badge** | `.section-badge` | `.sec-[name]__badge` | `<div className="section-badge sec-about__badge">` |
+| **Main Section Heading** | `.heading-style-h2.section-title` | `.sec-[name]__title` | `<h2 className="heading-style-h2 section-title sec-about__title">` |
+| **Subheading H3** | `.heading-style-h3` | `.sec-[name]__subtitle` | `<h3 className="heading-style-h3 sec-about__subtitle">` |
+| **Body Paragraph** | `.alg-text.section-description` | `.sec-[name]__desc` | `<p className="alg-text section-description sec-about__desc">` |
+| **Content Grid / Wrapper** | `.section-content` | `.sec-[name]__content` / `__grid` | `<div className="section-content sec-about__grid">` |
+| **Content Card** | `.content-card` | `.sec-[name]__card` | `<div className="content-card sec-about__card">` |
+| **Card Inner Body** | `.content-card__inner` | `.sec-[name]__card-inner` | `<div className="content-card__inner sec-about__card-inner">` |
+| **Primary Rolling CTA Button** | `.main-button.alternate-button.w-inline-block` | `.sec-[name]__btn` | `<Link className="main-button alternate-button sec-about__btn w-inline-block">` |
+| **Button Text Block** | `.main-button-block` | — | `<div className="main-button-block">` |
+| **Button Dual Rolling Text** | `.button-text.alternate-text` | — | `<div className="button-text alternate-text">Learn More</div>` |
+| **Button Star Icon** | `.button-icon` | — | `<img className="button-icon" ... />` |
+
+#### 4. Global Utility Classes Reference:
+* **Color Overrides**:
+  * `.text-color-secondary` / `.text-color-accent` -> `color: var(--brand-orange) !important;` (`#f47a1f`)
+  * `.text-color-alternate` -> `color: #ffffff !important;` (Pure white text on dark sections)
+  * `.bg-color-secondary` / `.bg-color-accent` -> `background-color: var(--brand-orange) !important;`
+* **Spacing Utilities**:
+  * `.padding-section-large` -> `padding-top: 8rem; padding-bottom: 8rem;` (Desktop), `5rem` (Tablet), `4rem` (Mobile)
+  * `.padding-section-medium` -> `padding-top: 5rem; padding-bottom: 5rem;` (Desktop), `3rem` (Mobile)
+  * `.padding-global` -> `padding-left: 2rem; padding-right: 2rem;` (Desktop), `1.5rem` (Tablet), `1.25rem` (Mobile)
+  * Spacer series: `.spacer-tiny` (2px), `.spacer-xxsmall` (4px), `.spacer-xsmall` (8px), `.spacer-small` (16px), `.spacer-medium` (32px), `.spacer-large` (48px), `.spacer-xlarge` (64px), `.spacer-xxlarge` (80px), `.spacer-huge` (96px), `.spacer-xhuge` (128px)
+* **Containers & Layouts**:
+  * `.container-large` -> `max-width: 100rem; margin-left: auto; margin-right: auto;`
+  * `.w-layout-grid` -> `display: grid; grid-auto-columns: 1fr;`
+
+#### 5. Strict Class Rules & Anti-Patterns (Do's & Don'ts):
+* [x] **DO**: Always provide both the global symmetrical class AND the scoped section BEM class.
+* [x] **DO**: Always maintain `text-transform: uppercase !important;` on all classes referencing `Mona Sans Narrow` (e.g. `.heading-style-h2`, `.section-title`, `.heading-style-h3`).
+* [x] **DO**: Always scope custom component CSS rules under their parent `.sec-[name]` in dedicated section stylesheets inside `src/styles/`.
+* [!] **DO NOT**: Never invent arbitrary un-scoped class names (e.g., `.my-wrapper`, `.box-item-3`, `.custom-title`, `.about-col`).
+* [!] **DO NOT**: Never omit `.heading-style-h2.section-title` from an H2 tag. Omitting it breaks fluid typography clamping, letter spacing, uppercase transformation, and GSAP stagger splitting.
+* [!] **DO NOT**: Never omit `.main-button.alternate-button` from CTA links/buttons or replace with flat buttons.
+* [!] **DO NOT**: Never write raw, un-scoped CSS rules in global stylesheets that target generic tags (`h2 { ... }`, `p { ... }`, `.card { ... }`).
+* [!] **DO NOT**: Never use Tailwind arbitrary colors (e.g., `text-blue-500`, `bg-red-600`, `border-emerald-400`) that conflict with brand tokens. Always use CSS variable-driven classes (`.text-color-secondary`, `.bg-color-secondary`, etc.).
+
 ---
 
 ## 2. Color Palette & Global Tokens
