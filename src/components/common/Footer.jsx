@@ -179,7 +179,7 @@ export const Footer = () => {
                             <div className="nav-text">Services</div>
                           </div>
                         </Link>
-                        <Link href="/#sec-projects" className="footer_nav_link nav-link">
+                        <Link href="/portfolio" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Projects</div>
                             <div className="nav-text">Projects</div>
@@ -284,19 +284,19 @@ export const Footer = () => {
                 <span>© 2026 Algofort. All rights reserved</span>
               </div>
               <div className="footer_bottom_right">
-                <a href="#privacy" className="footer_legal_link">
+                <Link href="/privacy-policy" className="footer_legal_link">
                   <div className="nav-text-wrap">
                     <span className="nav-text">Privacy Policy</span>
                     <span className="nav-text">Privacy Policy</span>
                   </div>
-                </a>
+                </Link>
                 <span className="footer_bottom_dot">•</span>
-                <a href="#terms" className="footer_legal_link">
+                <Link href="/terms-of-service" className="footer_legal_link">
                   <div className="nav-text-wrap">
                     <span className="nav-text">Terms of Service</span>
                     <span className="nav-text">Terms of Service</span>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
 

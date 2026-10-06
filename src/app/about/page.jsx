@@ -5,10 +5,9 @@ import { Cursor } from '../../components/common/Cursor';
 import { BackToTop } from '../../components/common/BackToTop';
 import { SmoothScroll } from '../../components/common/SmoothScroll';
 
-import { AboutStorySection } from '../../components/sections/about/AboutStorySection';
+import { AboutIntroSection } from '../../components/sections/about/AboutIntroSection';
 import { AboutValuesSection } from '../../components/sections/about/AboutValuesSection';
-import { AboutProcessSection } from '../../components/sections/about/AboutProcessSection';
-import { AboutAwardsSection } from '../../components/sections/about/AboutAwardsSection';
+import { AboutWhyUsSection } from '../../components/sections/about/AboutWhyUsSection';
 import { AboutTeamSection } from '../../components/sections/about/AboutTeamSection';
 import { AboutCtaSection } from '../../components/sections/about/AboutCtaSection';
 
@@ -23,7 +22,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <SmoothScroll>
-      <div className="page-wrapper min-h-screen bg-[#f4f4f2] text-[#05080C]" id="top">
+      <div className="page-wrapper page-about min-h-screen bg-[#f4f4f2] text-[#05080C]" id="top">
         <Cursor />
         <Header />
         <BackToTop />
@@ -35,10 +34,9 @@ export default function AboutPage() {
               { label: 'About Us', active: true },
             ]}
           />
-          <AboutStorySection />
+          <AboutIntroSection />
           <AboutValuesSection />
-          <AboutProcessSection />
-          <AboutAwardsSection />
+          <AboutWhyUsSection />
           <AboutTeamSection />
           <AboutCtaSection />
         </main>

@@ -42,14 +42,15 @@ export function AboutCtaSection() {
     }
 
     const ctx = gsap.context(() => {
-      // Keyframe 0 (0%): Initial state matching Webflow a-24
+      // Keyframe 0 (0%): Initial state matching unusually.webflow.io a-24
+      // Overlays start 100% CLOSED covering the video background
       gsap.set(topContent, { opacity: 1 });
-      gsap.set([title01, title02], { yPercent: 110 });
-      gsap.set([title03, title04], { yPercent: -110 });
+      gsap.set([title01, title02], { yPercent: 110, y: 0 });
+      gsap.set([title03, title04], { yPercent: -110, y: 0 });
       gsap.set(subtitle, { opacity: 0 });
-      gsap.set(button, { yPercent: 100 });
-      gsap.set(overlayTop, { yPercent: 0 });
-      gsap.set(overlayBottom, { yPercent: 0 });
+      gsap.set(button, { yPercent: 100, y: 0 });
+      gsap.set(overlayTop, { yPercent: 0, y: 0 });
+      gsap.set(overlayBottom, { yPercent: 0, y: 0 });
 
       // Continuous scrubbed timeline over the scroll track matching Webflow a-24 (smoothing: 100)
       const tl = gsap.timeline({
@@ -61,7 +62,7 @@ export function AboutCtaSection() {
         },
       });
 
-      // Keyframe 0% -> 20%: curtains open, words _01 & _04 reveal, hint fades out
+      // Keyframe 0% -> 20%: curtains open (-100% / 110%), words _01 & _04 reveal, hint fades out
       tl.to(topContent, { opacity: 0, duration: 0.15, ease: 'none' }, 0)
         .to(overlayTop, { yPercent: -100, duration: 0.20, ease: 'none' }, 0)
         .to(overlayBottom, { yPercent: 110, duration: 0.20, ease: 'none' }, 0)

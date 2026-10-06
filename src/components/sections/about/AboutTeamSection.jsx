@@ -1,86 +1,108 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
 
-/* Social icon SVG paths (identical to unusually.webflow.io/about) */
-const SOCIAL_ICONS = {
-  instagram:
-    'M12.001 9C10.3436 9 9.00098 10.3431 9.00098 12C9.00098 13.6573 10.3441 15 12.001 15C13.6583 15 15.001 13.6569 15.001 12C15.001 10.3427 13.6579 9 12.001 9ZM12.001 7C14.7614 7 17.001 9.2371 17.001 12C17.001 14.7605 14.7639 17 12.001 17C9.24051 17 7.00098 14.7629 7.00098 12C7.00098 9.23953 9.23808 7 12.001 7ZM18.501 6.74915C18.501 7.43926 17.9402 7.99917 17.251 7.99917C16.5609 7.99917 16.001 7.4384 16.001 6.74915C16.001 6.0599 16.5617 5.5 17.251 5.5C17.9393 5.49913 18.501 6.0599 18.501 6.74915ZM12.001 4C9.5265 4 9.12318 4.00655 7.97227 4.0578C7.18815 4.09461 6.66253 4.20007 6.17416 4.38967C5.74016 4.55799 5.42709 4.75898 5.09352 5.09255C4.75867 5.4274 4.55804 5.73963 4.3904 6.17383C4.20036 6.66332 4.09493 7.18811 4.05878 7.97115C4.00703 9.0752 4.00098 9.46105 4.00098 12C4.00098 14.4745 4.00753 14.8778 4.05877 16.0286C4.0956 16.8124 4.2012 17.3388 4.39034 17.826C4.5591 18.2606 4.7605 18.5744 5.09246 18.9064C5.42863 19.2421 5.74179 19.4434 6.17187 19.6094C6.66619 19.8005 7.19148 19.9061 7.97212 19.9422C9.07618 19.9939 9.46203 20 12.001 20C14.4755 20 14.8788 19.9934 16.0296 19.9422C16.8117 19.9055 17.3385 19.7996 17.827 19.6106C18.2604 19.4423 18.5752 19.2402 18.9074 18.9085C19.2436 18.5718 19.4445 18.2594 19.6107 17.8283C19.8013 17.3358 19.9071 16.8098 19.9432 16.0289C19.9949 14.9248 20.001 14.5389 20.001 12C20.001 9.52552 19.9944 9.12221 19.9432 7.97137C19.9064 7.18906 19.8005 6.66149 19.6113 6.17318C19.4434 5.74038 19.2417 5.42635 18.9084 5.09255C18.573 4.75715 18.2616 4.55693 17.8271 4.38942C17.338 4.19954 16.8124 4.09396 16.0298 4.05781C14.9258 4.00605 14.5399 4 12.001 4ZM12.001 2C14.7176 2 15.0568 2.01 16.1235 2.06C17.1876 2.10917 17.9135 2.2775 18.551 2.525C19.2101 2.77917 19.7668 3.1225 20.3226 3.67833C20.8776 4.23417 21.221 4.7925 21.476 5.45C21.7226 6.08667 21.891 6.81333 21.941 7.8775C21.9885 8.94417 22.001 9.28333 22.001 12C22.001 14.7167 21.991 15.0558 21.941 16.1225C21.8918 17.1867 21.7226 17.9125 21.476 18.55C21.2218 19.2092 20.8776 19.7658 20.3226 20.3217C19.7668 20.8767 19.2076 21.22 18.551 21.475C17.9135 21.7217 17.1876 21.89 16.1235 21.94C15.0568 21.9875 14.7176 22 12.001 22C9.28431 22 8.94514 21.99 7.87848 21.94C6.81431 21.8908 6.08931 21.7217 5.45098 21.475C4.79264 21.2208 4.23514 20.8767 3.67931 20.3217C3.12348 19.7658 2.78098 19.2067 2.52598 18.55C2.27848 17.9125 2.11098 17.1867 2.06098 16.1225C2.01348 15.0558 2.00098 14.7167 2.00098 12C2.00098 9.28333 2.01098 8.94417 2.06098 7.8775C2.11014 6.8125 2.27848 6.0875 2.52598 5.45C2.78014 4.79167 3.12348 4.23417 3.67931 3.67833C4.23514 3.1225 4.79348 2.78 5.45098 2.525C6.08848 2.2775 6.81348 2.11 7.87848 2.06C8.94514 2.0125 9.28431 2 12.001 2Z',
-  x: 'M8 2H1L9.26086 13.0145L1.44995 21.9999H4.09998L10.4883 14.651L16 22H23L14.3917 10.5223L21.8001 2H19.1501L13.1643 8.88578L8 2ZM17 20L5 4H7L19 20H17Z',
-  linkedin:
-    'M6.94048 4.99993C6.94011 5.81424 6.44608 6.54702 5.69134 6.85273C4.9366 7.15845 4.07187 6.97605 3.5049 6.39155C2.93793 5.80704 2.78195 4.93715 3.1105 4.19207C3.43906 3.44699 4.18654 2.9755 5.00048 2.99993C6.08155 3.03238 6.94097 3.91837 6.94048 4.99993ZM7.00048 8.47993H3.00048V20.9999H7.00048V8.47993ZM13.3205 8.47993H9.34048V20.9999H13.2805V14.4299C13.2805 10.7699 18.0505 10.4299 18.0505 14.4299V20.9999H22.0005V13.0699C22.0005 6.89993 14.9405 7.12993 13.2805 10.1599L13.3205 8.47993Z',
-  facebook:
-    'M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z',
-};
-
-const SOCIAL_ORDER = [
-  { key: 'instagram', label: 'Instagram' },
-  { key: 'x', label: 'X' },
-  { key: 'linkedin', label: 'Linkedin' },
-  { key: 'facebook', label: 'Facebook' },
-];
-
-const DEFAULT_SOCIALS = {
-  instagram: 'https://www.instagram.com/',
-  x: 'https://www.x.com/',
-  linkedin: 'https://www.linkedin.com/',
-  facebook: 'https://www.facebook.com/',
-};
-
 const teamMembers = [
   {
-    id: 'noah-reed',
-    name: 'Noah Reed',
-    role: 'Creative Director',
-    image: '/assets/68f83975e675ce9f8ae1e5e1_member-01.jpg',
-    description:
-      'Creative Director with a sharp eye for design, leading bold visuals and seamless brand experiences.',
+    id: 'wade-warren',
+    name: 'Wade Warren',
+    role: 'Web Developer',
+    image: '/assets/team/img-team-1.webp',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com',
+      twitter: 'https://twitter.com',
+    },
   },
   {
-    id: 'luna-hayes',
-    name: 'Luna Hayes',
-    role: 'Brand Strategist',
-    image: '/assets/68f83975aeed2d04e2e4fafb_member-03.jpg',
-    description:
-      'A brand strategist who creates strong identities and messages that connect brands to the public.',
+    id: 'john-smith',
+    name: 'John Smith',
+    role: 'Web Developer',
+    image: '/assets/team/img-team-2.webp',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com',
+      twitter: 'https://twitter.com',
+    },
   },
   {
-    id: 'ava-mitchell',
-    name: 'Ava Mitchell',
-    role: 'UI/UX Designer',
-    image: '/assets/68f83975286c348a306c6cf5_member-04.jpg',
-    description:
-      'UI/UX Designer focused on clean, intuitive interfaces that keep users engaged from start to finish.',
+    id: 'jenny-wilson',
+    name: 'Jenny Wilson',
+    role: 'Web Developer',
+    image: '/assets/team/img-team-3.webp',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com',
+      twitter: 'https://twitter.com',
+    },
   },
   {
-    id: 'liam-park',
-    name: 'Liam Park',
-    role: 'Front-end Developer',
-    image: '/assets/68f839756ee6d4ef77d8172d_member-02.jpg',
-    description:
-      'Front-end Developer who turns complex ideas into smooth, responsive, and high-performing websites.',
+    id: 'cody-fisher',
+    name: 'Cody Fisher',
+    role: 'Web Developer',
+    image: '/assets/team/img-team-4.webp',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com',
+      twitter: 'https://twitter.com',
+    },
+  },
+  {
+    id: 'robert-fox',
+    name: 'Robert Fox',
+    role: 'Web Developer',
+    image: '/assets/team/img-team-5.webp',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com',
+      twitter: 'https://twitter.com',
+    },
+  },
+  {
+    id: 'albert-flores',
+    name: 'Albert Flores',
+    role: 'Web Developer',
+    image: '/assets/team/img-team-6.webp',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com',
+      twitter: 'https://twitter.com',
+    },
+  },
+  {
+    id: 'jerome-bell',
+    name: 'Jerome Bell',
+    role: 'Web Developer',
+    image: '/assets/team/img-team-1.webp',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com',
+      twitter: 'https://twitter.com',
+    },
+  },
+  {
+    id: 'devon-lane',
+    name: 'Devon Lane',
+    role: 'Web Developer',
+    image: '/assets/team/img-team-3.webp',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com',
+      twitter: 'https://twitter.com',
+    },
   },
 ];
-
-function SocialIcon({ path }) {
-  return (
-    <div className="social-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d={path} />
-      </svg>
-    </div>
-  );
-}
 
 export function AboutTeamSection() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    const titleEl = sectionRef.current.querySelector('.sec-about-members__title');
+    const titleEl = sectionRef.current.querySelector('.sec-about-team__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
       const t = setTimeout(() => ScrollTrigger.refresh(), 150);
@@ -91,98 +113,127 @@ export function AboutTeamSection() {
   return (
     <section
       ref={sectionRef}
-      id="sec-about-members"
-      className="site-section sec-about-members section-about-members"
+      id="sec-about-team"
+      className="site-section sec-about-team section-home-service"
     >
-      <div className="padding-global">
-        <div className="container-large site-container sec-about-members__container">
-          <div className="padding-section-large sec-about-members__padding">
-
-          {/* Header */}
-          <div className="w-layout-grid top-grid section-header sec-about-members__header">
-            <div className="top-content sec-about-members__top-content">
-              <div className="section-badge sec-about-members__badge">
+      <div className="site-container sec-about-team__container padding-global">
+        <div className="container-large">
+          <div className="padding-section-large sec-about-team__padding">
+            {/* Header */}
+            <div className="section-header sec-about-team__header">
+              <div className="section-badge sec-about-team__badge">
                 <SubtitleMarquee
-                  text="Team Members — "
+                  text="Top Members — "
                   variant="dark"
                   icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />
               </div>
-              <h2 className="heading-style-h2 section-title sec-about-members__title">
-                <span className="team-heading-main">Design</span>
-                <span className="text-color-secondary"> Experts</span>
+              <h2 className="heading-style-h2 section-title sec-about-team__title">
+                <span className="team-heading-main">A Great Team is Key to a </span>
+                <span className="text-color-secondary">Successful Company</span>
               </h2>
+              <p className="section-description sec-about-team__desc alg-text">
+                Meet our exceptional team members who bring creativity and expertise to every project.
+              </p>
             </div>
-          </div>
 
-          <div className="spacer-xlarge"></div>
-
-          {/* 2 x 2 Team Grid */}
-          <div className="w-layout-grid team-members-grid sec-about-members__grid">
-            {teamMembers.map((member) => (
-              <div key={member.id} className="team-member-wrapper content-card sec-about-members__card">
-                <div className="team-member-block sec-about-members__card-inner">
-                  <div className="w-layout-grid member-inner-grid">
-
-                    {/* Member Image */}
-                    <div className="member-content-item">
-                      <div className="team-member-image-wrapper">
+            {/* Team Grid */}
+            <div className="pxl-grid pxl-team-grid pxl-team-grid1 pxl-team-layout1 sec-about-team__grid">
+              {teamMembers.map((member) => (
+                <div key={member.id} className="pxl-grid-item sec-about-team__item">
+                  <div className="pxl-item--inner sec-about-team__card">
+                    {/* Member Cutout Image */}
+                    <div className="pxl-item--image">
+                      <div className="pxl-item--image-link">
                         <img
                           loading="lazy"
+                          decoding="async"
+                          className="no-lazyload"
                           src={member.image}
-                          alt={`${member.name} - ${member.role}`}
-                          className="cover-image"
+                          width={314}
+                          height={343}
+                          alt={member.name}
+                          title={member.name}
                         />
                       </div>
                     </div>
 
-                    {/* Member Content */}
-                    <div className="member-content-item">
-                      <div className="w-layout-grid member-content-grid">
-                        <div className="member-content">
-                          <h3 className="member-name heading-style-h3 sec-about-members__name">{member.name}</h3>
-                          <div className="spacer-xsmall"></div>
-                          <div className="member-postion-text">{member.role}</div>
-                        </div>
-
-                        <div className="card-line"></div>
-
-                        <div className="member-content">
-                          <div className="member-content-block">
-                            <div className="team-member-social-media">
-                              {SOCIAL_ORDER.map(({ key, label }) => (
-                                <a
-                                  key={key}
-                                  aria-label={`${member.name} ${label} Link`}
-                                  href={DEFAULT_SOCIALS[key]}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="social-link is-alternate w-inline-block"
-                                >
-                                  <div className="social-icon-wrap">
-                                    <SocialIcon path={SOCIAL_ICONS[key]} />
-                                    <SocialIcon path={SOCIAL_ICONS[key]} />
-                                  </div>
-                                </a>
-                              ))}
-                            </div>
-                            <div className="spacer-medium"></div>
-                            <p className="alg-text member-description section-description sec-about-members__desc">
-                              {member.description}
-                            </p>
-                          </div>
+                    {/* Member Meta & Social Actions */}
+                    <div className="pxl-content">
+                      <div className="pxl-item--holder pxl-transition">
+                        <h3 className="pxl-item--title heading-style-h3">{member.name}</h3>
+                        <div className="pxl-item--position">
+                          <span>{member.role}</span>
                         </div>
                       </div>
-                    </div>
 
+                      {/* Trigger Plus Button */}
+                      <div className="pxl-social--button" aria-label="Social Menu">
+                        <span className="pxl-social--plus-icon">+</span>
+                      </div>
+
+                      {/* Floating Slide-up Social Links */}
+                      <div className="pxl-item--social">
+                        <a
+                          href={member.socials.facebook}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} Facebook`}
+                        >
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                          </svg>
+                        </a>
+                        <a
+                          href={member.socials.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} Instagram`}
+                        >
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                          </svg>
+                        </a>
+                        <a
+                          href={member.socials.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} Twitter`}
+                        >
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Bottom Join Collective Banner */}
+            <div className="sec-about-team__join-bar">
+              <div className="sec-about-team__join-text">
+                <span className="join-highlight">Join our team:</span> Recruiting skilled agency talent for exciting, rewarding opportunities.
               </div>
-            ))}
+              <div className="sec-about-team__join-action">
+                <Link href="/contact" className="main-button alternate-button w-inline-block">
+                  <div className="main-button-block">
+                    <div className="button-text alternate-text">Join The Collective</div>
+                    <div className="button-text alternate-text">Join The Collective</div>
+                  </div>
+                  <img
+                    loading="lazy"
+                    src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                    alt="Star Icon"
+                    className="button-icon"
+                  />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 }

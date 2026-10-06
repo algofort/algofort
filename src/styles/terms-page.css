@@ -1,0 +1,610 @@
+/* ==========================================================================
+   Terms of Service Stylesheet - Algofort Agency
+   Adheres strictly to design.md, instructions.md, and AGENTS.md
+   Background: #f4f4f2 (Warm Paper White)
+   Obsidian Dark Headings & Accented Brand Orange (#f47a1f)
+   ZERO SHADOWS - Clean, Light, Simple Borders (Site-Consistent)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Section Root & Layout
+   -------------------------------------------------------------------------- */
+.sec-terms {
+  position: relative;
+  width: 100%;
+  background-color: #f4f4f2;
+  color: #05080c;
+}
+
+.sec-terms *,
+.sec-terms *::before,
+.sec-terms *::after {
+  box-shadow: none !important;
+}
+
+.sec-terms__container {
+  width: 100%;
+  max-width: var(--site-container-max-w, 1600px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sec-terms__padding {
+  padding-top: 6rem;
+  padding-bottom: 8rem;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-terms__padding {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sec-terms__padding {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Section Header & Badges (Strict 1rem - 1.25rem spacing)
+   -------------------------------------------------------------------------- */
+.sec-terms__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+}
+
+.sec-terms__badge {
+  margin-bottom: 1.25rem !important; /* Exactly 20px on desktop */
+}
+
+@media screen and (max-width: 991px) {
+  .sec-terms__badge {
+    margin-bottom: 1rem !important; /* Exactly 16px on mobile */
+  }
+}
+
+/* Rendered as <span> with identical styling, display:block, and GSAP support */
+.sec-terms__title {
+  display: block !important;
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
+  font-size: clamp(2.75rem, 5.5vw, 5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.02 !important;
+  letter-spacing: 0.02em !important;
+  color: #05080c !important;
+  text-transform: uppercase !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.sec-terms__title .char,
+.sec-terms__card-title .char {
+  color: inherit !important;
+  visibility: visible !important;
+}
+
+.sec-terms__meta-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 100px;
+}
+
+.sec-terms__meta-date {
+  font-family: var(--font-family-mono, 'DM Mono', monospace);
+  font-size: 0.875rem;
+  color: #555555;
+  letter-spacing: 0.02em;
+}
+
+.sec-terms__meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-family-mono, 'DM Mono', monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--brand-orange, #f47a1f);
+  background-color: rgba(244, 122, 31, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+}
+
+.sec-terms__meta-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--brand-orange, #f47a1f);
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   3. 2-Column Grid Layout (Sticky Sidebar + Main Editorial Article)
+   -------------------------------------------------------------------------- */
+.sec-terms__grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 3.5rem;
+  align-items: stretch;
+  position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+  .sec-terms__grid {
+    grid-template-columns: 290px 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .sec-terms__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Table of Contents / Sticky Sidebar
+   -------------------------------------------------------------------------- */
+.sec-terms__sidebar-col {
+  position: relative;
+  height: 100%;
+}
+
+.sec-terms__sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-height: calc(100vh - 8rem);
+  z-index: 15;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-terms__sidebar-col {
+    height: auto;
+  }
+
+  .sec-terms__sidebar {
+    position: static;
+    max-height: none;
+    top: auto;
+  }
+}
+
+.sec-terms__toc-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sec-terms__toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.sec-terms__toc-title {
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase !important;
+  color: #05080c;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.sec-terms__toc-count {
+  font-family: var(--font-family-mono, 'DM Mono', monospace);
+  font-size: 0.8rem;
+  color: var(--brand-orange, #f47a1f);
+  background: rgba(244, 122, 31, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+}
+
+.sec-terms__toc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow-y: auto;
+  max-height: 48vh;
+  padding-right: 0.5rem;
+}
+
+/* Custom scrollbar for TOC */
+.sec-terms__toc-nav::-webkit-scrollbar {
+  width: 4px;
+}
+.sec-terms__toc-nav::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+.sec-terms__toc-nav::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-orange, #f47a1f);
+}
+
+.sec-terms__toc-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: #555555;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sec-terms__toc-num {
+  font-family: var(--font-family-mono, 'DM Mono', monospace);
+  font-size: 0.775rem;
+  color: #888888;
+  font-weight: 500;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.sec-terms__toc-link:hover {
+  background-color: rgba(244, 122, 31, 0.08);
+  color: #05080c;
+  transform: translateX(4px);
+}
+
+.sec-terms__toc-link:hover .sec-terms__toc-num {
+  color: var(--brand-orange, #f47a1f);
+}
+
+.sec-terms__toc-link.is-active {
+  background-color: rgba(244, 122, 31, 0.12);
+  color: var(--brand-orange, #f47a1f);
+  font-weight: 600;
+}
+
+.sec-terms__toc-link.is-active .sec-terms__toc-num {
+  color: var(--brand-orange, #f47a1f);
+}
+
+/* Sidebar Quick Help Card */
+.sec-terms__sidebar-help {
+  background-color: #05080c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.sec-terms__help-title {
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase !important;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.sec-terms__help-text {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+.sec-terms__help-link {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-orange, #f47a1f);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: opacity 0.2s ease;
+}
+
+.sec-terms__help-link:hover {
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   5. Main Editorial Document & Cards
+   -------------------------------------------------------------------------- */
+.sec-terms__article {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Lead Executive Box */
+.sec-terms__lead-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 2.25rem 2.25rem;
+}
+
+.sec-terms__lead-p {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 1.075rem;
+  line-height: 1.7;
+  color: #05080c;
+  margin-bottom: 1.25rem;
+}
+
+.sec-terms__lead-p:last-child {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #111111;
+}
+
+/* Terms Section Cards */
+.sec-terms__section-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 2.75rem 2.75rem;
+  scroll-margin-top: 6.5rem;
+  transition: border-color 0.25s ease;
+}
+
+@media screen and (max-width: 767px) {
+  .sec-terms__section-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+}
+
+.sec-terms__section-card:hover {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.sec-terms__section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+@media screen and (max-width: 767px) {
+  .sec-terms__section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+}
+
+.sec-terms__section-num {
+  font-family: var(--font-family-mono, 'DM Mono', monospace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brand-orange, #f47a1f);
+  background-color: rgba(244, 122, 31, 0.1);
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Site H2 style for section titles */
+.sec-terms__card-title,
+.sec-terms .heading-style-h2.sec-terms__card-title {
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  color: #05080c !important;
+  margin: 0 !important;
+}
+
+.sec-terms__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sec-terms__p {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333333;
+  margin: 0;
+}
+
+.sec-terms__p strong {
+  color: #05080c;
+  font-weight: 600;
+}
+
+/* Subsection 4.1 / 4.2 Styling */
+.sec-terms__subblock {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sec-terms__subhead {
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase !important;
+  color: #05080c;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* Styled Lists */
+.sec-terms__list-block {
+  margin-top: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.sec-terms__list-title {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #05080c;
+  margin-bottom: 0.85rem;
+}
+
+.sec-terms__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sec-terms__list-item {
+  position: relative;
+  padding-left: 1.75rem;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 0.975rem;
+  line-height: 1.6;
+  color: #444444;
+}
+
+.sec-terms__list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 7px;
+  height: 7px;
+  background-color: var(--brand-orange, #f47a1f);
+  border-radius: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   6. Contact Card Callout (Section 12)
+   -------------------------------------------------------------------------- */
+.sec-terms__contact-card {
+  background-color: #05080c;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 3rem 2.75rem;
+}
+
+.sec-terms__contact-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.sec-terms__contact-card .sec-terms__card-title,
+.sec-terms__contact-card .heading-style-h2.sec-terms__card-title {
+  color: #ffffff !important;
+}
+
+.sec-terms__contact-card .sec-terms__section-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.sec-terms__contact-card .sec-terms__section-num {
+  background-color: rgba(244, 122, 31, 0.15);
+  color: var(--brand-orange, #f47a1f);
+}
+
+.sec-terms__contact-card .sec-terms__p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.sec-terms__contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.sec-terms__contact-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.sec-terms__contact-box-label {
+  font-family: var(--font-family-mono, 'DM Mono', monospace);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--brand-orange, #f47a1f);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.sec-terms__contact-box-val {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.sec-terms__contact-box-val a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sec-terms__contact-box-val a:hover {
+  color: var(--brand-orange, #f47a1f);
+}
+
+.sec-terms__contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. Closing Acknowledgement Box
+   -------------------------------------------------------------------------- */
+.sec-terms__closing-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 2.25rem 2.25rem;
+}

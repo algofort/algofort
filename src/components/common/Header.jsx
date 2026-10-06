@@ -206,7 +206,7 @@ export const Header = () => {
                   <div className="nav-text">Services</div>
                 </div>
               </Link>
-              <Link className="nav-link w-inline-block" href="/#sec-projects">
+              <Link className="nav-link w-inline-block" href="/portfolio">
                 <div className="nav-text-wrap">
                   <div className="nav-text">Portfolio</div>
                   <div className="nav-text">Portfolio</div>

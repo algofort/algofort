@@ -5,52 +5,40 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
 
-const valuePillars = [
+const storyPillars = [
   {
-    id: 'innovation-first',
-    titleMain: 'Innovation ',
-    titleAccent: 'First',
+    id: 'our-vision',
+    titleMain: 'Our ',
+    titleAccent: 'Vision',
     description:
-      'Refusing conventional paradigms to explore uncharted frontiers. Our innovation-first ethos consistently challenges established boundaries to formulate smarter, higher-tier solutions.',
+      'In order to become a global leader of digital innovation by having a technology that is smart, scalable and sustainable to serve businesses.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M7.94101 18C7.64391 16.7274 6.30412 15.6857 5.75395 14.9992C4.65645 13.6297 4 11.8915 4 10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10C20 11.8925 19.3428 13.6315 18.2443 15.0014C17.6944 15.687 16.3558 16.7276 16.059 18H7.94101ZM16 20V21C16 22.1046 15.1046 23 14 23H10C8.89543 23 8 22.1046 8 21V20H16ZM13 10.0048V6L8.5 12.0048H11V16.0048L15.5 10.0048H13Z" />
+        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
       </svg>
     ),
   },
   {
-    id: 'customer-success',
-    titleMain: 'Customer ',
-    titleAccent: 'Success',
+    id: 'our-mission',
+    titleMain: 'Our ',
+    titleAccent: 'Mission',
     description:
-      'Your strategic growth and commercial triumph represent the definitive benchmark of our achievements, prioritizing enduring partnerships rooted in performance.',
+      'In a bid to provide quality user oriented solutions Stimulate Minimization, effective and meaningful technology To expand long-lasting relations with familiar backgrounds and the partnership based on performance.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M11 2.04938V13H21.9506C21.4489 18.0533 17.1853 22 12 22C6.47715 22 2 17.5229 2 12C2 6.81465 5.94668 2.5511 11 2.04938ZM13 2.04938C17.7244 2.51845 21.4816 6.27559 21.9506 11H13V2.04938Z" />
+        <path d="M12 2C6.486 2 2 6.486 2 12C2 17.514 6.486 22 12 22C17.514 22 22 17.514 22 12C22 6.486 17.514 2 12 2ZM12 20C7.589 20 4 16.411 4 12C4 7.589 7.589 4 12 4C16.411 4 20 7.589 20 12C20 16.411 16.411 20 12 20ZM12 6C8.691 6 6 8.691 6 12C6 15.309 8.691 18 12 18C15.309 18 18 15.309 18 12C18 8.691 15.309 6 12 6ZM12 16C9.794 16 8 14.206 8 12C8 9.794 9.794 8 12 8C14.206 8 16 9.794 16 12C16 14.206 14.206 16 12 16Z" />
       </svg>
     ),
   },
   {
-    id: 'integrity-transparency',
-    titleMain: 'Integrity & ',
-    titleAccent: 'Transparency',
+    id: 'our-promise',
+    titleMain: 'Our ',
+    titleAccent: 'Promise',
     description:
-      'Uncompromising clarity, radical honesty, and candid collaboration throughout every phase of digital engagement and architecture.',
+      'Algofort Company commits to keep you on the edge with you as your favorite technology partner that makes you innovative, grow and succeed in a continually developing digital world.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M14.1213 10.4792C13.7308 10.0886 13.0976 10.0886 12.7071 10.4792L12 11.1863C11.2189 11.9673 9.95259 11.9673 9.17154 11.1863C8.39049 10.4052 8.39049 9.13888 9.17154 8.35783L14.8022 2.72568C16.9061 2.24973 19.2008 2.83075 20.8388 4.46875C23.2582 6.88811 23.3716 10.7402 21.1792 13.2939L19.071 15.4289L14.1213 10.4792ZM3.16113 4.46875C5.33452 2.29536 8.66411 1.98283 11.17 3.53116L7.75732 6.94362C6.19523 8.50572 6.19523 11.0384 7.75732 12.6005C9.27209 14.1152 11.6995 14.1611 13.2695 12.7382L13.4142 12.6005L17.6568 16.8431L13.4142 21.0858C12.6331 21.8668 11.3668 21.8668 10.5858 21.0858L3.16113 13.6611C0.622722 11.1227 0.622722 7.00715 3.16113 4.46875Z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'excellence-in-delivery',
-    titleMain: 'Excellence in ',
-    titleAccent: 'Delivery',
-    description:
-      'Meticulous craftsmanship, disciplined execution, and an unwavering commitment to engineering distinction that continually delivers measurable value.',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M10.6144 17.7956 11.492 15.7854C12.2731 13.9966 13.6789 12.5726 15.4325 11.7942L17.8482 10.7219C18.6162 10.381 18.6162 9.26368 17.8482 8.92277L15.5079 7.88394C13.7092 7.08552 12.2782 5.60881 11.5105 3.75894L10.6215 1.61673C10.2916.821765 9.19319.821767 8.8633 1.61673L7.97427 3.75892C7.20657 5.60881 5.77553 7.08552 3.97685 7.88394L1.63658 8.92277C.868537 9.26368.868536 10.381 1.63658 10.7219L4.0523 11.7942C5.80589 12.5726 7.21171 13.9966 7.99275 15.7854L8.8704 17.7956C9.20776 18.5682 10.277 18.5682 10.6144 17.7956ZM19.4014 22.6899 19.6482 22.1242C20.0882 21.1156 20.8807 20.3125 21.8695 19.8732L22.6299 19.5353C23.0412 19.3526 23.0412 18.7549 22.6299 18.5722L21.9121 18.2532C20.8978 17.8026 20.0911 16.9698 19.6586 15.9269L19.4052 15.3156C19.2285 14.8896 18.6395 14.8896 18.4628 15.3156L18.2094 15.9269C17.777 16.9698 16.9703 17.8026 15.956 18.2532L15.2381 18.5722C14.8269 18.7549 14.8269 19.3526 15.2381 19.5353L15.9985 19.8732C16.9874 20.3125 17.7798 21.1156 18.2198 22.1242L18.4667 22.6899C18.6473 23.104 19.2207 23.104 19.4014 22.6899Z" />
+        <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z" />
       </svg>
     ),
   },
@@ -61,15 +49,30 @@ export function AboutValuesSection() {
 
   useEffect(() => {
     if (!sectionRef.current) return;
+
+    // Animate section h2 title
     const titleEl = sectionRef.current.querySelector('.sec-about-values__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
-      setTimeout(() => {
-        if (typeof window !== 'undefined') {
-          ScrollTrigger.refresh();
-        }
-      }, 150);
     }
+
+    // Animate h3 subtitles (Our Vision, Our Mission, Our Promise)
+    const subtitleEls = sectionRef.current.querySelectorAll('.sec-about-values__subtitle');
+    subtitleEls.forEach((subEl) => {
+      initTitleAnimation(subEl, {
+        trigger: subEl,
+        start: 'top 85%',
+        stagger: 0.02,
+      });
+    });
+
+    const timer = setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    }, 150);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -83,20 +86,26 @@ export function AboutValuesSection() {
               <div className="center-subtitle">
                 <div className="section-badge sec-about-values__badge">
                   <SubtitleMarquee
-                    text="Our values — "
+                    text="Our Story — "
                     variant="dark"
                     icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                   />
                 </div>
               </div>
               <h2 className="heading-style-h2 text-align-center section-title sec-about-values__title">
-                <span className="values-heading-main">Vision</span>{' '}
-                <span className="text-color-secondary">Pillars</span>
+                <span className="values-heading-main">Our</span>{' '}
+                <span className="text-color-secondary">Story</span>
               </h2>
+              <div className="sec-about-values__header-desc">
+                <p className="alg-text">
+                  Algofort was conceptualized on the concept of offering technically sophisticated technology that can be understood by all. Invented by a team of passionate innovators, we embarked the journey to bridge the gap between complex technology and reality of the business world.
+                </p>
+                <p className="alg-text">
+                  Algofort is today in operation in different industries and is known to have a very practical and permanent solution to clients through customized IT solutions.
+                </p>
+              </div>
             </div>
           </div>
-
-          <div className="spacer-xlarge"></div>
 
           {/* 2-Column Layout */}
           <div className="w-layout-grid values-component-grid sec-about-values__grid">
@@ -107,16 +116,16 @@ export function AboutValuesSection() {
                 <img
                   src="/assets/68f800db63fd513ee96c96c2_medium-shot-business-woman-with-laptop.jpg"
                   loading="lazy"
-                  alt="Vision Pillars Leader"
+                  alt="Our Story Algofort"
                   className="cover-image"
                 />
               </div>
             </div>
 
-            {/* Right Column: 4 Value Cards */}
+            {/* Right Column: 3 Value/Story Cards */}
             <div className="value-content-block sec-about-values__content">
               <div className="w-layout-grid value-inner-grid">
-                {valuePillars.map((pillar) => (
+                {storyPillars.map((pillar) => (
                   <div key={pillar.id} className="value-content-item content-card sec-about-values__card">
                     <div className="value-icon">{pillar.icon}</div>
                     <h3 className="value-title heading-style-h3 sec-about-values__subtitle">
