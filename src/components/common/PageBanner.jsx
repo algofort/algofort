@@ -113,7 +113,7 @@ export function PageBanner({
     if (navLinks?.length) gsap.set(navLinks, { opacity: 0, y: -10 });
     if (menuBtn) gsap.set(menuBtn, { opacity: 0, scale: 0.85 });
     if (videoWrap) gsap.set(videoWrap, { opacity: 0, scale: 1.04 });
-    if (breadcrumbWrap) gsap.set(breadcrumbWrap, { opacity: 0, y: 20 });
+    if (breadcrumbWrap) gsap.set(breadcrumbWrap, { visibility: 'visible', opacity: 1, y: 0 });
     if (social1) gsap.set(social1, { opacity: 0, y: 15 });
     if (social2) gsap.set(social2, { opacity: 0, y: 15 });
     if (marqueeComp) gsap.set(marqueeComp, { opacity: 0, scale: 0.95 });
@@ -149,10 +149,9 @@ export function PageBanner({
       tl.to(titleChars, { opacity: 1, y: 0, duration: 0.35, stagger: 0.02, ease: 'power3.out' }, '-=0.2');
     }
 
-    // 5. Breadcrumb Reveal
+    // 5. Breadcrumb Container (items animate smoothly via staggered CSS keyframes)
     if (breadcrumbWrap) {
-      gsap.set(breadcrumbWrap, { visibility: 'visible' });
-      tl.to(breadcrumbWrap, { opacity: 1, y: 0, duration: 0.35, ease: 'back.out(1.4)' }, '-=0.15');
+      gsap.set(breadcrumbWrap, { visibility: 'visible', opacity: 1, y: 0 });
     }
 
     // 6. Sequential Social icons & Marquee in Bottom Bar
@@ -215,49 +214,35 @@ export function PageBanner({
           </h1>
 
           <div className="sec-page-banner__breadcrumb-wrap">
-            <nav aria-label="Breadcrumb" className="sec-page-banner__breadcrumb-nav">
+            <nav className="bc sec-page-banner__breadcrumb-nav" aria-label="Breadcrumb">
               <ol className="sec-page-banner__breadcrumb-list">
                 {breadcrumbList.map((crumb, idx) => {
                   const isLast = idx === breadcrumbList.length - 1;
                   return (
-                    <React.Fragment key={idx}>
-                      <li className="sec-page-banner__breadcrumb-item">
-                        {isLast ? (
-                          <span
-                            className="sec-page-banner__breadcrumb-current"
-                            aria-current="page"
-                          >
-                            {crumb.label}
-                          </span>
-                        ) : (
-                          <Link
-                            href={crumb.href || '/'}
-                            className="sec-page-banner__breadcrumb-link"
-                          >
-                            {crumb.label}
-                          </Link>
-                        )}
-                      </li>
-                      {!isLast && (
-                        <li
-                          className="sec-page-banner__breadcrumb-separator"
-                          aria-hidden="true"
+                    <li
+                      key={`${crumb.label}-${idx}`}
+                      className={`sec-page-banner__breadcrumb-item ${isLast ? 'is-active' : ''}`}
+                      style={{ animationDelay: `${idx * 0.25}s` }}
+                    >
+                      {isLast ? (
+                        <a
+                          href={crumb.href || '#'}
+                          data-t={crumb.label}
+                          className="sec-page-banner__breadcrumb-link sec-page-banner__breadcrumb-current"
+                          aria-current="page"
                         >
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <polyline points="9 18 15 12 9 6" />
-                          </svg>
-                        </li>
+                          <span>{crumb.label}</span>
+                        </a>
+                      ) : (
+                        <Link
+                          href={crumb.href || '/'}
+                          data-t={crumb.label}
+                          className="sec-page-banner__breadcrumb-link"
+                        >
+                          <span>{crumb.label}</span>
+                        </Link>
                       )}
-                    </React.Fragment>
+                    </li>
                   );
                 })}
               </ol>

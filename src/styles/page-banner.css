@@ -133,78 +133,172 @@
   }
 }
 
-/* Breadcrumbs Container & List */
+/* ==========================================================================
+   Breadcrumbs Component (.bc & .sec-page-banner__breadcrumb-*)
+   Animated breadcrumb with staggered entrance, rolling-text hover effects,
+   and cyber-agency glassmorphism pill framing conforming to design.md.
+   ========================================================================== */
+
 .sec-page-banner__breadcrumb-wrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  visibility: hidden;
   margin-top: 0.25rem;
   z-index: 6;
 }
 
+/* Glassmorphism pill badge wrapper matching main menu nav pill */
+.bc,
 .sec-page-banner__breadcrumb-nav {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background-color: var(--background-color--background-25);
+  border: none;
+  box-shadow: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 9999px;
   padding: 0.45rem 1.25rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+  transition: background-color 0.35s ease;
 }
 
+.bc:hover,
 .sec-page-banner__breadcrumb-nav:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
+  background-color: var(--background-color--background-50, rgba(112, 112, 112, 0.5));
+  border: none;
+  box-shadow: none;
 }
 
+/* Ordered list reset & flex alignment */
+.bc ol,
 .sec-page-banner__breadcrumb-list {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
   font-size: 0.9rem;
-  font-weight: 500;
   letter-spacing: 0.02em;
 }
 
+/* Breadcrumb list item staggered entrance */
+.bc li,
 .sec-page-banner__breadcrumb-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  opacity: 0;
+  transform: translateX(-18px);
+  animation: in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
+.bc li:nth-child(2),
+.sec-page-banner__breadcrumb-item:nth-child(2) { animation-delay: 0.25s; }
+
+.bc li:nth-child(3),
+.sec-page-banner__breadcrumb-item:nth-child(3) { animation-delay: 0.5s; }
+
+.bc li:nth-child(4),
+.sec-page-banner__breadcrumb-item:nth-child(4) { animation-delay: 0.75s; }
+
+.bc li:nth-child(5),
+.sec-page-banner__breadcrumb-item:nth-child(5) { animation-delay: 1s; }
+
+.bc li:nth-child(6),
+.sec-page-banner__breadcrumb-item:nth-child(6) { animation-delay: 1.25s; }
+
+/* Separator between items */
+.bc li+li::before,
+.sec-page-banner__breadcrumb-item + .sec-page-banner__breadcrumb-item::before {
+  content: "/";
+  margin: 0 10px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+  display: inline-block;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Rolling Text Breadcrumb Link */
+.bc a,
 .sec-page-banner__breadcrumb-link {
-  color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  white-space: nowrap;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 1.5em;
+  line-height: 1.5em;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 500;
+  transition: color 0.35s ease;
 }
 
+.bc a:hover,
 .sec-page-banner__breadcrumb-link:hover {
   color: #ffffff;
 }
 
-.sec-page-banner__breadcrumb-separator {
-  color: rgba(255, 255, 255, 0.35);
-  display: inline-flex;
-  align-items: center;
+/* Rolling Span (Front Text) */
+.bc a span,
+.sec-page-banner__breadcrumb-link span {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.7, 0, 0.2, 1);
 }
 
+/* Rolling After Pseudo-element (Rolling Up From Bottom) */
+.bc a::after,
+.sec-page-banner__breadcrumb-link::after {
+  content: attr(data-t);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  color: #ffffff;
+  transition: transform 0.35s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+/* Hover Roll Trigger */
+.bc a:hover span,
+.sec-page-banner__breadcrumb-link:hover span,
+.bc a:hover::after,
+.sec-page-banner__breadcrumb-link:hover::after {
+  transform: translateY(-100%);
+}
+
+/* Last child / Active Current Page - Brand Orange & Non-clickable */
+.bc li:last-child a,
+.sec-page-banner__breadcrumb-item:last-child .sec-page-banner__breadcrumb-link,
+.sec-page-banner__breadcrumb-item.is-active .sec-page-banner__breadcrumb-link,
 .sec-page-banner__breadcrumb-current {
-  color: var(--brand-orange, #f47a1f);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
+  pointer-events: none;
+  color: var(--brand-orange, #f47a1f) !important;
+  font-weight: 600 !important;
+  cursor: default;
+}
+
+/* Accessibility Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  .bc li,
+  .sec-page-banner__breadcrumb-item {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .bc a span,
+  .bc a::after,
+  .sec-page-banner__breadcrumb-link span,
+  .sec-page-banner__breadcrumb-link::after {
+    transition: none !important;
+  }
 }
 
 /* Bottom Bar - matches the exact bottom gap and container width of the home hero section */
@@ -316,9 +410,14 @@
 }
 
 @media screen and (max-width: 479px) {
-  .sec-page-banner__breadcrumb-list {
+  .sec-page-banner__breadcrumb-list,
+  .bc ol {
     font-size: 0.8rem;
-    gap: 0.35rem;
+  }
+
+  .bc li+li::before,
+  .sec-page-banner__breadcrumb-item + .sec-page-banner__breadcrumb-item::before {
+    margin: 0 6px;
   }
 
   .sec-page-banner__bottom-wrap.padding-global {

@@ -298,6 +298,10 @@
   gap: 0.85rem;
 }
 
+.footer_links_col .footer_label {
+  margin-bottom: 0.4rem;
+}
+
 /* Dual-Text Swipe Hover on Navigation Links */
 .footer_nav_link,
 .footer_nav_link.nav-link {

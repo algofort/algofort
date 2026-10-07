@@ -156,54 +156,67 @@ export const Footer = () => {
                 {/* Top of Right Pane: Main Links (left) and Get in touch (right) */}
                 <div className="footer_right_top">
 
-                  {/* Main links (Left sub-col) */}
+                  {/* Main links & Services (Left sub-cols) */}
                   <div className="footer_col_links">
-                    <div className="footer_label">Main links</div>
                     <div className="footer_links_grid">
                       <div className="footer_links_col">
+                        <div className="footer_label">Main links</div>
                         <Link href="/" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">Home</div>
-                            <div className="nav-text">Home</div>
+                            <div className="nav-text">HOME</div>
+                            <div className="nav-text">HOME</div>
                           </div>
                         </Link>
                         <Link href="/about" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">About us</div>
-                            <div className="nav-text">About us</div>
+                            <div className="nav-text">ABOUT US</div>
+                            <div className="nav-text">ABOUT US</div>
                           </div>
                         </Link>
                         <Link href="/services" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">Services</div>
-                            <div className="nav-text">Services</div>
+                            <div className="nav-text">SERVICES</div>
+                            <div className="nav-text">SERVICES</div>
                           </div>
                         </Link>
                         <Link href="/portfolio" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">Projects</div>
-                            <div className="nav-text">Projects</div>
+                            <div className="nav-text">PROJECTS</div>
+                            <div className="nav-text">PROJECTS</div>
+                          </div>
+                        </Link>
+                        <Link href="/contact" className="footer_nav_link nav-link">
+                          <div className="nav-text-wrap">
+                            <div className="nav-text">Contact US</div>
+                            <div className="nav-text">Contact US</div>
                           </div>
                         </Link>
                       </div>
 
                       <div className="footer_links_col">
-                        <Link href="/contact" className="footer_nav_link nav-link">
+                        <div className="footer_label">Our Services</div>
+                        <Link href="/services/web-development" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">Contact us</div>
-                            <div className="nav-text">Contact us</div>
-                          </div>
-                        </Link>
-                        <Link href="/#sec-faq" className="footer_nav_link nav-link">
-                          <div className="nav-text-wrap">
-                            <div className="nav-text">FAQ</div>
-                            <div className="nav-text">FAQ</div>
+                            <div className="nav-text">Web Development</div>
+                            <div className="nav-text">Web Development</div>
                           </div>
                         </Link>
                         <Link href="/services" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">Blog</div>
-                            <div className="nav-text">Blog</div>
+                            <div className="nav-text">Brand Identity</div>
+                            <div className="nav-text">Brand Identity</div>
+                          </div>
+                        </Link>
+                        <Link href="/services" className="footer_nav_link nav-link">
+                          <div className="nav-text-wrap">
+                            <div className="nav-text">Saas App development</div>
+                            <div className="nav-text">Saas App development</div>
+                          </div>
+                        </Link>
+                        <Link href="/services" className="footer_nav_link nav-link">
+                          <div className="nav-text-wrap">
+                            <div className="nav-text">Mobile App</div>
+                            <div className="nav-text">Mobile App</div>
                           </div>
                         </Link>
                       </div>
