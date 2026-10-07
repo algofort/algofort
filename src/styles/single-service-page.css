@@ -350,55 +350,11 @@
 }
 
 /* ==========================================================================
-   Single Service Page: Remove Top & Bottom Padding Across Sections
+   Single Service Page: Remove Top & Bottom Padding for Why Choose Us only
    ========================================================================== */
-.page-single-service .section_about-markeio,
-.page-single-service .sec-about {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.page-single-service .section-home-service .padding-section-large,
-.page-single-service .sec-services .padding-section-large,
-.page-single-service .sec-services {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.page-single-service .alg-process,
-.page-single-service .step-process-section,
-.page-single-service .sec-process {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
 .page-single-service .sec-why-us .padding-section-large,
 .page-single-service .sec-why-us__padding,
 .page-single-service .sec-why-us {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.page-single-service .alg-testimonials,
-.page-single-service .sec-testimonials,
-.page-single-service .cb-summary {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.page-single-service .alg-faq,
-.page-single-service .sec-faq,
-.page-single-service .cb-faq {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.page-single-service .padding-section-large {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.page-single-service .site-section {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
