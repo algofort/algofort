@@ -249,12 +249,13 @@ export const BannerSection = () => {
               muted 
               playsInline 
               data-object-fit="cover" 
+              poster="/assets/banner_bg_poster.jpg"
               style={{
-                backgroundImage: 'url("/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg")',
+                backgroundImage: 'url("/assets/banner_bg_poster.jpg")',
               }}
             >
-              <source src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4" type="video/mp4" />
-              <source src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm" type="video/webm" />
+              <source src="/assets/banner_bg.webm" type="video/webm" />
+              <source src="/assets/banner_bg.mp4" type="video/mp4" />
             </video>
           </div>
           <div className="alg-hero-video-overlay video-overlay"></div>
