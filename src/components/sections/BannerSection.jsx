@@ -18,10 +18,9 @@ const trailImages = [
 
 const marqueeItems = [
   'Web Development',
-  'UI/UX Development',
+  'Brand Identity',
+  'Saas App development',
   'Mobile App',
-  'Custom Software',
-  'SEO',
 ];
 
 function splitTextIntoSpans(el) {
