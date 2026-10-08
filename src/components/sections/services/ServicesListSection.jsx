@@ -13,7 +13,7 @@ const servicesData = [
     num: '(01)',
     title: 'Web Development',
     link: '/services/web-development',
-    image: '/assets/services/web-development/web-1.jpg',
+    image: '/assets/services/service-web-development.webp',
     text: 'High-performance websites and bespoke digital platforms engineered with modern frameworks, clean architecture, and responsive precision.',
   },
   {
@@ -21,7 +21,7 @@ const servicesData = [
     num: '(02)',
     title: 'Brand Identity',
     link: '/services/brand-identity',
-    image: '/assets/services/brand-identity/brand-1.jpg',
+    image: '/assets/services/service-brand-identity.webp',
     text: 'Distinctive visual identities, cohesive design systems, and strategic brand positioning crafted to leave a bold, lasting impression.',
   },
   {
@@ -29,7 +29,7 @@ const servicesData = [
     num: '(03)',
     title: 'Saas App development',
     link: '/services/saas-app-development',
-    image: '/assets/services/saas-app/saas-1.jpg',
+    image: '/assets/services/service-saas-app.webp',
     text: 'Scalable cloud software, secure multi-tenant SaaS platforms, and dynamic digital products engineered for velocity and business growth.',
   },
   {
@@ -37,7 +37,7 @@ const servicesData = [
     num: '(04)',
     title: 'Mobile App',
     link: '/services/mobile-app-development',
-    image: '/assets/services/mobile-app/mobile-1.jpg',
+    image: '/assets/services/service-mobile-app.webp',
     text: 'Intuitive iOS and Android applications built with high-performance native capabilities, seamless interactions, and engaging user journeys.',
   },
 ];
