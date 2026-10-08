@@ -129,7 +129,7 @@ export function ContactSection() {
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">OUR STUDIO ADDRESS</span>
                     <span className="alg-contact-info-value">
-                      84J GHAZALI RDBLOCK 2PECHS, KARACHI
+                      84J GHAZALI RD, BLOCK 2 PECHS, KARACHI
                     </span>
                   </div>
                 </div>
