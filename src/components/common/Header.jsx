@@ -3,14 +3,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
+import '../../styles/header.css';
 
 export const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const [servicesSubOpen, setServicesSubOpen] = useState(false);
   const drawerRef = useRef(null);
 
   const toggleNav = () => {
     setNavOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    if (!navOpen) {
+      setServicesSubOpen(false);
+    }
+  }, [navOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -27,7 +35,12 @@ export const Header = () => {
     const drawerEl = drawerRef.current;
     const contentWrap = drawerEl.querySelector('.alg-header-drawer-content-wrap, .navigation-content-wrap');
     const opacityBg = drawerEl.querySelector('.alg-header-drawer-opacity, .navigation-opacity');
-    const links = drawerEl.querySelectorAll('.alg-header-drawer-link-block, .navigation-link-block');
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 991;
+    const links = drawerEl.querySelectorAll(
+      isMobile 
+        ? '.mobile-nav-list > .navigation-link-block' 
+        : '.desktop-nav-list > .navigation-link-block'
+    );
 
     if (navOpen) {
       gsap.set(drawerEl, { display: 'block' });
@@ -105,7 +118,8 @@ export const Header = () => {
                 <div className="navigation-content-block">
                   <div className="navigation-content">
                     <div className="w-layout-grid navigation-inner-grid">
-                      <div className="navigation-content-list">
+                      {/* Desktop Navigation List (Shown on screens > 991px) */}
+                      <div className="navigation-content-list desktop-nav-list">
                         
                         <div className="alg-header-drawer-link-block navigation-link-block">
                           <Link className="navigation-link w-inline-block" href="/services/web-development" onClick={() => setNavOpen(false)}>
@@ -144,6 +158,115 @@ export const Header = () => {
                               <div className="navigation-link-text">Mobile App</div>
                             </div>
                             <div className="navigation-number">(04)</div>
+                          </Link>
+                        </div>
+
+                      </div>
+
+                      {/* Mobile Navigation List (Full Main Menu - Shown on screens <= 991px) */}
+                      <div className="navigation-content-list mobile-nav-list">
+
+                        {/* 01. Home */}
+                        <div className="alg-header-drawer-link-block navigation-link-block">
+                          <Link className="navigation-link w-inline-block" href="/" onClick={() => setNavOpen(false)}>
+                            <div className="navigation-link-wrap">
+                              <div className="navigation-link-text">Home</div>
+                              <div className="navigation-link-text">Home</div>
+                            </div>
+                            <div className="navigation-number">(01)</div>
+                          </Link>
+                        </div>
+
+                        {/* 02. About */}
+                        <div className="alg-header-drawer-link-block navigation-link-block">
+                          <Link className="navigation-link w-inline-block" href="/about" onClick={() => setNavOpen(false)}>
+                            <div className="navigation-link-wrap">
+                              <div className="navigation-link-text">About</div>
+                              <div className="navigation-link-text">About</div>
+                            </div>
+                            <div className="navigation-number">(02)</div>
+                          </Link>
+                        </div>
+
+                        {/* 03. Services (Hover or Click expands sub-services) */}
+                        <div 
+                          className={`alg-header-drawer-link-block navigation-link-block mobile-services-wrapper ${servicesSubOpen ? 'is-open' : ''}`}
+                          onMouseEnter={() => setServicesSubOpen(true)}
+                          onMouseLeave={() => setServicesSubOpen(false)}
+                        >
+                          <div 
+                            className="navigation-link mobile-services-trigger"
+                            onClick={() => setServicesSubOpen((prev) => !prev)}
+                            role="button"
+                            tabIndex={0}
+                            aria-expanded={servicesSubOpen}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                setServicesSubOpen((prev) => !prev);
+                              }
+                            }}
+                          >
+                            <div className="mobile-services-trigger-left">
+                              <div className="navigation-link-wrap">
+                                <div className="navigation-link-text">Services</div>
+                                <div className="navigation-link-text">Services</div>
+                              </div>
+                              <div className="navigation-number">(03)</div>
+                            </div>
+                            <div className="mobile-services-arrow" aria-label="Toggle Sub Services">
+                              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                              </svg>
+                            </div>
+                          </div>
+
+                          {/* Sub Services Accordion */}
+                          <div className={`nav-subservices-container ${servicesSubOpen ? 'is-open' : ''}`}>
+                            <div className="nav-subservices-list">
+                              <Link className="nav-subservice-item" href="/services/web-development" onClick={() => setNavOpen(false)}>
+                                <span className="nav-subservice-dot">✦</span>
+                                <span>Web Development</span>
+                              </Link>
+                              <Link className="nav-subservice-item" href="/services" onClick={() => setNavOpen(false)}>
+                                <span className="nav-subservice-dot">✦</span>
+                                <span>Brand Identity</span>
+                              </Link>
+                              <Link className="nav-subservice-item" href="/services" onClick={() => setNavOpen(false)}>
+                                <span className="nav-subservice-dot">✦</span>
+                                <span>Saas App development</span>
+                              </Link>
+                              <Link className="nav-subservice-item" href="/services" onClick={() => setNavOpen(false)}>
+                                <span className="nav-subservice-dot">✦</span>
+                                <span>Mobile App</span>
+                              </Link>
+                              <Link className="nav-subservice-item" href="/services" onClick={() => setNavOpen(false)}>
+                                <span className="nav-subservice-dot">✦</span>
+                                <span>All Services</span>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 04. Portfolio */}
+                        <div className="alg-header-drawer-link-block navigation-link-block">
+                          <Link className="navigation-link w-inline-block" href="/portfolio" onClick={() => setNavOpen(false)}>
+                            <div className="navigation-link-wrap">
+                              <div className="navigation-link-text">Portfolio</div>
+                              <div className="navigation-link-text">Portfolio</div>
+                            </div>
+                            <div className="navigation-number">(04)</div>
+                          </Link>
+                        </div>
+
+                        {/* 05. Contact */}
+                        <div className="alg-header-drawer-link-block navigation-link-block">
+                          <Link className="navigation-link w-inline-block" href="/contact" onClick={() => setNavOpen(false)}>
+                            <div className="navigation-link-wrap">
+                              <div className="navigation-link-text">Contact</div>
+                              <div className="navigation-link-text">Contact</div>
+                            </div>
+                            <div className="navigation-number">(05)</div>
                           </Link>
                         </div>
 

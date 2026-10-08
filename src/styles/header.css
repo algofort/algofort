@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Header Navigation Drawer: Desktop vs Mobile View
+   ========================================================================== */
+
+.desktop-nav-list {
+  display: flex !important;
+}
+
+.mobile-nav-list {
+  display: none !important;
+}
+
+@media (max-width: 991px) {
+  .desktop-nav-list {
+    display: none !important;
+  }
+
+  .mobile-nav-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+  }
+
+  /* Make mobile drawer comfortable and scrollable */
+  .alg-header-drawer .navigation-content-wrap {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-top: 4.5rem !important;
+    padding-bottom: 2.5rem !important;
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
+  }
+
+  .alg-header-drawer .navigation-content-block {
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  .alg-header-drawer .navigation-content {
+    height: auto !important;
+    padding: 1.25rem 0.5rem !important;
+  }
+
+  /* Mobile link sizes */
+  .mobile-nav-list .navigation-link-wrap {
+    height: clamp(2.2rem, 5vw, 2.85rem) !important;
+  }
+
+  .mobile-nav-list .navigation-link-text {
+    font-size: clamp(2rem, 5vw, 2.65rem) !important;
+    line-height: 1.1 !important;
+    font-family: var(--font-mona-sans-narrow, 'Mona Sans Narrow'), Impact, sans-serif !important;
+    text-transform: uppercase !important;
+  }
+
+  .mobile-nav-list .navigation-number {
+    font-size: 1rem !important;
+    top: 2px !important;
+  }
+
+  .mobile-nav-list .navigation-button-wrap {
+    margin-top: 1.5rem !important;
+  }
+}
+
+/* Mobile Services Expandable Sub-Menu */
+.mobile-services-wrapper {
+  width: 100%;
+}
+
+.mobile-services-trigger {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+}
+
+.mobile-services-trigger-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.mobile-services-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: rgba(5, 8, 12, 0.05);
+  color: #05080c;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.mobile-services-trigger:hover .mobile-services-arrow,
+.mobile-services-wrapper.is-open .mobile-services-arrow {
+  background: #f47a1f !important;
+  color: #ffffff !important;
+}
+
+.mobile-services-wrapper.is-open .mobile-services-arrow svg {
+  transform: rotate(180deg);
+}
+
+.mobile-services-arrow svg {
+  transition: transform 0.35s ease;
+}
+
+/* Sub-Services Container (Expand / Collapse Animation) */
+.nav-subservices-container {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, margin 0.3s ease;
+  margin-top: 0;
+}
+
+.mobile-services-wrapper.is-open .nav-subservices-container,
+.mobile-services-wrapper:hover .nav-subservices-container {
+  max-height: 380px;
+  opacity: 1;
+  margin-top: 0.85rem;
+}
+
+.nav-subservices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(244, 122, 31, 0.4);
+  margin-left: 0.5rem;
+}
+
+.nav-subservice-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mona-sans-narrow, 'Mona Sans Narrow'), Impact, sans-serif !important;
+  text-transform: uppercase !important;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #4b5563 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 0.25rem 0;
+}
+
+.nav-subservice-item:hover {
+  color: #f47a1f !important;
+  transform: translateX(4px);
+}
+
+.nav-subservice-dot {
+  font-size: 0.75rem;
+  color: #f47a1f;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.nav-subservice-item:hover .nav-subservice-dot {
+  transform: scale(1.3);
+}
