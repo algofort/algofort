@@ -224,6 +224,7 @@ export function AvexaWorksSection() {
       id="sec-projects"
       className="site-section sec-avexa-works projects-section works-section"
       aria-label="Online Marketing Services"
+      style={{ display: 'none' }}
     >
       <div className="site-container sec-avexa-works__container">
         {/* Intro Header */}

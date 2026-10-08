@@ -29,7 +29,7 @@ export default function Home() {
           <ProcessSection />
           <ShowreelSection />
           {/* Temporary hidden: <ProjectsSection /> */}
-          <AvexaWorksSection />
+          {/* Temporary hidden: <AvexaWorksSection /> */}
           {/* Temporary hidden: <TechStackSection /> */}
           <TestimonialsSection />
           <FaqSection />

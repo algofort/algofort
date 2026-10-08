@@ -4,6 +4,7 @@
    ========================================================================== */
 
 .sec-avexa-works {
+  display: none !important;
   position: relative;
   background-color: #000000;
   width: 100%;
