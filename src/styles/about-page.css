@@ -1304,16 +1304,21 @@
    Colors & Design Tokens strictly adhere to design.md & instructions.md
    Hover floating (translateY) and shadow effects completely removed
    ========================================================================== */
+.sec-about-team-wrapper {
+  width: 100%;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  box-sizing: border-box !important;
+  background-color: #f4f4f2 !important;
+}
+
 .sec-about-team {
   position: relative;
   width: 100%;
   background-color: #000000 !important;
   border-radius: var(--_sizes---border-radius--xhuge, 2rem) !important;
   overflow: hidden;
-  padding-top: 0 !important;
-  padding-bottom: 0.75rem !important;
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
   box-sizing: border-box !important;
 }
 

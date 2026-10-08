@@ -111,12 +111,13 @@ export function AboutTeamSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      id="sec-about-team"
-      className="site-section sec-about-team section-home-service"
-    >
-      <div className="site-container sec-about-team__container padding-global">
+    <div className="sec-about-team-wrapper">
+      <section
+        ref={sectionRef}
+        id="sec-about-team"
+        className="site-section sec-about-team section-home-service"
+      >
+        <div className="site-container sec-about-team__container padding-global">
         <div className="container-large">
           <div className="padding-section-large sec-about-team__padding">
             {/* Header */}
@@ -235,5 +236,6 @@ export function AboutTeamSection() {
         </div>
       </div>
     </section>
+  </div>
   );
 }
