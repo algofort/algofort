@@ -265,7 +265,7 @@
   border-radius: 28px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 3rem;
-  box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.02);
+  box-shadow: none !important;
   width: 100%;
   height: 100%;
   display: flex;
@@ -369,7 +369,7 @@
 .alg-contact .form_group input:focus,
 .alg-contact .form_group textarea:focus {
   border-color: var(--brand-orange, #f47a1f);
-  box-shadow: 0 0 0 3px rgba(244, 122, 31, 0.12);
+  box-shadow: none !important;
 }
 
 .alg-contact-form-group--message {
@@ -433,10 +433,10 @@
 .alg-contact .main-button.alternate-button {
   background-color: #ffffff !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: none !important;
   cursor: pointer;
   align-self: flex-start;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease;
   font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
 }
 
@@ -447,7 +447,7 @@
 
 .alg-contact .main-button.alternate-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: none !important;
 }
 
 /* Success Message */
@@ -502,7 +502,7 @@
   background: #ffffff;
   line-height: 0;
   box-sizing: border-box;
-  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.05);
+  box-shadow: none !important;
 }
 
 .alg-contact-map-iframe {
@@ -520,4 +520,13 @@
   .alg-contact-map-iframe {
     height: 350px;
   }
+}
+
+/* Universal shadow removal for all contact elements */
+.alg-contact,
+.sec-contact,
+.alg-contact *,
+.sec-contact * {
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
