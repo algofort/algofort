@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../utils/titleAnimation';
+import { DevelopmentProcessIcon } from './services/single/DevelopmentProcessIcon';
 
 const processSteps = [
   {
@@ -144,14 +145,18 @@ export function ProcessSection() {
                         </div>
                       </div>
                       <div className="alg-process-card-illustration card-illustration">
-                        <dotlottie-player
-                          src={item.lottieSrc}
-                          background="transparent"
-                          speed="1"
-                          style={{ width: '280px', height: '280px' }}
-                          loop
-                          autoplay
-                        ></dotlottie-player>
+                        {item.step === '03' ? (
+                          <DevelopmentProcessIcon />
+                        ) : (
+                          <dotlottie-player
+                            src={item.lottieSrc}
+                            background="transparent"
+                            speed="1"
+                            style={{ width: '280px', height: '280px' }}
+                            loop
+                            autoplay
+                          ></dotlottie-player>
+                        )}
                       </div>
                       <p className="alg-process-card-desc card-desc alg-text">{item.description}</p>
                     </div>

@@ -9,7 +9,7 @@ import { AboutIntroSection } from '../../components/sections/about/AboutIntroSec
 import { AboutValuesSection } from '../../components/sections/about/AboutValuesSection';
 import { AboutWhyUsSection } from '../../components/sections/about/AboutWhyUsSection';
 import { AboutTeamSection } from '../../components/sections/about/AboutTeamSection';
-import { AboutCtaSection } from '../../components/sections/about/AboutCtaSection';
+import { CtaSection } from '../../components/sections/CtaSection';
 
 import '../../styles/about-page.css';
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
           <AboutValuesSection />
           <AboutWhyUsSection />
           <AboutTeamSection />
-          <AboutCtaSection />
+          <CtaSection />
         </main>
         <Footer />
       </div>

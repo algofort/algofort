@@ -198,21 +198,8 @@ export function AboutIntroSection() {
               </p>
             </div>
 
-            {/* 2 CTA Buttons at bottom left of right column */}
+            {/* CTA Button at bottom left of right column */}
             <div className="button-group-wrap left-align sec-about-intro__buttons">
-              <Link href="/contact" className="main-button sec-about-intro__btn w-inline-block">
-                <div className="main-button-block">
-                  <div className="button-text">GET IN TOUCH</div>
-                  <div className="button-text">GET IN TOUCH</div>
-                </div>
-                <img
-                  loading="lazy"
-                  src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
-                  alt="Star Icon"
-                  className="button-icon"
-                />
-              </Link>
-
               <Link href="/projects" className="underline-link w-inline-block">
                 <div className="link-wrapper">
                   <div className="link-text-wrap">

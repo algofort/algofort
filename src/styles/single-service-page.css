@@ -1,16 +1,45 @@
 /* ==========================================================================
-   Single Service Page Stylesheet (.sec-why-us, etc.)
-   Single Source of Truth (SSOT) adhering strictly to design.md & instructions.md.
+   ZERO SHADOWS - Clean, Light, Simple Borders (No Shadows Anywhere on Page)
+   "complete page mai kisi bhi section mai shadow nhi hona chahya"
    ========================================================================== */
+.page-single-service,
+.page-single-service *,
+.page-single-service *::before,
+.page-single-service *::after,
+.page-single-service *:hover,
+.page-single-service *:focus,
+.page-single-service *:active {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  text-shadow: none !important;
+}
+
 
 /* --------------------------------------------------------------------------
    Why Choose Us Section (.sec-why-us / .section-home-why-us)
    1:1 identical to About Page Why Choose Us
    -------------------------------------------------------------------------- */
-.sec-why-us {
+.sec-why-us,
+#sec-why-us.sec-why-us,
+.site-section.sec-why-us {
   position: relative;
-  width: 100%;
+  width: 100% !important;
   background: transparent;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.sec-why-us .sec-why-us__container,
+.sec-why-us > .site-container,
+.sec-why-us__container {
+  width: 100% !important;
+  max-width: var(--site-container-max-w, 1600px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .sec-why-us .sec-why-us__header {
@@ -175,7 +204,7 @@
   height: 12.5rem;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: none !important;
   border: 1px solid rgba(255, 255, 255, 0.15);
   backface-visibility: visible;
 }
@@ -226,19 +255,19 @@
   border-radius: 28px;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  box-shadow: none !important;
   padding: 1.85rem 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sec-why-us .card-block:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  box-shadow: none !important;
 }
 
 .sec-why-us .stats-grid {
@@ -358,3 +387,47 @@
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+
+/* ==========================================================================
+   What We Offer Section - Service Names Left Alignment
+   ========================================================================== */
+.page-single-service .service-content-grid,
+.sec-services .service-content-grid {
+  grid-template-columns: 80px 1.4fr 1fr !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.page-single-service .service-content-item:nth-child(2),
+.sec-services .service-content-item:nth-child(2) {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.page-single-service .service-title-wrap,
+.sec-services .service-title-wrap,
+.page-single-service .service-title,
+.sec-services .service-title,
+.page-single-service .service-title .word,
+.sec-services .service-title .word,
+.page-single-service .service-title .char,
+.sec-services .service-title .char {
+  text-align: left !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  left: 0 !important;
+  margin-left: 0 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .page-single-service .service-content-grid,
+  .sec-services .service-content-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+

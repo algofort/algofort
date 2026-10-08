@@ -144,7 +144,7 @@ export function WebServiceWhyUsSection() {
       id="sec-why-us" 
       className="site-section sec-why-us section-home-why-us"
     >
-      <div className="site-container sec-why-us__container container-large padding-global">
+      <div className="site-container sec-why-us__container container-large">
         <div className="padding-section-large sec-why-us__padding">
           
           {/* Header Row: Subtitle + Heading on Left, CTA Button on Right */}

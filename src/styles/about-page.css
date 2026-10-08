@@ -788,10 +788,27 @@
    4. Why Choose Us Section (.sec-why-us / .section-home-why-us)
    Cloned from https://unusually.webflow.io/
    -------------------------------------------------------------------------- */
-.sec-why-us {
+.sec-why-us,
+#sec-why-us.sec-why-us,
+.site-section.sec-why-us {
   position: relative;
-  width: 100%;
+  width: 100% !important;
   background: transparent;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.sec-why-us .sec-why-us__container,
+.sec-why-us > .site-container,
+.sec-why-us__container {
+  width: 100% !important;
+  max-width: var(--site-container-max-w, 1600px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .sec-why-us .sec-why-us__header {
@@ -1294,7 +1311,10 @@
   border-radius: var(--_sizes---border-radius--xhuge, 2rem) !important;
   overflow: hidden;
   padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding-bottom: 0.75rem !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  box-sizing: border-box !important;
 }
 
 .sec-about-team .sec-about-team__container {

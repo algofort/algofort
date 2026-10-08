@@ -2,13 +2,17 @@
 
 .alg-cta,
 .section_cta,
-.sec-cta {
+.sec-cta,
+.cta-section {
   position: relative;
   width: 100%;
+  box-sizing: border-box;
   background-color: #F4F4F2 !important;
   color: #ffffff;
   padding-top: 0 !important;
   padding-bottom: 2rem;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
 }
 
 .padding-global.is-tiny {
@@ -71,11 +75,25 @@
   position: relative;
   z-index: 3;
   width: 100%;
+  max-width: var(--site-container-max-w, 1600px);
+  margin: 0 auto;
+  padding: 0 !important;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 4rem;
+}
+
+.alg-cta-component .alg-cta-container,
+.alg-cta-component .sec-cta__container,
+.alg-cta-component .alg-cta-content,
+.alg-cta-component .cta_content {
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .alg-cta-left-col,

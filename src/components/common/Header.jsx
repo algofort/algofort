@@ -108,7 +108,7 @@ export const Header = () => {
                       <div className="navigation-content-list">
                         
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services/web-development" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Web Development</div>
                               <div className="navigation-link-text">Web Development</div>
@@ -120,8 +120,8 @@ export const Header = () => {
                         <div className="alg-header-drawer-link-block navigation-link-block">
                           <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">UI/UX Development</div>
-                              <div className="navigation-link-text">UI/UX Development</div>
+                              <div className="navigation-link-text">Brand Identity</div>
+                              <div className="navigation-link-text">Brand Identity</div>
                             </div>
                             <div className="navigation-number">(02)</div>
                           </Link>
@@ -130,8 +130,8 @@ export const Header = () => {
                         <div className="alg-header-drawer-link-block navigation-link-block">
                           <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">Mobile App</div>
-                              <div className="navigation-link-text">Mobile App</div>
+                              <div className="navigation-link-text">Saas App development</div>
+                              <div className="navigation-link-text">Saas App development</div>
                             </div>
                             <div className="navigation-number">(03)</div>
                           </Link>
@@ -140,20 +140,10 @@ export const Header = () => {
                         <div className="alg-header-drawer-link-block navigation-link-block">
                           <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">Custom Software</div>
-                              <div className="navigation-link-text">Custom Software</div>
+                              <div className="navigation-link-text">Mobile App</div>
+                              <div className="navigation-link-text">Mobile App</div>
                             </div>
                             <div className="navigation-number">(04)</div>
-                          </Link>
-                        </div>
-
-                        <div className="alg-header-drawer-link-block navigation-link-block">
-                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
-                            <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">SEO</div>
-                              <div className="navigation-link-text">SEO</div>
-                            </div>
-                            <div className="navigation-number">(05)</div>
                           </Link>
                         </div>
 

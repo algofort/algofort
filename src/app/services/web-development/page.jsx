@@ -31,7 +31,7 @@ export default function WebDevelopmentPage() {
             title="Web Development"
             breadcrumbs={[
               { label: 'Home', href: '/' },
-              { label: 'Our Services', href: '/services' },
+              { label: 'Services', href: '/services' },
               { label: 'Web Development', active: true },
             ]}
           />

@@ -1,0 +1,215 @@
+'use client';
+
+import React from 'react';
+
+export function DevelopmentProcessIcon() {
+  return (
+    <svg
+      viewBox="0 0 280 280"
+      width="280"
+      height="280"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="alg-process-dev-icon"
+      aria-label="Web Development Animated Outline Icon"
+    >
+      <style>{`
+        @keyframes devOutlineFloat {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-6px); }
+        }
+        @keyframes devBracketLeft {
+          0%, 100% { transform: translateX(0px); }
+          50% { transform: translateX(-5px); }
+        }
+        @keyframes devBracketRight {
+          0%, 100% { transform: translateX(0px); }
+          50% { transform: translateX(5px); }
+        }
+        @keyframes devSlashPulse {
+          0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.85; }
+          50% { transform: scale(1.06) rotate(3deg); opacity: 1; }
+        }
+        @keyframes devCursorBlink {
+          0%, 45% { opacity: 1; }
+          50%, 95% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+
+        .dev-main-group {
+          animation: devOutlineFloat 4.8s ease-in-out infinite;
+          transform-origin: 140px 140px;
+        }
+        .dev-bracket-l {
+          animation: devBracketLeft 3.2s ease-in-out infinite;
+          transform-origin: 104px 132px;
+        }
+        .dev-bracket-r {
+          animation: devBracketRight 3.2s ease-in-out infinite;
+          transform-origin: 176px 132px;
+        }
+        .dev-slash-pulse {
+          animation: devSlashPulse 3.2s ease-in-out infinite;
+          transform-origin: 140px 132px;
+        }
+        .dev-cursor-blink {
+          animation: devCursorBlink 0.9s steps(1) infinite;
+        }
+      `}</style>
+
+      {/* Main Clean Outline Screen & Code Window (No surrounding extra elements) */}
+      <g className="dev-main-group">
+        
+        {/* Monitor Screen Frame - Light outline, soft neutral stroke (No dark black) */}
+        <rect
+          x="40"
+          y="56"
+          width="200"
+          height="138"
+          rx="14"
+          fill="#FFFFFF"
+          stroke="#52525B"
+          strokeWidth="1.8"
+        />
+
+        {/* Soft Inner Subtle Border */}
+        <rect
+          x="46"
+          y="62"
+          width="188"
+          height="126"
+          rx="10"
+          fill="none"
+          stroke="#E2E8F0"
+          strokeWidth="1"
+        />
+
+        {/* Top Header Divider Line */}
+        <line
+          x1="40"
+          y1="84"
+          x2="240"
+          y2="84"
+          stroke="#E2E8F0"
+          strokeWidth="1.2"
+        />
+
+        {/* Window Dots: Light Outline Aesthetic */}
+        <circle cx="58" cy="70" r="3.5" fill="#f47a1f" />
+        <circle cx="70" cy="70" r="3" fill="none" stroke="#94A3B8" strokeWidth="1.2" />
+        <circle cx="81" cy="70" r="3" fill="none" stroke="#CBD5E1" strokeWidth="1.2" />
+
+        {/* Center Tab Pill Outline */}
+        <rect
+          x="105"
+          y="63"
+          width="70"
+          height="14"
+          rx="4"
+          fill="rgba(244, 122, 31, 0.05)"
+          stroke="rgba(244, 122, 31, 0.35)"
+          strokeWidth="1"
+        />
+        <text
+          x="140"
+          y="73.5"
+          fill="#f47a1f"
+          fontSize="8.5"
+          fontFamily="monospace"
+          fontWeight="600"
+          textAnchor="middle"
+          letterSpacing="0.04em"
+        >
+          &lt;code.tsx/&gt;
+        </text>
+
+        {/* Monitor Stand - Clean Light Outline */}
+        <path
+          d="M128 194L124 214H156L152 194"
+          fill="none"
+          stroke="#64748B"
+          strokeWidth="1.8"
+          strokeLinejoin="round"
+        />
+        <line
+          x1="104"
+          y1="214"
+          x2="176"
+          y2="214"
+          stroke="#64748B"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+
+        {/* Subtle Horizontal Code Guide Lines */}
+        <line x1="56" y1="102" x2="88" y2="102" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+        <line x1="96" y1="102" x2="132" y2="102" stroke="#CBD5E1" strokeWidth="1.5" strokeLinecap="round" opacity="0.75" />
+        
+        {/* Core Web Development Centerpiece: Animated Outline Code Brackets < / > */}
+        <g id="devHeroBrackets">
+          {/* Left Bracket < (Algofort Orange Outline) */}
+          <path
+            d="M110 114L92 132L110 150"
+            stroke="#f47a1f"
+            strokeWidth="3.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="dev-bracket-l"
+          />
+
+          {/* Forward Slash / (Soft Graphite Slate Outline - NOT Black) */}
+          <line
+            x1="147"
+            y1="110"
+            x2="133"
+            y2="154"
+            stroke="#52525B"
+            strokeWidth="3.2"
+            strokeLinecap="round"
+            className="dev-slash-pulse"
+          />
+
+          {/* Right Bracket > (Algofort Orange Outline) */}
+          <path
+            d="M170 114L188 132L170 150"
+            stroke="#f47a1f"
+            strokeWidth="3.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="dev-bracket-r"
+          />
+        </g>
+
+        {/* Animated Code / Terminal Row at Bottom of Screen */}
+        <g transform="translate(56, 172)">
+          {/* Terminal Prompt Symbol > */}
+          <path
+            d="M0 0L4.5 3.5L0 7"
+            fill="none"
+            stroke="#f47a1f"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+
+          {/* Code syntax lines */}
+          <line x1="10" y1="3.5" x2="44" y2="3.5" stroke="#94A3B8" strokeWidth="1.8" strokeLinecap="round" opacity="0.8" />
+          <line x1="50" y1="3.5" x2="92" y2="3.5" stroke="#f47a1f" strokeWidth="1.8" strokeLinecap="round" opacity="0.9" />
+          <line x1="98" y1="3.5" x2="124" y2="3.5" stroke="#CBD5E1" strokeWidth="1.8" strokeLinecap="round" />
+
+          {/* Blinking Orange Terminal Cursor */}
+          <rect
+            x="130"
+            y="-2"
+            width="2.2"
+            height="11"
+            rx="1"
+            fill="#f47a1f"
+            className="dev-cursor-blink"
+          />
+        </g>
+
+      </g>
+    </svg>
+  );
+}

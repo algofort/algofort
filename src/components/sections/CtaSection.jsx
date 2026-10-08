@@ -101,9 +101,7 @@ export function CtaSection() {
             <div className="alg-cta-bg-overlay cta_bg_overlay"></div>
           </div>
 
-          <div className="padding-section-medium" style={{ paddingTop: '2rem' }}></div>
-          <div className="padding-global" style={{ width: '100%' }}>
-            <div className="alg-cta-container alg-cta-content site-container sec-cta__container cta_content">
+          <div className="alg-cta-container alg-cta-content sec-cta__container cta_content">
               {/* Left Column Header */}
               <div className="alg-cta-left-col section-header sec-cta__header cta_left_column">
                 <div className="alg-cta-badge section-badge sec-cta__badge">
@@ -255,9 +253,7 @@ export function CtaSection() {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
-          <div className="padding-section-medium" style={{ paddingBottom: '2rem' }}></div>
         </div>
       </div>
     </section>
