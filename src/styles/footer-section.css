@@ -9,8 +9,9 @@
    - Bottom Bar: Copyright on Left, Legal & Privacy on Right
    ========================================================================== */
 
+footer,
 .footer {
-  padding-top: 0.75rem;
+  padding-top: 0 !important;
   padding-bottom: 0.75rem;
   background-color: #F4F4F2 !important;
   color: #05080C;
