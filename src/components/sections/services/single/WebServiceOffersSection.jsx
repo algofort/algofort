@@ -12,42 +12,42 @@ const offersData = [
     id: '01',
     num: '(01)',
     title: 'Custom Website Development',
-    image: '/assets/68ee90f83da8227728cad6fd_Frame_2015.jpg',
+    image: '/assets/services/web-development/web-1.jpg',
     text: 'Tailored websites built around your brand, business goals, and user needs with clean code, responsive layouts, and scalable architecture.',
   },
   {
     id: '02',
     num: '(02)',
     title: 'Front-End Development',
-    image: '/assets/68ee90f8ce3669d6703033cf_Frame_2014.jpg',
+    image: '/assets/services/web-development/web-2.jpg',
     text: 'Modern, responsive, and interactive interfaces developed with a strong focus on usability, speed, accessibility, and visual consistency.',
   },
   {
     id: '03',
     num: '(03)',
     title: 'Back-End Development',
-    image: '/assets/68ee90f80b05eb5159a3717d_Frame_2012.jpg',
+    image: '/assets/services/web-development/web-3.jpg',
     text: 'Secure and reliable server-side systems, APIs, databases, and business logic designed to support smooth performance and future growth.',
   },
   {
     id: '04',
     num: '(04)',
     title: 'CMS Development',
-    image: '/assets/68ee90f8393fe398b8270db3_Frame_204.jpg',
+    image: '/assets/services/web-development/web-4.jpg',
     text: 'Flexible and easy-to-manage websites built with platforms such as WordPress, allowing your team to update content without technical complexity.',
   },
   {
     id: '05',
     num: '(05)',
     title: 'E-Commerce Development',
-    image: '/assets/68ee90f82cb86f84f6e79af4_Frame_202.jpg',
+    image: '/assets/services/web-development/web-5.jpg',
     text: 'Conversion-focused online stores with seamless product browsing, secure checkout experiences, payment integrations, and scalable store management.',
   },
   {
     id: '06',
     num: '(06)',
     title: 'Optimization & Maintenance',
-    image: '/assets/68ee90f83da8227728cad6fd_Frame_2015.jpg',
+    image: '/assets/services/web-development/web-6.jpg',
     text: 'Ongoing improvements for speed, security, responsiveness, bug fixes, updates, and overall website performance to keep your site running at its best.',
   },
 ];
@@ -252,7 +252,7 @@ export const WebServiceOffersSection = () => {
                 </div>
 
                 <h2 className="heading-style-h2 section-title sec-services__title text-color-alternate">
-                  Tailored <span className="text-color-secondary">Capabilities</span>
+                  Solutions for <span className="text-color-secondary">Your Business</span>
                 </h2>
               </div>
 

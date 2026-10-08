@@ -9,12 +9,13 @@ if (typeof window !== 'undefined') {
 }
 
 const trailImages = [
-  '/assets/68ee90f82cb86f84f6e79af4_Frame_202.jpg',
-  '/assets/68ee90f83da8227728cad6fd_Frame_2015.jpg',
-  '/assets/68ee90f8ce3669d6703033cf_Frame_2014.jpg',
-  '/assets/68ee90f80b05eb5159a3717d_Frame_2012.jpg',
-  '/assets/68ee90f8393fe398b8270db3_Frame_204.jpg',
+  '/assets/WEB DEVELOPMENT.webp',
+  '/assets/BRAND IDENTITY.webp',
+  '/assets/SAAS APP DEVELOPMENT.webp',
+  '/assets/MOBILE APP.webp',
+  '/assets/AI SOLUTIONS.webp',
 ];
+
 
 const marqueeItems = [
   'Web Development',

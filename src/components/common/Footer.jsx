@@ -201,19 +201,19 @@ export const Footer = () => {
                             <div className="nav-text">Web Development</div>
                           </div>
                         </Link>
-                        <Link href="/services" className="footer_nav_link nav-link">
+                        <Link href="/services/brand-identity" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Brand Identity</div>
                             <div className="nav-text">Brand Identity</div>
                           </div>
                         </Link>
-                        <Link href="/services" className="footer_nav_link nav-link">
+                        <Link href="/services/saas-app-development" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Saas App development</div>
                             <div className="nav-text">Saas App development</div>
                           </div>
                         </Link>
-                        <Link href="/services" className="footer_nav_link nav-link">
+                        <Link href="/services/mobile-app-development" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">Mobile App</div>
                             <div className="nav-text">Mobile App</div>

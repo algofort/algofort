@@ -12,28 +12,32 @@ const servicesData = [
     id: '01',
     num: '(01)',
     title: 'Web Development',
-    image: '/assets/68ee90f83da8227728cad6fd_Frame_2015.jpg',
+    link: '/services/web-development',
+    image: '/assets/services/web-development/web-1.jpg',
     text: 'High-performance websites and bespoke digital platforms engineered with modern frameworks, clean architecture, and responsive precision.',
   },
   {
     id: '02',
     num: '(02)',
     title: 'Brand Identity',
-    image: '/assets/68ee90f8ce3669d6703033cf_Frame_2014.jpg',
+    link: '/services/brand-identity',
+    image: '/assets/services/brand-identity/brand-1.jpg',
     text: 'Distinctive visual identities, cohesive design systems, and strategic brand positioning crafted to leave a bold, lasting impression.',
   },
   {
     id: '03',
     num: '(03)',
     title: 'Saas App development',
-    image: '/assets/68ee90f80b05eb5159a3717d_Frame_2012.jpg',
+    link: '/services/saas-app-development',
+    image: '/assets/services/saas-app/saas-1.jpg',
     text: 'Scalable cloud software, secure multi-tenant SaaS platforms, and dynamic digital products engineered for velocity and business growth.',
   },
   {
     id: '04',
     num: '(04)',
     title: 'Mobile App',
-    image: '/assets/68ee90f8393fe398b8270db3_Frame_204.jpg',
+    link: '/services/mobile-app-development',
+    image: '/assets/services/mobile-app/mobile-1.jpg',
     text: 'Intuitive iOS and Android applications built with high-performance native capabilities, seamless interactions, and engaging user journeys.',
   },
 ];
@@ -270,10 +274,12 @@ export const ServicesSection = () => {
                   </div>
 
                   <div className="service-content-item">
-                    <div className="service-title-wrap">
-                      <h2 className="service-title is-top">{service.title}</h2>
-                      <h2 className="service-title is-bottom">{service.title}</h2>
-                    </div>
+                    <Link href={service.link} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                      <div className="service-title-wrap">
+                        <h2 className="service-title is-top">{service.title}</h2>
+                        <h2 className="service-title is-bottom">{service.title}</h2>
+                      </div>
+                    </Link>
 
                     <div className="service-image-wrap">
                       <img

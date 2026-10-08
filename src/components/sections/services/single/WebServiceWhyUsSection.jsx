@@ -223,43 +223,43 @@ export function WebServiceWhyUsSection() {
                       <div ref={cubeRef} className="_3d-cube-box">
                         <div className="_3d-cube-face _3d-cube-front">
                           <img
-                            src="/assets/68ee90f82cb86f84f6e79af4_Frame_202.jpg"
-                            alt="Why Us Front"
+                            src="/assets/services/web-development/web-cube-1.jpg"
+                            alt="Web Development Cube Front"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-right">
                           <img
-                            src="/assets/68ee90f8393fe398b8270db3_Frame_204.jpg"
-                            alt="Why Us Right"
+                            src="/assets/services/web-development/web-cube-2.jpg"
+                            alt="Web Development Cube Right"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-back">
                           <img
-                            src="/assets/68ee90f80b05eb5159a3717d_Frame_2012.jpg"
-                            alt="Why Us Back"
+                            src="/assets/services/web-development/web-cube-3.jpg"
+                            alt="Web Development Cube Back"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-left">
                           <img
-                            src="/assets/68ee90f8ce3669d6703033cf_Frame_2014.jpg"
-                            alt="Why Us Left"
+                            src="/assets/services/web-development/web-cube-4.jpg"
+                            alt="Web Development Cube Left"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-top">
                           <img
-                            src="/assets/68ee90f83da8227728cad6fd_Frame_2015.jpg"
-                            alt="Why Us Top"
+                            src="/assets/services/web-development/web-cube-5.jpg"
+                            alt="Web Development Cube Top"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-bottom">
                           <img
-                            src="/assets/68ee90f82cb86f84f6e79af4_Frame_202.jpg"
-                            alt="Why Us Bottom"
+                            src="/assets/services/web-development/web-cube-6.jpg"
+                            alt="Web Development Cube Bottom"
                             loading="lazy"
                           />
                         </div>

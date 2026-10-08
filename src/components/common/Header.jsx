@@ -132,7 +132,7 @@ export const Header = () => {
                         </div>
 
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services/brand-identity" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Brand Identity</div>
                               <div className="navigation-link-text">Brand Identity</div>
@@ -142,7 +142,7 @@ export const Header = () => {
                         </div>
 
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services/saas-app-development" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Saas App development</div>
                               <div className="navigation-link-text">Saas App development</div>
@@ -152,7 +152,7 @@ export const Header = () => {
                         </div>
 
                         <div className="alg-header-drawer-link-block navigation-link-block">
-                          <Link className="navigation-link w-inline-block" href="/services" onClick={() => setNavOpen(false)}>
+                          <Link className="navigation-link w-inline-block" href="/services/mobile-app-development" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
                               <div className="navigation-link-text">Mobile App</div>
                               <div className="navigation-link-text">Mobile App</div>
@@ -228,15 +228,15 @@ export const Header = () => {
                                 <span className="nav-subservice-dot">✦</span>
                                 <span>Web Development</span>
                               </Link>
-                              <Link className="nav-subservice-item" href="/services" onClick={() => setNavOpen(false)}>
+                              <Link className="nav-subservice-item" href="/services/brand-identity" onClick={() => setNavOpen(false)}>
                                 <span className="nav-subservice-dot">✦</span>
                                 <span>Brand Identity</span>
                               </Link>
-                              <Link className="nav-subservice-item" href="/services" onClick={() => setNavOpen(false)}>
+                              <Link className="nav-subservice-item" href="/services/saas-app-development" onClick={() => setNavOpen(false)}>
                                 <span className="nav-subservice-dot">✦</span>
                                 <span>Saas App development</span>
                               </Link>
-                              <Link className="nav-subservice-item" href="/services" onClick={() => setNavOpen(false)}>
+                              <Link className="nav-subservice-item" href="/services/mobile-app-development" onClick={() => setNavOpen(false)}>
                                 <span className="nav-subservice-dot">✦</span>
                                 <span>Mobile App</span>
                               </Link>
