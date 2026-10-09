@@ -14,7 +14,13 @@ const servicesData = [
     title: 'Web Development',
     link: '/services/web-development',
     image: '/assets/services/service-web-development.webp',
-    text: 'High-performance websites and bespoke digital platforms engineered with modern frameworks, clean architecture, and responsive precision.',
+    tags: [
+      'WordPress',
+      'Shopify',
+      'React.js',
+      'Custom Website',
+      'WooCommerce',
+    ],
   },
   {
     id: '02',
@@ -22,23 +28,41 @@ const servicesData = [
     title: 'Brand Identity',
     link: '/services/brand-identity',
     image: '/assets/services/service-brand-identity.webp',
-    text: 'Distinctive visual identities, cohesive design systems, and strategic brand positioning crafted to leave a bold, lasting impression.',
+    tags: [
+      'Logo Design',
+      'Brand Strategy',
+      'Brand Guidelines',
+      'Business Card Design',
+      'Packaging Design',
+    ],
   },
   {
     id: '03',
     num: '(03)',
     title: 'Saas App development',
     link: '/services/saas-app-development',
-    image: '/assets/services/service-saas-app.webp',
-    text: 'Scalable cloud software, secure multi-tenant SaaS platforms, and dynamic digital products engineered for velocity and business growth.',
+    image: '/assets/services/service-saas-app.jpg',
+    tags: [
+      'Custom SaaS',
+      'CRM Software',
+      'ERP Software',
+      'Dashboard & Analytics',
+      'API Integration',
+    ],
   },
   {
     id: '04',
     num: '(04)',
     title: 'Mobile App',
     link: '/services/mobile-app-development',
-    image: '/assets/services/service-mobile-app.webp',
-    text: 'Intuitive iOS and Android applications built with high-performance native capabilities, seamless interactions, and engaging user journeys.',
+    image: '/assets/services/service-mobile-app.jpg',
+    tags: [
+      'Android App',
+      'iOS App',
+      'Cross Platform App',
+      'Mobile UI/UX Design',
+      'App Maintenance & Support',
+    ],
   },
 ];
 
@@ -292,8 +316,19 @@ export const ServicesSection = () => {
                   </div>
 
                   <div className="service-content-item">
-                    <div className="service-content">
-                      <p className="service-text alg-text">{service.text}</p>
+                    <div className="service-tags-wrap">
+                      {service.tags.map((tag, idx) => (
+                        <Link
+                          key={idx}
+                          href={service.link}
+                          className="service-tag-pill nav-link w-inline-block"
+                        >
+                          <div className="nav-text-wrap">
+                            <span className="nav-text">{tag}</span>
+                            <span className="nav-text">{tag}</span>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>

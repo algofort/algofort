@@ -58,7 +58,7 @@ export function PortfolioBentoSection() {
       aria-label="Theme Highlights and Features"
     >
       <div className="site-container sec-portfolio-bento__container container-large padding-global">
-        <div className="padding-section-large sec-portfolio-bento__padding">
+        <div className="sec-portfolio-bento__padding">
           {/* Bento Grid */}
           <div className="section-content sec-portfolio-bento__grid">
             {/* Card 1: 60+ Unique Sections (Burgundy Red Gradient) */}

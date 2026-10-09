@@ -81,6 +81,8 @@ export function PageBanner({
     const videoWrap = container.querySelector('.sec-banner__video-wrap');
     const titleEl = container.querySelector('.sec-page-banner__title');
     const breadcrumbWrap = container.querySelector('.sec-page-banner__breadcrumb-wrap');
+    const breadcrumbNav = container.querySelector('.sec-page-banner__breadcrumb-nav');
+    const breadcrumbItems = container.querySelectorAll('.sec-page-banner__breadcrumb-item');
     const social1 = container.querySelector('.social-link-1');
     const social2 = container.querySelector('.social-link-2');
     const marqueeComp = container.querySelector('.service-marquee-component');
@@ -96,6 +98,8 @@ export function PageBanner({
       if (videoWrap) gsap.set(videoWrap, { opacity: 1, scale: 1 });
       if (titleEl) gsap.set(titleEl, { visibility: 'visible', opacity: 1 });
       if (breadcrumbWrap) gsap.set(breadcrumbWrap, { visibility: 'visible', opacity: 1, y: 0 });
+      if (breadcrumbNav) gsap.set(breadcrumbNav, { opacity: 1, scale: 1 });
+      if (breadcrumbItems?.length) gsap.set(breadcrumbItems, { opacity: 1, x: 0 });
       if (social1) gsap.set(social1, { opacity: 1, y: 0 });
       if (social2) gsap.set(social2, { opacity: 1, y: 0 });
       if (marqueeComp) gsap.set(marqueeComp, { opacity: 1, scale: 1 });
@@ -113,6 +117,8 @@ export function PageBanner({
     if (menuBtn) gsap.set(menuBtn, { opacity: 0, scale: 0.85 });
     if (videoWrap) gsap.set(videoWrap, { opacity: 0, scale: 1.04 });
     if (breadcrumbWrap) gsap.set(breadcrumbWrap, { visibility: 'visible', opacity: 1, y: 0 });
+    if (breadcrumbNav) gsap.set(breadcrumbNav, { opacity: 0, scale: 0.94, visibility: 'hidden' });
+    if (breadcrumbItems?.length) gsap.set(breadcrumbItems, { opacity: 0, x: -18 });
     if (social1) gsap.set(social1, { opacity: 0, y: 15 });
     if (social2) gsap.set(social2, { opacity: 0, y: 15 });
     if (marqueeComp) gsap.set(marqueeComp, { opacity: 0, scale: 0.95 });
@@ -145,12 +151,29 @@ export function PageBanner({
 
     // 4. Stagger Title Chars
     if (titleChars.length) {
-      tl.to(titleChars, { opacity: 1, y: 0, duration: 0.35, stagger: 0.02, ease: 'power3.out' }, '-=0.2');
+      tl.to(titleChars, { opacity: 1, y: 0, duration: 0.45, stagger: 0.02, ease: 'power3.out' }, '-=0.2');
     }
 
-    // 5. Breadcrumb Container (items animate smoothly via staggered CSS keyframes)
-    if (breadcrumbWrap) {
-      gsap.set(breadcrumbWrap, { visibility: 'visible', opacity: 1, y: 0 });
+    // 5a. Breadcrumb Pill Background reveals first (right after title)
+    if (breadcrumbNav) {
+      tl.set(breadcrumbNav, { visibility: 'visible' });
+      tl.to(breadcrumbNav, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      }, '+=0.06');
+    }
+
+    // 5b. Breadcrumb Items animate in sequentially with staggered slide-in from left
+    if (breadcrumbItems?.length) {
+      tl.to(breadcrumbItems, {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        stagger: 0.16,
+        ease: 'power3.out',
+      }, '+=0.04');
     }
 
     // 6. Sequential Social icons & Marquee in Bottom Bar
@@ -221,7 +244,6 @@ export function PageBanner({
                     <li
                       key={`${crumb.label}-${idx}`}
                       className={`sec-page-banner__breadcrumb-item ${isLast ? 'is-active' : ''}`}
-                      style={{ animationDelay: `${idx * 0.25}s` }}
                     >
                       {isLast ? (
                         <a

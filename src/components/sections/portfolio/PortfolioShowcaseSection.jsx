@@ -361,25 +361,42 @@ export function PortfolioShowcaseSection() {
                 {/* Card Title & Arrow Footer */}
                 <div className="sec-portfolio__info">
                   <div className="sec-portfolio__card-title-group">
-                    <span className="sec-portfolio__card-num">{project.number}</span>
                     <h3 className="heading-style-h3 sec-portfolio__card-name">{project.title}</h3>
                   </div>
                   
                   <div className="sec-portfolio__arrow-wrap" aria-hidden="true">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
+                    <div className="sec-portfolio__arrow-inner">
+                      <svg
+                        className="sec-portfolio__arrow sec-portfolio__arrow--1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                      <svg
+                        className="sec-portfolio__arrow sec-portfolio__arrow--2"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                    </div>
                   </div>
                 </div>
 

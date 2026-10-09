@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { initTitleAnimation } from '../../utils/titleAnimation';
 
 const socialLinks = [
   {
@@ -46,13 +45,6 @@ const socialLinks = [
 export const Footer = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    const heading = document.querySelector('.footer_heading');
-    if (heading) {
-      initTitleAnimation(heading, { start: 'top 85%', stagger: 0.02 });
-    }
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

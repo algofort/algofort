@@ -4,7 +4,7 @@ import { PageBanner } from '../../components/common/PageBanner';
 import { Cursor } from '../../components/common/Cursor';
 import { BackToTop } from '../../components/common/BackToTop';
 import { SmoothScroll } from '../../components/common/SmoothScroll';
-import { PortfolioHeroSection } from '../../components/sections/portfolio/PortfolioHeroSection';
+import { PortfolioIntroSection } from '../../components/sections/portfolio/PortfolioIntroSection';
 import { PortfolioBentoSection } from '../../components/sections/portfolio/PortfolioBentoSection';
 import { PortfolioShowcaseSection } from '../../components/sections/portfolio/PortfolioShowcaseSection';
 import '../../styles/portfolio-page.css';
@@ -30,7 +30,7 @@ export default function PortfolioPage() {
               { label: 'Portfolio', active: true },
             ]}
           />
-          <PortfolioHeroSection />
+          <PortfolioIntroSection />
           <PortfolioBentoSection />
           <PortfolioShowcaseSection />
         </main>

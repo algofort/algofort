@@ -195,7 +195,9 @@
   min-width: 54px;
   border-radius: 50%;
   background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,6 +208,9 @@
 
 .alg-contact-info-item:hover .alg-contact-info-icon-circle {
   background: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   color: var(--brand-orange, #f47a1f) !important;
   transform: none !important;
 }
@@ -359,11 +364,18 @@
 
 .alg-contact-form-group input:focus,
 .alg-contact-form-group textarea:focus,
+.alg-contact-form-group input:hover,
+.alg-contact-form-group textarea:hover,
+.alg-contact .alg-contact-form input:focus,
+.alg-contact .alg-contact-form textarea:focus,
+.alg-contact .alg-contact-form input:hover,
+.alg-contact .alg-contact-form textarea:hover,
 .alg-contact .alg-cta-form-group input:focus,
 .alg-contact .alg-cta-form-group textarea:focus,
 .alg-contact .form_group input:focus,
 .alg-contact .form_group textarea:focus {
-  border-color: var(--brand-orange, #f47a1f);
+  border-color: #e5e7eb !important;
+  outline: none !important;
   box-shadow: none !important;
 }
 
@@ -409,10 +421,15 @@
 }
 
 .alg-contact-pill-btn:hover,
+.alg-contact-pill-btn:focus,
 .alg-contact .alg-cta-pill-btn:hover,
-.alg-contact .service-pill-btn:hover {
-  border-color: var(--brand-orange, #f47a1f);
-  color: var(--brand-orange, #f47a1f);
+.alg-contact .alg-cta-pill-btn:focus,
+.alg-contact .service-pill-btn:hover,
+.alg-contact .service-pill-btn:focus {
+  border-color: #e5e7eb !important;
+  color: #111111;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .alg-contact-pill-btn.active,
@@ -422,6 +439,11 @@
   color: #ffffff;
   border-color: var(--brand-orange, #f47a1f);
   font-weight: 600;
+}
+
+.alg-contact-pill-btn.active:hover,
+.alg-contact-pill-btn.active:focus {
+  border-color: var(--brand-orange, #f47a1f) !important;
 }
 
 /* Contact Form Submit Button: main-button alternate-button matching Webflow template */

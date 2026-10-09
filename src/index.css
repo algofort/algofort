@@ -1346,3 +1346,104 @@ body,
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+/* ==========================================================================
+   Services Section Inline Sub-Services (Main Menu Pill Style with Rolling Text)
+   ========================================================================== */
+.service-tags-wrap {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 27rem !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .service-tags-wrap {
+    justify-content: flex-start !important;
+    max-width: 100% !important;
+    margin-top: 1rem !important;
+  }
+}
+
+/* Base Pill Style (Matches Main Menu Exactly) */
+.service-tag-pill.nav-link {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 100px !important;
+  padding: 0.55rem 1.25rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  transition: background-color 0.35s ease !important;
+  white-space: nowrap !important;
+}
+
+.service-tag-pill .nav-text-wrap {
+  height: 1.15rem !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.service-tag-pill .nav-text {
+  height: 1.15rem !important;
+  line-height: 1.15rem !important;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: block !important;
+}
+
+.service-tag-pill:hover .nav-text {
+  transform: translateY(-100%) !important;
+}
+
+/* Dark Theme (Home Page Services Section - Exactly matches Main Menu) */
+.section-home-service .service-tag-pill.nav-link,
+.sec-services .service-tag-pill.nav-link {
+  background-color: var(--background-color--background-25, #70707040) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.section-home-service .service-tag-pill.nav-link:hover,
+.sec-services .service-tag-pill.nav-link:hover {
+  background-color: var(--background-color--background-50, #70707080) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.section-home-service .service-tag-pill .nav-text,
+.sec-services .service-tag-pill .nav-text {
+  color: var(--primary-color--white, #ffffff) !important;
+}
+
+/* Light Theme (Services Page - Borderless Subtle Frosted Pill) */
+.sec-services-page .service-tag-pill.nav-link {
+  background-color: rgba(5, 8, 12, 0.06) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.sec-services-page .service-tag-pill.nav-link:hover {
+  background-color: rgba(5, 8, 12, 0.12) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.sec-services-page .service-tag-pill .nav-text {
+  color: #05080c !important;
+}

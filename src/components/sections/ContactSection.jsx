@@ -129,7 +129,7 @@ export function ContactSection() {
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">OUR STUDIO ADDRESS</span>
                     <span className="alg-contact-info-value">
-                      84J GHAZALI RD, BLOCK 2 PECHS, KARACHI
+                      84j ghazali rd, block 2 pechs, karachi
                     </span>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ export function ContactSection() {
                   </div>
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">CONTACT US VIA EMAIL</span>
-                    <span className="alg-contact-info-value">INFO@ALGOFORT.COM</span>
+                    <span className="alg-contact-info-value">info@algofort.com</span>
                   </div>
                 </a>
 

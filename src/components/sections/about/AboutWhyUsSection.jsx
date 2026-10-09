@@ -60,7 +60,7 @@ function WhyUsOdometerNumber({ value, prefix, suffix }) {
   const digits = String(value).split('');
 
   return (
-    <div className="stats-number-wrap" aria-label={`${prefix || ''}${value}${suffix || ''}`}>
+    <h2 className="stats-number-wrap heading-style-h2" aria-label={`${prefix || ''}${value}${suffix || ''}`}>
       {prefix && <span className="stats-prefix-suffix alternate">{prefix}</span>}
       <div className="stats-digits-container">
         {digits.map((digit, idx) => (
@@ -68,7 +68,7 @@ function WhyUsOdometerNumber({ value, prefix, suffix }) {
         ))}
       </div>
       {suffix && <span className="stats-prefix-suffix alternate">{suffix}</span>}
-    </div>
+    </h2>
   );
 }
 
@@ -186,34 +186,40 @@ export function AboutWhyUsSection() {
             
             {/* Left Card: Background Video + 3D Cube (Spans 2 rows) */}
             <div className="why-us-wrap sec-why-us__cube-card">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg"
-                className="why-us-video"
-              >
-                <source
-                  src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
-                  type="video/mp4"
-                />
-                <source
-                  src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
-                  type="video/webm"
-                />
-              </video>
-              <div className="why-us-video-overlay video-overlay"></div>
+              <div className="alg-hero-video-wrap background-video-wrap why-us-video-wrap">
+                <div className="alg-hero-video background-video w-background-video w-background-video-atom">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    data-object-fit="cover"
+                    style={{
+                      backgroundImage:
+                        'url("/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg")',
+                    }}
+                  >
+                    <source
+                      src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
+                      type="video/mp4"
+                    />
+                    <source
+                      src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
+                      type="video/webm"
+                    />
+                  </video>
+                </div>
+                <div className="alg-hero-video-overlay video-overlay"></div>
+              </div>
 
               <div className="w-layout-grid why-us-grid">
-                {/* Top content: Logo & Year Badge */}
+                {/* Top content: Logo Centered */}
                 <div className="why-us-top-bar">
                   <img
                     src="/assets/logo-white-01.png"
                     alt="Algofort Logo"
                     className="why-us-logo"
                   />
-                  <div className="why-us-year-badge">(2010-26©)</div>
                 </div>
 
                 {/* 3D Rotating Cube */}
@@ -268,8 +274,10 @@ export function AboutWhyUsSection() {
                   </div>
                 </div>
 
-                {/* Bottom spacer / alignment */}
-                <div></div>
+                {/* Bottom content: Year Badge Centered */}
+                <div className="why-us-bottom-bar">
+                  <div className="why-us-year-badge">(2010-26©)</div>
+                </div>
               </div>
             </div>
 
@@ -280,7 +288,7 @@ export function AboutWhyUsSection() {
               <div className="card-block content-card sec-why-us__card">
                 <div className="w-layout-grid stats-grid">
                   <div className="stats-top-row">
-                    <WhyUsOdometerNumber value="99" prefix="+" />
+                    <WhyUsOdometerNumber value="99" suffix="+" />
                     <div className="stat-subtitle">
                       Successful Projects<br />Completed
                     </div>
@@ -290,10 +298,7 @@ export function AboutWhyUsSection() {
 
                   <div className="stats-bottom-row">
                     <p className="stats-description alg-text">
-                      For over a decade, we’ve been shaping digital experiences and building strong brands.{' '}
-                      <span className="text-color-secondary">
-                        Our years of knowledge ensure every project is backed by skill, strategy, and creativity.
-                      </span>
+                      For over a decade, we’ve been shaping digital experiences and building strong brands. Our years of knowledge ensure every project is backed by skill, strategy, and creativity.
                     </p>
                     <img
                       loading="lazy"
@@ -319,10 +324,7 @@ export function AboutWhyUsSection() {
 
                   <div className="stats-bottom-row">
                     <p className="stats-description alg-text">
-                      We measure success by the impact we create. With a near-perfect satisfaction rate,{' '}
-                      <span className="text-color-secondary">
-                        our clients trust us to deliver solutions that exceed expectations every time.
-                      </span>
+                      We measure success by the impact we create. With a near-perfect satisfaction rate, our clients trust us to deliver solutions that exceed expectations every time.
                     </p>
                     <img
                       loading="lazy"
