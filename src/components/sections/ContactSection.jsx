@@ -112,7 +112,7 @@ export function ContactSection() {
 
               {/* Paragraph */}
               <p className="section-description alg-contact-desc sec-contact__desc alg-text">
-                We are prepared to make happen, however little your idea. Go through our contact us form, write to us, or call us and we will see you off to Algofort.
+                Have a project in mind or want to learn how we can help your business grow? Fill out the form, send us an email, or give us a call. Our team will get back to you promptly.
               </p>
 
               {/* 2-Column Contact Info Grid */}
@@ -129,7 +129,7 @@ export function ContactSection() {
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">OUR STUDIO ADDRESS</span>
                     <span className="alg-contact-info-value">
-                      84j ghazali rd, block 2 pechs, karachi
+                      84-J Ghazali Rd, Block 2 PECHS, Karachi
                     </span>
                   </div>
                 </div>

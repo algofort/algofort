@@ -1,8 +1,8 @@
 // Auto-generated portfolio projects data from Algofort Elementor showcase tabs
 export const portfolioCategories = [
   { id: 'animation', label: 'Animation' },
-  { id: 'nextjs', label: 'Next Js' },
-  { id: 'wordpress', label: 'Word Press' },
+  { id: 'nextjs', label: 'Next.js' },
+  { id: 'wordpress', label: 'WordPress' },
   { id: 'woocommerce', label: 'WooCommerce' },
   { id: 'wix', label: 'Wix' },
   { id: 'shopify', label: 'Shopify' },

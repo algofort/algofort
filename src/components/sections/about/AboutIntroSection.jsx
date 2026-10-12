@@ -89,7 +89,7 @@ const statsCardsData = [
     target: '50',
     suffix: '+',
     ghost: '50+',
-    desc: 'Expert employees & specialized engineers driving innovation',
+    desc: 'Specialized engineers & industry experts driving innovation',
   },
   {
     id: 'awards',
@@ -191,10 +191,10 @@ export function AboutIntroSection() {
             {/* Description text underneath headline */}
             <div className="sec-about-intro__body">
               <p className="alg-text">
-                Again at Algofort Company we call technology as more than a toolbox; it is how the builders of smart businesses, stronger communities as well as creating a brighter future are achieved. We started with a very clear mission on Day 1 to deliver smart, easy-to-use, and future-ready solution to businesses to grow and thrive in the digital world.
+                At Algofort, we view technology as more than just a set of tools — it is the foundation for building smart businesses, stronger communities, and a brighter future. From day one, our mission has been to deliver intelligent, scalable, and future-ready solutions that empower businesses to thrive in the digital landscape.
               </p>
               <p className="alg-text">
-                Not only do we provide technology but we provide your innovation partner as we have both the creativity, expertise and state of the art technology that makes ideas live.
+                We are more than a technology provider; we are your dedicated innovation partner, combining creative vision, technical expertise, and modern engineering to bring ideas to life.
               </p>
             </div>
 

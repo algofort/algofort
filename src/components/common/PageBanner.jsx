@@ -12,8 +12,8 @@ if (typeof window !== 'undefined') {
 const marqueeItems = [
   'Web Development',
   'Brand Identity',
-  'Saas App development',
-  'Mobile App',
+  'SaaS App Development',
+  'Mobile App Development',
 ];
 
 function splitTextIntoSpans(el) {

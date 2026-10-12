@@ -145,8 +145,8 @@ export function SaasServiceFaqSection() {
             className="alg-faq-title heading-style-h2 section-title sec-faq__title"
             style={{ marginBottom: 0 }}
           >
-            Frequently Ask <br />
-            <span className="alg-faq-title-secondary text-color-secondary">Question</span>
+            Frequently Asked <br />
+            <span className="alg-faq-title-secondary text-color-secondary">Questions</span>
           </h2>
         </div>
 

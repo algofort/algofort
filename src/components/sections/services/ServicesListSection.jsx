@@ -39,7 +39,7 @@ const servicesData = [
   {
     id: '03',
     num: '(03)',
-    title: 'Saas App development',
+    title: 'SaaS App Development',
     link: '/services/saas-app-development',
     image: '/assets/services/service-saas-app.jpg',
     tags: [
@@ -53,7 +53,7 @@ const servicesData = [
   {
     id: '04',
     num: '(04)',
-    title: 'Mobile App',
+    title: 'Mobile App Development',
     link: '/services/mobile-app-development',
     image: '/assets/services/service-mobile-app.jpg',
     tags: [

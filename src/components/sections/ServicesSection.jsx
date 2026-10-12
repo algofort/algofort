@@ -53,7 +53,7 @@ const servicesData = [
   {
     id: '04',
     num: '(04)',
-    title: 'Mobile App',
+    title: 'Mobile App Development',
     link: '/services/mobile-app-development',
     image: '/assets/services/service-mobile-app.jpg',
     tags: [

@@ -207,8 +207,8 @@ export const Footer = () => {
                         </Link>
                         <Link href="/services/mobile-app-development" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">Mobile App</div>
-                            <div className="nav-text">Mobile App</div>
+                            <div className="nav-text">Mobile App Development</div>
+                            <div className="nav-text">Mobile App Development</div>
                           </div>
                         </Link>
                       </div>

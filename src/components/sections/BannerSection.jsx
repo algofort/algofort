@@ -22,7 +22,7 @@ const marqueeItems = [
   'Web Development',
   'Brand Identity',
   'SaaS App Development',
-  'Mobile App',
+  'Mobile App Development',
 ];
 
 function splitTextIntoSpans(el) {

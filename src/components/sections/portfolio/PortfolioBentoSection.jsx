@@ -264,7 +264,7 @@ export function PortfolioBentoSection() {
               <div className="sec-portfolio-bento__lime-box">
                 <BentoOdometerNumber value="1" suffix="K+" />
                 <span className="sec-portfolio-bento__lime-label">
-                  PROJECT COMPLETED
+                  PROJECTS COMPLETED
                 </span>
               </div>
 

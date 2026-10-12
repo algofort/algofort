@@ -154,25 +154,25 @@ export function NotFoundSection() {
             
             {/* Heading: Only "Oops!" is Orange brand color, rest is white */}
             <h2 className="heading-style-h2 section-title sec-not-found__title text-color-alternate">
-              <span className="text-color-secondary">Oops!</span> Page Not Found!
+              <span className="text-color-secondary">Oops!</span> Page Not Found
             </h2>
 
             {/* Description text */}
             <p className="sec-not-found__desc alg-text">
-              You are here because you entered the address of a page that no longer exists or has been moved to a different address
+              You are here because you entered the address of a page that no longer exists or has been moved to a different address.
             </p>
 
             {/* Button matching exact homepage main-button alternate-button structure */}
             <div className="button-item sec-not-found__button-item">
               <Link href="/" className="main-button alternate-button w-inline-block">
                 <div className="main-button-block">
-                  <div className="button-text alternate-text">Home Page</div>
-                  <div className="button-text alternate-text">Home Page</div>
+                  <div className="button-text alternate-text">Back to Home</div>
+                  <div className="button-text alternate-text">Back to Home</div>
                 </div>
                 <img
                   loading="lazy"
                   src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
-                  alt="Template Icon - Unusually Webflow Template"
+                  alt="Star Icon"
                   className="button-icon"
                 />
               </Link>
@@ -185,7 +185,7 @@ export function NotFoundSection() {
         {/* Bottom-Left Corner Copyright */}
         <div className="sec-not-found__bottom-left">
           <span className="sec-not-found__copyright">
-            &copy; 2026 Algofort. All rights reserved
+            &copy; 2026 Algofort. All rights reserved.
           </span>
         </div>
 
