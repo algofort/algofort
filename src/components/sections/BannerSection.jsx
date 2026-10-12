@@ -9,11 +9,12 @@ if (typeof window !== 'undefined') {
 }
 
 const trailImages = [
-  '/assets/WEB DEVELOPMENT.webp',
-  '/assets/BRAND IDENTITY.webp',
-  '/assets/SAAS APP DEVELOPMENT.webp',
-  '/assets/MOBILE APP.webp',
-  '/assets/AI SOLUTIONS.webp',
+  '/assets/markiting.webp',
+  '/assets/logo-brand.webp',
+  '/assets/web-design.webp',
+  '/assets/visiual-identity.webp',
+  '/assets/motion-graphics9.webp',
+  '/assets/brand-strategy.webp',
 ];
 
 
