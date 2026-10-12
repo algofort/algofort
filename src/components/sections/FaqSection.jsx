@@ -12,56 +12,46 @@ if (typeof window !== 'undefined') {
 
 const faqData = [
   {
-    question: 'What types of projects do you typically work on?',
+    question: 'How am I going to finance my project?',
     paragraphs: [
-      'We work with brands, technology startups and established companies across a wide range of digital projects.',
-      'Depending on your needs, we can help with brand identity, UX research, product strategy, user experience design, interface design, motion design, frontend and backend development, CMS implementation, performance optimization and ongoing support.',
-      'Some clients come to us for a single landing page, while others trust us to build complete digital products from the ground up. We adapt our process to every project while maintaining the same level of quality throughout.',
+      'The thing is that the price of your project will be based on the level of requirements that you would like to have, and the kind of services you would like to obtain. Quotes will only be made regarding installation after the discussion on requirements and objectives is made after we establish what is required.',
     ],
   },
   {
-    question: 'Do you build websites using Webflow or custom code?',
+    question: 'Do you do custom solutions?',
     paragraphs: [
-      'Both. We choose the technology based on your business goals rather than forcing every project into the same stack.',
-      'For marketing websites that require easy content management and fast delivery, Webflow can be a great solution. For more complex products, custom interactions, advanced animations, CMS integrations or scalable platforms, we usually build custom websites using modern technologies like Astro, Next.js, React, GSAP and headless CMS solutions such as Strapi.',
+      'Yes! We specialize in making bespoke, personalized software, websites and internet based solutions that fit your business needs. Whether you are wanting to find something special in design or in functionality, we can help.',
     ],
   },
   {
-    question: 'Can you help launch an MVP quickly?',
+    question: 'What is so special about Algofort as compared to other companies with a similar basis in technology?',
     paragraphs: [
-      "Absolutely. We've helped startups launch MVPs within just a few months by focusing on what matters most: validating the product idea instead of building every possible feature.",
-      'Our team works closely with founders to define the minimum feature set, prioritize user flows and create a polished product that is ready for investors, early adopters or market testing.',
-      'As your business grows, the MVP can naturally evolve into a fully featured product without starting over.',
+      'Well, first you have to understand that the company is well established and based on very credible technological foundations.',
+      'The experience years and the approach of starting with the customer are just interchangeable at Algofort. Our organization takes delight in coming up with new, and cost-efficient solutions. And we partner with you to see your vision come to life.',
     ],
   },
   {
-    question: 'Which CMS do you recommend?',
+    question: 'Can you come and make me sell my business on the net?',
     paragraphs: [
-      "There isn't a single CMS that's right for every project. The best choice depends on your content structure, editorial workflow, scalability requirements and technical needs.",
-      'For simple marketing websites, platforms like Webflow or WordPress can work well. For more complex websites and digital products, we often recommend headless CMS solutions like Strapi, which provide greater flexibility, performance and long-term scalability.',
-      "We'll help you choose the solution that best fits your project rather than recommending a platform simply because it's popular.",
+      'Absolutely! Our digital marketing services will be able to benefit businesses such as yours, seeking to reach the right audience. Strategies can be developed to boost online presence and be able to boost sales by use of SEO, social media marketing, etc.',
     ],
   },
   {
-    question: 'Do you work on fixed-price projects or Time & Materials?',
+    question: 'My follow-up on my project is what?',
     paragraphs: [
-      'Both pricing models are available. For projects with a clearly defined scope, timeline and deliverables, a fixed-price model provides predictable budgeting and milestones.',
-      'For evolving products, startups or long-term partnerships, Time & Materials offers greater flexibility, allowing priorities to change as the project grows.',
+      'We give you the updates at every stage. Our team will regularly update you to know what is going on. We also keep an open communication channel whereby we are able to respond to whatever doubts you might have.',
     ],
   },
   {
-    question: 'Do you offer SEO services?',
+    question: 'What services does Algofort provide?',
     paragraphs: [
-      'Yes. We build every website following technical SEO best practices, including semantic HTML, clean code, optimized performance, structured metadata, accessibility, Core Web Vitals and search engine indexing.',
-      'If you need a broader SEO strategy, we can also help with technical audits, content recommendations, site architecture, keyword research and ongoing optimization together with trusted SEO specialists.',
+      'Algofort provides web development, software development, mobile app development, and digital marketing services to help businesses grow online.',
     ],
   },
   {
-    question: 'My website has poor PageSpeed scores. Can you help improve them?',
+    question: 'How long does it take to complete a project?',
     paragraphs: [
-      'Absolutely. Low PageSpeed scores are usually caused by a combination of factors rather than a single issue. We begin with a technical audit to identify bottlenecks such as unoptimized images, excessive JavaScript, render-blocking resources, inefficient third-party scripts, poor caching or server configuration.',
-      'Based on our findings, we optimize both the frontend and backend, improve loading strategies, implement modern image formats, reduce unnecessary code, fine-tune Core Web Vitals and configure CDN and caching where appropriate.',
-      'In many cases, these improvements lead not only to better PageSpeed scores but also to faster user experiences, higher conversion rates and improved SEO performance.',
+      'The project timeline depends on its requirements, features, and complexity. We discuss the details with you before starting and keep you updated throughout the development process.',
     ],
   },
 ];
