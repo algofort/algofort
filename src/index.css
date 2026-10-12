@@ -907,14 +907,14 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
-  box-shadow: 0 10px 25px rgba(var(--brand-orange-rgb), 0.4) !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+  box-shadow: none !important;
+  transition: background-color 0.3s ease !important;
   will-change: transform;
 }
 
 .back-to-top-btn:hover {
   background-color: #05080c !important;
-  box-shadow: 0 14px 30px rgba(5, 8, 12, 0.45) !important;
+  box-shadow: none !important;
 }
 
 .back-to-top-btn:active {
