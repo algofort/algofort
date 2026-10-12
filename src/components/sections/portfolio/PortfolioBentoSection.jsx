@@ -159,7 +159,7 @@ export function PortfolioBentoSection() {
             {/* Card 1: 60K+ Unique Sections Crafted by Algofort */}
             <div className="sec-portfolio-bento__card sec-portfolio-bento__card--red">
               <div className="sec-portfolio-bento__card-header">
-                <span className="sec-portfolio-bento__metric-num">60K+</span>
+                <span className="sec-portfolio-bento__metric-num">6K+</span>
                 <div className="sec-portfolio-bento__metric-label">
                   <span>UNIQUE SECTIONS</span>
                   <span>CRAFTED BY ALGOFORT</span>
