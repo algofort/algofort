@@ -88,7 +88,7 @@ const statsCardsData = [
     target: '50',
     suffix: '+',
     ghost: '50+',
-    desc: 'Expert employees & specialized engineers driving innovation',
+    desc: 'Specialized engineers & industry experts driving innovation',
   },
   {
     id: 'awards',
@@ -180,7 +180,7 @@ export const AboutSection = () => {
           </div>
           <div className="section-description sec-about__desc sec-about__content about-markeio_content scrub_letter forteve-about__content" ref={textRef}>
             <p className="alg-text">
-              At Algofort, we believe technology isn't just about code — it's about connecting and delivering impact. We're a digital solutions agency built to help brands grow with purpose and engineering precision. From architecting intelligent software to executing digital strategies, we combine technology and creativity to build solutions that drive growth.
+              At Algofort, we believe technology isn't just about code — it's about connection and delivering measurable impact. We're a digital solutions agency built to help brands grow with purpose and engineering precision. From architecting intelligent software to executing digital strategies, we combine technology and creativity to deliver solutions that drive sustainable growth.
             </p>
           </div>
         </div>

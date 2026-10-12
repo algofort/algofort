@@ -110,7 +110,7 @@ export function CtaSection() {
                 <div className="text-align-left">
                   <div className="text-color-white">
                     <h2 className="alg-cta-title heading-style-h2 section-title sec-cta__title">
-                      Start <br />
+                      Start a <br />
                       <span className="text-color-secondary">Project</span>
                     </h2>
                     <p className="alg-cta-desc section-description sec-cta__desc cta-description alg-text">
@@ -151,7 +151,7 @@ export function CtaSection() {
                           Thank you!
                         </h3>
                         <p style={{ color: 'rgba(255,255,255,0.8)' }} className="alg-text">
-                          Your submission has been received! We will contact you soon.
+                          Your message has been received! Our team will contact you shortly.
                         </p>
                       </div>
                     ) : (
@@ -164,7 +164,7 @@ export function CtaSection() {
                               type="text"
                               id="fullName"
                               name="fullName"
-                              placeholder="Enter Your Full Name"
+                              placeholder="Enter your full name"
                               value={formData.fullName}
                               onChange={handleChange}
                               required
@@ -176,7 +176,7 @@ export function CtaSection() {
                               type="tel"
                               id="phone"
                               name="phone"
-                              placeholder="Enter Your Phone Number"
+                              placeholder="Enter your phone number"
                               value={formData.phone}
                               onChange={handleChange}
                               required
@@ -191,7 +191,7 @@ export function CtaSection() {
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="Enter Your Email Address"
+                            placeholder="Enter your email address"
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -200,7 +200,7 @@ export function CtaSection() {
 
                         {/* Row 3: Service Pill Buttons */}
                         <div className="alg-cta-form-group form_group">
-                          <label>Service</label>
+                          <label>Services Needed</label>
                           <div className="alg-cta-pills-row service-pills-row">
                             {availableServices.map((service) => {
                               const isSelected = formData.selectedServices.includes(service);
@@ -224,7 +224,7 @@ export function CtaSection() {
                           <textarea
                             id="message"
                             name="message"
-                            placeholder="Type Your Message"
+                            placeholder="Tell us about your project..."
                             value={formData.message}
                             onChange={handleChange}
                             required

@@ -144,8 +144,8 @@ export const Header = () => {
                         <div className="alg-header-drawer-link-block navigation-link-block">
                           <Link className="navigation-link w-inline-block" href="/services/saas-app-development" onClick={() => setNavOpen(false)}>
                             <div className="navigation-link-wrap">
-                              <div className="navigation-link-text">Saas App development</div>
-                              <div className="navigation-link-text">Saas App development</div>
+                              <div className="navigation-link-text">SaaS App Development</div>
+                              <div className="navigation-link-text">SaaS App Development</div>
                             </div>
                             <div className="navigation-number">(03)</div>
                           </Link>
@@ -234,7 +234,7 @@ export const Header = () => {
                               </Link>
                               <Link className="nav-subservice-item" href="/services/saas-app-development" onClick={() => setNavOpen(false)}>
                                 <span className="nav-subservice-dot">✦</span>
-                                <span>Saas App development</span>
+                                <span>SaaS App Development</span>
                               </Link>
                               <Link className="nav-subservice-item" href="/services/mobile-app-development" onClick={() => setNavOpen(false)}>
                                 <span className="nav-subservice-dot">✦</span>

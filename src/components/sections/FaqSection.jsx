@@ -12,46 +12,46 @@ if (typeof window !== 'undefined') {
 
 const faqData = [
   {
-    question: 'How am I going to finance my project?',
+    question: 'How is the pricing of my project determined?',
     paragraphs: [
-      'The thing is that the price of your project will be based on the level of requirements that you would like to have, and the kind of services you would like to obtain. Quotes will only be made regarding installation after the discussion on requirements and objectives is made after we establish what is required.',
+      'Project pricing is based on your specific requirements, project scope, and the services you need. We provide transparent, customized quotes after discussing your objectives and establishing exactly what is required.',
     ],
   },
   {
-    question: 'Do you do custom solutions?',
+    question: 'Do you provide custom solutions?',
     paragraphs: [
-      'Yes! We specialize in making bespoke, personalized software, websites and internet based solutions that fit your business needs. Whether you are wanting to find something special in design or in functionality, we can help.',
+      'Yes! We specialize in building bespoke software, custom websites, and internet-based solutions tailored to your business needs. Whether you need a unique design or specialized functionality, we are here to help.',
     ],
   },
   {
-    question: 'What is so special about Algofort as compared to other companies with a similar basis in technology?',
+    question: 'What sets Algofort apart from other technology companies?',
     paragraphs: [
-      'Well, first you have to understand that the company is well established and based on very credible technological foundations.',
-      'The experience years and the approach of starting with the customer are just interchangeable at Algofort. Our organization takes delight in coming up with new, and cost-efficient solutions. And we partner with you to see your vision come to life.',
+      'Algofort is built on solid, proven technological foundations with a genuine customer-first approach.',
+      'With years of hands-on experience, our team takes pride in crafting innovative, cost-effective digital solutions. We partner closely with you to bring your vision to life.',
     ],
   },
   {
-    question: 'Can you come and make me sell my business on the net?',
+    question: 'Can you help my business sell and grow online?',
     paragraphs: [
-      'Absolutely! Our digital marketing services will be able to benefit businesses such as yours, seeking to reach the right audience. Strategies can be developed to boost online presence and be able to boost sales by use of SEO, social media marketing, etc.',
+      'Absolutely! Our digital marketing services are tailored to help businesses reach their ideal audience. We develop targeted strategies—including SEO, social media marketing, and conversion optimization—to boost your online visibility and drive consistent sales.',
     ],
   },
   {
-    question: 'My follow-up on my project is what?',
+    question: 'How will I be updated on my project’s progress?',
     paragraphs: [
-      'We give you the updates at every stage. Our team will regularly update you to know what is going on. We also keep an open communication channel whereby we are able to respond to whatever doubts you might have.',
+      'We provide regular updates at every stage of development. Our team maintains clear and open communication channels so you always know what is happening and can get answers to any questions promptly.',
     ],
   },
   {
     question: 'What services does Algofort provide?',
     paragraphs: [
-      'Algofort provides web development, software development, mobile app development, and digital marketing services to help businesses grow online.',
+      'Algofort provides web development, software engineering, mobile app development, and digital marketing services to help businesses grow and scale online.',
     ],
   },
   {
     question: 'How long does it take to complete a project?',
     paragraphs: [
-      'The project timeline depends on its requirements, features, and complexity. We discuss the details with you before starting and keep you updated throughout the development process.',
+      'Project timelines depend on requirements, features, and overall complexity. We define clear milestones with you before starting and keep you informed throughout the entire development process.',
     ],
   },
 ];
@@ -143,8 +143,8 @@ export function FaqSection() {
             <SubtitleMarquee text="Frequently Asked Questions ✦ " />
           </div>
           <h2 className="alg-faq-title heading-style-h2 section-title sec-faq__title" style={{ marginBottom: 0 }}>
-            Frequently Ask <br />
-            <span className="alg-faq-title-secondary text-color-secondary">Question</span>
+            Frequently Asked <br />
+            <span className="alg-faq-title-secondary text-color-secondary">Questions</span>
           </h2>
         </div>
         <div className="alg-faq-items cb-faq-items">

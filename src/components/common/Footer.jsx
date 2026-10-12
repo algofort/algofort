@@ -82,14 +82,14 @@ export const Footer = () => {
                 
                 {/* Stay connected & Newsletter */}
                 <div className="footer_col_newsletter">
-                  <h2 className="footer_heading">Stay connected</h2>
+                  <h2 className="footer_heading">Stay Connected</h2>
                   <p className="footer_subtext alg-text">
                     Join our newsletter for tips, updates, and project highlights—only the good stuff.
                   </p>
                   <form className="footer_newsletter_form" onSubmit={handleSubmit}>
                     <input
                       type="email"
-                      placeholder="Enter email address*"
+                      placeholder="Enter your email address*"
                       className="footer_newsletter_input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -152,7 +152,7 @@ export const Footer = () => {
                   <div className="footer_col_links">
                     <div className="footer_links_grid">
                       <div className="footer_links_col">
-                        <div className="footer_label">Main links</div>
+                        <div className="footer_label">Main Links</div>
                         <Link href="/" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
                             <div className="nav-text">HOME</div>
@@ -179,8 +179,8 @@ export const Footer = () => {
                         </Link>
                         <Link href="/contact" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">Contact US</div>
-                            <div className="nav-text">Contact US</div>
+                            <div className="nav-text">CONTACT US</div>
+                            <div className="nav-text">CONTACT US</div>
                           </div>
                         </Link>
                       </div>
@@ -201,8 +201,8 @@ export const Footer = () => {
                         </Link>
                         <Link href="/services/saas-app-development" className="footer_nav_link nav-link">
                           <div className="nav-text-wrap">
-                            <div className="nav-text">Saas App development</div>
-                            <div className="nav-text">Saas App development</div>
+                            <div className="nav-text">SaaS App Development</div>
+                            <div className="nav-text">SaaS App Development</div>
                           </div>
                         </Link>
                         <Link href="/services/mobile-app-development" className="footer_nav_link nav-link">
@@ -218,7 +218,7 @@ export const Footer = () => {
                   {/* Get in touch & Offline (Right-Aligned sub-col) */}
                   <div className="footer_col_contact">
                     <div className="footer_contact_section">
-                      <div className="footer_label">Get in touch</div>
+                      <div className="footer_label">Get in Touch</div>
                       <a href="tel:+12135555555" className="footer_phone_link">
                         <div className="nav-text-wrap">
                           <span className="nav-text">+1 (213) 555-5555</span>
@@ -286,7 +286,7 @@ export const Footer = () => {
             {/* Bottom Bar: Divider & Copyright (Left) / Legal (Right) */}
             <div className="footer_bottom_bar">
               <div className="footer_bottom_left">
-                <span>© 2026 Algofort. All rights reserved</span>
+                <span>© 2026 Algofort. All rights reserved.</span>
               </div>
               <div className="footer_bottom_right">
                 <Link href="/privacy-policy" className="footer_legal_link">

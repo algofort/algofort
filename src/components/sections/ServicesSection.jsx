@@ -39,7 +39,7 @@ const servicesData = [
   {
     id: '03',
     num: '(03)',
-    title: 'Saas App development',
+    title: 'SaaS App Development',
     link: '/services/saas-app-development',
     image: '/assets/services/service-saas-app.jpg',
     tags: [
@@ -279,7 +279,7 @@ export const ServicesSection = () => {
                   <img
                     loading="lazy"
                     src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
-                    alt="Template Icon - Unusually Webflow Template"
+                    alt="Star Icon"
                     className="button-icon"
                   />
                 </Link>

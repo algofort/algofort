@@ -20,7 +20,7 @@ const trailImages = [
 const marqueeItems = [
   'Web Development',
   'Brand Identity',
-  'Saas App development',
+  'SaaS App Development',
   'Mobile App',
 ];
 
