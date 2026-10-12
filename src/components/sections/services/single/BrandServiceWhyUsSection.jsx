@@ -60,7 +60,7 @@ function WhyUsOdometerNumber({ value, prefix, suffix }) {
   const digits = String(value).split('');
 
   return (
-    <div className="stats-number-wrap" aria-label={`${prefix || ''}${value}${suffix || ''}`}>
+    <h2 className="stats-number-wrap heading-style-h2" aria-label={`${prefix || ''}${value}${suffix || ''}`}>
       {prefix && <span className="stats-prefix-suffix alternate">{prefix}</span>}
       <div className="stats-digits-container">
         {digits.map((digit, idx) => (
@@ -68,7 +68,7 @@ function WhyUsOdometerNumber({ value, prefix, suffix }) {
         ))}
       </div>
       {suffix && <span className="stats-prefix-suffix alternate">{suffix}</span>}
-    </div>
+    </h2>
   );
 }
 
@@ -186,34 +186,40 @@ export function BrandServiceWhyUsSection() {
             
             {/* Left Card: Background Video + 3D Cube (Spans 2 rows) */}
             <div className="why-us-wrap sec-why-us__cube-card">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg"
-                className="why-us-video"
-              >
-                <source
-                  src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
-                  type="video/mp4"
-                />
-                <source
-                  src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
-                  type="video/webm"
-                />
-              </video>
-              <div className="why-us-video-overlay video-overlay"></div>
+              <div className="alg-hero-video-wrap background-video-wrap why-us-video-wrap">
+                <div className="alg-hero-video background-video w-background-video w-background-video-atom">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    data-object-fit="cover"
+                    style={{
+                      backgroundImage:
+                        'url("/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg")',
+                    }}
+                  >
+                    <source
+                      src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
+                      type="video/mp4"
+                    />
+                    <source
+                      src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
+                      type="video/webm"
+                    />
+                  </video>
+                </div>
+                <div className="alg-hero-video-overlay video-overlay"></div>
+              </div>
 
               <div className="w-layout-grid why-us-grid">
-                {/* Top content: Logo & Year Badge */}
+                {/* Top content: Logo Centered */}
                 <div className="why-us-top-bar">
                   <img
                     src="/assets/logo-white-01.png"
                     alt="Algofort Logo"
                     className="why-us-logo"
                   />
-                  <div className="why-us-year-badge">(2010-26©)</div>
                 </div>
 
                 {/* 3D Rotating Cube */}
@@ -268,19 +274,21 @@ export function BrandServiceWhyUsSection() {
                   </div>
                 </div>
 
-                {/* Bottom spacer / alignment */}
-                <div></div>
+                {/* Bottom content: Year Badge Centered */}
+                <div className="why-us-bottom-bar">
+                  <div className="why-us-year-badge">(2010-26©)</div>
+                </div>
               </div>
             </div>
 
             {/* Right Cards Stack: 2 Stats Cards with Odometer Roll Numbers */}
             <div ref={cardsRef} className="why-us-cards-stack">
               
-              {/* Stat Card 1: +85 Brand Systems Delivered */}
+              {/* Stat Card 1: 85+ Brand Systems Delivered */}
               <div className="card-block content-card sec-why-us__card">
                 <div className="w-layout-grid stats-grid">
                   <div className="stats-top-row">
-                    <WhyUsOdometerNumber value="85" prefix="+" />
+                    <WhyUsOdometerNumber value="85" suffix="+" />
                     <div className="stat-subtitle">
                       Brand Systems<br />Delivered
                     </div>
@@ -290,10 +298,7 @@ export function BrandServiceWhyUsSection() {
 
                   <div className="stats-bottom-row">
                     <p className="stats-description alg-text">
-                      From emerging startups to established enterprises, we create identities that stand the test of time.{' '}
-                      <span className="text-color-secondary">
-                        Our design methodology unites strategic reasoning with visual craftsmanship to build brands people remember.
-                      </span>
+                      From emerging startups to established enterprises, we create identities that stand the test of time. Our design methodology unites strategic reasoning with visual craftsmanship to build brands people remember.
                     </p>
                     <img
                       loading="lazy"
@@ -319,10 +324,7 @@ export function BrandServiceWhyUsSection() {
 
                   <div className="stats-bottom-row">
                     <p className="stats-description alg-text">
-                      We collaborate closely with leadership teams through structured design reviews and transparent milestones.{' '}
-                      <span className="text-color-secondary">
-                        Every detail is considered, ensuring your new visual identity functions flawlessly across all modern touchpoints.
-                      </span>
+                      We collaborate closely with leadership teams through structured design reviews and transparent milestones. Every detail is considered, ensuring your new visual identity functions flawlessly across all modern touchpoints.
                     </p>
                     <img
                       loading="lazy"
