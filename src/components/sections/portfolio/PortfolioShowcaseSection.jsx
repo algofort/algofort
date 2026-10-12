@@ -7,111 +7,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
 
-const portfolioCategories = [
-  { id: 'animation', label: 'Animation' },
-  { id: 'nextjs', label: 'Next Js' },
-  { id: 'wordpress', label: 'WordPress' },
-  { id: 'woocommerce', label: 'WooCommerce' },
-  { id: 'wix', label: 'Wix' },
-  { id: 'shopify', label: 'Shopify' },
-];
-
-const portfolioProjects = [
-  {
-    id: 1,
-    number: '01',
-    title: 'Interactive 3D Agency',
-    category: ['animation', 'nextjs'],
-    image: '/assets/portfolio/home-1-feature.webp',
-    buttons: [
-      { text: 'View Project', href: '/contact' },
-      { text: 'Explore Project', href: '/contact' },
-    ],
-  },
-  {
-    id: 2,
-    number: '02',
-    title: 'Fintech Corporate Portal',
-    category: ['nextjs', 'wordpress', 'shopify'],
-    image: '/assets/portfolio/home-2-feature.webp',
-    buttons: [
-      { text: 'View Project', href: '/contact' },
-      { text: 'Explore Project', href: '/contact' },
-    ],
-  },
-  {
-    id: 3,
-    number: '03',
-    title: 'Creative Studio Hub',
-    category: ['wordpress', 'woocommerce'],
-    image: '/assets/portfolio/home-3-feature.webp',
-    buttons: [
-      { text: 'View Project', href: '/contact' },
-      { text: 'Explore Project', href: '/contact' },
-    ],
-  },
-  {
-    id: 4,
-    number: '04',
-    title: 'Architectural Visuals',
-    category: ['animation', 'wix', 'shopify'],
-    image: '/assets/portfolio/home-4-feature.webp',
-    buttons: [
-      { text: 'View Project', href: '/contact' },
-      { text: 'Explore Project', href: '/contact' },
-    ],
-  },
-  {
-    id: 5,
-    number: '05',
-    title: 'SaaS Analytics Platform',
-    category: ['nextjs', 'wix', 'wordpress'],
-    image: '/assets/portfolio/home-5-feature.webp',
-    buttons: [
-      { text: 'View Project', href: '/contact' },
-      { text: 'Explore Project', href: '/contact' },
-    ],
-  },
-  {
-    id: 6,
-    number: '06',
-    title: 'Modern Luxury Apparel',
-    category: ['wordpress', 'woocommerce', 'shopify'],
-    image: '/assets/portfolio/home-6-feature.webp',
-    buttons: [
-      { text: 'View Project', href: '/contact' },
-      { text: 'Explore Project', href: '/contact' },
-    ],
-  },
-  {
-    id: 7,
-    number: '07',
-    title: 'Motion Branding Studio',
-    category: ['animation', 'woocommerce'],
-    image: '/assets/portfolio/home-7-feature.webp',
-    buttons: [
-      { text: 'View Project', href: '/contact' },
-      { text: 'Explore Project', href: '/contact' },
-    ],
-  },
-  {
-    id: 8,
-    number: '08',
-    title: 'High-Scale DTC Flagship',
-    category: ['nextjs', 'shopify'],
-    image: '/assets/portfolio/home-8-feature.webp',
-    buttons: [
-      { text: 'View Project', href: '/contact' },
-      { text: 'Explore Project', href: '/contact' },
-    ],
-  },
-];
+import {
+  portfolioCategories,
+  portfolioProjects,
+} from '../../../data/portfolioProjectsData';
 
 const statCounters = [
-  { value: '20', suffix: '+', label: 'Projects Completed' },
-  { value: '15', suffix: '+', label: 'Brands Transformed' },
-  { value: '30', suffix: '+', label: 'Digital Experiences' },
-  { value: '100', suffix: '%', label: 'Creative Focus' },
+  { value: '120', suffix: '+', label: 'Projects Completed' },
+  { value: '50', suffix: '+', label: 'Brands Transformed' },
+  { value: '6', suffix: '', label: 'Tech Stacks' },
+  { value: '100', suffix: '%', label: 'Client Satisfaction' },
 ];
 
 export function PortfolioShowcaseSection() {
@@ -184,9 +89,9 @@ export function PortfolioShowcaseSection() {
       cards,
       {
         opacity: 0,
-        y: 48,
-        scale: 0.92,
-        filter: 'blur(12px)',
+        y: 36,
+        scale: 0.94,
+        filter: 'blur(8px)',
         transformPerspective: 1000,
         rotateX: 4,
       },
@@ -196,9 +101,9 @@ export function PortfolioShowcaseSection() {
         scale: 1,
         filter: 'blur(0px)',
         rotateX: 0,
-        duration: 0.68,
+        duration: 0.55,
         stagger: {
-          each: 0.08,
+          amount: Math.min(cards.length * 0.03, 0.4),
           from: 'start',
         },
         ease: 'power3.out',
@@ -215,12 +120,12 @@ export function PortfolioShowcaseSection() {
     if (images.length) {
       gsap.fromTo(
         images,
-        { scale: 1.09 },
+        { scale: 1.05 },
         {
           scale: 1,
-          duration: 0.85,
+          duration: 0.65,
           stagger: {
-            each: 0.08,
+            amount: Math.min(images.length * 0.03, 0.4),
             from: 'start',
           },
           ease: 'power3.out',
@@ -359,46 +264,97 @@ export function PortfolioShowcaseSection() {
                 </div>
 
                 {/* Card Title & Arrow Footer */}
-                <div className="sec-portfolio__info">
-                  <div className="sec-portfolio__card-title-group">
-                    <h3 className="heading-style-h3 sec-portfolio__card-name">{project.title}</h3>
-                  </div>
-                  
-                  <div className="sec-portfolio__arrow-wrap" aria-hidden="true">
-                    <div className="sec-portfolio__arrow-inner">
-                      <svg
-                        className="sec-portfolio__arrow sec-portfolio__arrow--1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.4"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                      </svg>
-                      <svg
-                        className="sec-portfolio__arrow sec-portfolio__arrow--2"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.4"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                      </svg>
+                {project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sec-portfolio__info w-inline-block"
+                  >
+                    <div className="sec-portfolio__card-title-group">
+                      <h3 className="heading-style-h3 sec-portfolio__card-name">{project.title}</h3>
                     </div>
-                  </div>
-                </div>
+                    
+                    <div className="sec-portfolio__arrow-wrap" aria-hidden="true">
+                      <div className="sec-portfolio__arrow-inner">
+                        <svg
+                          className="sec-portfolio__arrow sec-portfolio__arrow--1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7"></line>
+                          <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                        <svg
+                          className="sec-portfolio__arrow sec-portfolio__arrow--2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7"></line>
+                          <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  <Link
+                    href="/contact"
+                    className="sec-portfolio__info w-inline-block"
+                  >
+                    <div className="sec-portfolio__card-title-group">
+                      <h3 className="heading-style-h3 sec-portfolio__card-name">{project.title}</h3>
+                    </div>
+                    
+                    <div className="sec-portfolio__arrow-wrap" aria-hidden="true">
+                      <div className="sec-portfolio__arrow-inner">
+                        <svg
+                          className="sec-portfolio__arrow sec-portfolio__arrow--1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7"></line>
+                          <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                        <svg
+                          className="sec-portfolio__arrow sec-portfolio__arrow--2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7"></line>
+                          <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </Link>
+                )}
 
               </div>
             ))}
