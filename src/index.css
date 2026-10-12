@@ -878,6 +878,12 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
   }
 }
 
+@media screen and (min-width: 992px) and (max-width: 1439.98px) {
+  .heading-style-h2 {
+    font-size: 6rem !important;
+  }
+}
+
 /* Back To Top Floating Brand Button Styles */
 .back-to-top-wrap {
   position: fixed !important;
