@@ -156,7 +156,7 @@ export function PortfolioBentoSection() {
         <div className="sec-portfolio-bento__padding">
           {/* Bento Grid */}
           <div className="section-content sec-portfolio-bento__grid">
-            {/* Card 1: 60+ Unique Sections (Burgundy Red Gradient) */}
+            {/* Card 1: 60+ Unique Sections Crafted by Algofort */}
             <div className="sec-portfolio-bento__card sec-portfolio-bento__card--red">
               <div className="sec-portfolio-bento__card-header">
                 <span className="sec-portfolio-bento__metric-num">60+</span>
