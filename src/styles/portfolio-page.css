@@ -450,32 +450,35 @@
   cursor: pointer !important;
   white-space: nowrap !important;
   box-sizing: border-box !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.25s ease,
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background-color 0.25s ease,
               border-color 0.25s ease,
-              color 0.25s ease,
-              box-shadow 0.25s ease !important;
+              color 0.25s ease !important;
 }
 
 .sec-portfolio__filter-btn:hover {
   background-color: var(--brand-orange, #f47a1f) !important;
   border-color: var(--brand-orange, #f47a1f) !important;
   color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(244, 122, 31, 0.25) !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .sec-portfolio__filter-btn.is-active {
   background-color: var(--brand-orange, #f47a1f) !important;
   border-color: var(--brand-orange, #f47a1f) !important;
   color: #ffffff !important;
-  box-shadow: 0 6px 20px rgba(244, 122, 31, 0.35) !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .sec-portfolio__filter-btn.is-active:hover {
   background-color: #e0680f !important;
   border-color: #e0680f !important;
   color: #ffffff !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .sec-portfolio__filter-btn .main-button-block {
@@ -562,14 +565,15 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: border-color 0.25s ease !important;
 }
 
 .sec-portfolio__card:hover {
-  border-color: rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
-  transform: translateY(-4px);
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 /* Image Showcase Frame */
@@ -641,11 +645,10 @@
   width: auto !important;
   max-width: max-content !important;
   flex-shrink: 0 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: none !important;
   transform: none !important;
   transition: background-color 0.25s ease,
-              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease !important;
+              color 0.25s ease !important;
 }
 
 .sec-portfolio__overlay .main-button.sec-portfolio__btn:hover,
@@ -654,8 +657,8 @@
   background-color: var(--brand-orange, #f47a1f) !important;
   border: none !important;
   color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(244, 122, 31, 0.4) !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .sec-portfolio__overlay .main-button.sec-portfolio__btn .main-button-block,
@@ -863,7 +866,7 @@
   min-height: 700px;
   display: flex;
   align-items: center;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: none !important;
 }
 
 @media screen and (max-width: 767px) {
@@ -990,15 +993,17 @@
   cursor: pointer !important;
   white-space: nowrap !important;
   box-sizing: border-box !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
 }
 
 .sec-portfolio-hero__btn:hover {
   background-color: var(--brand-orange, #f47a1f) !important;
   border-color: var(--brand-orange, #f47a1f) !important;
   color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 25px rgba(244, 122, 31, 0.25) !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .sec-portfolio-hero__btn .main-button-block {
@@ -1378,11 +1383,13 @@
   border-radius: 12px;
   overflow: hidden;
   background: #ffffff;
-  transition: transform 0.3s ease;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 .sec-portfolio-bento__preview-item:hover {
-  transform: translateY(-4px);
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .sec-portfolio-bento__preview-img {
@@ -1453,7 +1460,7 @@
 }
 
 .sec-portfolio-bento__mockup:hover {
-  transform: translateY(-8px);
+  transform: none;
 }
 
 .sec-portfolio-bento__mockup-img {
@@ -1483,7 +1490,7 @@
   justify-content: center;
   flex: 1;
   color: #ffffff;
-  box-shadow: 0 10px 30px rgba(244, 122, 31, 0.22);
+  box-shadow: none !important;
 }
 
 .sec-portfolio-bento__lime-num {
@@ -1516,7 +1523,7 @@
   justify-content: center;
   flex: 1;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: none !important;
 }
 
 .sec-portfolio-bento__outlook-text {
@@ -1545,18 +1552,19 @@
   cursor: pointer !important;
   white-space: nowrap !important;
   box-sizing: border-box !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s ease,
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background-color 0.3s ease,
               border-color 0.3s ease,
-              box-shadow 0.3s ease !important;
+              color 0.3s ease !important;
 }
 
 .sec-portfolio-bento__btn-purchase:hover {
   background-color: var(--brand-orange, #f47a1f) !important;
   border-color: var(--brand-orange, #f47a1f) !important;
   color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 25px rgba(244, 122, 31, 0.25) !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .sec-portfolio-bento__btn-purchase .main-button-block {
@@ -1597,4 +1605,36 @@
 .sec-portfolio-bento__btn-purchase:hover .button-icon {
   transform: rotate(90deg) !important;
 }
+
+/* ==========================================================================
+   PORTFOLIO PAGE - STRICT ZERO SHADOW & ZERO FLOATING OVERRIDES
+   "complete page check krlo khi bhi shadow nhi hona chahya"
+   ========================================================================== */
+.sec-portfolio,
+.sec-portfolio *,
+.sec-portfolio-hero,
+.sec-portfolio-hero *,
+.sec-portfolio-bento,
+.sec-portfolio-bento * {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Ensure no floating lift on hover across portfolio sections */
+.sec-portfolio__card:hover,
+.sec-portfolio__filter-btn:hover,
+.sec-portfolio__filter-btn.is-active,
+.sec-portfolio__filter-btn.is-active:hover,
+.sec-portfolio__overlay .main-button.sec-portfolio__btn:hover,
+.sec-portfolio__overlay .sec-portfolio__btn:hover,
+.sec-portfolio__btn:hover,
+.sec-portfolio-hero__btn:hover,
+.sec-portfolio-bento__btn-purchase:hover,
+.sec-portfolio-bento__preview-item:hover,
+.sec-portfolio-bento__mockup:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 
