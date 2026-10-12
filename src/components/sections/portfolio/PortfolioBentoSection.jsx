@@ -1,9 +1,72 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+// Generates strip of digits for rolling odometer animation like Why Us section
+function generateDigitStrip(targetDigit, cycles = 4) {
+  const target = parseInt(targetDigit, 10);
+  const items = [];
+
+  for (let c = 0; c < cycles; c++) {
+    for (let d = 0; d <= 9; d++) {
+      items.push(d);
+    }
+  }
+
+  for (let d = 0; d <= target; d++) {
+    items.push(d);
+  }
+
+  const targetIndex = items.length - 1;
+  const targetPercent = (targetIndex / items.length) * 100;
+
+  return {
+    items,
+    targetPercent,
+  };
+}
+
+function BentoOdometerDigit({ digit, cycles = 4 }) {
+  const { items, targetPercent } = useMemo(
+    () => generateDigitStrip(digit, cycles),
+    [digit, cycles]
+  );
+
+  return (
+    <span className="odometer-digit-col sec-portfolio-bento__odometer-col" aria-hidden="true">
+      <span className="odometer-digit-track" data-target-percent={targetPercent}>
+        {items.map((val, idx) => (
+          <span key={idx} className="odometer-digit-val sec-portfolio-bento__digit-val">
+            {val}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
+}
+
+function BentoOdometerNumber({ value, suffix }) {
+  const digits = String(value).split('');
+
+  return (
+    <div className="sec-portfolio-bento__lime-num" aria-label={`${value}${suffix || ''}`}>
+      <div className="sec-portfolio-bento__digits-container">
+        {digits.map((digit, idx) => (
+          <BentoOdometerDigit key={idx} digit={digit} cycles={4} />
+        ))}
+      </div>
+      {suffix && <span className="sec-portfolio-bento__suffix">{suffix}</span>}
+    </div>
+  );
+}
 
 export function PortfolioBentoSection() {
   const sectionRef = useRef(null);
@@ -47,7 +110,39 @@ export function PortfolioBentoSection() {
       });
     });
 
-    return () => cleanups.forEach((c) => c());
+    // Odometer animation for 1K+ Project Completed (identical to Why Us section)
+    const tracks = section.querySelectorAll('.sec-portfolio-bento__lime-box .odometer-digit-track');
+    let ctx;
+    if (tracks.length > 0) {
+      ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section.querySelector('.sec-portfolio-bento__lime-box'),
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        });
+
+        tracks.forEach((track) => {
+          const targetPercent = parseFloat(track.dataset.targetPercent) || 0;
+          tl.fromTo(
+            track,
+            { yPercent: 0 },
+            {
+              yPercent: -targetPercent,
+              duration: 2.2,
+              ease: 'power3.out',
+            },
+            0
+          );
+        });
+      }, section);
+    }
+
+    return () => {
+      cleanups.forEach((c) => c());
+      if (ctx) ctx.revert();
+    };
   }, []);
 
   return (
@@ -163,15 +258,13 @@ export function PortfolioBentoSection() {
               </div>
             </div>
 
-            {/* Card 3: 40+ Supporting Pages + Complete Outlook CTA */}
+            {/* Card 3: 1K+ Project Completed + Complete Outlook CTA */}
             <div className="sec-portfolio-bento__card sec-portfolio-bento__card--split">
-              {/* Top Lime Badge Box */}
+              {/* Top Orange Stat Box */}
               <div className="sec-portfolio-bento__lime-box">
-                <span className="sec-portfolio-bento__lime-num">40+</span>
+                <BentoOdometerNumber value="1" suffix="K+" />
                 <span className="sec-portfolio-bento__lime-label">
-                  WELL-DESIGNED
-                  <br />
-                  SUPPORTING PAGES
+                  PROJECT COMPLETED
                 </span>
               </div>
 
