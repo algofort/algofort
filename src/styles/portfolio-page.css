@@ -1355,10 +1355,11 @@
 
 .sec-portfolio-bento__metric-num {
   font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
-  font-size: 5rem;
+  font-size: clamp(3.5rem, 4.5vw, 5rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1;
+  text-transform: uppercase !important;
 }
 
 .sec-portfolio-bento__metric-label {
