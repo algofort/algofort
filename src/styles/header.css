@@ -171,3 +171,54 @@
 .nav-subservice-item:hover .nav-subservice-dot {
   transform: scale(1.3);
 }
+
+/* ==========================================================================
+   Main Menu Active State
+   Active state: BG brand orange (#f47a1f), text white (#ffffff)
+   ========================================================================== */
+
+/* Quick Nav Bar Active Link */
+.sec-header .nav-link-block .nav-link.is-active,
+.sec-header .nav-link-block .nav-link.w--current,
+.nav-wrapper .nav-link-block .nav-link.is-active,
+.nav-wrapper .nav-link-block .nav-link.w--current {
+  background-color: var(--brand-orange, #f47a1f) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(244, 122, 31, 0.35);
+}
+
+.sec-header .nav-link-block .nav-link.is-active .nav-text,
+.sec-header .nav-link-block .nav-link.w--current .nav-text,
+.nav-wrapper .nav-link-block .nav-link.is-active .nav-text,
+.nav-wrapper .nav-link-block .nav-link.w--current .nav-text {
+  color: #ffffff !important;
+}
+
+.sec-header .nav-link-block .nav-link.is-active:hover,
+.sec-header .nav-link-block .nav-link.w--current:hover,
+.nav-wrapper .nav-link-block .nav-link.is-active:hover,
+.nav-wrapper .nav-link-block .nav-link.w--current:hover {
+  background-color: var(--brand-orange, #f47a1f) !important;
+  filter: brightness(1.05);
+}
+
+/* Drawer Navigation Active States */
+.navigation-link.is-active .navigation-link-text,
+.navigation-link.w--current .navigation-link-text {
+  color: var(--brand-orange, #f47a1f) !important;
+}
+
+.navigation-link.is-active .navigation-number,
+.navigation-link.w--current .navigation-number {
+  color: var(--brand-orange, #f47a1f) !important;
+}
+
+.nav-subservice-item.is-active {
+  color: var(--brand-orange, #f47a1f) !important;
+  font-weight: 800;
+}
+
+.nav-subservice-item.is-active .nav-subservice-dot {
+  transform: scale(1.4);
+}
+

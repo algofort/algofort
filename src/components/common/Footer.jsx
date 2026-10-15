@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const socialLinks = [
   {
@@ -244,39 +245,16 @@ export const Footer = () => {
 
                 </div>
 
-                {/* Bottom of Right Pane: ALGOFORT SVG Wordmark */}
+                {/* Bottom of Right Pane: Logo */}
                 <div className="footer_brand_display">
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 -76 565 86" 
-                    width="100%" 
-                    height="auto"
-                    className="footer_brand_svg"
-                    role="img"
-                    aria-label="ALGOFORT"
-                    style={{ width: '100%', height: 'fit-content' }}
-                  >
-                    <defs>
-                      <style>{`
-                        @font-face {
-                          font-family: 'Clash Display';
-                          src: url('/fonts/6925673287d6a5eea5a68225_ClashDisplay-Bold.otf') format('opentype');
-                          font-weight: 700;
-                          font-style: normal;
-                          font-display: swap;
-                        }
-
-                        .fit-text {
-                          font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, sans-serif;
-                          font-size: 96px;
-                          font-weight: 700;
-                          fill: #05080c;
-                        }
-                      `}</style>
-                    </defs>
-
-                    <text x="2" y="0" className="fit-text" textLength="561" lengthAdjust="spacingAndGlyphs">ALGOFORT</text>
-                  </svg>
+                  <Image
+                    src="/assets/logo-black.png"
+                    alt="Algofort Logo"
+                    width={842}
+                    height={136}
+                    className="footer_brand_img"
+                    priority
+                  />
                 </div>
 
               </div>

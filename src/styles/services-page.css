@@ -175,11 +175,6 @@
   position: relative !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.sec-services-page .service-content-grid:hover {
-  background-color: rgba(0, 0, 0, 0.015);
 }
 
 .sec-services-page .service-content-item {
@@ -374,3 +369,60 @@
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   Services Page Sub-Services Pill Buttons (Strict Vertical Centering)
+   ========================================================================== */
+.sec-services-page .service-tag-pill.nav-link {
+  height: 2.25rem !important;
+  min-height: 2.25rem !important;
+  padding: 0 1.25rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  border-radius: 100px !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+.sec-services-page .service-tag-pill .nav-text-wrap {
+  height: 1.15rem !important;
+  max-height: 1.15rem !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  position: relative !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sec-services-page .service-tag-pill .nav-text {
+  height: 1.15rem !important;
+  min-height: 1.15rem !important;
+  max-height: 1.15rem !important;
+  flex: 0 0 1.15rem !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.sec-services-page .service-tag-pill:hover .nav-text {
+  transform: translateY(-1.15rem) !important;
+}
+

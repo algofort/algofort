@@ -443,6 +443,13 @@ footer,
   line-height: 0;
 }
 
+.footer_brand_img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .footer_brand_svg {
   width: 100% !important;
   height: auto !important;

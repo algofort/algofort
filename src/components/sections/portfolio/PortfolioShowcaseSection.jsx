@@ -12,6 +12,10 @@ import {
   portfolioProjects,
 } from '../../../data/portfolioProjectsData';
 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 const statCounters = [
   { value: '120', suffix: '+', label: 'Projects Completed' },
   { value: '50', suffix: '+', label: 'Brands Transformed' },
@@ -23,91 +27,37 @@ export function PortfolioShowcaseSection() {
   const sectionRef = useRef(null);
   const gridRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState('animation');
+  const hasAnimatedInitialRef = useRef(false);
 
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const titleEl = sectionRef.current.querySelector('.sec-portfolio__title');
-    if (titleEl) {
-      initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
-    }
-
-    const timer = setTimeout(() => {
-      if (typeof window !== 'undefined') {
-        ScrollTrigger.refresh();
-      }
-    }, 150);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Filter change with creative GSAP exit & switch transition
-  const handleFilterChange = (categoryId) => {
-    if (categoryId === activeFilter) return;
-
-    const grid = gridRef.current;
-    const cards = grid?.querySelectorAll('.sec-portfolio__card');
-
-    if (!cards || cards.length === 0) {
-      setActiveFilter(categoryId);
-      return;
-    }
-
-    gsap.killTweensOf(cards);
-
-    // Dynamic cinematic exit animation
-    gsap.to(cards, {
-      opacity: 0,
-      y: -20,
-      scale: 0.95,
-      filter: 'blur(6px)',
-      duration: 0.18,
-      stagger: 0.02,
-      ease: 'power2.in',
-      onComplete: () => {
-        setActiveFilter(categoryId);
-      },
-    });
-  };
-
-  // Creative 3D-depth GSAP reveal when active filter changes
-  useEffect(() => {
+  // Rapid 1 -> 2 -> 3 sequential cascade animation function
+  const animateCards = () => {
     const grid = gridRef.current;
     if (!grid) return;
 
     const cards = grid.querySelectorAll('.sec-portfolio__card');
-    const images = grid.querySelectorAll('.sec-portfolio__image');
+    if (!cards || cards.length === 0) return;
 
-    if (!cards || cards.length === 0) {
-      return;
-    }
+    gsap.killTweensOf(cards);
 
-    gsap.killTweensOf([...cards, ...images]);
+    // Stagger cards in rapid 1-by-1 succession (1 -> 2 -> 3...)
+    const visibleCards = Array.from(cards).slice(0, 12);
+    const remainingCards = Array.from(cards).slice(12);
 
-    // Creative staggered card reveal: 3D perspective tilt, upward glide, scale bloom, and lens de-blur
     gsap.fromTo(
-      cards,
+      visibleCards,
       {
         opacity: 0,
-        y: 36,
+        y: 32,
         scale: 0.94,
-        filter: 'blur(8px)',
-        transformPerspective: 1000,
-        rotateX: 4,
       },
       {
         opacity: 1,
         y: 0,
         scale: 1,
-        filter: 'blur(0px)',
-        rotateX: 0,
-        duration: 0.55,
-        stagger: {
-          amount: Math.min(cards.length * 0.03, 0.4),
-          from: 'start',
-        },
+        duration: 0.38,
+        stagger: 0.055, // Distinct rapid sequential cascade
         ease: 'power3.out',
-        clearProps: 'transform,filter,opacity,perspective',
+        clearProps: 'opacity,transform',
         onComplete: () => {
           if (typeof window !== 'undefined') {
             ScrollTrigger.refresh();
@@ -116,22 +66,71 @@ export function PortfolioShowcaseSection() {
       }
     );
 
-    // Subtle parallax settle on preview images inside cards
-    if (images.length) {
+    // Below-the-fold cards reveal smoothly
+    if (remainingCards.length > 0) {
       gsap.fromTo(
-        images,
-        { scale: 1.05 },
+        remainingCards,
         {
-          scale: 1,
-          duration: 0.65,
-          stagger: {
-            amount: Math.min(images.length * 0.03, 0.4),
-            from: 'start',
-          },
-          ease: 'power3.out',
-          clearProps: 'transform',
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.28,
+          delay: 0.22,
+          clearProps: 'opacity,transform',
         }
       );
+    }
+  };
+
+  // Page entrance trigger: sequence cards 1 -> 2 -> 3 when scrolling into view
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const titleEl = sectionRef.current.querySelector('.sec-portfolio__title');
+    if (titleEl) {
+      initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
+    }
+
+    const gridEl = gridRef.current;
+    if (!gridEl) return;
+
+    // ScrollTrigger to trigger sequential reveal on entrance
+    const st = ScrollTrigger.create({
+      trigger: gridEl,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        hasAnimatedInitialRef.current = true;
+        animateCards();
+      },
+    });
+
+    // If grid is already in viewport on load, run immediately
+    const rect = gridEl.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
+      hasAnimatedInitialRef.current = true;
+      animateCards();
+    }
+
+    return () => {
+      if (st) st.kill();
+    };
+  }, []);
+
+  // Instant filter change for zero perceived latency
+  const handleFilterChange = (categoryId) => {
+    if (categoryId === activeFilter) return;
+    hasAnimatedInitialRef.current = true;
+    setActiveFilter(categoryId);
+  };
+
+  // Trigger 1 -> 2 -> 3 sequence whenever active tab changes
+  useEffect(() => {
+    if (hasAnimatedInitialRef.current) {
+      animateCards();
     }
   }, [activeFilter]);
 
@@ -215,6 +214,7 @@ export function PortfolioShowcaseSection() {
                     src={project.image}
                     alt={`${project.title} Project Showcase`}
                     loading="lazy"
+                    decoding="async"
                     className="sec-portfolio__image"
                   />
                   

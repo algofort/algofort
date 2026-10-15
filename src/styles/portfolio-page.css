@@ -566,8 +566,9 @@
   display: flex;
   flex-direction: column;
   box-shadow: none !important;
-  transform: none !important;
   transition: border-color 0.25s ease !important;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 450px;
 }
 
 .sec-portfolio__card:hover {

@@ -121,89 +121,122 @@
 }
 
 /* ==========================================================================
-   Algofort Why-Us Cards Grid (Forteve Typography)
+   Algofort Fact Cards Grid (Inspired by Denzil Framer - 100% Localhost)
    ========================================================================== */
+.fact-cards-wrapper,
 .why-us-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  align-items: flex-end;
+  gap: 20px;
   width: 100%;
+  min-height: 460px;
   position: relative;
   z-index: 2;
   margin-top: 3.5rem;
 }
 
-.why-us-card {
+.fact-card {
   position: relative;
-  background-color: #ffffff !important;
-  border-radius: 8px;
-  padding: 40px 32px 32px 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 400px;
+  padding: 24px;
+  box-sizing: border-box;
   overflow: hidden;
+  border-radius: 12px !important;
+  width: 100%;
   border: none;
   box-shadow: none;
-  box-sizing: border-box;
-  z-index: 2;
+  align-self: flex-end !important;
+  margin-bottom: 0 !important;
+  clip-path: inset(0% 0% 0% 0%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Corner plus & square markers with 0.1 opacity matching Alura Framer */
-.framer-corner-icons {
+.fact-card--white {
+  background-color: #ffffff !important;
+  height: 180px;
+}
+
+.fact-card--black {
+  background-color: #111111 !important;
+  height: 460px;
+}
+
+.fact-card--orange {
+  background-color: var(--brand-orange) !important;
+  height: 220px;
+}
+
+.fact-card--video {
+  background-color: #111111 !important;
+  height: 330px;
+}
+
+/* Looping Video for Card 4 */
+.fact-card-video-wrap {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   pointer-events: none;
-  user-select: none;
-  opacity: 0.1;
   z-index: 1;
 }
 
-.corner-icon.top-left {
-  position: absolute;
-  top: 16px;
-  left: 16px;
+.fact-card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  display: block;
+  opacity: 0.88;
 }
 
-.corner-icon.bottom-left {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-}
-
-.corner-icon.bottom-right {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-}
-
-/* Large ghost/watermark number behind card */
-.why-us-ghost-number {
-  position: absolute;
-  top: -10px;
-  right: -20px;
-  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif);
-  font-stretch: condensed;
-  text-transform: uppercase;
-  font-size: 124px;
-  font-weight: 500;
-  color: var(--brand-orange, var(--_colors---primary--accent, #f47a1f));
-  opacity: 0.03;
-  line-height: 1.0;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-  letter-spacing: -0.03em;
-}
-
-.why-us-card-top {
+/* Card Top & Bottom Structure */
+.fact-card-top {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .why-us-card-number-wrap {
   display: inline-flex;
   align-items: baseline;
+}
+
+.fact-card-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+/* Fallback for service pages why-us-card */
+.why-us-card {
+  position: relative;
+  background-color: #ffffff !important;
+  border-radius: 8px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.why-us-card-desc {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
+  font-size: 15px;
+  line-height: 1.45;
+  color: #1a1a1a;
+  margin: 0;
 }
 
 /* Main Number Heading */
@@ -214,11 +247,21 @@
   font-size: 64px !important;
   font-weight: 500 !important;
   line-height: 1.0 !important;
-  color: var(--brand-orange, var(--_colors---primary--accent, #f47a1f)) !important;
   letter-spacing: -0.02em;
   margin: 0;
   display: inline-flex !important;
   align-items: baseline !important;
+  color: #000000 !important;
+}
+
+.fact-card--white .why-us-card-number {
+  color: #000000 !important;
+}
+
+.fact-card--black .why-us-card-number,
+.fact-card--orange .why-us-card-number,
+.fact-card--video .why-us-card-number {
+  color: #ffffff !important;
 }
 
 /* Rolling Number Ticker / Slot Machine Odometer Effect */
@@ -261,71 +304,89 @@
   color: inherit;
 }
 
-.why-us-card-bottom {
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
-  padding-top: 60px;
-}
-
-/* Description Text */
-.why-us-card-desc {
+/* Label text at bottom right */
+.fact-card-label {
   font-family: var(--font-family-primary, 'Mona Sans', sans-serif);
-  font-size: 16px;
-  line-height: 1.4;
-  color: #1a1a1a;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: right;
   margin: 0;
 }
 
+.fact-card--white .fact-card-label {
+  color: #666666;
+}
+
+.fact-card--black .fact-card-label,
+.fact-card--orange .fact-card-label,
+.fact-card--video .fact-card-label {
+  color: #ffffff;
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 1200px) {
+  .fact-cards-wrapper,
   .why-us-cards-grid {
-    gap: 10px;
+    gap: 16px;
   }
 
-  .why-us-card {
-    padding: 32px 24px 28px 24px;
-    min-height: 360px;
+  .fact-card {
+    padding: 20px;
   }
 
   .why-us-card-number {
     font-size: 54px !important;
   }
 
-  .why-us-ghost-number {
-    font-size: 100px;
+  .fact-card--black {
+    min-height: 400px;
+    height: 400px;
+  }
+
+  .fact-card--video {
+    min-height: 300px;
+    height: 300px;
   }
 }
 
 @media screen and (max-width: 991px) {
+  .fact-cards-wrapper,
   .why-us-cards-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .fact-card--white,
+  .fact-card--black,
+  .fact-card--orange,
+  .fact-card--video {
+    min-height: 220px;
+    height: auto;
   }
 }
 
 @media screen and (max-width: 600px) {
+  .fact-cards-wrapper,
   .why-us-cards-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
   }
 
-  .why-us-card {
-    min-height: 320px;
-    padding: 30px 24px 24px 24px;
-  }
-
-  .why-us-card-bottom {
-    padding-top: 40px;
+  .fact-card--white,
+  .fact-card--black,
+  .fact-card--orange,
+  .fact-card--video {
+    min-height: 170px;
+    height: auto;
+    padding: 22px 20px;
   }
 
   .why-us-card-number {
     font-size: 48px !important;
-  }
-
-  .why-us-ghost-number {
-    font-size: 88px;
   }
 }
 

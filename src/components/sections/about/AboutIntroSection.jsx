@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,102 +8,15 @@ import { useGSAP } from '@gsap/react';
 import SplitType from 'split-type';
 
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
+import { FactCardsGrid } from '../../common/FactCardsGrid';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-// Generates strip of digits [0..9, 0..9, ..., 0..targetDigit] for slot machine / odometer roll
-function generateDigitStrip(targetDigit, cycles = 3) {
-  const target = parseInt(targetDigit, 10);
-  const items = [];
-
-  for (let c = 0; c < cycles; c++) {
-    for (let d = 0; d <= 9; d++) {
-      items.push(d);
-    }
-  }
-
-  for (let d = 0; d <= target; d++) {
-    items.push(d);
-  }
-
-  const targetIndex = items.length - 1;
-  const targetPercent = (targetIndex / items.length) * 100;
-
-  return {
-    items,
-    targetPercent,
-  };
-}
-
-function OdometerDigit({ digit, cycles = 3 }) {
-  const { items, targetPercent } = useMemo(
-    () => generateDigitStrip(digit, cycles),
-    [digit, cycles]
-  );
-
-  return (
-    <span className="odometer-digit-col" aria-hidden="true">
-      <span className="odometer-digit-track" data-target-percent={targetPercent}>
-        {items.map((val, idx) => (
-          <span key={idx} className="odometer-digit-val">
-            {val}
-          </span>
-        ))}
-      </span>
-    </span>
-  );
-}
-
-function OdometerNumber({ value, suffix }) {
-  const digits = String(value).split('');
-
-  return (
-    <h3 className="why-us-card-number" aria-label={`${value}${suffix}`}>
-      {digits.map((digit, idx) => (
-        <OdometerDigit key={idx} digit={digit} cycles={3} />
-      ))}
-      <span className="odometer-suffix">{suffix}</span>
-    </h3>
-  );
-}
-
-const statsCardsData = [
-  {
-    id: 'exp',
-    target: '15',
-    suffix: '+',
-    ghost: '15+',
-    desc: 'Years of experience delivering custom AI & scalable software',
-  },
-  {
-    id: 'projects',
-    target: '10',
-    suffix: 'k+',
-    ghost: '10k+',
-    desc: 'Completed projects for growing brands & global enterprises',
-  },
-  {
-    id: 'employees',
-    target: '50',
-    suffix: '+',
-    ghost: '50+',
-    desc: 'Specialized engineers & industry experts driving innovation',
-  },
-  {
-    id: 'awards',
-    target: '10',
-    suffix: '+',
-    ghost: '10+',
-    desc: 'Prestigious industry awards for design & technical excellence',
-  },
-];
-
 export function AboutIntroSection() {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
-  const cardsRef = useRef(null);
 
   useGSAP(
     () => {
@@ -132,34 +45,6 @@ export function AboutIntroSection() {
               },
             });
           }
-        }
-      }
-
-      // 2. Simultaneous Rolling Number Ticker / Slot Machine Odometer for All 4 Cards
-      if (cardsRef.current) {
-        const tracks = cardsRef.current.querySelectorAll('.odometer-digit-track');
-        if (tracks.length > 0) {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          });
-
-          tracks.forEach((track) => {
-            const targetPercent = parseFloat(track.dataset.targetPercent) || 0;
-            tl.fromTo(
-              track,
-              { yPercent: 0 },
-              {
-                yPercent: -targetPercent,
-                duration: 2.2,
-                ease: 'power3.out',
-              },
-              0
-            );
-          });
         }
       }
     },
@@ -229,27 +114,8 @@ export function AboutIntroSection() {
           </div>
         </div>
 
-        {/* 4 Stat Cards Grid with Slot Machine / Odometer Roll Effect */}
-        <div ref={cardsRef} className="why-us-cards-grid">
-          {statsCardsData.map((card) => (
-            <div key={card.id} className="why-us-card">
-              <div className="framer-corner-icons" aria-hidden="true">
-                <svg className="corner-icon top-left" viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#000" strokeWidth="1.2"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg>
-                <svg className="corner-icon bottom-left" viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#000" strokeWidth="1.2"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg>
-                <svg className="corner-icon bottom-right" viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#000" strokeWidth="1.2"><rect x="1" y="1" width="8" height="8"/></svg>
-              </div>
-              <div className="why-us-ghost-number" aria-hidden="true">{card.ghost}</div>
-              <div className="why-us-card-top">
-                <div className="why-us-card-number-wrap">
-                  <OdometerNumber value={card.target} suffix={card.suffix} />
-                </div>
-              </div>
-              <div className="why-us-card-bottom">
-                <p className="why-us-card-desc alg-text">{card.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Fact Cards Grid (Inspired by Denzil Framer - 100% Localhost) */}
+        <FactCardsGrid />
 
       </div>
     </section>
