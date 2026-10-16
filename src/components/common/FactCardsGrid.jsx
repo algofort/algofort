@@ -204,7 +204,7 @@ export const FactCardsGrid = () => {
           </div>
         </div>
         <div className="fact-card-bottom">
-          <p className="fact-card-label">YEARS EXPERIENCE</p>
+          <p className="fact-card-label">YEARS OF EXPERIENCE</p>
         </div>
       </div>
 

@@ -12,39 +12,39 @@ if (typeof window !== 'undefined') {
 
 const faqData = [
   {
-    question: 'What deliverables are included in a brand identity project?',
+    question: 'What deliverables are included in a complete brand identity package?',
     paragraphs: [
-      'Our deliverables typically include primary and secondary logo marks, responsive symbol variations, color palettes with digital and print color codes, typography pairings, brand patterns, stationery templates, social media assets, and a comprehensive brand guidelines manual.',
+      'Our core identity system includes primary and secondary Logo Design marks, responsive brand symbols, Brand Strategy positioning, curated typography pairings, a digital and print color hierarchy, full Brand Guidelines, and production-ready collateral such as Business Card Design, letterheads, and Packaging Design templates.',
     ],
   },
   {
-    question: 'How long does the complete brand identity process take?',
+    question: 'How does your Brand Strategy process work before visual design begins?',
     paragraphs: [
-      'A complete brand identity system usually takes between 3 to 6 weeks, depending on project scope, research requirements, and revision cycles. We outline clear phase milestones at the start of every engagement.',
+      'Before opening design software, we conduct market research, competitor audits, and audience discovery sessions. We define your brand positioning, core value proposition, tone of voice, and messaging architecture so the resulting visual identity is rooted in commercial strategy rather than short-lived design trends.',
     ],
   },
   {
-    question: 'Can you redesign our existing logo while keeping brand recognition?',
+    question: 'Can you modernize our existing logo while preserving brand recognition?',
     paragraphs: [
-      'Yes. We regularly perform brand refreshes where we modernize typography, balance symbol geometry, and optimize colors for digital screens while retaining the recognizable core identity your customers know.',
+      'Yes. We specialize in brand evolutions and refreshes where we refine typography, balance symbol geometry, and optimize colors for modern digital screens while preserving the recognizable heritage and trust your existing audience values.',
     ],
   },
   {
-    question: 'Will we receive full ownership and source files of our brand assets?',
+    question: 'Will we receive full intellectual property ownership and raw master files?',
     paragraphs: [
-      'Absolutely. Upon project completion and final sign-off, you receive full intellectual property ownership and an organized archive containing all master vector files (AI, EPS, SVG) and web-ready formats (PNG, JPG, PDF).',
+      'Absolutely. Upon project completion and final sign-off, you receive 100% intellectual property ownership and an organized digital archive containing master vector files (AI, EPS, SVG), print formats (CMYK PDF), and digital screen assets (PNG, WebP).',
     ],
   },
   {
-    question: 'Do you also provide design guidelines for digital products and websites?',
+    question: 'How do Brand Guidelines help our team maintain visual consistency?',
     paragraphs: [
-      'Yes. We create digital design tokens, typography scales, icon systems, and UI components that directly integrate with modern web and mobile product development.',
+      'Your Brand Guidelines manual functions as a single source of truth. It details strict logo clear-space rules, minimum sizing, color codes (HEX, RGB, CMYK, Pantone), typographic scales, and UI design tokens so internal teams and external vendors never dilute your visual identity.',
     ],
   },
   {
-    question: 'Can you help apply the new branding to marketing collateral and presentations?',
+    question: 'Can you design custom product packaging, business cards, and corporate collateral?',
     paragraphs: [
-      'Yes. We can design business cards, corporate pitch decks, letterheads, packaging, advertising banners, and promotional merchandise to ensure your launch is completely cohesive.',
+      'Yes. We design high-end physical assets including structural product packaging, unboxing experiences, luxury business cards with custom print finishes (embossing, foil stamping, edge-painting), and corporate stationery prepared for commercial print production.',
     ],
   },
 ];

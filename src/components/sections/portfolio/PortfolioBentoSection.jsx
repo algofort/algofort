@@ -150,7 +150,7 @@ export function PortfolioBentoSection() {
       ref={sectionRef} 
       id="sec-portfolio-bento" 
       className="site-section sec-portfolio-bento" 
-      aria-label="Theme Highlights and Features"
+      aria-label="Agency Highlights and Impact"
     >
       <div className="site-container sec-portfolio-bento__container container-large padding-global">
         <div className="sec-portfolio-bento__padding">
@@ -210,7 +210,7 @@ export function PortfolioBentoSection() {
             <div className="sec-portfolio-bento__card sec-portfolio-bento__card--orange">
               <div className="sec-portfolio-bento__card-header sec-portfolio-bento__card-header--center">
                 <h3 className="heading-style-h3 sec-portfolio-bento__title-orange">
-                  TARGETED MARKETING HOME PAGES WITH MULTIPLE COLOR SCHEMES
+                  CONVERSION-FOCUSED DIGITAL PLATFORMS WITH BESPOKE BRAND SYSTEMS
                 </h3>
               </div>
 
@@ -271,7 +271,7 @@ export function PortfolioBentoSection() {
               {/* Bottom Outlook CTA Box */}
               <div className="sec-portfolio-bento__outlook-box">
                 <h4 className="sec-portfolio-bento__outlook-text">
-                  GET A COMPLETE OUTLOOK FOR YOUR WEBSITE WITH ALGOFORT
+                  TRANSFORM YOUR DIGITAL PRESENCE WITH ALGOFORT
                 </h4>
                 <Link
                   href="/contact"

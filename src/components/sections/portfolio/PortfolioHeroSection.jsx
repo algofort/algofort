@@ -95,7 +95,7 @@ export function PortfolioHeroSection() {
               {/* Universal Subtitle Marquee Badge (instructions.md 2.2) */}
               <div className="section-badge sec-portfolio-hero__badge">
                 <SubtitleMarquee
-                  text="Portfolio Detail ✦ "
+                  text="Our Portfolio ✦ "
                   variant="dark"
                   icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />

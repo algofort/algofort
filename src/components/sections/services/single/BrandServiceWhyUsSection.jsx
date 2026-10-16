@@ -152,7 +152,7 @@ export function BrandServiceWhyUsSection() {
             <div className="max-width-xlarge">
               <div className="section-badge sec-why-us__badge">
                 <SubtitleMarquee
-                  text="Why choose us — "
+                  text="Why Choose Us — "
                   variant="dark"
                   icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />

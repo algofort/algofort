@@ -12,39 +12,39 @@ if (typeof window !== 'undefined') {
 
 const faqData = [
   {
-    question: 'How long does it take to build a website?',
+    question: 'Do you develop custom websites or work with platforms like WordPress and Shopify?',
     paragraphs: [
-      'The timeline depends on the size, features, and complexity of the project. A standard business website may take a few weeks, while larger or custom platforms can require more time.',
+      'We build both. Depending on your business goals, we develop high-converting Shopify and WooCommerce storefronts, modular WordPress websites with custom Gutenberg blocks, and completely custom React.js / Next.js web applications engineered for complex workflows, lightning-fast interactivity, and peak performance.',
     ],
   },
   {
-    question: 'Do you build responsive websites?',
+    question: 'How do you optimize websites for speed, Core Web Vitals, and SEO?',
     paragraphs: [
-      'Yes. Every website is designed and developed to work smoothly across desktop, tablet, and mobile devices for a consistent user experience.',
+      'Every website is built mobile-first with clean semantic HTML5, compressed modern media assets, minimal third-party script overhead, responsive breakpoints, and Core Web Vitals optimization to guarantee sub-second page loads and strong search engine rankings.',
     ],
   },
   {
-    question: 'Can you redesign my existing website?',
+    question: 'Can you migrate or redesign an existing website without losing SEO rankings?',
     paragraphs: [
-      'Yes. We can improve the design, structure, performance, responsiveness, and overall user experience of an existing website while keeping your business goals in focus.',
+      'Yes. We handle end-to-end redesigns and platform migrations (such as moving from legacy systems to WordPress, Shopify, or custom React). We preserve your search equity through exhaustive 301 redirect mapping, metadata retention, clean permalink architecture, and structured schema preservation.',
     ],
   },
   {
-    question: 'Do you develop custom websites or use CMS platforms?',
+    question: 'How long does a typical web development project take to complete?',
     paragraphs: [
-      'We offer both. Depending on your requirements, we can build a fully custom website or use platforms such as WordPress for easier content management and flexibility.',
+      'A custom business website or bespoke Shopify/WooCommerce store typically takes 4 to 8 weeks from initial wireframes to production rollout. Complex React.js web applications with deep backend integrations may take 8 to 12 weeks.',
     ],
   },
   {
-    question: 'Will my website be optimized for speed and performance?',
+    question: 'Will our team be able to easily edit text, images, and products after launch?',
     paragraphs: [
-      'Yes. We focus on clean development, optimized assets, responsive layouts, and efficient code to help deliver fast loading times and reliable performance.',
+      'Absolutely. We build intuitive content management systems using flexible custom fields, modular blocks, and native dashboard controls so non-technical team members can publish articles, update banners, and manage product catalogs without touching a single line of code.',
     ],
   },
   {
-    question: 'Do you provide support after the website is launched?',
+    question: 'What post-launch maintenance and security support do you provide?',
     paragraphs: [
-      'Yes. We can provide ongoing maintenance, updates, bug fixes, performance improvements, and future feature enhancements after launch.',
+      'We provide ongoing SLA maintenance plans including daily automated backups, plugin and security patching, SSL management, uptime monitoring, and priority technical assistance to keep your site fast, secure, and current.',
     ],
   },
 ];

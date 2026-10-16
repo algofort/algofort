@@ -10,7 +10,7 @@ const teamMembers = [
   {
     id: 'wade-warren',
     name: 'Wade Warren',
-    role: 'Web Developer',
+    role: 'Lead Full-Stack Engineer',
     image: '/assets/team/img-team-1.webp',
     socials: {
       facebook: 'https://facebook.com',
@@ -21,7 +21,7 @@ const teamMembers = [
   {
     id: 'john-smith',
     name: 'John Smith',
-    role: 'Web Developer',
+    role: 'Brand Identity Director',
     image: '/assets/team/img-team-2.webp',
     socials: {
       facebook: 'https://facebook.com',
@@ -32,7 +32,7 @@ const teamMembers = [
   {
     id: 'jenny-wilson',
     name: 'Jenny Wilson',
-    role: 'Web Developer',
+    role: 'Lead Product Designer',
     image: '/assets/team/img-team-3.webp',
     socials: {
       facebook: 'https://facebook.com',
@@ -43,7 +43,7 @@ const teamMembers = [
   {
     id: 'cody-fisher',
     name: 'Cody Fisher',
-    role: 'Web Developer',
+    role: 'Senior SaaS Architect',
     image: '/assets/team/img-team-4.webp',
     socials: {
       facebook: 'https://facebook.com',
@@ -54,7 +54,7 @@ const teamMembers = [
   {
     id: 'robert-fox',
     name: 'Robert Fox',
-    role: 'Web Developer',
+    role: 'Senior Mobile Developer',
     image: '/assets/team/img-team-5.webp',
     socials: {
       facebook: 'https://facebook.com',
@@ -65,7 +65,7 @@ const teamMembers = [
   {
     id: 'albert-flores',
     name: 'Albert Flores',
-    role: 'Web Developer',
+    role: 'Cloud & DevOps Specialist',
     image: '/assets/team/img-team-6.webp',
     socials: {
       facebook: 'https://facebook.com',
@@ -76,7 +76,7 @@ const teamMembers = [
   {
     id: 'jerome-bell',
     name: 'Jerome Bell',
-    role: 'Web Developer',
+    role: 'Senior Frontend Engineer',
     image: '/assets/team/img-team-1.webp',
     socials: {
       facebook: 'https://facebook.com',
@@ -87,7 +87,7 @@ const teamMembers = [
   {
     id: 'devon-lane',
     name: 'Devon Lane',
-    role: 'Web Developer',
+    role: 'Creative Brand Strategist',
     image: '/assets/team/img-team-3.webp',
     socials: {
       facebook: 'https://facebook.com',
@@ -170,7 +170,22 @@ export function AboutTeamSection() {
 
                       {/* Trigger Plus Button */}
                       <div className="pxl-social--button" aria-label="Social Menu">
-                        <span className="pxl-social--plus-icon">+</span>
+                        <svg
+                          className="pxl-social--plus-icon"
+                          viewBox="0 0 14 14"
+                          width="14"
+                          height="14"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M7 2.2V11.8M2.2 7H11.8"
+                            stroke="currentColor"
+                            strokeWidth="1.75"
+                            strokeLinecap="round"
+                          />
+                        </svg>
                       </div>
 
                       {/* Floating Slide-up Social Links */}

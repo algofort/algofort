@@ -12,46 +12,45 @@ if (typeof window !== 'undefined') {
 
 const faqData = [
   {
+    question: 'What core services does Algofort specialize in?',
+    paragraphs: [
+      'Algofort is a full-cycle digital product and engineering agency specializing in four core disciplines: Web Development (WordPress, Shopify, React.js, Custom Websites, WooCommerce), Brand Identity (Logo Design, Brand Strategy, Guidelines, Stationery & Packaging), SaaS App Development (Custom Cloud Platforms, CRM & ERP Systems, Dashboards, API Integration), and Mobile App Development (Native iOS & Android, Cross-Platform Apps, Mobile UI/UX).',
+    ],
+  },
+  {
     question: 'How is the pricing of my project determined?',
     paragraphs: [
-      'Project pricing is based on your specific requirements, project scope, and the services you need. We provide transparent, customized quotes after discussing your objectives and establishing exactly what is required.',
+      'Project pricing is based on the scope of work, technical architecture, timeline, and specific deliverables. Following an initial discovery session, we provide transparent, itemized quotes with clear milestone-based billing—ensuring complete predictability with no hidden fees.',
     ],
   },
   {
-    question: 'Do you provide custom solutions?',
+    question: 'Do you build custom bespoke solutions or rely on templates?',
     paragraphs: [
-      'Yes! We specialize in building bespoke software, custom websites, and internet-based solutions tailored to your business needs. Whether you need a unique design or specialized functionality, we are here to help.',
+      'We engineer bespoke solutions tailored specifically to your brand and business objectives. Whether developing a high-performance React web application, designing a distinctive brand identity system from scratch, or building a scalable multi-tenant SaaS platform, every asset is purpose-built for speed, security, and market differentiation.',
     ],
   },
   {
-    question: 'What sets Algofort apart from other technology companies?',
+    question: 'How can Algofort help my business sell and scale online?',
     paragraphs: [
-      'Algofort is built on solid, proven technological foundations with a genuine customer-first approach.',
-      'With years of hands-on experience, our team takes pride in crafting innovative, cost-effective digital solutions. We partner closely with you to bring your vision to life.',
-    ],
-  },
-  {
-    question: 'Can you help my business sell and grow online?',
-    paragraphs: [
-      'Absolutely! Our digital marketing services are tailored to help businesses reach their ideal audience. We develop targeted strategies—including SEO, social media marketing, and conversion optimization—to boost your online visibility and drive consistent sales.',
+      'We build high-converting digital foundations. For e-commerce brands, we engineer optimized Shopify and WooCommerce stores with frictionless checkout funnels. For modern tech businesses, we design cohesive brand identities and build scalable SaaS and mobile applications that streamline operations, retain customers, and drive predictable revenue growth.',
     ],
   },
   {
     question: 'How will I be updated on my project’s progress?',
     paragraphs: [
-      'We provide regular updates at every stage of development. Our team maintains clear and open communication channels so you always know what is happening and can get answers to any questions promptly.',
+      'You are assigned a dedicated project lead and given direct access through collaborative communication channels (such as Slack or WhatsApp). We conduct regular sprint reviews, share interactive staging links, and provide transparent progress updates at every development stage.',
     ],
   },
   {
-    question: 'What services does Algofort provide?',
+    question: 'How long does it typically take to complete a project?',
     paragraphs: [
-      'Algofort provides web development, software engineering, mobile app development, and digital marketing services to help businesses grow and scale online.',
+      'Timelines vary based on feature complexity and scope. Comprehensive brand identity systems and custom websites typically take 4 to 8 weeks, while end-to-end SaaS platforms and cross-platform mobile apps generally take 8 to 14 weeks from discovery to production rollout.',
     ],
   },
   {
-    question: 'How long does it take to complete a project?',
+    question: 'Do you provide ongoing support and maintenance after launch?',
     paragraphs: [
-      'Project timelines depend on requirements, features, and overall complexity. We define clear milestones with you before starting and keep you informed throughout the entire development process.',
+      'Yes. Every launch is backed by post-launch warranty and flexible ongoing maintenance packages. We handle cloud infrastructure monitoring, database backups, security patches, framework updates, and continuous feature enhancements to keep your product operating at peak performance.',
     ],
   },
 ];

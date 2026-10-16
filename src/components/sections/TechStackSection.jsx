@@ -262,7 +262,7 @@ export function TechStackSection() {
             We design products that live in the digital world: intuitive UX, sharp UI, immersive 3D and
             motion. From research to launch, we craft bold, seamless experiences.
           </p>
-          <Link href="/process" className="main-button footer-submit-btn w-inline-block">
+          <Link href="#sec-process" className="main-button footer-submit-btn w-inline-block">
             <div className="main-button-block">
               <div className="button-text">See how we work</div>
               <div className="button-text">See how we work</div>

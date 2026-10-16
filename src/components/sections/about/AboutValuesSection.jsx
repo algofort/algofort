@@ -98,7 +98,7 @@ export function AboutValuesSection() {
               </h2>
               <div className="sec-about-values__header-desc">
                 <p className="alg-text">
-                  Algofort was founded on a simple premise: delivering advanced engineering that remains accessible, intuitive, and practical for businesses of all sizes. Founded by passionate innovators, we set out to bridge the gap between complex engineering and everyday business goals.
+                  Algofort was founded on a clear premise: delivering advanced engineering that remains accessible, intuitive, and practical for businesses of all sizes. Driven by passionate innovators, we set out to bridge the gap between complex engineering and everyday business goals.
                 </p>
                 <p className="alg-text">
                   Today, we collaborate with organizations across diverse industries, providing robust, scalable software architectures and tailored IT solutions that deliver tangible impact.
@@ -114,7 +114,7 @@ export function AboutValuesSection() {
             <div className="outlined-image-wrapper sec-about-values__image-wrapper">
               <div className="cover-image-wrap">
                 <img
-                  src="/assets/68f800db63fd513ee96c96c2_medium-shot-business-woman-with-laptop.jpg"
+                  src="/assets/our-story.webp"
                   loading="lazy"
                   alt="Our Story Algofort"
                   className="cover-image"

@@ -157,8 +157,8 @@ export function ContactSection() {
                   </div>
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">CONTACT US VIA WHATSAPP</span>
-                    <span className="alg-contact-info-value">+92 3337198686</span>
-                    <span className="alg-contact-info-timing">Timing: 7PM to 7AM</span>
+                    <span className="alg-contact-info-value">+92 333 7198686</span>
+                    <span className="alg-contact-info-timing">Hours: 7:00 PM – 7:00 AM</span>
                   </div>
                 </a>
 
@@ -172,7 +172,7 @@ export function ContactSection() {
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">CONTACT INFO</span>
                     <span className="alg-contact-info-value">+1 (770) 884-7207</span>
-                    <span className="alg-contact-info-timing">Timing: 7PM to 7AM</span>
+                    <span className="alg-contact-info-timing">Hours: 7:00 PM – 7:00 AM</span>
                   </div>
                 </a>
 

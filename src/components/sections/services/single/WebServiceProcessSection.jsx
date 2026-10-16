@@ -3,8 +3,6 @@
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 import { SubtitleMarquee } from '../../../common/SubtitleMarquee';
-import { initTitleAnimation } from '../../../../utils/titleAnimation';
-import { DevelopmentProcessIcon } from './DevelopmentProcessIcon';
 
 const processSteps = [
   {
@@ -62,13 +60,6 @@ export function WebServiceProcessSection() {
     const titleRight = titleRightRef.current;
 
     const START_OFFSET_X = 235;
-
-    if (section) {
-      const headings = section.querySelectorAll('.alg-process-heading-text, .heading-text');
-      headings.forEach((heading) => {
-        initTitleAnimation(heading, { trigger: section, start: 'top 85%', stagger: 0.02 });
-      });
-    }
 
     function clamp(v, min, max) {
       return Math.max(min, Math.min(max, v));
@@ -151,18 +142,14 @@ export function WebServiceProcessSection() {
                         </div>
                       </div>
                       <div className="alg-process-card-illustration card-illustration">
-                        {item.step === '03' ? (
-                          <DevelopmentProcessIcon />
-                        ) : (
-                          <dotlottie-player
-                            src={item.lottieSrc}
-                            background="transparent"
-                            speed="1"
-                            style={{ width: '280px', height: '280px' }}
-                            loop
-                            autoplay
-                          ></dotlottie-player>
-                        )}
+                        <dotlottie-player
+                          src={item.lottieSrc}
+                          background="transparent"
+                          speed="1"
+                          style={{ width: '280px', height: '280px' }}
+                          loop
+                          autoplay
+                        ></dotlottie-player>
                       </div>
                       <p className="alg-process-card-desc card-desc alg-text">{item.description}</p>
                     </div>

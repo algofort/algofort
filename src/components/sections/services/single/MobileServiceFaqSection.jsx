@@ -12,39 +12,39 @@ if (typeof window !== 'undefined') {
 
 const faqData = [
   {
-    question: 'Should we build a native app or cross-platform with React Native?',
+    question: 'Do you build native mobile apps or cross-platform applications?',
     paragraphs: [
-      'For most business, SaaS, and consumer applications, cross-platform frameworks like React Native or Flutter provide significant cost and time savings by sharing one codebase while delivering near-native 60fps performance. For apps requiring intensive hardware access or low-level Bluetooth protocols, native Swift or Kotlin is recommended.',
+      'We build both. We engineer native iOS Apps (Swift / SwiftUI) and native Android Apps (Kotlin / Jetpack Compose) for projects requiring deep hardware integration and peak platform fidelity. We also build high-performance Cross Platform Apps using React Native and Flutter, allowing businesses to launch on both platforms from a single unified codebase with near-native 60fps performance and lower maintenance overhead.',
     ],
   },
   {
-    question: 'How long does it take to develop and launch a mobile app?',
+    question: 'What does your Mobile UI/UX Design process involve before development?',
     paragraphs: [
-      'An MVP mobile app typically takes between 6 to 10 weeks from discovery to store submission. More complex apps with real-time features, extensive backend integrations, or custom hardware support can take 12 weeks or more.',
+      'Every app begins with comprehensive Mobile UI/UX Design. We map user journeys, design low-fidelity wireframes, test clickable interactive prototypes in Figma, and build custom mobile design systems following Apple Human Interface Guidelines and Google Material 3 standards to ensure intuitive one-handed navigation.',
     ],
   },
   {
-    question: 'How do you handle App Store and Google Play approvals?',
+    question: 'How do you handle App Store and Google Play submissions and compliance?',
     paragraphs: [
-      'We manage the entire store submission process, including metadata, screenshots, privacy declarations, app review responses, and test flight beta distribution, ensuring compliance with Apple and Google guidelines.',
+      'We manage the entire app store launch lifecycle from start to finish. This includes developer account configuration, production provisioning profiles, metadata curation, screenshot preparation, privacy policy and permission declarations, and handling app review communications until approved on both the Apple App Store and Google Play Store.',
     ],
   },
   {
-    question: 'Will our mobile app work offline?',
+    question: 'Can you build offline-capable mobile apps with local data synchronization?',
     paragraphs: [
-      'Yes. We can implement local SQLite or Realm databases and intelligent caching layers so users can view data, create drafts, and navigate the app without an active internet connection, syncing seamlessly once reconnected.',
+      'Yes. We architect offline-first mobile apps using local SQLite, WatermelonDB, or Realm databases combined with background sync workers so users can view data, draft actions, and navigate the app without an internet connection, seamlessly syncing once connectivity returns.',
     ],
   },
   {
-    question: 'Can you integrate push notifications and user analytics?',
+    question: 'Can you integrate push notifications, biometrics, and in-app subscriptions?',
     paragraphs: [
-      'Yes. We set up push notification services via Firebase Cloud Messaging (FCM) or OneSignal, along with privacy-compliant analytics platforms like Mixpanel or PostHog to help you monitor retention and engagement.',
+      'Yes. We integrate native mobile capabilities including biometric authentication (Face ID / Touch ID), camera and geolocation services, in-app purchases and subscriptions (via RevenueCat or StoreKit), and automated push notification campaigns using Firebase Cloud Messaging.',
     ],
   },
   {
-    question: 'Do you support ongoing OS updates for iOS and Android?',
+    question: 'What ongoing App Maintenance & Support do you provide after launch?',
     paragraphs: [
-      'Yes. Operating systems release major updates every year. We offer maintenance packages to keep your app updated, compliant, and compatible with the latest iOS and Android releases and screen sizes.',
+      'Our App Maintenance & Support packages cover real-time crash and error monitoring, continuous performance tuning, annual iOS and Android OS version compatibility updates, third-party SDK upgrades, and agile feature iteration cycles to keep your app ratings high.',
     ],
   },
 ];

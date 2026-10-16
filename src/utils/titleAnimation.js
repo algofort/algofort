@@ -136,15 +136,13 @@ export function initAllHeadingsAnimation() {
     '.sec-cta__title',
     '.sec-projects__title',
     '.sec-tools__title',
-    '.alg-process-heading-text',
-    '.sec-process .heading-text',
     '.alg-works-title',
     '.work-title',
   ];
 
   const headings = document.querySelectorAll(selectors.join(', '));
   headings.forEach((heading) => {
-    // Exclude hero banner, navbar, footer heading, and showreel lightbox which have their own animations
+    // Exclude hero banner, navbar, footer heading, showreel lightbox, and process section which has simple static headings
     if (
       heading.closest('#sec-banner') ||
       heading.closest('.sec-banner') ||
@@ -156,7 +154,11 @@ export function initAllHeadingsAnimation() {
       heading.closest('.alg-footer-heading') ||
       heading.closest('.footer') ||
       heading.closest('.showreel_lightbox') ||
-      heading.closest('.alg-showreel-lightbox')
+      heading.closest('.alg-showreel-lightbox') ||
+      heading.closest('#sec-process') ||
+      heading.closest('.sec-process') ||
+      heading.closest('.alg-process') ||
+      heading.closest('.step-process-section')
     ) {
       return;
     }

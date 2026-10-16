@@ -12,39 +12,39 @@ if (typeof window !== 'undefined') {
 
 const faqData = [
   {
-    question: 'What tech stack do you recommend for SaaS applications?',
+    question: 'What types of SaaS and business software solutions do you engineer?',
     paragraphs: [
-      'We typically build SaaS platforms with modern technologies like Next.js, React, Node.js, TypeScript, PostgreSQL, Redis, and Tailwind, deployed on scalable cloud infrastructure such as AWS, GCP, or Vercel with Docker and automated pipelines.',
+      'We engineer multi-tenant Custom SaaS platforms, bespoke CRM Software for sales pipeline automation, centralized ERP Software for enterprise operations, real-time Dashboard & Analytics portals, and high-throughput API Integrations connecting disparate business systems.',
     ],
   },
   {
-    question: 'How do you ensure multi-tenant data security and isolation?',
+    question: 'How do you ensure multi-tenant data security and strict database isolation?',
     paragraphs: [
-      'We implement strict tenant isolation at the database level, encrypted data storage at rest and in transit, JWT-based authentication, fine-grained role-based access control (RBAC), and automated security scanning to guarantee complete data separation.',
+      'We implement tenant isolation at the architectural and database level, end-to-end encryption at rest (AES-256) and in transit (TLS 1.3), JWT and OAuth2 authentication, fine-grained role-based access control (RBAC), and automated compliance logging to guarantee complete customer data separation.',
     ],
   },
   {
-    question: 'Can you integrate subscription billing systems like Stripe?',
+    question: 'Can you integrate third-party APIs, webhooks, and subscription billing engines?',
     paragraphs: [
-      'Yes. We have deep experience implementing recurring billing, usage-based pricing, seat management, coupon systems, proration, and customer self-serve billing portals using Stripe Billing, Paddle, and other merchant providers.',
+      'Yes. We have deep experience architecting REST and GraphQL API Integrations with payment gateways (Stripe Billing, Paddle), communication engines (Twilio, SendGrid), and enterprise software (HubSpot, Salesforce), including automated webhook handlers, usage-based metering, and tiered subscription management.',
     ],
   },
   {
-    question: 'Can you help build an MVP to test market demand quickly?',
+    question: 'Do you build real-time executive dashboards and custom analytics suites?',
     paragraphs: [
-      'Yes. We specialize in scoped MVP sprints that focus on your product\'s highest-value core features, allowing you to validate your business model and onboard early adopters within weeks.',
+      'Yes. We design and build interactive telemetry and Dashboard & Analytics portals featuring sub-second queries, customizable KPI widgets, real-time WebSocket data streaming, and automated report generation so decision-makers have immediate operational clarity.',
     ],
   },
   {
-    question: 'How do you handle scalability when our user base grows?',
+    question: 'How quickly can you build and launch an MVP to validate our SaaS concept?',
     paragraphs: [
-      'Our systems are designed from day one with stateless services, database connection pooling, intelligent caching with Redis, asynchronous background queues, and auto-scaling cloud compute.',
+      'Our rapid MVP sprint delivers a scalable, production-grade core product within 6 to 10 weeks. We focus on your highest-impact differentiating features, secure authentication, user onboarding, and core billing so you can validate market demand and onboard paying users quickly.',
     ],
   },
   {
-    question: 'Do you provide ongoing maintenance and feature upgrades?',
+    question: 'How do your cloud architectures scale as user demand grows?',
     paragraphs: [
-      'Yes. We provide flexible post-launch SLA packages covering server monitoring, database maintenance, security patches, performance optimization, and dedicated feature development sprints.',
+      'Our platforms are built cloud-native from day one using containerized microservices (Docker/Kubernetes), distributed Redis caching, connection-pooled databases (PostgreSQL), asynchronous background queues, and auto-scaling cloud compute on AWS, GCP, or Vercel.',
     ],
   },
 ];

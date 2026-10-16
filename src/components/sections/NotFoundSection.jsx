@@ -159,7 +159,7 @@ export function NotFoundSection() {
 
             {/* Description text */}
             <p className="sec-not-found__desc alg-text">
-              You are here because you entered the address of a page that no longer exists or has been moved to a different address.
+              The page you are looking for may have been moved, renamed, or is temporarily unavailable.
             </p>
 
             {/* Button matching exact homepage main-button alternate-button structure */}

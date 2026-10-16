@@ -34,7 +34,7 @@ const testimonialsData = [
   {
     name: 'Usman Tariq',
     role: 'Co-founder at SmartElectro.pk (Rawalpindi)',
-    text: '“Algofort’s digital marketing team helped us boost our sales by over 40% in just three months. Their strategies are data-driven, creative, and highly effective.”',
+    text: '“Algofort’s web development team engineered our custom e-commerce store with seamless checkout flows and fast load times, boosting our online sales by over 40% in just three months.”',
   },
 ];
 

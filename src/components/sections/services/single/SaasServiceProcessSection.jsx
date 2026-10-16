@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 import { SubtitleMarquee } from '../../../common/SubtitleMarquee';
-import { initTitleAnimation } from '../../../../utils/titleAnimation';
 
 const processSteps = [
   {
@@ -61,13 +60,6 @@ export function SaasServiceProcessSection() {
     const titleRight = titleRightRef.current;
 
     const START_OFFSET_X = 235;
-
-    if (section) {
-      const headings = section.querySelectorAll('.alg-process-heading-text, .heading-text');
-      headings.forEach((heading) => {
-        initTitleAnimation(heading, { trigger: section, start: 'top 85%', stagger: 0.02 });
-      });
-    }
 
     function clamp(v, min, max) {
       return Math.max(min, Math.min(max, v));

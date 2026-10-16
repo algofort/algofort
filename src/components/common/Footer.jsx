@@ -250,8 +250,8 @@ export const Footer = () => {
                   <Image
                     src="/assets/logo-black.png"
                     alt="Algofort Logo"
-                    width={842}
-                    height={136}
+                    width={828}
+                    height={115}
                     className="footer_brand_img"
                     priority
                   />
