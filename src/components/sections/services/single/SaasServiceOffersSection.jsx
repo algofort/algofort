@@ -12,35 +12,35 @@ const offersData = [
     id: '01',
     num: '(01)',
     title: 'Custom SaaS',
-    image: '/assets/services/saas-app/saas-custom.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146014/algofort/assets/services/saas-app/saas-custom',
     text: 'Cloud-native software platforms engineered with scalable multi-tenant architecture, robust database isolation, and effortless user onboarding flows.',
   },
   {
     id: '02',
     num: '(02)',
     title: 'CRM Software',
-    image: '/assets/services/saas-app/saas-crm.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146014/algofort/assets/services/saas-app/saas-crm',
     text: 'Bespoke relationship management systems featuring visual sales pipelines, contact lifecycle automation, and actionable business intelligence metrics.',
   },
   {
     id: '03',
     num: '(03)',
     title: 'ERP Software',
-    image: '/assets/services/saas-app/saas-erp.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146014/algofort/assets/services/saas-app/saas-erp',
     text: 'Unified operational ecosystems streamlining supply chain logistics, multi-location inventory, financial reporting, and cross-team workflows.',
   },
   {
     id: '04',
     num: '(04)',
     title: 'Dashboard & Analytics',
-    image: '/assets/services/saas-app/saas-analytics.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146011/algofort/assets/services/saas-app/saas-analytics',
     text: 'Real-time telemetry suites and interactive data visualization portals delivering sub-second queries, customizable widgets, and executive KPI charts.',
   },
   {
     id: '05',
     num: '(05)',
     title: 'API Integration',
-    image: '/assets/services/saas-app/saas-api.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146012/algofort/assets/services/saas-app/saas-api',
     text: 'High-throughput REST and GraphQL gateways orchestrating third-party services, automated webhooks, payment processing, and enterprise data sync.',
   },
 ];
@@ -257,7 +257,7 @@ export const SaasServiceOffersSection = () => {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />

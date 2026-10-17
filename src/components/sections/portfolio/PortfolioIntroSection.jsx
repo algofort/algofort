@@ -1,51 +1,95 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import SplitType from 'split-type';
 
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
+import { initTitleAnimation } from '../../../utils/titleAnimation';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 export function PortfolioIntroSection() {
   const sectionRef = useRef(null);
-  const textRef = useRef(null);
 
-  useGSAP(
-    () => {
-      // Scrub Headline: character by character opacity fade on scroll
-      if (textRef.current) {
-        const headline = textRef.current.querySelector('.scrub-headline');
-        if (headline) {
-          const split = new SplitType(headline, { types: 'chars' });
-          if (split.chars && split.chars.length > 0) {
-            gsap.fromTo(
-              split.chars,
-              { opacity: 0.15 },
-              {
-                opacity: 1,
-                stagger: 0.05,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: textRef.current,
-                  start: 'top 80%',
-                  end: 'bottom 40%',
-                  scrub: true,
-                },
-              }
-            );
-          }
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const els = sectionRef.current.querySelectorAll('.sec-portfolio-intro__badge, .sec-portfolio-intro__title, .sec-portfolio-intro__buttons');
+      els.forEach((el) => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      return;
+    }
+
+    const badge = sectionRef.current.querySelector('.sec-portfolio-intro__badge');
+    const titleEl = sectionRef.current.querySelector('.sec-portfolio-intro__title');
+    const buttons = sectionRef.current.querySelector('.sec-portfolio-intro__buttons');
+
+    // 1. Entrance animation for Subtitle Badge
+    if (badge) {
+      gsap.fromTo(
+        badge,
+        { opacity: 0, y: 25 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
         }
+      );
+    }
+
+    // 2. Entrance animation for Headline (ONLY entrance, NO scrub!)
+    if (titleEl) {
+      initTitleAnimation(titleEl, {
+        trigger: sectionRef.current,
+        start: 'top 85%',
+        stagger: 0.02,
+      });
+    }
+
+    // 3. Entrance animation for CTA Button
+    if (buttons) {
+      gsap.fromTo(
+        buttons,
+        { opacity: 0, y: 25 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: buttons,
+            start: 'top 92%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+    }
+
+    const timer = setTimeout(() => {
+      try {
+        ScrollTrigger.refresh();
+      } catch {
+        // ignore
       }
-    },
-    { scope: sectionRef }
-  );
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollToProjects = (e) => {
     e.preventDefault();
@@ -69,14 +113,14 @@ export function PortfolioIntroSection() {
             <SubtitleMarquee
               text="Selected Work & Impact — "
               variant="dark"
-              icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+              icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
             />
           </div>
 
-          {/* Right Column: Scrub Headline + Body Paragraphs + Signature Underline Link */}
+          {/* Right Column: Title + Body Paragraphs + Signature Underline Link */}
           <div className="sec-portfolio-intro__content">
-            <div className="scrub_letter sec-portfolio-intro__scrub" ref={textRef}>
-              <h2 className="heading-style-h2 scrub-headline">
+            <div className="sec-portfolio-intro__title-wrap">
+              <h2 className="heading-style-h2 section-title sec-portfolio-intro__title">
                 Where Bold Ideas Become Digital Reality
               </h2>
             </div>

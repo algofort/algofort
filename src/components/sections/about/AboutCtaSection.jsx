@@ -5,6 +5,8 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
+import { ViewportVideo } from '../../common/ViewportVideo';
+import { pageVideoSources } from '../../../utils/videoAssets';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -81,7 +83,13 @@ export function AboutCtaSection() {
         .to({}, { duration: 0.50 }, 0.50);
     }, section);
 
-    const t = setTimeout(() => ScrollTrigger.refresh(), 200);
+    const t = setTimeout(() => {
+      try {
+        ScrollTrigger.refresh();
+      } catch {
+        // ignore
+      }
+    }, 200);
     return () => {
       clearTimeout(t);
       ctx.revert();
@@ -100,26 +108,15 @@ export function AboutCtaSection() {
         {/* Ambient video background (matches home page banner video) */}
         <div className="cta-video-wrap alg-hero-video-wrap background-video-wrap">
           <div className="alg-hero-video background-video w-background-video w-background-video-atom">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
+            <ViewportVideo
+              sources={pageVideoSources}
               data-object-fit="cover"
+              poster="https://res.cloudinary.com/vfsp1egd/image/upload/w_1920,c_limit,q_auto:best,f_auto/v1792145856/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001"
               style={{
                 backgroundImage:
-                  'url("/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg")',
+                  'url("https://res.cloudinary.com/vfsp1egd/image/upload/w_1920,c_limit,q_auto:best,f_auto/v1792145856/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001")',
               }}
-            >
-              <source
-                src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
-                type="video/mp4"
-              />
-              <source
-                src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
-                type="video/webm"
-              />
-            </video>
+            />
           </div>
           <div className="alg-hero-video-overlay video-overlay"></div>
         </div>
@@ -132,7 +129,7 @@ export function AboutCtaSection() {
                 <SubtitleMarquee
                   text="Bring Ideas To Life — "
                   variant="light"
-                  icon="/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
+                  icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145875/algofort/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
                 />
               </div>
             </div>
@@ -160,7 +157,7 @@ export function AboutCtaSection() {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />

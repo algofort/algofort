@@ -6,7 +6,7 @@ export const SubtitleMarquee = ({
   text = 'Our Services — ',
   variant = 'dark', // 'dark' for light backgrounds, 'light' for dark backgrounds
   className = '',
-  icon = '/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg',
+  icon = 'https://res.cloudinary.com/vfsp1egd/image/upload/v1792145875/algofort/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg',
 }) => {
   const items = [text, text, text];
   const subtitleClass = variant === 'light' ? 'subtitle subtitle-light' : 'subtitle subtitle-dark';

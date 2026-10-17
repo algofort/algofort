@@ -122,7 +122,11 @@ export const BackToTop = () => {
       });
 
       const refreshTimeout = setTimeout(() => {
-        ScrollTrigger.refresh();
+        try {
+          ScrollTrigger.refresh();
+        } catch {
+          // ignore
+        }
       }, 300);
 
       return () => {

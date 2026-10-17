@@ -5,7 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build:lp && next build",
+    "build:lp": "npm run build:lp:web && npm run build:lp:brand && npm run build:lp:app && npm run build:lp:saas",
+    "build:lp:saas": "vite build --config landing-pages/saas-development/vite.config.js",
+    "build:lp:app": "vite build --config landing-pages/app-development/vite.config.js",
+    "build:lp:web": "vite build --config landing-pages/web-development/vite.config.js",
+    "build:lp:brand": "vite build --config landing-pages/brand-agency/vite.config.js",
+    "predev": "npm run build:lp",
     "start": "next start",
     "lint": "oxlint",
     "push": "git add . && git commit -m \"Update code\" && git push origin main"
@@ -13,13 +19,17 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "clsx": "^2.1.1",
-    "dompurify": "^3.4.14",
+    "dompurify": "^3.4.17",
+    "firebase": "^13.0.0",
+    "firebase-admin": "^14.5.0",
     "gsap": "^3.15.0",
     "lenis": "^1.3.26",
     "lucide-react": "^1.41.0",
-    "next": "^16.3.4",
+    "next": "^16.4.2",
+    "nodemailer": "^10.1.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "sharp": "^0.35.5",
     "split-type": "^0.3.4",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3"
@@ -27,7 +37,10 @@
   "devDependencies": {
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
-    "ffmpeg-static": "^5.3.0",
-    "oxlint": "^1.79.0"
+    "oxlint": "^1.79.0",
+    "vite": "^7.3.7"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.14.6"
   }
 }

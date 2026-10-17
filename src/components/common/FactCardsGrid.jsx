@@ -4,6 +4,8 @@ import React, { useRef, useMemo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { ViewportVideo } from './ViewportVideo';
+import { factVideoSources } from '../../utils/videoAssets';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -235,13 +237,9 @@ export const FactCardsGrid = () => {
       {/* Card 4: Fact Card Video */}
       <div ref={card4Ref} className="fact-card fact-card--video" data-framer-name="Fact Card">
         <div className="fact-card-video-wrap">
-          <video
-            src="/assets/fact-card-video.mp4"
-            poster="/assets/fact-card-poster.jpg"
-            loop
-            autoPlay
-            muted
-            playsInline
+          <ViewportVideo
+            sources={factVideoSources}
+            poster="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145899/algofort/assets/fact-card-poster"
             className="fact-card-video"
           />
         </div>

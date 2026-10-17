@@ -68,7 +68,11 @@ export function AboutValuesSection() {
 
     const timer = setTimeout(() => {
       if (typeof window !== 'undefined') {
-        ScrollTrigger.refresh();
+        try {
+          ScrollTrigger.refresh();
+        } catch {
+          // ignore
+        }
       }
     }, 150);
 
@@ -88,7 +92,7 @@ export function AboutValuesSection() {
                   <SubtitleMarquee
                     text="Our Story — "
                     variant="dark"
-                    icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                    icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                   />
                 </div>
               </div>
@@ -114,7 +118,7 @@ export function AboutValuesSection() {
             <div className="outlined-image-wrapper sec-about-values__image-wrapper">
               <div className="cover-image-wrap">
                 <img
-                  src="/assets/our-story.webp"
+                  src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145915/algofort/assets/our-story"
                   loading="lazy"
                   alt="Our Story Algofort"
                   className="cover-image"

@@ -1,0 +1,11 @@
+.differences-section{position:relative;z-index:2;background:#f0f0f0;color:#151616;padding-block:clamp(100px,9vw,140px) clamp(110px,10vw,150px);scroll-margin-top:24px}
+.differences-inner{width:min(1440px,100%);margin:auto;padding-inline:clamp(24px,4.5vw,66px)}
+.differences-header{max-width:900px}
+.differences-header .who-kicker{margin-bottom:26px}
+.differences-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(26px,3.2vw,48px);margin-top:72px}
+.difference-icon{display:grid;place-items:center;width:88px;height:88px;margin-bottom:30px;border-radius:50%;background:#fff;color:var(--orange)}
+.difference-item h3{margin:0 0 18px;font-size:clamp(26px,2.1vw,32px);font-weight:500;line-height:1.16;letter-spacing:-.05em}
+.difference-item p{margin:0;color:#646464;font-size:16px;line-height:1.45;letter-spacing:-.015em;max-width:280px;text-wrap:pretty}
+@media(max-width:1000px){.differences-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 40px}.difference-item p{max-width:340px}}
+@media(max-width:680px){.differences-section{padding-block:85px 90px}.differences-grid{margin-top:52px;gap:46px 26px}.difference-icon{width:76px;height:76px;margin-bottom:26px}.difference-icon svg{width:36px;height:36px}.difference-item h3{font-size:25px}.difference-item p{font-size:15px}}
+@media(max-width:480px){.differences-grid{grid-template-columns:1fr}.difference-item p{max-width:300px}.difference-icon{margin-bottom:24px}}

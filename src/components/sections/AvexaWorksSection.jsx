@@ -13,7 +13,7 @@ const worksData = [
     titleWord2: 'Marketing',
     description:
       'We empower your brand by creating and sharing beneficial content that educates, attracts, and engages potential customers.',
-    image: '/images/work-1.jpeg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146053/algofort/images/work-1',
     alt: 'Content Marketing & Copywriting - Algofort',
     category: 'Development · Read More →',
     reversed: false,
@@ -26,7 +26,7 @@ const worksData = [
     titleWord2: 'Marketing',
     description:
       'Engage with audiences on trending platforms to promote and enhance visibility to your brand.',
-    image: '/images/work-2.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146055/algofort/images/work-2',
     alt: 'Social Media Marketing - Algofort',
     category: 'Development · Read More →',
     reversed: true,
@@ -39,7 +39,7 @@ const worksData = [
     titleWord2: 'Pay-Per-Click',
     description:
       'Direct traffic and leads to your site through targeted advertising campaigns.',
-    image: '/images/work-3.jpeg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146055/algofort/images/work-3',
     alt: 'PPC Pay-Per-Click Advertising - Algofort',
     category: 'Development · Read More →',
     reversed: false,
@@ -52,7 +52,7 @@ const worksData = [
     titleWord2: 'Optimization',
     description:
       'Improving your ranking on the search results so that user foot fall to your site with organic traffic increases.',
-    image: '/images/work-4.jpeg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146055/algofort/images/work-4',
     alt: 'Search Engine Optimization - Algofort',
     category: 'Development · Read More →',
     reversed: true,

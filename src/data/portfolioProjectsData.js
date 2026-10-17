@@ -16,7 +16,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-1.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145917/algofort/assets/portfolio/animation/project-1",
     "liveUrl": "https://hoplonco.com/",
     "buttons": [
       {
@@ -36,7 +36,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-2.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145917/algofort/assets/portfolio/animation/project-2",
     "liveUrl": "https://integrity-consulting.ca/",
     "buttons": [
       {
@@ -56,7 +56,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-3.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145917/algofort/assets/portfolio/animation/project-3",
     "liveUrl": "https://kingsdalemortgage.com/",
     "buttons": [
       {
@@ -76,7 +76,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-4.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145918/algofort/assets/portfolio/animation/project-4",
     "liveUrl": "https://pulsemarketing.cloud/liora/",
     "buttons": [
       {
@@ -96,7 +96,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-5.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145918/algofort/assets/portfolio/animation/project-5",
     "liveUrl": "https://artistsemerge.com/",
     "buttons": [
       {
@@ -116,7 +116,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-6.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145919/algofort/assets/portfolio/animation/project-6",
     "liveUrl": "https://pulsemarketing.cloud/budda/",
     "buttons": [
       {
@@ -136,7 +136,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-7.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145919/algofort/assets/portfolio/animation/project-7",
     "liveUrl": "https://pulsemarketing.cloud/southbrith1/",
     "buttons": [
       {
@@ -156,7 +156,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-8.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145923/algofort/assets/portfolio/animation/project-8",
     "liveUrl": "https://pulsemarketing.cloud/cigar/",
     "buttons": [
       {
@@ -176,7 +176,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-9.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145922/algofort/assets/portfolio/animation/project-9",
     "liveUrl": "https://pulsemarketing.cloud/wardness_Capital/",
     "buttons": [
       {
@@ -196,7 +196,7 @@ export const portfolioProjects = [
     "category": [
       "animation"
     ],
-    "image": "/assets/portfolio/animation/project-10.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145919/algofort/assets/portfolio/animation/project-10",
     "liveUrl": "https://pulsemarketing.cloud/ak-aroma/",
     "buttons": [
       {
@@ -216,7 +216,7 @@ export const portfolioProjects = [
     "category": [
       "nextjs"
     ],
-    "image": "/assets/portfolio/nextjs/project-1.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145923/algofort/assets/portfolio/nextjs/project-1",
     "liveUrl": "https://pulsemarketing.io/",
     "buttons": [
       {
@@ -236,7 +236,7 @@ export const portfolioProjects = [
     "category": [
       "nextjs"
     ],
-    "image": "/assets/portfolio/nextjs/project-2.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145924/algofort/assets/portfolio/nextjs/project-2",
     "liveUrl": "https://www.wovvo.ai/",
     "buttons": [
       {
@@ -256,7 +256,7 @@ export const portfolioProjects = [
     "category": [
       "nextjs"
     ],
-    "image": "/assets/portfolio/nextjs/project-3.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145924/algofort/assets/portfolio/nextjs/project-3",
     "liveUrl": "https://www.ianslater.ca/",
     "buttons": [
       {
@@ -276,7 +276,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-1.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145976/algofort/assets/portfolio/wordpress/project-1",
     "liveUrl": "https://pulsemarketing.cloud/smokescanada/",
     "buttons": [
       {
@@ -296,7 +296,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-2.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145981/algofort/assets/portfolio/wordpress/project-2",
     "liveUrl": "https://pulsemarketing.cloud/Kingsdale-mic/",
     "buttons": [
       {
@@ -316,7 +316,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-3.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145984/algofort/assets/portfolio/wordpress/project-3",
     "liveUrl": "https://pulsemarketing.cloud/wardness_Capital/",
     "buttons": [
       {
@@ -336,7 +336,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-4.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145986/algofort/assets/portfolio/wordpress/project-4",
     "liveUrl": "https://pulsemarketing.cloud/Christine_L_Abbe/",
     "buttons": [
       {
@@ -356,7 +356,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-5.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145995/algofort/assets/portfolio/wordpress/project-5",
     "liveUrl": "https://alsafahalal.com/",
     "buttons": [
       {
@@ -376,7 +376,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-6.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145995/algofort/assets/portfolio/wordpress/project-6",
     "liveUrl": "https://pulsemarketing.cloud/airotour/",
     "buttons": [
       {
@@ -396,7 +396,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-7.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145996/algofort/assets/portfolio/wordpress/project-7",
     "liveUrl": "https://pulsemarketing.cloud/Angelinafrost/",
     "buttons": [
       {
@@ -416,7 +416,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-8.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145997/algofort/assets/portfolio/wordpress/project-8",
     "liveUrl": "https://beemedia.digital/",
     "buttons": [
       {
@@ -436,7 +436,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-9.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145997/algofort/assets/portfolio/wordpress/project-9",
     "liveUrl": "https://pulsemarketing.cloud/budda/",
     "buttons": [
       {
@@ -456,7 +456,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-10.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145977/algofort/assets/portfolio/wordpress/project-10",
     "liveUrl": "https://pulsemarketing.cloud/cigar/",
     "buttons": [
       {
@@ -476,7 +476,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-11.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145977/algofort/assets/portfolio/wordpress/project-11",
     "liveUrl": "https://pulsemarketing.cloud/cp-cottage/",
     "buttons": [
       {
@@ -496,7 +496,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-12.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145977/algofort/assets/portfolio/wordpress/project-12",
     "liveUrl": "https://dailyecom.com/",
     "buttons": [
       {
@@ -516,7 +516,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-13.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145978/algofort/assets/portfolio/wordpress/project-13",
     "liveUrl": "https://pulsemarketing.cloud/ebookdesignpanda/",
     "buttons": [
       {
@@ -536,7 +536,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-14.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145978/algofort/assets/portfolio/wordpress/project-14",
     "liveUrl": "https://pulsemarketing.cloud/eh_construction/",
     "buttons": [
       {
@@ -556,7 +556,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-15.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145978/algofort/assets/portfolio/wordpress/project-15",
     "liveUrl": "https://pulsemarketing.cloud/energy-links/",
     "buttons": [
       {
@@ -576,7 +576,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-16.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145978/algofort/assets/portfolio/wordpress/project-16",
     "liveUrl": "https://pulsemarketing.cloud/first-call-auto-detailing/",
     "buttons": [
       {
@@ -596,7 +596,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-17.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145978/algofort/assets/portfolio/wordpress/project-17",
     "liveUrl": "https://pulsemarketing.cloud/hiredheros/",
     "buttons": [
       {
@@ -616,7 +616,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-18.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145979/algofort/assets/portfolio/wordpress/project-18",
     "liveUrl": "https://pulsemarketing.cloud/hired_hero/",
     "buttons": [
       {
@@ -636,7 +636,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-19.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145979/algofort/assets/portfolio/wordpress/project-19",
     "liveUrl": "https://pulsemarketing.cloud/Sanda/",
     "buttons": [
       {
@@ -656,7 +656,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-20.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145980/algofort/assets/portfolio/wordpress/project-20",
     "liveUrl": "https://pulsemarketing.cloud/batts/",
     "buttons": [
       {
@@ -676,7 +676,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-21.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145979/algofort/assets/portfolio/wordpress/project-21",
     "liveUrl": "https://pulsemarketing.cloud/artistsemerge2/",
     "buttons": [
       {
@@ -696,7 +696,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-22.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145979/algofort/assets/portfolio/wordpress/project-22",
     "liveUrl": "https://beemedia.ec/",
     "buttons": [
       {
@@ -716,7 +716,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-23.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145980/algofort/assets/portfolio/wordpress/project-23",
     "liveUrl": "http://pulsemarketing.cloud/Huntsville",
     "buttons": [
       {
@@ -736,7 +736,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-24.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145980/algofort/assets/portfolio/wordpress/project-24",
     "liveUrl": "https://pulsemarketing.cloud/itco/",
     "buttons": [
       {
@@ -756,7 +756,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-25.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145980/algofort/assets/portfolio/wordpress/project-25",
     "liveUrl": "https://pulsemarketing.cloud/jorden_rentals/",
     "buttons": [
       {
@@ -776,7 +776,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-26.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145981/algofort/assets/portfolio/wordpress/project-26",
     "liveUrl": "https://pulsemarketing.cloud/kar-doctorz/",
     "buttons": [
       {
@@ -796,7 +796,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-27.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145981/algofort/assets/portfolio/wordpress/project-27",
     "liveUrl": "https://kelownadetails.com/",
     "buttons": [
       {
@@ -816,7 +816,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-28.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145981/algofort/assets/portfolio/wordpress/project-28",
     "liveUrl": "https://pulsemarketing.cloud/liora/",
     "buttons": [
       {
@@ -836,7 +836,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-29.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145982/algofort/assets/portfolio/wordpress/project-29",
     "liveUrl": "https://fishbctrout.com/",
     "buttons": [
       {
@@ -856,7 +856,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-30.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145982/algofort/assets/portfolio/wordpress/project-30",
     "liveUrl": "https://crestviewmortgages.com/",
     "buttons": [
       {
@@ -876,7 +876,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-31.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145983/algofort/assets/portfolio/wordpress/project-31",
     "liveUrl": "https://representdance.com/",
     "buttons": [
       {
@@ -896,7 +896,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-32.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145982/algofort/assets/portfolio/wordpress/project-32",
     "liveUrl": "https://maidintheshadecleaning.ca/",
     "buttons": [
       {
@@ -916,7 +916,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-33.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145983/algofort/assets/portfolio/wordpress/project-33",
     "liveUrl": "https://pristinecleaners.services/",
     "buttons": [
       {
@@ -936,7 +936,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-34.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145984/algofort/assets/portfolio/wordpress/project-34",
     "liveUrl": "https://loyalisthomesinc.com/",
     "buttons": [
       {
@@ -956,7 +956,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-35.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145986/algofort/assets/portfolio/wordpress/project-35",
     "liveUrl": "https://workplacesage.com/",
     "buttons": [
       {
@@ -976,7 +976,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-36.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145984/algofort/assets/portfolio/wordpress/project-36",
     "liveUrl": "https://starline.solutions/",
     "buttons": [
       {
@@ -996,7 +996,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-37.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145985/algofort/assets/portfolio/wordpress/project-37",
     "liveUrl": "https://aphroditehairstudio.ca/",
     "buttons": [
       {
@@ -1016,7 +1016,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-38.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145985/algofort/assets/portfolio/wordpress/project-38",
     "liveUrl": "https://integrity-consulting.ca/",
     "buttons": [
       {
@@ -1036,7 +1036,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-39.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145988/algofort/assets/portfolio/wordpress/project-39",
     "liveUrl": "https://zynthentertainment.com/",
     "buttons": [
       {
@@ -1056,7 +1056,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-40.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145986/algofort/assets/portfolio/wordpress/project-40",
     "liveUrl": "https://maxbrowntennisvacations.com/",
     "buttons": [
       {
@@ -1076,7 +1076,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-41.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145991/algofort/assets/portfolio/wordpress/project-41",
     "liveUrl": "https://pulsemarketing.cloud/sweeetos/",
     "buttons": [
       {
@@ -1096,7 +1096,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-42.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145989/algofort/assets/portfolio/wordpress/project-42",
     "liveUrl": "https://pulsemarketing.cloud/steelbridge/",
     "buttons": [
       {
@@ -1116,7 +1116,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-43.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145990/algofort/assets/portfolio/wordpress/project-43",
     "liveUrl": "http://xpresspatches.com/",
     "buttons": [
       {
@@ -1136,7 +1136,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-44.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145994/algofort/assets/portfolio/wordpress/project-44",
     "liveUrl": "https://pandapatches.com/",
     "buttons": [
       {
@@ -1156,7 +1156,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-45.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145995/algofort/assets/portfolio/wordpress/project-45",
     "liveUrl": "https://www.happyhour.club/",
     "buttons": [
       {
@@ -1176,7 +1176,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-46.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145993/algofort/assets/portfolio/wordpress/project-46",
     "liveUrl": "https://pulsemarketing.cloud/platinum/",
     "buttons": [
       {
@@ -1196,7 +1196,7 @@ export const portfolioProjects = [
     "category": [
       "wordpress"
     ],
-    "image": "/assets/portfolio/wordpress/project-47.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145998/algofort/assets/portfolio/wordpress/project-47",
     "liveUrl": "https://pulsemarketing.cloud/jfitnessandtraining/",
     "buttons": [
       {
@@ -1216,7 +1216,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-1.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145936/algofort/assets/portfolio/woocommerce/project-1",
     "liveUrl": "https://pulsemarketing.cloud/smokescanada/",
     "buttons": [
       {
@@ -1236,7 +1236,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-2.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145955/algofort/assets/portfolio/woocommerce/project-2",
     "liveUrl": "https://pulsemarketing.cloud/Atlanta/",
     "buttons": [
       {
@@ -1256,7 +1256,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-3.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145956/algofort/assets/portfolio/woocommerce/project-3",
     "liveUrl": "https://pulsemarketing.cloud/AK-Interiors/",
     "buttons": [
       {
@@ -1276,7 +1276,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-4.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145961/algofort/assets/portfolio/woocommerce/project-4",
     "liveUrl": "https://kiosky.me/",
     "buttons": [
       {
@@ -1296,7 +1296,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-5.jpeg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145964/algofort/assets/portfolio/woocommerce/project-5",
     "liveUrl": "https://dhoopdukaan.com/Jacket/",
     "buttons": [
       {
@@ -1316,7 +1316,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-6.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145971/algofort/assets/portfolio/woocommerce/project-6",
     "liveUrl": "https://shoebonaza.com/",
     "buttons": [
       {
@@ -1336,7 +1336,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-7.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145974/algofort/assets/portfolio/woocommerce/project-7",
     "liveUrl": "https://urbanforia.com/",
     "buttons": [
       {
@@ -1356,7 +1356,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-8.jpeg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145975/algofort/assets/portfolio/woocommerce/project-8",
     "liveUrl": "https://dhoopdukaan.com/men-tshirts/",
     "buttons": [
       {
@@ -1376,7 +1376,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-9.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145975/algofort/assets/portfolio/woocommerce/project-9",
     "liveUrl": "https://dhoopdukaan.com/",
     "buttons": [
       {
@@ -1396,7 +1396,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-10.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145935/algofort/assets/portfolio/woocommerce/project-10",
     "liveUrl": "https://dhoopdukaan.com/kidsss/",
     "buttons": [
       {
@@ -1416,7 +1416,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-11.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145936/algofort/assets/portfolio/woocommerce/project-11",
     "liveUrl": "http://zamanastore.com/",
     "buttons": [
       {
@@ -1436,7 +1436,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-12.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145937/algofort/assets/portfolio/woocommerce/project-12",
     "liveUrl": "https://qoumbazaar.com/",
     "buttons": [
       {
@@ -1456,7 +1456,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-13.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145939/algofort/assets/portfolio/woocommerce/project-13",
     "liveUrl": "https://dhoopdukaan.com/apreals/",
     "buttons": [
       {
@@ -1476,7 +1476,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-14.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145939/algofort/assets/portfolio/woocommerce/project-14",
     "liveUrl": "https://dhoopdukaan.com/fashion1/",
     "buttons": [
       {
@@ -1496,7 +1496,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-15.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145939/algofort/assets/portfolio/woocommerce/project-15",
     "liveUrl": "https://dhoopdukaan.com/fashion_2/",
     "buttons": [
       {
@@ -1516,7 +1516,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-16.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145939/algofort/assets/portfolio/woocommerce/project-16",
     "liveUrl": "https://dhoopdukaan.com/fashion3/",
     "buttons": [
       {
@@ -1536,7 +1536,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-17.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145940/algofort/assets/portfolio/woocommerce/project-17",
     "liveUrl": "https://dhoopdukaan.com/fashion4/",
     "buttons": [
       {
@@ -1556,7 +1556,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-18.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145941/algofort/assets/portfolio/woocommerce/project-18",
     "liveUrl": "https://dhoopdukaan.com/fashion5/",
     "buttons": [
       {
@@ -1576,7 +1576,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-19.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145940/algofort/assets/portfolio/woocommerce/project-19",
     "liveUrl": "https://dhoopdukaan.com/fashion6/",
     "buttons": [
       {
@@ -1596,7 +1596,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-20.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145944/algofort/assets/portfolio/woocommerce/project-20",
     "liveUrl": "https://dhoopdukaan.com/fashion7/",
     "buttons": [
       {
@@ -1616,7 +1616,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-21.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145943/algofort/assets/portfolio/woocommerce/project-21",
     "liveUrl": "https://dhoopdukaan.com/cosmetic-1/",
     "buttons": [
       {
@@ -1636,7 +1636,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-22.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145943/algofort/assets/portfolio/woocommerce/project-22",
     "liveUrl": "https://dhoopdukaan.com/cosmetic-2/",
     "buttons": [
       {
@@ -1656,7 +1656,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-23.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145945/algofort/assets/portfolio/woocommerce/project-23",
     "liveUrl": "https://deemarkaz.com/",
     "buttons": [
       {
@@ -1676,7 +1676,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-24.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145945/algofort/assets/portfolio/woocommerce/project-24",
     "liveUrl": "https://shopsadar.com/",
     "buttons": [
       {
@@ -1696,7 +1696,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-25.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145947/algofort/assets/portfolio/woocommerce/project-25",
     "liveUrl": "https://baazardeal.com/",
     "buttons": [
       {
@@ -1716,7 +1716,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-26.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145946/algofort/assets/portfolio/woocommerce/project-26",
     "liveUrl": "https://achishop.com/",
     "buttons": [
       {
@@ -1736,7 +1736,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-27.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145947/algofort/assets/portfolio/woocommerce/project-27",
     "liveUrl": "https://xpressshoes.com/",
     "buttons": [
       {
@@ -1756,7 +1756,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-28.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145947/algofort/assets/portfolio/woocommerce/project-28",
     "liveUrl": "https://clickzila.com/",
     "buttons": [
       {
@@ -1776,7 +1776,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-29.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145949/algofort/assets/portfolio/woocommerce/project-29",
     "liveUrl": "https://vizkart.com/",
     "buttons": [
       {
@@ -1796,7 +1796,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-30.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145949/algofort/assets/portfolio/woocommerce/project-30",
     "liveUrl": "https://zindagistore.com/",
     "buttons": [
       {
@@ -1816,7 +1816,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-31.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145951/algofort/assets/portfolio/woocommerce/project-31",
     "liveUrl": "https://zarakzones.com/",
     "buttons": [
       {
@@ -1836,7 +1836,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-32.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145951/algofort/assets/portfolio/woocommerce/project-32",
     "liveUrl": "https://lahoreluxe.com/",
     "buttons": [
       {
@@ -1856,7 +1856,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-33.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145953/algofort/assets/portfolio/woocommerce/project-33",
     "liveUrl": "https://evomarkethub.com/",
     "buttons": [
       {
@@ -1876,7 +1876,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-34.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145954/algofort/assets/portfolio/woocommerce/project-34",
     "liveUrl": "https://khasbazaar.com/",
     "buttons": [
       {
@@ -1896,7 +1896,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-35.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145955/algofort/assets/portfolio/woocommerce/project-35",
     "liveUrl": "https://ultimateheattools.com/",
     "buttons": [
       {
@@ -1916,7 +1916,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-36.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145955/algofort/assets/portfolio/woocommerce/project-36",
     "liveUrl": "https://dhoopdukaan.com/cosmetic-3/",
     "buttons": [
       {
@@ -1936,7 +1936,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-37.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145957/algofort/assets/portfolio/woocommerce/project-37",
     "liveUrl": "https://dhoopdukaan.com/cosmetic-4/",
     "buttons": [
       {
@@ -1956,7 +1956,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-38.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145957/algofort/assets/portfolio/woocommerce/project-38",
     "liveUrl": "https://karachicouturehub.com/",
     "buttons": [
       {
@@ -1976,7 +1976,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-39.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145957/algofort/assets/portfolio/woocommerce/project-39",
     "liveUrl": "https://the-urbanvibemart.com/",
     "buttons": [
       {
@@ -1996,7 +1996,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-40.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145958/algofort/assets/portfolio/woocommerce/project-40",
     "liveUrl": "https://shadeons.com/",
     "buttons": [
       {
@@ -2016,7 +2016,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-41.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145959/algofort/assets/portfolio/woocommerce/project-41",
     "liveUrl": "https://hair-auras.com/",
     "buttons": [
       {
@@ -2036,7 +2036,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-42.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145959/algofort/assets/portfolio/woocommerce/project-42",
     "liveUrl": "https://coolheatpk.com/",
     "buttons": [
       {
@@ -2056,7 +2056,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-43.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145959/algofort/assets/portfolio/woocommerce/project-43",
     "liveUrl": "https://ledwally.com/",
     "buttons": [
       {
@@ -2076,7 +2076,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-44.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145960/algofort/assets/portfolio/woocommerce/project-44",
     "liveUrl": "https://lakrikakam.com/",
     "buttons": [
       {
@@ -2096,7 +2096,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-45.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145960/algofort/assets/portfolio/woocommerce/project-45",
     "liveUrl": "https://thetimemart.com/",
     "buttons": [
       {
@@ -2116,7 +2116,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-46.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145962/algofort/assets/portfolio/woocommerce/project-46",
     "liveUrl": "https://curtainwear.com/",
     "buttons": [
       {
@@ -2136,7 +2136,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-47.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145961/algofort/assets/portfolio/woocommerce/project-47",
     "liveUrl": "https://bolocart.com/",
     "buttons": [
       {
@@ -2156,7 +2156,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-48.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145961/algofort/assets/portfolio/woocommerce/project-48",
     "liveUrl": "http://pipebazaar.com/",
     "buttons": [
       {
@@ -2176,7 +2176,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-49.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145963/algofort/assets/portfolio/woocommerce/project-49",
     "liveUrl": "https://dhoopdukaan.com/fashion7/",
     "buttons": [
       {
@@ -2196,7 +2196,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-50.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145964/algofort/assets/portfolio/woocommerce/project-50",
     "liveUrl": "https://dhoopdukaan.com/cosmetic-6/",
     "buttons": [
       {
@@ -2216,7 +2216,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-51.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145965/algofort/assets/portfolio/woocommerce/project-51",
     "liveUrl": "http://dhoopdukaan.com/cosmetic-5/",
     "buttons": [
       {
@@ -2236,7 +2236,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-52.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145971/algofort/assets/portfolio/woocommerce/project-52",
     "liveUrl": "https://dhoopdukaan.com/cosmetic10/",
     "buttons": [
       {
@@ -2256,7 +2256,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-53.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145966/algofort/assets/portfolio/woocommerce/project-53",
     "liveUrl": "https://dhoopdukaan.com/cosmetic-9/",
     "buttons": [
       {
@@ -2276,7 +2276,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-54.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145966/algofort/assets/portfolio/woocommerce/project-54",
     "liveUrl": "https://dhoopdukaan.com/cosmetic-8/",
     "buttons": [
       {
@@ -2296,7 +2296,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-55.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145968/algofort/assets/portfolio/woocommerce/project-55",
     "liveUrl": "https://dhoopdukaan.com/gym-3/",
     "buttons": [
       {
@@ -2316,7 +2316,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-56.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145969/algofort/assets/portfolio/woocommerce/project-56",
     "liveUrl": "https://dhoopdukaan.com/gym_5",
     "buttons": [
       {
@@ -2336,7 +2336,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-57.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145970/algofort/assets/portfolio/woocommerce/project-57",
     "liveUrl": "https://dhoopdukaan.com/gym_6/",
     "buttons": [
       {
@@ -2356,7 +2356,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-58.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145970/algofort/assets/portfolio/woocommerce/project-58",
     "liveUrl": "https://dhoopdukaan.com/gym-1/",
     "buttons": [
       {
@@ -2376,7 +2376,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-59.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145972/algofort/assets/portfolio/woocommerce/project-59",
     "liveUrl": "https://dhoopdukaan.com/gym-2/",
     "buttons": [
       {
@@ -2396,7 +2396,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-60.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145974/algofort/assets/portfolio/woocommerce/project-60",
     "liveUrl": "https://dhoopdukaan.com/gym-4/",
     "buttons": [
       {
@@ -2416,7 +2416,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-61.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145975/algofort/assets/portfolio/woocommerce/project-61",
     "liveUrl": "https://dhoopdukaan.com/jewelry3/",
     "buttons": [
       {
@@ -2436,7 +2436,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-62.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145973/algofort/assets/portfolio/woocommerce/project-62",
     "liveUrl": "https://dhoopdukaan.com/jewelry2/",
     "buttons": [
       {
@@ -2456,7 +2456,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-63.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145973/algofort/assets/portfolio/woocommerce/project-63",
     "liveUrl": "https://dhoopdukaan.com/jewelry1/",
     "buttons": [
       {
@@ -2476,7 +2476,7 @@ export const portfolioProjects = [
     "category": [
       "woocommerce"
     ],
-    "image": "/assets/portfolio/woocommerce/project-64.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145976/algofort/assets/portfolio/woocommerce/project-64",
     "liveUrl": "https://dhoopdukaan.com/jewelry4/",
     "buttons": [
       {
@@ -2496,7 +2496,7 @@ export const portfolioProjects = [
     "category": [
       "wix"
     ],
-    "image": "/assets/portfolio/wix/project-1.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145930/algofort/assets/portfolio/wix/project-1",
     "liveUrl": "https://quantumev.ca/",
     "buttons": [
       {
@@ -2516,7 +2516,7 @@ export const portfolioProjects = [
     "category": [
       "wix"
     ],
-    "image": "/assets/portfolio/wix/project-2.jpg",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145931/algofort/assets/portfolio/wix/project-2",
     "liveUrl": "https://pulsemarketing.cloud/jfitnessandtraining",
     "buttons": [
       {
@@ -2536,7 +2536,7 @@ export const portfolioProjects = [
     "category": [
       "shopify"
     ],
-    "image": "/assets/portfolio/shopify/project-1.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145933/algofort/assets/portfolio/shopify/project-1",
     "liveUrl": "https://bearbrush.com/",
     "buttons": [
       {
@@ -2556,7 +2556,7 @@ export const portfolioProjects = [
     "category": [
       "shopify"
     ],
-    "image": "/assets/portfolio/shopify/project-2.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145936/algofort/assets/portfolio/shopify/project-2",
     "liveUrl": "https://energysystemscentral.com/",
     "buttons": [
       {
@@ -2576,7 +2576,7 @@ export const portfolioProjects = [
     "category": [
       "shopify"
     ],
-    "image": "/assets/portfolio/shopify/project-3.png",
+    "image": "https://res.cloudinary.com/vfsp1egd/image/upload/w_850,c_limit,q_auto:good,f_auto/v1792145937/algofort/assets/portfolio/shopify/project-3",
     "liveUrl": "https://dekora.com/",
     "buttons": [
       {

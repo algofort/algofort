@@ -43,7 +43,7 @@ const socialLinks = [
   },
 ];
 
-export const Footer = () => {
+export const Footer = ({ className = '', newsletterPreview = false } = {}) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
@@ -59,14 +59,14 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className={`footer ${className}`}>
       <div className="padding-global is-tiny">
         <div className="footer_wrap">
 
           {/* Artistic Calligraphic "Letter G" Watermark on Right */}
           <div className="footer_watermark" aria-hidden="true">
             <img 
-              src="/assets/footer-watermark.svg" 
+              src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145912/algofort/assets/footer-watermark.svg" 
               alt="" 
               className="footer_watermark_img" 
               loading="lazy"
@@ -109,7 +109,7 @@ export const Footer = () => {
                   </form>
                   {submitted && (
                     <div className="footer_form_success">
-                      ✓ Thank you! Your email has been registered.
+                      {newsletterPreview ? 'Newsletter signup is coming soon. You have not been subscribed.' : '✓ Thank you! Your email has been registered.'}
                     </div>
                   )}
                 </div>
@@ -220,10 +220,10 @@ export const Footer = () => {
                   <div className="footer_col_contact">
                     <div className="footer_contact_section">
                       <div className="footer_label">Get in Touch</div>
-                      <a href="tel:+12135555555" className="footer_phone_link">
+                      <a data-site-phone href="tel:+923337198686" className="footer_phone_link">
                         <div className="nav-text-wrap">
-                          <span className="nav-text">+1 (213) 555-5555</span>
-                          <span className="nav-text">+1 (213) 555-5555</span>
+                          <span className="nav-text">+92 333 7198686</span>
+                          <span className="nav-text">+92 333 7198686</span>
                         </div>
                       </a>
                       <a href="mailto:hello@algofort.com" className="footer_email_link">
@@ -238,7 +238,7 @@ export const Footer = () => {
                       <div className="footer_label">Offline</div>
                       <div className="footer_studio_title">Algofort Studio</div>
                       <p className="footer_address_text alg-text">
-                        412 Melrose Avenue, Suite 210, Los Angeles, CA 90036, USA
+                        84j Ghazali Rd, Block 2 PECHS, Karachi
                       </p>
                     </div>
                   </div>
@@ -246,16 +246,17 @@ export const Footer = () => {
                 </div>
 
                 {/* Bottom of Right Pane: Logo */}
-                <div className="footer_brand_display">
+                <Link href="/" className="footer_brand_display" aria-label="Algofort homepage">
                   <Image
-                    src="/assets/logo-black.png"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:best/v1792145913/algofort/assets/logo-black.png"
                     alt="Algofort Logo"
                     width={828}
                     height={115}
                     className="footer_brand_img"
                     priority
+                    unoptimized
                   />
-                </div>
+                </Link>
 
               </div>
 

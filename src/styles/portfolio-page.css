@@ -76,6 +76,21 @@
   }
 }
 
+/* Portfolio Intro FOUC Prevention & Clean Entrance */
+.sec-portfolio-intro .sec-portfolio-intro__badge,
+.sec-portfolio-intro .sec-portfolio-intro__title:not([data-split-done]),
+.sec-portfolio-intro .sec-portfolio-intro__buttons {
+  opacity: 0;
+  animation: portfolioFallbackReveal 0.01s 2.5s forwards;
+}
+
+@keyframes portfolioFallbackReveal {
+  to {
+    opacity: 1;
+  }
+}
+
+.sec-portfolio-intro .sec-portfolio-intro__title,
 .sec-portfolio-intro .sec-portfolio-intro__scrub .scrub-headline {
   font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
   font-size: clamp(2.25rem, 3.85vw, 3.75rem) !important;
@@ -1332,7 +1347,7 @@
 /* Card 1: Red Burgundy Texture */
 .sec-portfolio-bento__card--red {
   background-color: #2b0b11;
-  background-image: url('/assets/portfolio/image-51.webp');
+  background-image: url('https://res.cloudinary.com/vfsp1egd/image/upload/w_1400,c_limit,q_auto:good,f_auto/v1792145922/algofort/assets/portfolio/image-51');
   background-size: cover;
   background-position: center center;
   padding: 3.25rem 2.25rem;
@@ -1404,7 +1419,7 @@
 /* Card 2: Orange Silk Ribbon Wave */
 .sec-portfolio-bento__card--orange {
   background-color: #05080c;
-  background-image: url('/assets/portfolio/bento-bg-orange-wave.webp');
+  background-image: url('https://res.cloudinary.com/vfsp1egd/image/upload/w_1400,c_limit,q_auto:good,f_auto/v1792145921/algofort/assets/portfolio/bento-bg-orange-wave');
   background-size: cover;
   background-position: center center;
   padding: 3.25rem 1.75rem 0;

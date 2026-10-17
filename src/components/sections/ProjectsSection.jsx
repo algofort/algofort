@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import Link from 'next/link';
+import { usePortfolioData } from '../../lib/usePortfolioData';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -12,52 +13,10 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const projectsData = [
-  {
-    id: 1,
-    title: 'Energy Management App',
-    description: 'Smart energy monitoring and consumption tracking',
-    image: '/assets/projects_1.webp',
-    tags: ['Mobile Application', 'UI/UX Design', 'Energy Management'],
-  },
-  {
-    id: 2,
-    title: 'Delivery & Parcel App',
-    description: 'Smart delivery and order tracking platform',
-    image: '/assets/projects_2.webp',
-    tags: ['Mobile App', 'UI/UX Design', 'Logistics'],
-  },
-  {
-    id: 3,
-    title: 'Forvex Brand Identity',
-    description: 'Modern branding and visual identity system',
-    image: '/assets/projects_3.webp',
-    tags: ['Branding', 'Visual Identity', 'Graphic Design'],
-  },
-  {
-    id: 4,
-    title: 'Eco-Star Chef',
-    description: 'Premium food branding and packaging system',
-    image: '/assets/projects_4.webp',
-    tags: ['Branding', 'Packaging Design', 'Product Identity'],
-  },
-  {
-    id: 5,
-    title: 'SuperFit',
-    description: 'Bold fitness branding and merchandise identity',
-    image: '/assets/projects_5.webp',
-    tags: ['Branding', 'Merchandise', 'Fitness'],
-  },
-  {
-    id: 6,
-    title: 'Ride Booking App',
-    description: 'Modern ride booking and tracking experience',
-    image: '/assets/projects_6.webp',
-    tags: ['Mobile App', 'UI/UX Design', 'Ride Booking'],
-  },
-];
+
 
 export function ProjectsSection() {
+  const { homeProjects: projectsData } = usePortfolioData();
   const containerRef = useRef(null);
 
   useGSAP(() => {
@@ -134,7 +93,7 @@ export function ProjectsSection() {
         );
       }
     });
-  }, { scope: containerRef });
+  }, { scope: containerRef, dependencies: [projectsData], revertOnUpdate: true });
 
   return (
     <section ref={containerRef} id="sec-projects" className="alg-projects site-section sec-projects projects-section">
@@ -161,7 +120,7 @@ export function ProjectsSection() {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />
@@ -175,7 +134,7 @@ export function ProjectsSection() {
             <div className="alg-projects-list projects-items-list">
               {projectsData.map((project) => (
                 <div key={project.id} className="alg-projects-item projects-item">
-                  <Link href="/projects" className="alg-projects-item-media projects-item-media">
+                  <Link href={project.liveUrl || "/projects"} className="alg-projects-item-media projects-item-media">
                     <div className="alg-projects-item-img-wrap projects-item-img-wrap">
                       <img
                         src={project.image}
@@ -194,7 +153,7 @@ export function ProjectsSection() {
                   </Link>
                   <div className="projects-item-promo">
                     <div className="projects-item-name">
-                      <Link href="/projects">
+                      <Link href={project.liveUrl || "/projects"}>
                         <span className="projects-item-title-bold">{project.title}</span>{' '}
                         <span className="projects-item-desc">{project.description}</span>
                       </Link>

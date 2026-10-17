@@ -1,0 +1,111 @@
+.page-inset { margin-inline: 3.45%; }
+
+.site-header {
+  min-height: 107px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.wordmark {
+  display: block;
+  width: 156px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.wordmark img { display: block; width: 156px; max-width: 100%; height: auto; object-fit: contain; }
+
+.navigation { display: flex; align-items: center; gap: 39px; font-size: 17px; font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; }
+.nav-roll { display: inline-flex; align-items: center; justify-content: flex-start; padding-block: 8px; }
+.nav-roll:is(:hover, :focus-visible) .button-text-one { transform: translateY(-150%); }
+.nav-roll:is(:hover, :focus-visible) .button-text-two { top: 50%; transform: translateY(-50%); }
+.nav-roll .button-text-two { color: var(--orange); }
+.nav-contact { padding: 0; background: transparent; }
+.pill {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 56px;
+  gap: 28px;
+  padding: 18px 24px;
+  border: 0;
+  border-radius: 20px;
+  background: #fff;
+  color: #111;
+  line-height: 1.2;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.pill::before { content: ''; position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; height: 0; background: var(--orange); transition: height 500ms ease; }
+.button-label { position: relative; display: block; overflow: hidden; }
+.button-text { display: flex; align-items: center; justify-content: center; gap: 28px; white-space: nowrap; transition: transform 500ms ease, top 500ms ease; }
+.button-text svg { width: 19px; height: 19px; flex-shrink: 0; }
+.button-text-one { position: relative; color: #111; }
+.button-text-two { position: absolute; top: 100%; left: 0; width: 100%; color: #111; }
+.pill .button-text { color: inherit; }
+.pill:is(:hover, :focus-visible) { color: #fff; }
+.button-arrows { position: relative; display: block; flex-shrink: 0; width: 19px; height: 19px; overflow: hidden; }
+.button-arrow { position: absolute; inset: 0; display: block; transition: transform 500ms ease; }
+.button-arrow svg { display: block; width: 19px; height: 19px; }
+.button-arrow-next { transform: translateX(-125%); }
+.pill:is(:hover, :focus-visible) .button-arrow:not(.button-arrow-next) { transform: translateX(125%); }
+.pill:is(:hover, :focus-visible) .button-arrow-next { transform: translateX(0); }
+.pill:is(:hover, :focus-visible)::before { height: 100%; }
+.pill:is(:hover, :focus-visible) .button-text-one { transform: translateY(-150%); }
+.pill:is(:hover, :focus-visible) .button-text-two { top: 50%; transform: translateY(-50%); }
+.header-cta { min-width: 158px; }
+
+.hero { padding-block: 54px 70px; }
+.eyebrow { margin: 0; font-size: 11px; font-weight: 500; line-height: 1.5; letter-spacing: 0.23em; text-transform: uppercase; }
+.hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) 350px; align-items: end; gap: 40px; margin-top: 28px; }
+.hero h1 { margin: 0; font-family: 'DM Sans', Arial, sans-serif; font-size: clamp(80px, 9.7vw, 164px); font-weight: 400; line-height: 0.98; letter-spacing: -0.055em; }
+.hero h1 > span { display: block; }
+@media (min-width: 1001px) {
+  .hero h1 { margin-bottom: -20px; }
+}
+.orange-period { color: var(--orange); }
+.hero-aside { padding-bottom: 5px; scroll-margin-top: 32px; }
+.hero-aside p { margin: 0 0 23px; font-size: 20px; font-weight: 400; line-height: 1.4; letter-spacing: -0.035em; color: #383838; }
+.hero-cta {
+  min-width: 173px;
+  background: var(--orange);
+  color: #fff;
+}
+.pill.hero-cta:is(:hover, :focus-visible) { color: #111; }
+
+.hero-cta::before {
+  background: #ffffff;
+}
+
+@media (min-width: 1700px) {
+  #root { max-width: 1700px; margin-inline: auto; }
+}
+
+@media (max-width: 1000px) {
+  .site-header { min-height: 94px; }
+  .wordmark { width: 156px; }
+  .navigation { gap: 24px; }
+  .hero-layout { grid-template-columns: 1fr; gap: 32px; }
+  .hero h1 { font-size: clamp(68px, 12vw, 120px); }
+  .hero-aside { max-width: 500px; }
+}
+
+@media (max-width: 700px) {
+  .page-inset { margin-inline: 24px; }
+  .site-header { min-height: 86px; position: relative; }
+  .wordmark { width: 140px; }
+  .navigation { display: none; }
+  .nav-contact { text-align: left; }
+  .hero { padding-block: 34px 38px; }
+  .hero-layout { grid-template-columns: 1fr; gap: 32px; margin-top: 28px; }
+  .hero h1 { font-size: clamp(44px, 11.8vw, 80px); line-height: 1; }
+  .hero-aside { max-width: 340px; padding-bottom: 0; }
+  .hero-aside p { font-size: 18px; margin-bottom: 22px; }
+  .eyebrow { font-size: 9px; letter-spacing: 0.19em; }
+}

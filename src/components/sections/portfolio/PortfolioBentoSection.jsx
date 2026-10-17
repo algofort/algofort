@@ -169,7 +169,7 @@ export function PortfolioBentoSection() {
               <div className="sec-portfolio-bento__previews-grid">
                 <div className="sec-portfolio-bento__preview-item">
                   <Image
-                    src="/assets/portfolio/rectangle-10.webp"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145924/algofort/assets/portfolio/rectangle-10"
                     alt="Section Preview 1"
                     width={270}
                     height={180}
@@ -178,7 +178,7 @@ export function PortfolioBentoSection() {
                 </div>
                 <div className="sec-portfolio-bento__preview-item">
                   <Image
-                    src="/assets/portfolio/rectangle-12-1.webp"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145925/algofort/assets/portfolio/rectangle-12-1"
                     alt="Section Preview 2"
                     width={270}
                     height={180}
@@ -187,7 +187,7 @@ export function PortfolioBentoSection() {
                 </div>
                 <div className="sec-portfolio-bento__preview-item">
                   <Image
-                    src="/assets/portfolio/rectangle-11.webp"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145925/algofort/assets/portfolio/rectangle-11"
                     alt="Section Preview 3"
                     width={270}
                     height={180}
@@ -196,7 +196,7 @@ export function PortfolioBentoSection() {
                 </div>
                 <div className="sec-portfolio-bento__preview-item">
                   <Image
-                    src="/assets/portfolio/rectangle-13-e1743753900489.webp"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145925/algofort/assets/portfolio/rectangle-13-e1743753900489"
                     alt="Section Preview 4"
                     width={270}
                     height={180}
@@ -217,7 +217,7 @@ export function PortfolioBentoSection() {
               <div className="sec-portfolio-bento__mockups-fan">
                 <div className="sec-portfolio-bento__mockup sec-portfolio-bento__mockup--1">
                   <Image
-                    src="/assets/portfolio/rectangle-14.webp"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145925/algofort/assets/portfolio/rectangle-14"
                     alt="Marketing Template Mockup 1"
                     width={230}
                     height={320}
@@ -227,7 +227,7 @@ export function PortfolioBentoSection() {
                 </div>
                 <div className="sec-portfolio-bento__mockup sec-portfolio-bento__mockup--2">
                   <Image
-                    src="/assets/portfolio/rectangle-15.webp"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145926/algofort/assets/portfolio/rectangle-15"
                     alt="Marketing Template Mockup 2"
                     width={240}
                     height={340}
@@ -237,7 +237,7 @@ export function PortfolioBentoSection() {
                 </div>
                 <div className="sec-portfolio-bento__mockup sec-portfolio-bento__mockup--3">
                   <Image
-                    src="/assets/portfolio/rectangle-16.webp"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145926/algofort/assets/portfolio/rectangle-16"
                     alt="Marketing Template Mockup 3"
                     width={230}
                     height={320}
@@ -247,7 +247,7 @@ export function PortfolioBentoSection() {
                 </div>
                 <div className="sec-portfolio-bento__mockup sec-portfolio-bento__mockup--4">
                   <Image
-                    src="/assets/portfolio/rectangle-17.webp"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145926/algofort/assets/portfolio/rectangle-17"
                     alt="Marketing Template Mockup 4"
                     width={220}
                     height={300}
@@ -283,7 +283,7 @@ export function PortfolioBentoSection() {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />

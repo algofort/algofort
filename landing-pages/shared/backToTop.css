@@ -1,0 +1,6 @@
+.lp-back-to-top { position: fixed; right: 24px; bottom: 24px; z-index: 40; display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 50%; background: #f47a1f; color: #fff; cursor: pointer; box-shadow: 0 4px 16px #0002; transition: background .2s; }
+.lp-back-to-top[hidden] { display: none; }
+.lp-back-to-top:hover { background: #111; }
+.lp-back-to-top:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
+@media (max-width: 600px) { .lp-back-to-top { right: 18px; bottom: 18px; width: 44px; height: 44px; } }
+@media (prefers-reduced-motion: reduce) { .lp-back-to-top { transition: none; } }

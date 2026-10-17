@@ -11,7 +11,7 @@ const teamMembers = [
     id: 'wade-warren',
     name: 'Wade Warren',
     role: 'Lead Full-Stack Engineer',
-    image: '/assets/team/img-team-1.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146020/algofort/assets/team/img-team-1',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
@@ -22,7 +22,7 @@ const teamMembers = [
     id: 'john-smith',
     name: 'John Smith',
     role: 'Brand Identity Director',
-    image: '/assets/team/img-team-2.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-2',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
@@ -33,7 +33,7 @@ const teamMembers = [
     id: 'jenny-wilson',
     name: 'Jenny Wilson',
     role: 'Lead Product Designer',
-    image: '/assets/team/img-team-3.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-3',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
@@ -44,7 +44,7 @@ const teamMembers = [
     id: 'cody-fisher',
     name: 'Cody Fisher',
     role: 'Senior SaaS Architect',
-    image: '/assets/team/img-team-4.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-4',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
@@ -55,7 +55,7 @@ const teamMembers = [
     id: 'robert-fox',
     name: 'Robert Fox',
     role: 'Senior Mobile Developer',
-    image: '/assets/team/img-team-5.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-5',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
@@ -66,7 +66,7 @@ const teamMembers = [
     id: 'albert-flores',
     name: 'Albert Flores',
     role: 'Cloud & DevOps Specialist',
-    image: '/assets/team/img-team-6.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146022/algofort/assets/team/img-team-6',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
@@ -77,7 +77,7 @@ const teamMembers = [
     id: 'jerome-bell',
     name: 'Jerome Bell',
     role: 'Senior Frontend Engineer',
-    image: '/assets/team/img-team-1.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146020/algofort/assets/team/img-team-1',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
@@ -88,7 +88,7 @@ const teamMembers = [
     id: 'devon-lane',
     name: 'Devon Lane',
     role: 'Creative Brand Strategist',
-    image: '/assets/team/img-team-3.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-3',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
@@ -105,7 +105,13 @@ export function AboutTeamSection() {
     const titleEl = sectionRef.current.querySelector('.sec-about-team__title');
     if (titleEl) {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
-      const t = setTimeout(() => ScrollTrigger.refresh(), 150);
+      const t = setTimeout(() => {
+        try {
+          ScrollTrigger.refresh();
+        } catch {
+          // ignore
+        }
+      }, 150);
       return () => clearTimeout(t);
     }
   }, []);
@@ -126,7 +132,7 @@ export function AboutTeamSection() {
                 <SubtitleMarquee
                   text="Top Members — "
                   variant="dark"
-                  icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                  icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-about-team__title">
@@ -240,7 +246,7 @@ export function AboutTeamSection() {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />

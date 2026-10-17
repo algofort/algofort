@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../utils/titleAnimation';
+import { getAssetUrl } from '../../utils/cloudinary';
 
 const techRowsData = [
   // Row 1: Frontend & Core Frameworks (12 icons)
@@ -41,7 +42,7 @@ const techRowsData = [
 ];
 
 function ToolIcon({ id, label, index }) {
-  const src = `/dock-icons/${id}.png`;
+  const src = getAssetUrl(`/dock-icons/${id}.png`);
 
   return (
     <div className="alg-tools-icon tool-icon" style={{ '--delay': `${index * 0.03}s` }}>
@@ -269,7 +270,7 @@ export function TechStackSection() {
             </div>
             <img
               loading="lazy"
-              src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+              src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
               alt="Star Icon"
               className="button-icon"
             />

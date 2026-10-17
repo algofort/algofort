@@ -5,6 +5,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initAllHeadingsAnimation } from '../../utils/titleAnimation';
+import { initAllTextFadeAnimation } from '../../utils/textFadeAnimation';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -34,9 +35,27 @@ export const SmoothScroll = ({ children }) => {
     gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
 
+    // Initialize heading and sequential paragraph animations across all pages
+    initAllHeadingsAnimation();
+    initAllTextFadeAnimation();
+
+    if (document.fonts) {
+      document.fonts.ready.then(() => {
+        try {
+          ScrollTrigger.refresh();
+        } catch {
+          // ignore
+        }
+      });
+    }
+
     const timer = setTimeout(() => {
-      initAllHeadingsAnimation();
-    }, 100);
+      try {
+        ScrollTrigger.refresh();
+      } catch {
+        // ignore
+      }
+    }, 150);
 
     return () => {
       if (typeof window !== 'undefined') {

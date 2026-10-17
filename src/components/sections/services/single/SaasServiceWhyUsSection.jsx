@@ -5,6 +5,8 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { ViewportVideo } from '../../../common/ViewportVideo';
+import { cardVideoSources } from '../../../../utils/videoAssets';
 
 import { SubtitleMarquee } from '../../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../../utils/titleAnimation';
@@ -154,7 +156,7 @@ export function SaasServiceWhyUsSection() {
                 <SubtitleMarquee
                   text="Why Choose Us — "
                   variant="dark"
-                  icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                  icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-why-us__title">
@@ -171,7 +173,7 @@ export function SaasServiceWhyUsSection() {
                 </div>
                 <img
                   loading="lazy"
-                  src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                  src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                   alt="Star Icon"
                   className="button-icon"
                 />
@@ -188,26 +190,15 @@ export function SaasServiceWhyUsSection() {
             <div className="why-us-wrap sec-why-us__cube-card">
               <div className="alg-hero-video-wrap background-video-wrap why-us-video-wrap">
                 <div className="alg-hero-video background-video w-background-video w-background-video-atom">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <ViewportVideo
+                    sources={cardVideoSources}
                     data-object-fit="cover"
+                    poster="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145856/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001"
                     style={{
                       backgroundImage:
-                        'url("/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg")',
+                        'url("https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145856/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001")',
                     }}
-                  >
-                    <source
-                      src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
-                      type="video/mp4"
-                    />
-                    <source
-                      src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
-                      type="video/webm"
-                    />
-                  </video>
+                  />
                 </div>
                 <div className="alg-hero-video-overlay video-overlay"></div>
               </div>
@@ -216,7 +207,7 @@ export function SaasServiceWhyUsSection() {
                 {/* Top content: Logo Centered */}
                 <div className="why-us-top-bar">
                   <img
-                    src="/assets/logo-white-01.png"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:best/v1792145914/algofort/assets/logo-white-01.png"
                     alt="Algofort Logo"
                     className="why-us-logo"
                   />
@@ -229,42 +220,42 @@ export function SaasServiceWhyUsSection() {
                       <div ref={cubeRef} className="_3d-cube-box">
                         <div className="_3d-cube-face _3d-cube-front">
                           <img
-                            src="/assets/services/saas-app/saas-cube-1.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146012/algofort/assets/services/saas-app/saas-cube-1"
                             alt="SaaS App Front"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-right">
                           <img
-                            src="/assets/services/saas-app/saas-cube-2.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146012/algofort/assets/services/saas-app/saas-cube-2"
                             alt="SaaS App Right"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-back">
                           <img
-                            src="/assets/services/saas-app/saas-cube-3.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146013/algofort/assets/services/saas-app/saas-cube-3"
                             alt="SaaS App Back"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-left">
                           <img
-                            src="/assets/services/saas-app/saas-cube-4.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146013/algofort/assets/services/saas-app/saas-cube-4"
                             alt="SaaS App Left"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-top">
                           <img
-                            src="/assets/services/saas-app/saas-cube-5.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146013/algofort/assets/services/saas-app/saas-cube-5"
                             alt="SaaS App Top"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-bottom">
                           <img
-                            src="/assets/services/saas-app/saas-cube-6.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146013/algofort/assets/services/saas-app/saas-cube-6"
                             alt="SaaS App Bottom"
                             loading="lazy"
                           />
@@ -302,7 +293,7 @@ export function SaasServiceWhyUsSection() {
                     </p>
                     <img
                       loading="lazy"
-                      src="/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
+                      src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145875/algofort/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
                       alt="Asterisk Icon"
                       className="stat-icon"
                     />
@@ -328,7 +319,7 @@ export function SaasServiceWhyUsSection() {
                     </p>
                     <img
                       loading="lazy"
-                      src="/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
+                      src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145875/algofort/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
                       alt="Asterisk Icon"
                       className="stat-icon"
                     />

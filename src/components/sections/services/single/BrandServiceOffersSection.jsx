@@ -12,35 +12,35 @@ const offersData = [
     id: '01',
     num: '(01)',
     title: 'Logo Design',
-    image: '/assets/services/brand-identity/brand-6.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146002/algofort/assets/services/brand-identity/brand-6',
     text: 'Distinctive, memorable logo marks and versatile symbol systems crafted with architectural precision to capture your company vision and market leadership.',
   },
   {
     id: '02',
     num: '(02)',
     title: 'Brand Strategy',
-    image: '/assets/services/brand-identity/brand-strategy.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146007/algofort/assets/services/brand-identity/brand-strategy',
     text: 'Research-backed brand positioning, market differentiation, audience personas, and messaging frameworks that create lasting emotional connections.',
   },
   {
     id: '03',
     num: '(03)',
     title: 'Brand Guidelines',
-    image: '/assets/services/brand-identity/brand-2.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146000/algofort/assets/services/brand-identity/brand-2',
     text: 'Exhaustive brand manuals documenting logo construction, clear-space rules, typography standards, curated color palettes, and digital asset usage.',
   },
   {
     id: '04',
     num: '(04)',
     title: 'Business Card Design',
-    image: '/assets/services/brand-identity/brand-business-cards.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146004/algofort/assets/services/brand-identity/brand-business-cards',
     text: 'Tactile corporate stationery and premium business cards finished with custom typography, blind debossing, foil stamping, and luxurious paper stocks.',
   },
   {
     id: '05',
     num: '(05)',
     title: 'Packaging Design',
-    image: '/assets/services/brand-identity/brand-4.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146001/algofort/assets/services/brand-identity/brand-4',
     text: 'High-end structural packaging, bespoke unboxing experiences, retail collateral, and sustainable print solutions engineered to elevate brand prestige.',
   },
 ];
@@ -257,7 +257,7 @@ export const BrandServiceOffersSection = () => {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />

@@ -13,7 +13,7 @@ const servicesData = [
     num: '(01)',
     title: 'Web Development',
     link: '/services/web-development',
-    image: '/assets/services/service-web-development.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146016/algofort/assets/services/service-web-development',
     tags: [
       'WordPress',
       'Shopify',
@@ -27,7 +27,7 @@ const servicesData = [
     num: '(02)',
     title: 'Brand Identity',
     link: '/services/brand-identity',
-    image: '/assets/services/service-brand-identity.webp',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146014/algofort/assets/services/service-brand-identity',
     tags: [
       'Logo Design',
       'Brand Strategy',
@@ -41,7 +41,7 @@ const servicesData = [
     num: '(03)',
     title: 'SaaS App Development',
     link: '/services/saas-app-development',
-    image: '/assets/services/service-saas-app.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146015/algofort/assets/services/service-saas-app',
     tags: [
       'Custom SaaS',
       'CRM Software',
@@ -55,7 +55,7 @@ const servicesData = [
     num: '(04)',
     title: 'Mobile App Development',
     link: '/services/mobile-app-development',
-    image: '/assets/services/service-mobile-app.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146015/algofort/assets/services/service-mobile-app',
     tags: [
       'Android App',
       'iOS App',
@@ -278,7 +278,7 @@ export const ServicesSection = () => {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />

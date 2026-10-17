@@ -4,7 +4,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
+import { RecaptchaField } from '../common/RecaptchaField';
 import { initTitleAnimation } from '../../utils/titleAnimation';
+import { submitContactForm } from '../../utils/submitContactForm';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(useGSAP);
@@ -31,6 +33,10 @@ export function ContactSection() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+  const [recaptchaResetKey, setRecaptchaResetKey] = useState(0);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -79,9 +85,28 @@ export function ContactSection() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (isSubmitting) return;
+
+    const website = e.currentTarget.elements.namedItem('website')?.value || '';
+    if (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && !recaptchaToken) {
+      setSubmitError('Please complete the security check and try again.');
+      return;
+    }
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      await submitContactForm({ ...formData, website, recaptchaToken }, 'contact');
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(error.message || 'Your message could not be sent. Please try again.');
+      setRecaptchaToken('');
+      setRecaptchaResetKey((key) => key + 1);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -129,7 +154,7 @@ export function ContactSection() {
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">OUR STUDIO ADDRESS</span>
                     <span className="alg-contact-info-value">
-                      84-J Ghazali Rd, Block 2 PECHS, Karachi
+                      84j Ghazali Rd, Block 2 PECHS, Karachi
                     </span>
                   </div>
                 </div>
@@ -149,7 +174,7 @@ export function ContactSection() {
                 </a>
 
                 {/* 3. Contact Us Via Whatsapp */}
-                <a href="https://wa.me/923337198686" target="_blank" rel="noopener noreferrer" className="alg-contact-info-item" aria-label="Contact Us Via Whatsapp">
+                <a data-whatsapp-link href="https://wa.me/923337198686" target="_blank" rel="noopener noreferrer" className="alg-contact-info-item" aria-label="Contact Us Via Whatsapp">
                   <div className="alg-contact-info-icon-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -157,13 +182,13 @@ export function ContactSection() {
                   </div>
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">CONTACT US VIA WHATSAPP</span>
-                    <span className="alg-contact-info-value">+92 333 7198686</span>
+                    <span data-whatsapp-number className="alg-contact-info-value">+92 333 7198686</span>
                     <span className="alg-contact-info-timing">Hours: 7:00 PM – 7:00 AM</span>
                   </div>
                 </a>
 
                 {/* 4. Contact info */}
-                <a href="tel:+17708847207" className="alg-contact-info-item" aria-label="Contact info">
+                <a data-site-phone href="tel:+923337198686" className="alg-contact-info-item" aria-label="Contact info">
                   <div className="alg-contact-info-icon-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -171,7 +196,7 @@ export function ContactSection() {
                   </div>
                   <div className="alg-contact-info-text">
                     <span className="alg-contact-info-label">CONTACT INFO</span>
-                    <span className="alg-contact-info-value">+1 (770) 884-7207</span>
+                    <span className="alg-contact-info-value">+92 333 7198686</span>
                     <span className="alg-contact-info-timing">Hours: 7:00 PM – 7:00 AM</span>
                   </div>
                 </a>
@@ -196,7 +221,8 @@ export function ContactSection() {
                     </p>
                   </div>
                 ) : (
-                  <form className="alg-contact-form" onSubmit={handleSubmit}>
+                  <form className="alg-contact-form" onSubmit={handleSubmit} aria-busy={isSubmitting}>
+                    <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }} />
                     
                     {/* Row 1: Full Name & Phone Number (two-cols) */}
                     <div className="alg-contact-form-row two-cols">
@@ -209,6 +235,7 @@ export function ContactSection() {
                           placeholder="Enter Your Full Name"
                           value={formData.fullName}
                           onChange={handleChange}
+                          maxLength={120}
                           required
                         />
                       </div>
@@ -221,6 +248,7 @@ export function ContactSection() {
                           placeholder="Enter Your Phone Number"
                           value={formData.phone}
                           onChange={handleChange}
+                          maxLength={40}
                           required
                         />
                       </div>
@@ -236,6 +264,7 @@ export function ContactSection() {
                         placeholder="Enter Your Email Address"
                         value={formData.email}
                         onChange={handleChange}
+                        maxLength={254}
                         required
                       />
                     </div>
@@ -269,23 +298,28 @@ export function ContactSection() {
                         placeholder="Type Your Message"
                         value={formData.message}
                         onChange={handleChange}
+                        maxLength={5000}
                         required
                       ></textarea>
                     </div>
 
+                    <RecaptchaField onTokenChange={setRecaptchaToken} resetKey={recaptchaResetKey} />
+                    {submitError && <p role="alert" style={{ color: '#b42318', margin: 0 }}>{submitError}</p>}
+
                     {/* Row 5: Submit Button */}
                     <button
                       type="submit"
+                      disabled={isSubmitting}
                       className="alg-cta-button main-button alternate-button w-inline-block"
                       style={{ border: 'none', cursor: 'pointer', alignSelf: 'flex-start', marginTop: '0.5rem' }}
                     >
                       <div className="main-button-block">
-                        <div className="button-text alternate-text">Submit</div>
-                        <div className="button-text alternate-text">Submit</div>
+                        <div className="button-text alternate-text">{isSubmitting ? 'Sending...' : 'Submit'}</div>
+                        <div className="button-text alternate-text">{isSubmitting ? 'Sending...' : 'Submit'}</div>
                       </div>
                       <img
                         loading="lazy"
-                        src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                        src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                         alt="Star Icon"
                         className="button-icon"
                       />

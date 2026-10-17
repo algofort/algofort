@@ -7,10 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
 
-import {
-  portfolioCategories,
-  portfolioProjects,
-} from '../../../data/portfolioProjectsData';
+import { usePortfolioData } from '../../../lib/usePortfolioData';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -24,9 +21,11 @@ const statCounters = [
 ];
 
 export function PortfolioShowcaseSection() {
+  const { categories: portfolioCategories, projects: portfolioProjects } = usePortfolioData();
   const sectionRef = useRef(null);
   const gridRef = useRef(null);
-  const [activeFilter, setActiveFilter] = useState('animation');
+  const [requestedFilter, setActiveFilter] = useState('animation');
+  const activeFilter = portfolioCategories.some(category => category.id === requestedFilter) ? requestedFilter : portfolioCategories[0]?.id || '';
   const hasAnimatedInitialRef = useRef(false);
 
   // Rapid 1 -> 2 -> 3 sequential cascade animation function
@@ -120,6 +119,22 @@ export function PortfolioShowcaseSection() {
     };
   }, []);
 
+  // Preload all portfolio images into browser cache so tab switching is instantaneous
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const timer = setTimeout(() => {
+      portfolioProjects.forEach((proj) => {
+        if (proj.image) {
+          const img = new window.Image();
+          img.src = proj.image;
+        }
+      });
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [portfolioProjects]);
+
   // Instant filter change for zero perceived latency
   const handleFilterChange = (categoryId) => {
     if (categoryId === activeFilter) return;
@@ -132,7 +147,7 @@ export function PortfolioShowcaseSection() {
     if (hasAnimatedInitialRef.current) {
       animateCards();
     }
-  }, [activeFilter]);
+  }, [activeFilter, portfolioProjects]);
 
   const filteredProjects = portfolioProjects.filter((item) => {
     return item.category.includes(activeFilter);
@@ -194,7 +209,7 @@ export function PortfolioShowcaseSection() {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />
@@ -205,7 +220,7 @@ export function PortfolioShowcaseSection() {
 
           {/* 2-Column Showcase Grid */}
           <div ref={gridRef} className="sec-portfolio__grid">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <div key={project.id} className="sec-portfolio__card">
                 
                 {/* Image Container with Hover Overlay */}
@@ -213,7 +228,8 @@ export function PortfolioShowcaseSection() {
                   <img
                     src={project.image}
                     alt={`${project.title} Project Showcase`}
-                    loading="lazy"
+                    loading={index < 8 ? 'eager' : 'lazy'}
+                    fetchPriority={index < 4 ? 'high' : 'auto'}
                     decoding="async"
                     className="sec-portfolio__image"
                   />
@@ -236,7 +252,7 @@ export function PortfolioShowcaseSection() {
                           </div>
                           <img
                             loading="lazy"
-                            src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                             alt="Star Icon"
                             className="button-icon"
                           />
@@ -253,7 +269,7 @@ export function PortfolioShowcaseSection() {
                           </div>
                           <img
                             loading="lazy"
-                            src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                             alt="Star Icon"
                             className="button-icon"
                           />

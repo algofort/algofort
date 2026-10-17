@@ -12,35 +12,35 @@ const offersData = [
     id: '01',
     num: '(01)',
     title: 'WordPress',
-    image: '/assets/services/web-development/web-wordpress.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146021/algofort/assets/services/web-development/web-wordpress',
     text: 'Custom WordPress websites built with scalable themes, clean block architecture, fast load times, and intuitive editorial management workflows.',
   },
   {
     id: '02',
     num: '(02)',
     title: 'Shopify',
-    image: '/assets/services/web-development/web-shopify.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146019/algofort/assets/services/web-development/web-shopify',
     text: 'High-converting Shopify storefronts engineered with bespoke design systems, conversion-driven checkout flows, and seamless third-party app integrations.',
   },
   {
     id: '03',
     num: '(03)',
     title: 'React.js',
-    image: '/assets/services/web-development/web-react.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146019/algofort/assets/services/web-development/web-react',
     text: 'High-performance interactive web applications developed with modern React architecture, fluid state transitions, and responsive component libraries.',
   },
   {
     id: '04',
     num: '(04)',
     title: 'Custom Website',
-    image: '/assets/services/web-development/web-1.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146016/algofort/assets/services/web-development/web-1',
     text: 'Tailored digital experiences handcrafted from the ground up with semantic code, bespoke micro-interactions, SEO foundations, and robust scalability.',
   },
   {
     id: '05',
     num: '(05)',
     title: 'WooCommerce',
-    image: '/assets/services/web-development/web-woocommerce.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146019/algofort/assets/services/web-development/web-woocommerce',
     text: 'Flexible e-commerce solutions integrated into WordPress, featuring frictionless checkout funnels, custom product catalogs, and secure global payment gateways.',
   },
 ];
@@ -257,7 +257,7 @@ export const WebServiceOffersSection = () => {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />

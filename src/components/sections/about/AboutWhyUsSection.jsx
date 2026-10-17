@@ -5,6 +5,8 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { ViewportVideo } from '../../common/ViewportVideo';
+import { cardVideoSources } from '../../../utils/videoAssets';
 
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
@@ -84,7 +86,11 @@ export function AboutWhyUsSection() {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
       setTimeout(() => {
         if (typeof window !== 'undefined') {
-          ScrollTrigger.refresh();
+          try {
+            ScrollTrigger.refresh();
+          } catch {
+            // ignore
+          }
         }
       }, 150);
     }
@@ -154,7 +160,7 @@ export function AboutWhyUsSection() {
                 <SubtitleMarquee
                   text="Why Choose Us — "
                   variant="dark"
-                  icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                  icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-why-us__title">
@@ -171,7 +177,7 @@ export function AboutWhyUsSection() {
                 </div>
                 <img
                   loading="lazy"
-                  src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                  src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                   alt="Star Icon"
                   className="button-icon"
                 />
@@ -188,26 +194,15 @@ export function AboutWhyUsSection() {
             <div className="why-us-wrap sec-why-us__cube-card">
               <div className="alg-hero-video-wrap background-video-wrap why-us-video-wrap">
                 <div className="alg-hero-video background-video w-background-video w-background-video-atom">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <ViewportVideo
+                    sources={cardVideoSources}
                     data-object-fit="cover"
+                    poster="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145856/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001"
                     style={{
                       backgroundImage:
-                        'url("/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg")',
+                        'url("https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145856/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001")',
                     }}
-                  >
-                    <source
-                      src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
-                      type="video/mp4"
-                    />
-                    <source
-                      src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
-                      type="video/webm"
-                    />
-                  </video>
+                  />
                 </div>
                 <div className="alg-hero-video-overlay video-overlay"></div>
               </div>
@@ -216,7 +211,7 @@ export function AboutWhyUsSection() {
                 {/* Top content: Logo Centered */}
                 <div className="why-us-top-bar">
                   <img
-                    src="/assets/logo-white-01.png"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:best/v1792145914/algofort/assets/logo-white-01.png"
                     alt="Algofort Logo"
                     className="why-us-logo"
                   />
@@ -229,42 +224,42 @@ export function AboutWhyUsSection() {
                       <div ref={cubeRef} className="_3d-cube-box">
                         <div className="_3d-cube-face _3d-cube-front">
                           <img
-                            src="/assets/68ee90f82cb86f84f6e79af4_Frame_202.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145870/algofort/assets/68ee90f82cb86f84f6e79af4_Frame_202"
                             alt="Why Us Front"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-right">
                           <img
-                            src="/assets/68ee90f8393fe398b8270db3_Frame_204.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145870/algofort/assets/68ee90f8393fe398b8270db3_Frame_204"
                             alt="Why Us Right"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-back">
                           <img
-                            src="/assets/68ee90f80b05eb5159a3717d_Frame_2012.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145864/algofort/assets/68ee90f80b05eb5159a3717d_Frame_2012"
                             alt="Why Us Back"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-left">
                           <img
-                            src="/assets/68ee90f8ce3669d6703033cf_Frame_2014.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145872/algofort/assets/68ee90f8ce3669d6703033cf_Frame_2014"
                             alt="Why Us Left"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-top">
                           <img
-                            src="/assets/68ee90f83da8227728cad6fd_Frame_2015.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145870/algofort/assets/68ee90f83da8227728cad6fd_Frame_2015"
                             alt="Why Us Top"
                             loading="lazy"
                           />
                         </div>
                         <div className="_3d-cube-face _3d-cube-bottom">
                           <img
-                            src="/assets/68ee90f82cb86f84f6e79af4_Frame_202.jpg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145870/algofort/assets/68ee90f82cb86f84f6e79af4_Frame_202"
                             alt="Why Us Bottom"
                             loading="lazy"
                           />
@@ -302,7 +297,7 @@ export function AboutWhyUsSection() {
                     </p>
                     <img
                       loading="lazy"
-                      src="/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
+                      src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145875/algofort/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
                       alt="Asterisk Icon"
                       className="stat-icon"
                     />
@@ -328,7 +323,7 @@ export function AboutWhyUsSection() {
                     </p>
                     <img
                       loading="lazy"
-                      src="/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
+                      src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145875/algofort/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
                       alt="Asterisk Icon"
                       className="stat-icon"
                     />

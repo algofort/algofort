@@ -1498,3 +1498,51 @@ body,
   color: #ffffff !important;
 }
 
+/* ==========================================================================
+   Universal FOUC Prevention & Paragraph Letter Fade Styling
+   Prevents text, headings, badges, and buttons from flashing on initial load
+   before GSAP / SplitType initializes across all pages.
+   ========================================================================== */
+p.alg-text:not(.scrub_letter *):not(.scrub-headline *):not(details *):not(.cb-faq-item *):not(.fact-cards-wrapper *):not(.sec-privacy *):not(.sec-terms *),
+.sec-about-team__join-text,
+.alg-contact-desc {
+  opacity: 0;
+  animation: algFallbackReveal 0.01s 2.5s forwards;
+}
+
+p.alg-text.split-ready,
+.sec-about-team__join-text.split-ready,
+.alg-contact-desc.split-ready {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+@keyframes algFallbackReveal {
+  to {
+    opacity: 1;
+  }
+}
+
+p.alg-text .word,
+.sec-about-team__join-text .word,
+.alg-contact-desc .word {
+  display: inline-block;
+}
+
+p.alg-text .char,
+.sec-about-team__join-text .char,
+.alg-contact-desc .char {
+  display: inline-block;
+  will-change: opacity;
+}
+
+/* Headings FOUC Prevention: hide until splitTextIntoChars sets data-split-done */
+.heading-style-h2:not([data-split-done]):not(#sec-banner *):not(.sec-banner *):not(.alg-hero *):not(.navbar *):not(.footer *):not(.step-process-section *):not(.sec-privacy *):not(.sec-terms *),
+.section-title:not([data-split-done]):not(#sec-banner *):not(.sec-banner *):not(.alg-hero *):not(.navbar *):not(.footer *):not(.step-process-section *):not(.sec-privacy *):not(.sec-terms *),
+.alg-contact-title:not([data-split-done]),
+.sec-portfolio-intro__title:not([data-split-done]) {
+  opacity: 0;
+  animation: algFallbackReveal 0.01s 2.5s forwards;
+}
+
+

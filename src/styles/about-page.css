@@ -1,3 +1,45 @@
+/* About Page Paragraph Letter Fade Animation - Zero Layout Shift */
+.page-about p.alg-text,
+.page-about .sec-about-team__join-text {
+  opacity: 0;
+  animation: aboutFallbackReveal 0.01s 2.5s forwards;
+}
+
+.page-about p.alg-text.split-ready,
+.page-about .sec-about-team__join-text.split-ready {
+  opacity: 1;
+  animation: none;
+}
+
+/* Prevent heading flash on load before character split */
+.page-about .heading-style-h2:not([data-split-done]),
+.page-about .section-title:not([data-split-done]),
+.page-about .sec-about-values__subtitle:not([data-split-done]),
+.sec-about-intro .sec-about__badge,
+.sec-about-intro .sec-about-intro__buttons {
+  opacity: 0;
+  animation: aboutFallbackReveal 0.01s 2.5s forwards;
+}
+
+@keyframes aboutFallbackReveal {
+  to {
+    opacity: 1;
+  }
+}
+
+.page-about p.alg-text .word,
+.page-about .sec-about-team__join-text .word {
+  display: inline-block;
+}
+
+.page-about p.alg-text .char,
+.page-about .sec-about-team__join-text .char {
+  display: inline-block;
+  will-change: opacity;
+}
+
+
+
 /* ==========================================================================
    About Page Stylesheet - Algofort Agency
    Matches https://unusually.webflow.io/about
@@ -278,6 +320,7 @@
   }
 }
 
+.sec-about-intro .sec-about-intro__title,
 .sec-about-intro .sec-about-intro__scrub .scrub-headline {
   font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
   font-size: clamp(2.25rem, 3.85vw, 3.75rem) !important;

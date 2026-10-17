@@ -4,6 +4,8 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ViewportVideo } from './ViewportVideo';
+import { pageVideoSources } from '../../utils/videoAssets';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(useGSAP);
@@ -203,26 +205,15 @@ export function PageBanner({
       {/* Video Background - directly positioned as absolute card backdrop */}
       <div className="alg-hero-video-wrap background-video-wrap sec-banner__video-wrap">
         <div className="alg-hero-video background-video w-background-video w-background-video-atom">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
+          <ViewportVideo
+            sources={pageVideoSources}
             data-object-fit="cover"
+            poster="https://res.cloudinary.com/vfsp1egd/image/upload/w_1920,c_limit,q_auto:best,f_auto/v1792145856/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001"
             style={{
               backgroundImage:
-                'url("/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001.jpg")',
+                'url("https://res.cloudinary.com/vfsp1egd/image/upload/w_1920,c_limit,q_auto:best,f_auto/v1792145856/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-poster-00001")',
             }}
-          >
-            <source
-              src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.mp4"
-              type="video/mp4"
-            />
-            <source
-              src="/assets/68ee74b7102caefef6ce7890_2F68f23d0b14d2158ab1fa8dea_14471915_3840_2160_30fps_20_281_29-transcode.webm"
-              type="video/webm"
-            />
-          </video>
+          />
         </div>
         <div className="alg-hero-video-overlay video-overlay" />
       </div>

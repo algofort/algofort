@@ -49,7 +49,11 @@ export function AboutAwardsSection() {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
       setTimeout(() => {
         if (typeof window !== 'undefined') {
-          ScrollTrigger.refresh();
+          try {
+            ScrollTrigger.refresh();
+          } catch {
+            // ignore
+          }
         }
       }, 150);
     }
@@ -71,7 +75,7 @@ export function AboutAwardsSection() {
                 <SubtitleMarquee
                   text="Recognitions & Honors — "
                   variant="dark"
-                  icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                  icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-about-awards__title">
@@ -88,7 +92,7 @@ export function AboutAwardsSection() {
                 </div>
                 <img
                   loading="lazy"
-                  src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                  src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                   alt="Star Icon"
                   className="button-icon"
                 />

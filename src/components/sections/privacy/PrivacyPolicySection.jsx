@@ -109,7 +109,7 @@ export function PrivacyPolicySection() {
               <SubtitleMarquee
                 text="Legal & Compliance — "
                 variant="dark"
-                icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
               />
             </div>
 
@@ -119,7 +119,7 @@ export function PrivacyPolicySection() {
             </span>
 
             <div className="sec-privacy__meta-bar">
-              <span className="sec-privacy__meta-date">Last Updated: October 5, 2026</span>
+              <span className="sec-privacy__meta-date">Last Updated: October 17, 2026</span>
               <span className="sec-privacy__meta-pill">
                 <span className="sec-privacy__meta-dot"></span>
                 Active & In Effect
@@ -282,6 +282,12 @@ export function PrivacyPolicySection() {
                 <div className="sec-privacy__body">
                   <p className="alg-text sec-privacy__p">
                     When you submit information through an Algofort contact form, the information you provide may be used to respond to your inquiry or discuss your requested service.
+                  </p>
+                  <p className="alg-text sec-privacy__p">
+                    If you use our AI support chat, your message and recent conversation context are sent through our server to the configured AI provider (currently Groq) to generate a reply. We do not save chat transcripts in our database or browser storage. Conversation history stays in the current page and clears when you leave or reload it. Replies are automated and may be inaccurate; contact our team to confirm project details. Please do not share sensitive information in the chat.
+                  </p>
+                  <p className="alg-text sec-privacy__p">
+                    To limit abuse, we store request counts and a keyed hash derived from the visitor’s network address. These records do not contain chat messages. The AI provider processes messages according to its own privacy practices.
                   </p>
                   <div className="sec-privacy__callout">
                     <p className="sec-privacy__callout-p">
@@ -545,8 +551,8 @@ export function PrivacyPolicySection() {
                       <div className="sec-privacy__contact-box-label">Offline Studio</div>
                       <p className="sec-privacy__contact-box-val">
                         Algofort Studio<br />
-                        412 Melrose Avenue, Suite 210<br />
-                        Los Angeles, CA 90036, USA
+                        84j Ghazali Rd, Block 2 PECHS<br />
+                        Karachi, Pakistan
                       </p>
                     </div>
 
@@ -557,7 +563,7 @@ export function PrivacyPolicySection() {
                         <a href="mailto:hello@algofort.com">hello@algofort.com</a>
                         <br />
                         Phone:{' '}
-                        <a href="tel:+12135555555">+1 (213) 555-5555</a>
+                        <a data-site-phone href="tel:+923337198686">+92 333 7198686</a>
                       </p>
                     </div>
                   </div>
@@ -574,7 +580,7 @@ export function PrivacyPolicySection() {
                       </div>
                       <img
                         loading="lazy"
-                        src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                        src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                         alt="Star Icon"
                         className="button-icon"
                       />

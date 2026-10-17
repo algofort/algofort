@@ -12,35 +12,35 @@ const offersData = [
     id: '01',
     num: '(01)',
     title: 'Android App',
-    image: '/assets/services/mobile-app/mobile-android.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146008/algofort/assets/services/mobile-app/mobile-android',
     text: 'Native Android applications engineered with Kotlin and Jetpack Compose, delivering fluid 120Hz performance, Material 3 design, and broad device adaptability.',
   },
   {
     id: '02',
     num: '(02)',
     title: 'iOS App',
-    image: '/assets/services/mobile-app/mobile-1.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146005/algofort/assets/services/mobile-app/mobile-1',
     text: 'Pixel-perfect native iOS applications built with Swift and SwiftUI, adhering to Apple Human Interface Guidelines with seamless hardware integration.',
   },
   {
     id: '03',
     num: '(03)',
     title: 'Cross Platform App',
-    image: '/assets/services/mobile-app/mobile-3.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146005/algofort/assets/services/mobile-app/mobile-3',
     text: 'Unified mobile applications built with Flutter and React Native, achieving native execution speeds, shared logic, and visual parity across all platforms.',
   },
   {
     id: '04',
     num: '(04)',
     title: 'Mobile UI/UX Design',
-    image: '/assets/services/mobile-app/mobile-uiux.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146009/algofort/assets/services/mobile-app/mobile-uiux',
     text: 'User-first mobile interfaces, frictionless gesture navigation, tactile micro-interactions, and design systems crafted for effortless one-handed use.',
   },
   {
     id: '05',
     num: '(05)',
     title: 'App Maintenance & Support',
-    image: '/assets/services/mobile-app/mobile-4.jpg',
+    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146006/algofort/assets/services/mobile-app/mobile-4',
     text: 'Proactive version maintenance, OS update compatibility, crash telemetry monitoring, continuous performance optimization, and App Store compliance.',
   },
 ];
@@ -257,7 +257,7 @@ export const MobileServiceOffersSection = () => {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />

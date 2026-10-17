@@ -1,0 +1,123 @@
+:root {
+  --heading-font: 'DM Sans', Arial, sans-serif;
+  --section-heading-size: clamp(65px, 6.5vw, 90px);
+  --section-heading-weight: 500;
+  --section-heading-line-height: 1.02;
+  --section-heading-letter-spacing: -.07em;
+  --section-heading-style: normal;
+  --card-heading-size: clamp(24px, 2.35vw, 32px);
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); }
+
+/* Global H2 Headings (Same font, size, weight, line-height, letter-spacing everywhere) */
+h2,
+h2.section-heading,
+.section-heading,
+.services-title,
+.process-title,
+.work-heading h2,
+.trust-title,
+.testimonials-heading h2,
+.estimate-copy h2,
+.who-statement {
+  font-family: var(--heading-font);
+  font-size: var(--section-heading-size);
+  font-weight: var(--section-heading-weight);
+  font-style: var(--section-heading-style);
+  line-height: var(--section-heading-line-height);
+  letter-spacing: var(--section-heading-letter-spacing);
+}
+
+/* Heading Colors: White on dark sections, #0a0b0d on light sections */
+.services .services-title,
+.process .process-title {
+  color: #ffffff;
+}
+
+.work-heading h2,
+.trust-title,
+.testimonials-heading h2,
+.estimate-copy h2 {
+  color: #0a0b0d;
+}
+
+.who-word.is-revealed {
+  color: #0a0b0d;
+}
+
+h3.card-heading,
+.service-card .service-name {
+  font-family: var(--heading-font);
+  font-size: var(--card-heading-size);
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: -.045em;
+}
+.card-heading em { font: inherit; }
+
+/* ==========================================================================
+   Heading Entrance Animation (Split character reveal matching algofort-ten.vercel.app)
+   ========================================================================== */
+.title-reveal .word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: inherit;
+  padding-right: 0.14em;
+  margin-right: -0.14em;
+  padding-left: 0.02em;
+  margin-left: -0.02em;
+}
+
+.title-reveal .word-wrap > .char:last-child {
+  letter-spacing: 0;
+}
+
+.title-reveal .char {
+  display: inline-block;
+  will-change: transform, opacity;
+  transform: translateY(115%);
+  opacity: 0;
+  transition: transform 0.75s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-delay: calc(var(--char-index, 0) * 0.02s);
+}
+
+.title-reveal.is-title-visible .char,
+.is-visible.title-reveal .char,
+.is-visible .title-reveal .char {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-reveal .char {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
+/* Give the longer introduction room when its heading scale changes. */
+.who-copy-track { height: auto; min-height: 800px; }
+.trust-left-grid { grid-template-rows: 385px 310px; }
+
+@media (max-width: 900px) {
+  :root {
+    --section-heading-size: clamp(54px, 7.5vw, 75px);
+  }
+  .who-copy-track { min-height: 760px; }
+}
+@media (max-width: 800px) {
+  .trust-left-grid { grid-template-rows: 370px 310px; }
+}
+@media (max-width: 620px) {
+  :root {
+    --section-heading-size: clamp(40px, 10.8vw, 68px);
+    --card-heading-size: 24px;
+  }
+  .who-copy-track { min-height: 700px; }
+  .trust-left-grid { grid-template-rows: auto; }
+  .trust-card-tools, .trust-card-future { min-height: 290px; }
+}

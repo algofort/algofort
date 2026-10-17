@@ -11,21 +11,21 @@ export function PortfolioHeroSection() {
   const sectionRef = useRef(null);
 
   const row1 = [
-    { src: '/assets/portfolio/rectangle-1.webp', alt: 'Project 1' },
-    { src: '/assets/portfolio/rectangle-2.webp', alt: 'Project 2' },
-    { src: '/assets/portfolio/rectangle-3.webp', alt: 'Project 3' },
-    { src: '/assets/portfolio/rectangle-4.webp', alt: 'Project 4' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145924/algofort/assets/portfolio/rectangle-1', alt: 'Project 1' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145926/algofort/assets/portfolio/rectangle-2', alt: 'Project 2' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145926/algofort/assets/portfolio/rectangle-3', alt: 'Project 3' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145927/algofort/assets/portfolio/rectangle-4', alt: 'Project 4' },
   ];
 
   const row2 = [
-    { src: '/assets/portfolio/rectangle-9.webp', alt: 'Project 9' },
-    { src: '/assets/portfolio/rectangle-5.webp', alt: 'Project 5' },
-    { src: '/assets/portfolio/rectangle-6.webp', alt: 'Project 6' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145928/algofort/assets/portfolio/rectangle-9', alt: 'Project 9' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145927/algofort/assets/portfolio/rectangle-5', alt: 'Project 5' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145927/algofort/assets/portfolio/rectangle-6', alt: 'Project 6' },
   ];
 
   const row3 = [
-    { src: '/assets/portfolio/rectangle-8.webp', alt: 'Project 8' },
-    { src: '/assets/portfolio/rectangle-7.webp', alt: 'Project 7' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145928/algofort/assets/portfolio/rectangle-8', alt: 'Project 8' },
+    { src: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_600,c_limit,q_70,f_auto/v1792145927/algofort/assets/portfolio/rectangle-7', alt: 'Project 7' },
   ];
 
   useEffect(() => {
@@ -97,7 +97,7 @@ export function PortfolioHeroSection() {
                 <SubtitleMarquee
                   text="Our Portfolio ✦ "
                   variant="dark"
-                  icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                  icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                 />
               </div>
 
@@ -120,7 +120,7 @@ export function PortfolioHeroSection() {
                   </div>
                   <img
                     loading="lazy"
-                    src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                     alt="Star Icon"
                     className="button-icon"
                   />
@@ -133,7 +133,7 @@ export function PortfolioHeroSection() {
               <div className="sec-portfolio-hero__starburst" aria-hidden="true">
                 <div className="sec-portfolio-hero__starburst-bg">
                   <Image
-                    src="/assets/portfolio/flow-bg.svg"
+                    src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145922/algofort/assets/portfolio/flow-bg.svg"
                     alt=""
                     width={320}
                     height={320}

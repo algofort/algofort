@@ -1,0 +1,394 @@
+/* ==========================================================================
+   Entrance Popup Component (.entrance-popup)
+   Appears once per visitor based on cookies & localStorage with smooth animations
+   ========================================================================== */
+
+body.popup-locked {
+  overflow: hidden;
+  touch-action: none;
+}
+
+.entrance-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 3vw, 36px);
+  background: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.entrance-popup-backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.entrance-popup-modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  width: 100%;
+  max-width: 850px;
+  min-height: auto;
+  max-height: min(94vh, 700px);
+  background: #f7f7f5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px -16px rgba(0, 0, 0, 0.4);
+  transform: scale(0.93) translateY(20px);
+  opacity: 0;
+  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.entrance-popup-backdrop.is-visible .entrance-popup-modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Close Button (Anchored to Modal) */
+.entrance-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 25;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  color: #151616;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, transform 0.25s;
+}
+
+.entrance-popup-close:hover,
+.entrance-popup-close:focus-visible {
+  background: #050505;
+  color: #ffffff;
+  transform: rotate(90deg);
+  outline: none;
+}
+
+.entrance-popup-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Left Media Column - Guaranteed Cover without stretching modal */
+.entrance-popup-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: #0f1011;
+  overflow: hidden;
+}
+
+.entrance-popup-media picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.entrance-popup-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Right Content Column - Pro Grid vertical centering */
+.entrance-popup-content {
+  display: grid;
+  align-content: center;
+  min-height: 0;
+  padding: 36px 40px;
+  overflow-y: auto;
+  scrollbar-color: #050505 transparent;
+  scrollbar-width: thin;
+}
+
+.entrance-popup-content-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+/* Kicker & Heading - Restored to original design */
+.entrance-popup-kicker {
+  margin: 0 0 6px;
+  color: #666666;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.entrance-popup-title {
+  margin: 0 0 6px;
+  color: #0a0b0d;
+  font-family: var(--heading-font);
+  font-size: clamp(23px, 2.3vw, 28px);
+  font-weight: var(--section-heading-weight, 500);
+  line-height: 1.12;
+  letter-spacing: -0.05em;
+}
+
+.entrance-popup-lead {
+  margin: 0 0 16px;
+  color: #676b67;
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  max-width: 440px;
+}
+
+/* Form Styles - Strictly following estimate form */
+.entrance-popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.entrance-popup-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px 18px;
+}
+
+.entrance-popup-field {
+  display: block;
+  min-width: 0;
+  color: #555a54;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.entrance-popup-optional {
+  color: #888d84;
+  font-weight: 400;
+}
+
+.entrance-popup-field input,
+.entrance-popup-field textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-top: 3px;
+  padding: 5px 0 6px;
+  border: 0;
+  border-bottom: 1px solid #bfc4b8;
+  border-radius: 0;
+  background: transparent;
+  color: #151616;
+  font: 400 15px/1.4 'DM Sans', Arial, sans-serif;
+  transition: border-color 0.2s;
+}
+
+.entrance-popup-field input::placeholder,
+.entrance-popup-field textarea::placeholder {
+  color: #858b80;
+  opacity: 1;
+}
+
+.entrance-popup-field :is(input, textarea):focus,
+.entrance-popup-field :is(input, textarea):focus-visible {
+  outline: none;
+  outline-offset: 0;
+  box-shadow: none;
+  border-bottom: 1px solid var(--orange);
+}
+
+.entrance-popup-field textarea {
+  min-height: 85px;
+  max-height: 130px;
+  resize: none;
+}
+
+.entrance-popup-field-full {
+  grid-column: 1 / -1;
+}
+
+/* Footer & Submit Button */
+.entrance-popup-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.entrance-popup-dont-show {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px;
+  color: #676b67;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.entrance-popup-dont-show:hover {
+  color: #151616;
+}
+
+.entrance-popup-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.entrance-popup-checkbox-custom {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #bfc4b8;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.entrance-popup-checkbox-custom svg {
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.entrance-popup-checkbox:checked + .entrance-popup-checkbox-custom {
+  background-color: #050505;
+  border-color: #050505;
+}
+
+.entrance-popup-checkbox:checked + .entrance-popup-checkbox-custom svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.entrance-popup-checkbox:focus-visible + .entrance-popup-checkbox-custom {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.entrance-popup-dont-show:hover .entrance-popup-checkbox-custom {
+  border-color: #151616;
+}
+
+.entrance-popup-submit {
+  min-width: 175px;
+  min-height: 46px;
+  padding: 10px 22px;
+  font-size: 14px;
+}
+
+.entrance-popup-status {
+  margin: 8px 0 0;
+  color: #676b67;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.entrance-popup-status[hidden] {
+  display: none;
+}
+
+.entrance-popup-status.is-success {
+  color: #1b7340;
+}
+
+.entrance-popup-status.is-error {
+  color: #bc2b2b;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 860px) {
+  .entrance-popup-modal {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    max-height: min(92vh, 680px);
+    border-radius: 20px;
+  }
+
+  .entrance-popup-media {
+    height: 160px;
+    min-height: 160px;
+  }
+
+  .entrance-popup-content {
+    align-content: start;
+    padding: 24px 22px;
+  }
+
+  .entrance-popup-fields {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .entrance-popup-form-footer {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .entrance-popup-dont-show {
+    padding: 2px 0;
+  }
+
+  .entrance-popup-submit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .entrance-popup-media {
+    display: none;
+  }
+
+  .entrance-popup-modal {
+    border-radius: 18px;
+  }
+
+  .entrance-popup-content {
+    padding: 24px 18px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entrance-popup-backdrop,
+  .entrance-popup-modal,
+  .entrance-popup-close,
+  .entrance-popup-field input,
+  .entrance-popup-field textarea {
+    transition: none !important;
+  }
+}

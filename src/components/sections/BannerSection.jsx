@@ -3,18 +3,20 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ViewportVideo } from '../common/ViewportVideo';
+import { homeVideoSources } from '../../utils/videoAssets';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(useGSAP);
 }
 
 const trailImages = [
-  '/assets/markiting.webp',
-  '/assets/logo-brand.webp',
-  '/assets/web-design.webp',
-  '/assets/visiual-identity.webp',
-  '/assets/motion-graphics9.webp',
-  '/assets/brand-strategy.webp',
+  'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145914/algofort/assets/markiting',
+  'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792145913/algofort/assets/logo-brand',
+  'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146023/algofort/assets/web-design',
+  'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792146022/algofort/assets/visiual-identity',
+  'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145914/algofort/assets/motion-graphics9',
+  'https://res.cloudinary.com/vfsp1egd/image/upload/w_800,c_limit,q_auto:good,f_auto/v1792145888/algofort/assets/brand-strategy',
 ];
 
 
@@ -244,20 +246,14 @@ export const BannerSection = () => {
         {/* Video Background */}
         <div className="alg-hero-video-wrap background-video-wrap sec-banner__video-wrap">
           <div className="alg-hero-video background-video w-background-video w-background-video-atom">
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
+            <ViewportVideo
+              sources={homeVideoSources}
               data-object-fit="cover" 
               poster="/assets/banner_bg_poster.jpg"
               style={{
                 backgroundImage: 'url("/assets/banner_bg_poster.jpg")',
               }}
-            >
-              <source src="/assets/banner_bg.webm" type="video/webm" />
-              <source src="/assets/banner_bg.mp4" type="video/mp4" />
-            </video>
+            />
           </div>
           <div className="alg-hero-video-overlay video-overlay"></div>
         </div>
@@ -385,7 +381,7 @@ export const BannerSection = () => {
           <div className="alg-hero-gsap-wrapper gsap-wrapper">
             <div className="gsap-block">
               <div className="gsap-image-wrap">
-                <img alt="" className="placeholder-image" src="/assets/68ee74b7102caefef6ce7894_image.svg" />
+                <img alt="" className="placeholder-image" src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145856/algofort/assets/68ee74b7102caefef6ce7894_image.svg" />
               </div>
             </div>
           </div>

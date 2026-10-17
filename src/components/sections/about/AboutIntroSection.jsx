@@ -1,55 +1,96 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import SplitType from 'split-type';
 
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { FactCardsGrid } from '../../common/FactCardsGrid';
+import { initTitleAnimation } from '../../../utils/titleAnimation';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 export function AboutIntroSection() {
   const sectionRef = useRef(null);
-  const textRef = useRef(null);
 
-  useGSAP(
-    () => {
-      // 1. Text scrub animation on the headline
-      if (textRef.current) {
-        const headline = textRef.current.querySelector('.scrub-headline');
-        if (headline) {
-          const split = new SplitType(headline, {
-            types: 'words, chars',
-            tagName: 'span',
-          });
+  useEffect(() => {
+    if (!sectionRef.current) return;
 
-          if (split.chars && split.chars.length > 0) {
-            gsap.set(split.chars, { opacity: 0.2 });
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const els = sectionRef.current.querySelectorAll('.sec-about__badge, .sec-about-intro__title, .sec-about-intro__buttons');
+      els.forEach((el) => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      return;
+    }
 
-            gsap.to(split.chars, {
-              opacity: 1,
-              duration: 0.01,
-              stagger: 0.02,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: textRef.current,
-                start: 'top 80%',
-                end: 'bottom 40%',
-                scrub: true,
-              },
-            });
-          }
+    const badge = sectionRef.current.querySelector('.sec-about__badge');
+    const titleEl = sectionRef.current.querySelector('.sec-about-intro__title');
+    const buttons = sectionRef.current.querySelector('.sec-about-intro__buttons');
+
+    // 1. Entrance animation for Subtitle Badge
+    if (badge) {
+      gsap.fromTo(
+        badge,
+        { opacity: 0, y: 25 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
         }
+      );
+    }
+
+    // 2. Entrance character animation for Headline (ONLY entrance, NO scrub!)
+    if (titleEl) {
+      initTitleAnimation(titleEl, {
+        trigger: sectionRef.current,
+        start: 'top 85%',
+        stagger: 0.02,
+      });
+    }
+
+    // 3. Entrance animation for CTA Button
+    if (buttons) {
+      gsap.fromTo(
+        buttons,
+        { opacity: 0, y: 25 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: buttons,
+            start: 'top 92%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+    }
+
+    const timer = setTimeout(() => {
+      try {
+        ScrollTrigger.refresh();
+      } catch {
+        // ignore
       }
-    },
-    { scope: sectionRef }
-  );
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section 
@@ -66,9 +107,9 @@ export function AboutIntroSection() {
           </div>
 
           <div className="section-description sec-about__desc sec-about__content about-markeio_content forteve-about__content">
-            {/* Right about-markeio_content scrub_letter headline */}
-            <div className="scrub_letter sec-about-intro__scrub" ref={textRef}>
-              <h2 className="heading-style-h2 scrub-headline">
+            {/* Right headline - pure entrance character animation, no scrub */}
+            <div className="sec-about-intro__title-wrap">
+              <h2 className="heading-style-h2 section-title sec-about-intro__title">
                 Inventing the Future, Now
               </h2>
             </div>

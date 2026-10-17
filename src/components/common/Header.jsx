@@ -138,13 +138,13 @@ export const Header = () => {
                   alt="Algofort Logo" 
                   className="alg-header-logo-img logo sec-header__logo-img" 
                   loading="eager" 
-                  src="/assets/logo.png" 
+                  src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:best/v1792145914/algofort/assets/logo.png" 
                 />
                 <img 
                   alt="Algofort Logo" 
                   className="alg-header-logo-img logo sec-header__logo-img" 
                   loading="eager" 
-                  src="/assets/logo.png" 
+                  src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:best/v1792145914/algofort/assets/logo.png" 
                 />
               </div>
             </Link>
@@ -328,7 +328,7 @@ export const Header = () => {
                               alt="Star Icon" 
                               className="button-icon" 
                               loading="lazy" 
-                              src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg" 
+                              src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg" 
                             />
                           </Link>
                         </div>

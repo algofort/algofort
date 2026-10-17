@@ -105,7 +105,11 @@ export function ShowreelSection() {
 
       if (typeof document !== 'undefined' && document.fonts) {
         document.fonts.ready.then(() => {
-          ScrollTrigger.refresh();
+          try {
+            ScrollTrigger.refresh();
+          } catch {
+            // ignore
+          }
         });
       }
     });
@@ -135,7 +139,7 @@ export function ShowreelSection() {
               <div className="alg-showreel-img-wrap showreel_img-wrap">
                 <img
                   ref={imgRef}
-                  src="/assets/BG_IMAGE.webp"
+                  src="https://res.cloudinary.com/vfsp1egd/image/upload/w_1920,c_limit,q_auto:best,f_auto/v1792145887/algofort/assets/BG_IMAGE"
                   alt="A man standing in the middle of a dark room."
                   className="alg-showreel-img showreel_img"
                   loading="eager"
@@ -157,7 +161,7 @@ export function ShowreelSection() {
                     <span className="alg-showreel-sonar-wave alg-showreel-sonar-wave-2 sonar-wave sonar-wave-2" aria-hidden="true" />
                     <span className="alg-showreel-sonar-wave alg-showreel-sonar-wave-3 sonar-wave sonar-wave-3" aria-hidden="true" />
                     <img
-                      src="/assets/play-icon.svg"
+                      src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145915/algofort/assets/play-icon.svg"
                       alt="Play icon"
                       className="alg-showreel-play-icon showreel_play-icon"
                       loading="lazy"

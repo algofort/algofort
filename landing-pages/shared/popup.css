@@ -1,0 +1,111 @@
+/* Shared popup proportions and form treatment across landing pages. */
+.welcome-inquiry { position: fixed; inset: 0; margin: auto; padding: 0; overflow: hidden; }
+.welcome-inquiry[open] { display: grid; }
+.welcome-inquiry::backdrop { background: #111a; backdrop-filter: blur(8px); }
+html:has(.welcome-inquiry[open]) { overflow: hidden; }
+.welcome-close { position: absolute; top: 14px; right: 14px; z-index: 10; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: #eaece8; color: #111; font-size: 24px; }
+.welcome-photo { position: relative; overflow: hidden; }
+.welcome-photo > img { position: absolute; inset: 0; }
+.entrance-popup-modal,
+.welcome-inquiry {
+  width: min(1040px, calc(100vw - 48px));
+  max-width: 1040px;
+  max-height: calc(100dvh - 48px);
+  min-height: 0;
+  border: 0;
+  border-radius: 24px;
+  background: #f7f7f5;
+  color: #151616;
+  font-family: 'DM Sans', 'Inter', Arial, sans-serif;
+  box-shadow: 0 24px 80px #0003;
+}
+.entrance-popup-modal,
+.welcome-inquiry[open] { grid-template-columns: minmax(0, .43fr) minmax(0, .57fr); }
+.entrance-popup-content,
+.welcome-content { display: flex; flex-direction: column; justify-content: flex-start; min-width: 0; max-height: calc(100dvh - 48px); padding: 32px 36px; overflow-y: auto; }
+.entrance-popup-content-inner { max-width: none; }
+.entrance-popup-media,
+.welcome-photo { min-height: 100%; }
+.entrance-popup-media img,
+.welcome-photo > img { width: 100%; height: 100%; object-fit: cover; }
+.entrance-popup-title,
+.welcome-header h2 { margin: 0 0 8px; font: 500 30px/1.15 'DM Sans', 'Inter', Arial, sans-serif; letter-spacing: -.04em; }
+.entrance-popup-lead,
+.welcome-header > p:last-child { margin: 0 0 18px; color: #72766e; font-size: 14px; line-height: 1.5; }
+.welcome-header { margin-bottom: 0; }
+.entrance-popup-fields,
+.welcome-content .inquiry-field-row { gap: 18px 24px; }
+.welcome-content .inquiry-fields { gap: 18px; }
+.entrance-popup-field,
+.welcome-content .inquiry-field > label { color: #62685f; font-size: 13px; font-weight: 400; }
+.entrance-popup-field input,
+.entrance-popup-field textarea,
+.welcome-content .inquiry-field input:not([type='hidden']),
+.welcome-content .inquiry-field textarea,
+.welcome-content .inquiry-select-trigger { padding: 7px 0 9px; border: 0; border-bottom: 1px solid #bfc5b9; border-radius: 0; background: transparent; color: #151616; font: 400 16px/1.4 'DM Sans', 'Inter', Arial, sans-serif; box-shadow: none; }
+.entrance-popup-field textarea,
+.welcome-content .inquiry-field textarea { min-height: 80px; max-height: 160px; }
+.entrance-popup-field :is(input, textarea):focus-visible,
+.welcome-content .inquiry-field :is(input, textarea, .inquiry-select-trigger):focus-visible { outline: none; border-bottom-color: #f47a1f; box-shadow: 0 1px 0 #f47a1f; }
+.entrance-popup-dismiss,
+.welcome-dismiss { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; border: 0; border-radius: 0; background: transparent; color: #74796f; font: 400 13px/1.4 'DM Sans', 'Inter', Arial, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.entrance-popup-bottom-bar,
+.welcome-preferences { margin-top: 16px; justify-content: flex-start; }
+.entrance-popup-form-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; }
+.app-popup-form { padding: 0; background: transparent; }
+.app-popup-form .lead-tablet-copy,
+.app-popup-form .tablet-camera,
+.app-popup-form .tablet-home-bar,
+.app-popup-form .tablet-form-heading { display: none; }
+.app-popup-form .lead-tablet-layout { display: block; width: 100%; padding: 0; }
+.app-popup-form .lead-tablet-device,
+.app-popup-form .lead-tablet-screen { padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; overflow: visible; }
+.app-popup-form .tablet-enquiry { padding: 0; }
+.app-popup-form .tablet-sr-only { position: static; display: block; width: auto; height: auto; margin: 0 0 4px; padding: 0; overflow: visible; clip: auto; clip-path: none; white-space: normal; color: #62685f; font-size: 13px; }
+.app-popup-form .tablet-field-row { gap: 24px; }
+.app-popup-form .tablet-enquiry-form :is(input, select, textarea) { padding: 7px 0 9px; border: 0; border-bottom: 1px solid #bfc5b9; border-radius: 0; background: transparent; color: #151616; font: 400 16px/1.4 'DM Sans', 'Inter', Arial, sans-serif; }
+.app-popup-form .tablet-enquiry-form fieldset { margin: 0 0 18px; }
+.app-popup-form .tablet-enquiry-form textarea { min-height: 80px; }
+.app-popup-form .tablet-enquiry-form :is(input, select, textarea):focus { background: transparent; border-bottom-color: #f47a1f; outline: none; }
+.app-popup-form .tablet-submit-row { margin-top: 18px; }
+.app-popup-form .tablet-submit { --cta-size: 46px; }
+.app-popup-form .tablet-submit .split-cta-pill { padding-inline: 24px; font-size: 15px; }
+.app-popup-form .tablet-enquiry-success { min-height: 250px; }
+@media (max-width: 760px) {
+  .entrance-popup-backdrop { padding: 16px; }
+  .entrance-popup-modal,
+  .welcome-inquiry { width: calc(100vw - 32px); max-height: calc(100dvh - 32px); border-radius: 20px; }
+  .entrance-popup-modal,
+  .welcome-inquiry[open] { grid-template-columns: minmax(0, 1fr); grid-template-rows: 140px minmax(0, 1fr); }
+  .entrance-popup-media,
+  .welcome-photo { display: block; min-height: 140px; height: 140px; }
+  .entrance-popup-content,
+  .welcome-content { min-height: 0; max-height: calc(100dvh - 172px); padding: 26px 24px; justify-content: flex-start; }
+  .entrance-popup-content-inner,
+  .welcome-content > * { flex-shrink: 0; }
+  .entrance-popup-fields,
+  .welcome-content .inquiry-field-row,
+  .app-popup-form .tablet-field-row { grid-template-columns: minmax(0, 1fr); }
+  .entrance-popup-field input,
+  .entrance-popup-field textarea,
+  .welcome-content .inquiry-field input:not([type='hidden']),
+  .welcome-content .inquiry-field textarea,
+  .welcome-content .inquiry-select-trigger { font-size: 16px; }
+  .entrance-popup-form-footer > button,
+  .welcome-content .inquiry-submit,
+  .app-popup-form .tablet-submit { max-width: 100%; }
+  .entrance-popup-title,
+  .welcome-header h2 { font-size: 27px; }
+}
+@media (max-height: 500px) and (max-width: 760px) {
+  .entrance-popup-modal,
+  .welcome-inquiry[open] { grid-template-rows: 88px minmax(0, 1fr); }
+  .entrance-popup-media,
+  .welcome-photo { min-height: 88px; height: 88px; }
+  .entrance-popup-content,
+  .welcome-content { max-height: calc(100dvh - 120px); }
+}
+@media (max-width: 420px) {
+  .entrance-popup-fields,
+  .welcome-content .inquiry-field-row { grid-template-columns: minmax(0, 1fr); }
+}

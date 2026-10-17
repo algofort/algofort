@@ -16,7 +16,11 @@ export function AboutStorySection() {
       initTitleAnimation(titleEl, { start: 'top 95%', stagger: 0.015 });
       setTimeout(() => {
         if (typeof window !== 'undefined') {
-          ScrollTrigger.refresh();
+          try {
+            ScrollTrigger.refresh();
+          } catch {
+            // ignore
+          }
         }
       }, 150);
     }
@@ -35,7 +39,7 @@ export function AboutStorySection() {
                   <SubtitleMarquee
                     text="Our Story — "
                     variant="dark"
-                    icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                    icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
                   />
                 </div>
               </div>
@@ -65,7 +69,7 @@ export function AboutStorySection() {
                     </div>
                     <img
                       loading="lazy"
-                      src="/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
+                      src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145872/algofort/assets/68f287b26ff74f4a3003bac1_white-star-icon.svg"
                       alt="Star Icon"
                       className="button-icon"
                     />

@@ -39,7 +39,11 @@ export function AboutProcessSection() {
       initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
       setTimeout(() => {
         if (typeof window !== 'undefined') {
-          ScrollTrigger.refresh();
+          try {
+            ScrollTrigger.refresh();
+          } catch {
+            // ignore
+          }
         }
       }, 150);
     }
@@ -61,7 +65,7 @@ export function AboutProcessSection() {
                 <SubtitleMarquee
                   text="Strategic Purpose — "
                   variant="dark"
-                  icon="/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
+                  icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145875/algofort/assets/68f7cadfd454c94c5b5251cb_grey-asterisk-icon.svg"
                 />
               </div>
               <h2 className="heading-style-h2 section-title sec-about-process__title">

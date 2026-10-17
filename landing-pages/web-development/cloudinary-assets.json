@@ -1,0 +1,402 @@
+{
+  "brand/algofort-dark.png": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/brand/algofort-dark",
+    "version": 1792213389,
+    "format": "png",
+    "bytes": 12463,
+    "width": 504,
+    "height": 81,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213389/algofort/lp/web-development/brand/algofort-dark.png"
+  },
+  "images/coding-workspace.png": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/images/coding-workspace",
+    "version": 1792213391,
+    "format": "png",
+    "bytes": 2039589,
+    "width": 941,
+    "height": 1672,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213391/algofort/lp/web-development/images/coding-workspace.png"
+  },
+  "images/coding-workspace.webp": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/images/coding-workspace",
+    "version": 1792213390,
+    "format": "webp",
+    "bytes": 149624,
+    "width": 941,
+    "height": 1672,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213390/algofort/lp/web-development/images/coding-workspace.webp"
+  },
+  "images/fav-icon.png": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/images/fav-icon",
+    "version": 1792213390,
+    "format": "png",
+    "bytes": 22415,
+    "width": 235,
+    "height": 235,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213390/algofort/lp/web-development/images/fav-icon.png"
+  },
+  "media/services/custom-generated.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/services/custom-generated",
+    "version": 1792213393,
+    "format": "jpg",
+    "bytes": 737488,
+    "width": 848,
+    "height": 1264,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213393/algofort/lp/web-development/media/services/custom-generated.jpg"
+  },
+  "media/services/react-generated.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/services/react-generated",
+    "version": 1792213391,
+    "format": "jpg",
+    "bytes": 642347,
+    "width": 1024,
+    "height": 1024,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213391/algofort/lp/web-development/media/services/react-generated.jpg"
+  },
+  "media/services/shopify-generated.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/services/shopify-generated",
+    "version": 1792213392,
+    "format": "jpg",
+    "bytes": 632442,
+    "width": 1024,
+    "height": 1024,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213392/algofort/lp/web-development/media/services/shopify-generated.jpg"
+  },
+  "media/services/wordpress-generated.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/services/wordpress-generated",
+    "version": 1792213393,
+    "format": "jpg",
+    "bytes": 579435,
+    "width": 1024,
+    "height": 1024,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213393/algofort/lp/web-development/media/services/wordpress-generated.jpg"
+  },
+  "media/showcase-01.mp4": {
+    "resourceType": "video",
+    "publicId": "algofort/lp/web-development/media/showcase-01",
+    "version": 1792213401,
+    "format": "mp4",
+    "bytes": 5410783,
+    "width": 1920,
+    "height": 1080,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/video/upload/v1792213401/algofort/lp/web-development/media/showcase-01.mp4"
+  },
+  "media/showcase-02.mp4": {
+    "resourceType": "video",
+    "publicId": "algofort/lp/web-development/media/showcase-02",
+    "version": 1792213414,
+    "format": "mp4",
+    "bytes": 24940992,
+    "width": 2880,
+    "height": 1600,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/video/upload/v1792213414/algofort/lp/web-development/media/showcase-02.mp4"
+  },
+  "media/trust/avatar-1.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/avatar-1",
+    "version": 1792213393,
+    "format": "jpg",
+    "bytes": 4830,
+    "width": 120,
+    "height": 120,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213393/algofort/lp/web-development/media/trust/avatar-1.jpg"
+  },
+  "media/trust/avatar-2.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/avatar-2",
+    "version": 1792213394,
+    "format": "jpg",
+    "bytes": 5103,
+    "width": 120,
+    "height": 120,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213394/algofort/lp/web-development/media/trust/avatar-2.jpg"
+  },
+  "media/trust/avatar-3.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/avatar-3",
+    "version": 1792213395,
+    "format": "jpg",
+    "bytes": 4717,
+    "width": 120,
+    "height": 120,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213395/algofort/lp/web-development/media/trust/avatar-3.jpg"
+  },
+  "media/trust/avatar-4.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/avatar-4",
+    "version": 1792213395,
+    "format": "jpg",
+    "bytes": 5589,
+    "width": 120,
+    "height": 120,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213395/algofort/lp/web-development/media/trust/avatar-4.jpg"
+  },
+  "media/trust/avatar-5.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/avatar-5",
+    "version": 1792213396,
+    "format": "jpg",
+    "bytes": 5704,
+    "width": 120,
+    "height": 120,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213396/algofort/lp/web-development/media/trust/avatar-5.jpg"
+  },
+  "media/trust/avatar-6.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/avatar-6",
+    "version": 1792213397,
+    "format": "jpg",
+    "bytes": 4525,
+    "width": 120,
+    "height": 120,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213397/algofort/lp/web-development/media/trust/avatar-6.jpg"
+  },
+  "media/trust/avatar-7.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/avatar-7",
+    "version": 1792213397,
+    "format": "jpg",
+    "bytes": 3232,
+    "width": 82,
+    "height": 120,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213397/algofort/lp/web-development/media/trust/avatar-7.jpg"
+  },
+  "media/trust/avatar-8.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/avatar-8",
+    "version": 1792213398,
+    "format": "jpg",
+    "bytes": 4628,
+    "width": 120,
+    "height": 120,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213398/algofort/lp/web-development/media/trust/avatar-8.jpg"
+  },
+  "media/trust/claude.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/claude",
+    "version": 1792213399,
+    "format": "svg",
+    "bytes": 1921,
+    "width": 24,
+    "height": 24,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213399/algofort/lp/web-development/media/trust/claude.svg"
+  },
+  "media/trust/cursor.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/cursor",
+    "version": 1792213401,
+    "format": "svg",
+    "bytes": 454,
+    "width": 24,
+    "height": 24,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213401/algofort/lp/web-development/media/trust/cursor.svg"
+  },
+  "media/trust/future.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/future",
+    "version": 1792213403,
+    "format": "jpg",
+    "bytes": 26846,
+    "width": 512,
+    "height": 410,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213403/algofort/lp/web-development/media/trust/future.jpg"
+  },
+  "media/trust/html5.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/html5",
+    "version": 1792213404,
+    "format": "svg",
+    "bytes": 280,
+    "width": 24,
+    "height": 24,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213404/algofort/lp/web-development/media/trust/html5.svg"
+  },
+  "media/trust/nextdotjs.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/nextdotjs",
+    "version": 1792213404,
+    "format": "svg",
+    "bytes": 322,
+    "width": 24,
+    "height": 24,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213404/algofort/lp/web-development/media/trust/nextdotjs.svg"
+  },
+  "media/trust/payment-chip.png": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/payment-chip",
+    "version": 1792213405,
+    "format": "png",
+    "bytes": 1732,
+    "width": 90,
+    "height": 62,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213405/algofort/lp/web-development/media/trust/payment-chip.png"
+  },
+  "media/trust/payment-mark.png": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/payment-mark",
+    "version": 1792213406,
+    "format": "png",
+    "bytes": 7103,
+    "width": 132,
+    "height": 222,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213406/algofort/lp/web-development/media/trust/payment-mark.png"
+  },
+  "media/trust/payment-wave.png": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/payment-wave",
+    "version": 1792213406,
+    "format": "png",
+    "bytes": 49826,
+    "width": 736,
+    "height": 330,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213406/algofort/lp/web-development/media/trust/payment-wave.png"
+  },
+  "media/trust/react.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/react",
+    "version": 1792213406,
+    "format": "svg",
+    "bytes": 2926,
+    "width": 24,
+    "height": 24,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213406/algofort/lp/web-development/media/trust/react.svg"
+  },
+  "media/trust/shopify.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/shopify",
+    "version": 1792213406,
+    "format": "svg",
+    "bytes": 1234,
+    "width": 24,
+    "height": 24,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213406/algofort/lp/web-development/media/trust/shopify.svg"
+  },
+  "media/trust/strategy.png": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/strategy",
+    "version": 1792213408,
+    "format": "png",
+    "bytes": 77365,
+    "width": 668,
+    "height": 791,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213408/algofort/lp/web-development/media/trust/strategy.png"
+  },
+  "media/trust/support.png": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/support",
+    "version": 1792213409,
+    "format": "png",
+    "bytes": 16994,
+    "width": 190,
+    "height": 284,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213409/algofort/lp/web-development/media/trust/support.png"
+  },
+  "media/trust/webflow.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/webflow",
+    "version": 1792213409,
+    "format": "svg",
+    "bytes": 294,
+    "width": 24,
+    "height": 24,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213409/algofort/lp/web-development/media/trust/webflow.svg"
+  },
+  "media/trust/wordpress.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/trust/wordpress",
+    "version": 1792213409,
+    "format": "svg",
+    "bytes": 1059,
+    "width": 24,
+    "height": 24,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213409/algofort/lp/web-development/media/trust/wordpress.svg"
+  },
+  "media/who-pattern.svg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/who-pattern",
+    "version": 1792213410,
+    "format": "svg",
+    "bytes": 3056,
+    "width": 1365,
+    "height": 1346,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213410/algofort/lp/web-development/media/who-pattern.svg"
+  },
+  "media/who-we-are.webp": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/who-we-are",
+    "version": 1792213411,
+    "format": "webp",
+    "bytes": 201930,
+    "width": 1254,
+    "height": 1254,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213411/algofort/lp/web-development/media/who-we-are.webp"
+  },
+  "media/work/artists-emerge.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/work/artists-emerge",
+    "version": 1792213412,
+    "format": "jpg",
+    "bytes": 193065,
+    "width": 1448,
+    "height": 1086,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213412/algofort/lp/web-development/media/work/artists-emerge.jpg"
+  },
+  "media/work/dekora.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/work/dekora",
+    "version": 1792213413,
+    "format": "jpg",
+    "bytes": 268195,
+    "width": 1448,
+    "height": 1086,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213413/algofort/lp/web-development/media/work/dekora.jpg"
+  },
+  "media/work/hoplon.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/work/hoplon",
+    "version": 1792213413,
+    "format": "jpg",
+    "bytes": 203302,
+    "width": 1448,
+    "height": 1086,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213413/algofort/lp/web-development/media/work/hoplon.jpg"
+  },
+  "media/work/kingsdale-mic.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/work/kingsdale-mic",
+    "version": 1792213414,
+    "format": "jpg",
+    "bytes": 227925,
+    "width": 1448,
+    "height": 1086,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213414/algofort/lp/web-development/media/work/kingsdale-mic.jpg"
+  },
+  "media/work/kiosky.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/work/kiosky",
+    "version": 1792213414,
+    "format": "jpg",
+    "bytes": 227735,
+    "width": 1448,
+    "height": 1086,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213414/algofort/lp/web-development/media/work/kiosky.jpg"
+  },
+  "media/work/wovvo.jpg": {
+    "resourceType": "image",
+    "publicId": "algofort/lp/web-development/media/work/wovvo",
+    "version": 1792213415,
+    "format": "jpg",
+    "bytes": 204146,
+    "width": 1448,
+    "height": 1086,
+    "secureUrl": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792213415/algofort/lp/web-development/media/work/wovvo.jpg"
+  }
+}

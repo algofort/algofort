@@ -4,7 +4,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
+import { RecaptchaField } from '../common/RecaptchaField';
 import { initTitleAnimation } from '../../utils/titleAnimation';
+import { submitContactForm } from '../../utils/submitContactForm';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -32,6 +34,10 @@ export function CtaSection() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+  const [recaptchaResetKey, setRecaptchaResetKey] = useState(0);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -81,9 +87,28 @@ export function CtaSection() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (isSubmitting) return;
+
+    const website = e.currentTarget.elements.namedItem('website')?.value || '';
+    if (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && !recaptchaToken) {
+      setSubmitError('Please complete the security check and try again.');
+      return;
+    }
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      await submitContactForm({ ...formData, website, recaptchaToken }, 'cta');
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(error.message || 'Your message could not be sent. Please try again.');
+      setRecaptchaToken('');
+      setRecaptchaResetKey((key) => key + 1);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -94,7 +119,7 @@ export function CtaSection() {
           <div className="alg-cta-bg-wrap cta_bg_wrap">
             <img
               ref={bgImgRef}
-              src="/assets/showreel.png"
+              src="https://res.cloudinary.com/vfsp1egd/image/upload/w_1920,c_limit,q_auto:best,f_auto/v1792145727/algofort/assets/showreel"
               alt="CTA Background"
               className="alg-cta-bg-img cta_bg_img"
             />
@@ -121,16 +146,16 @@ export function CtaSection() {
                 <div className="spacer-large"></div>
                 <div className="fade-in fade-in-left">
                   <a
-                    href="tel:+923233678383"
+                    data-site-phone href="tel:+923337198686"
                     className="alg-cta-button main-button alternate-button w-inline-block"
                   >
                     <div className="main-button-block">
-                      <div className="button-text alternate-text">+92 323 3678383</div>
-                      <div className="button-text alternate-text">+92 323 3678383</div>
+                      <div className="button-text alternate-text">+92 333 7198686</div>
+                      <div className="button-text alternate-text">+92 333 7198686</div>
                     </div>
                     <img
                       loading="lazy"
-                      src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                      src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                       alt="Star Icon"
                       className="button-icon"
                     />
@@ -155,7 +180,8 @@ export function CtaSection() {
                         </p>
                       </div>
                     ) : (
-                      <form className="alg-cta-form cta_form" onSubmit={handleSubmit}>
+                      <form className="alg-cta-form cta_form" onSubmit={handleSubmit} aria-busy={isSubmitting}>
+                        <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }} />
                         {/* Row 1: Full Name & Phone Number */}
                         <div className="alg-cta-form-row form_row two-cols">
                           <div className="alg-cta-form-group form_group">
@@ -167,6 +193,7 @@ export function CtaSection() {
                               placeholder="Enter your full name"
                               value={formData.fullName}
                               onChange={handleChange}
+                              maxLength={120}
                               required
                             />
                           </div>
@@ -179,6 +206,7 @@ export function CtaSection() {
                               placeholder="Enter your phone number"
                               value={formData.phone}
                               onChange={handleChange}
+                              maxLength={40}
                               required
                             />
                           </div>
@@ -194,6 +222,7 @@ export function CtaSection() {
                             placeholder="Enter your email address"
                             value={formData.email}
                             onChange={handleChange}
+                            maxLength={254}
                             required
                           />
                         </div>
@@ -227,23 +256,28 @@ export function CtaSection() {
                             placeholder="Tell us about your project..."
                             value={formData.message}
                             onChange={handleChange}
+                            maxLength={5000}
                             required
                           ></textarea>
                         </div>
 
+                        <RecaptchaField onTokenChange={setRecaptchaToken} resetKey={recaptchaResetKey} theme="dark" />
+                        {submitError && <p role="alert" style={{ color: '#ffd5cc', margin: 0 }}>{submitError}</p>}
+
                         {/* Row 5: Submit Button */}
                         <button
                           type="submit"
+                          disabled={isSubmitting}
                           className="alg-cta-button main-button alternate-button w-inline-block"
                           style={{ border: 'none', cursor: 'pointer', alignSelf: 'flex-start', marginTop: '0.5rem' }}
                         >
                           <div className="main-button-block">
-                            <div className="button-text alternate-text">Submit</div>
-                            <div className="button-text alternate-text">Submit</div>
+                            <div className="button-text alternate-text">{isSubmitting ? 'Sending...' : 'Submit'}</div>
+                            <div className="button-text alternate-text">{isSubmitting ? 'Sending...' : 'Submit'}</div>
                           </div>
                           <img
                             loading="lazy"
-                            src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                            src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                             alt="Star Icon"
                             className="button-icon"
                           />

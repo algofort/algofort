@@ -1,0 +1,51 @@
+@import '../../../src/styles/footer-section.css';
+
+/* The landing page keeps the main site's footer design and adapts its spacing. */
+.lp-main-footer {
+  --brand-orange: var(--orange);
+  --font-family-primary: 'DM Sans', Arial, sans-serif;
+  --footer-edge-space: .75rem;
+  padding-top: clamp(32px, 5vw, 72px) !important;
+  padding-bottom: var(--footer-edge-space);
+}
+
+.lp-main-footer .padding-global.is-tiny { padding-inline: var(--footer-edge-space); }
+.lp-main-footer .footer_wrap { width: 100%; margin-inline: auto; }
+.lp-main-footer .footer_heading {
+  font-family: var(--font-family-primary);
+  font-size: clamp(32px, 2.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.025em;
+  text-transform: none;
+}
+.lp-main-footer .footer_right_top { grid-template-columns: minmax(0, 1.4fr) minmax(0, .9fr); gap: 1.5rem; }
+.lp-main-footer .footer_links_grid { gap: 1rem; }
+.lp-main-footer .footer_nav_link { font-family: var(--font-family-primary); font-size: .9rem !important; }
+.lp-main-footer .footer_social_arrow { font-size: 22px; line-height: 1; }
+.lp-main-footer .footer-status { margin: 12px 0 0; color: #6b7280; font-size: 14px; }
+.lp-main-footer .footer-status[hidden] { display: none; }
+
+@media (max-width: 1100px) {
+  .lp-main-footer .footer_main_layout { grid-template-columns: 1fr; gap: 3.5rem; }
+  .lp-main-footer .footer_right_top { grid-template-columns: minmax(0, 1.4fr) minmax(0, .9fr); }
+}
+
+@media (max-width: 767px) {
+  .lp-main-footer .footer_wrap { padding: 2.5rem 1.5rem 1.75rem; }
+  .lp-main-footer .footer_right_top { grid-template-columns: 1fr; }
+  .lp-main-footer .footer_links_grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .lp-main-footer .footer_nav_link .nav-text-wrap { height: auto !important; }
+  .lp-main-footer .footer_nav_link .nav-text { white-space: normal !important; }
+  .lp-main-footer .footer_nav_link .nav-text:nth-child(2) { display: none !important; }
+  .lp-main-footer .footer_nav_link:hover .nav-text { transform: none !important; }
+  .lp-main-footer .footer_phone_link .nav-text-wrap,
+  .lp-main-footer .footer_email_link .nav-text-wrap { align-items: flex-start !important; }
+  .lp-main-footer .footer_phone_link .nav-text,
+  .lp-main-footer .footer_email_link .nav-text { text-align: left !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-main-footer .nav-text,
+  .lp-main-footer .footer_social_arrow { transition: none !important; }
+}

@@ -1,0 +1,146 @@
+{
+  "/brand/algofort-dark.png": {
+    "publicId": "algofort/lp/app-development/brand/algofort-dark",
+    "version": 1792215728,
+    "bytes": 12463,
+    "width": 504,
+    "height": 81,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215728/algofort/lp/app-development/brand/algofort-dark.png"
+  },
+  "/showcase/commerce.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/commerce",
+    "version": 1792215729,
+    "bytes": 313514,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215729/algofort/lp/app-development/showcase/commerce.jpg"
+  },
+  "/showcase/education.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/education",
+    "version": 1792215729,
+    "bytes": 288963,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215729/algofort/lp/app-development/showcase/education.jpg"
+  },
+  "/showcase/finance.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/finance",
+    "version": 1792215729,
+    "bytes": 219372,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215729/algofort/lp/app-development/showcase/finance.jpg"
+  },
+  "/showcase/food.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/food",
+    "version": 1792215730,
+    "bytes": 286734,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215730/algofort/lp/app-development/showcase/food.jpg"
+  },
+  "/showcase/healthcare.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/healthcare",
+    "version": 1792215730,
+    "bytes": 211830,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215730/algofort/lp/app-development/showcase/healthcare.jpg"
+  },
+  "/showcase/productivity.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/productivity",
+    "version": 1792215730,
+    "bytes": 227550,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215730/algofort/lp/app-development/showcase/productivity.jpg"
+  },
+  "/showcase/smarthome.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/smarthome",
+    "version": 1792215730,
+    "bytes": 232400,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215730/algofort/lp/app-development/showcase/smarthome.jpg"
+  },
+  "/showcase/travel.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/travel",
+    "version": 1792215731,
+    "bytes": 358129,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215731/algofort/lp/app-development/showcase/travel.jpg"
+  },
+  "/showcase/wellness.jpg": {
+    "publicId": "algofort/lp/app-development/showcase/wellness",
+    "version": 1792215731,
+    "bytes": 240511,
+    "width": 1448,
+    "height": 1086,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215731/algofort/lp/app-development/showcase/wellness.jpg"
+  },
+  "/tech-logos/android.svg": {
+    "publicId": "algofort/lp/app-development/tech-logos/android",
+    "version": 1792215731,
+    "bytes": 1084,
+    "width": 24,
+    "height": 24,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792215731/algofort/lp/app-development/tech-logos/android.svg"
+  },
+  "/tech-logos/apple.svg": {
+    "publicId": "algofort/lp/app-development/tech-logos/apple",
+    "version": 1792215731,
+    "bytes": 650,
+    "width": 24,
+    "height": 24,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792215731/algofort/lp/app-development/tech-logos/apple.svg"
+  },
+  "/tech-logos/figma.svg": {
+    "publicId": "algofort/lp/app-development/tech-logos/figma",
+    "version": 1792215731,
+    "bytes": 1093,
+    "width": 24,
+    "height": 24,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792215731/algofort/lp/app-development/tech-logos/figma.svg"
+  },
+  "/tech-logos/firebase.svg": {
+    "publicId": "algofort/lp/app-development/tech-logos/firebase",
+    "version": 1792215733,
+    "bytes": 1927,
+    "width": 24,
+    "height": 24,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792215733/algofort/lp/app-development/tech-logos/firebase.svg"
+  },
+  "/tech-logos/flutter.svg": {
+    "publicId": "algofort/lp/app-development/tech-logos/flutter",
+    "version": 1792215733,
+    "bytes": 221,
+    "width": 24,
+    "height": 24,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792215733/algofort/lp/app-development/tech-logos/flutter.svg"
+  },
+  "/tech-logos/kotlin.svg": {
+    "publicId": "algofort/lp/app-development/tech-logos/kotlin",
+    "version": 1792215733,
+    "bytes": 130,
+    "width": 24,
+    "height": 24,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792215733/algofort/lp/app-development/tech-logos/kotlin.svg"
+  },
+  "/tech-logos/react.svg": {
+    "publicId": "algofort/lp/app-development/tech-logos/react",
+    "version": 1792215734,
+    "bytes": 2926,
+    "width": 24,
+    "height": 24,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792215734/algofort/lp/app-development/tech-logos/react.svg"
+  },
+  "/tech-logos/swift.svg": {
+    "publicId": "algofort/lp/app-development/tech-logos/swift",
+    "version": 1792215734,
+    "bytes": 1690,
+    "width": 24,
+    "height": 24,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792215734/algofort/lp/app-development/tech-logos/swift.svg"
+  }
+}

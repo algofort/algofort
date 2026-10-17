@@ -1,0 +1,182 @@
+{
+  "/brand/algofort.png": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219759/algofort/lp/saas-development/brand/algofort.png",
+    "bytes": 9166,
+    "width": 842,
+    "height": 136
+  },
+  "/brand/algofort-dark.png": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219759/algofort/lp/saas-development/brand/algofort-dark.png",
+    "bytes": 12463,
+    "width": 504,
+    "height": 81
+  },
+  "/brand/favicon.png": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219759/algofort/lp/saas-development/brand/favicon.png",
+    "bytes": 22415,
+    "width": 235,
+    "height": 235
+  },
+  "/images/fashion.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219760/algofort/lp/saas-development/images/fashion.webp",
+    "bytes": 8574,
+    "width": 540,
+    "height": 304
+  },
+  "/images/coding-workspace.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219760/algofort/lp/saas-development/images/coding-workspace.webp",
+    "bytes": 149624,
+    "width": 941,
+    "height": 1672
+  },
+  "/images/hero/light-ring-v2.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219761/algofort/lp/saas-development/images/hero/light-ring-v2.webp",
+    "bytes": 269742,
+    "width": 1236,
+    "height": 1272
+  },
+  "/images/hero/light-ring.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219761/algofort/lp/saas-development/images/hero/light-ring.webp",
+    "bytes": 247056,
+    "width": 1236,
+    "height": 1272
+  },
+  "/images/coding-workspace.png": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219762/algofort/lp/saas-development/images/coding-workspace.png",
+    "bytes": 2039589,
+    "width": 941,
+    "height": 1672
+  },
+  "/portfolio/creator-workspace.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219762/algofort/lp/saas-development/portfolio/creator-workspace.webp",
+    "bytes": 61626,
+    "width": 1600,
+    "height": 1200
+  },
+  "/portfolio/commerce-platform.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219762/algofort/lp/saas-development/portfolio/commerce-platform.webp",
+    "bytes": 83426,
+    "width": 1600,
+    "height": 1200
+  },
+  "/portfolio/operations-dashboard.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219763/algofort/lp/saas-development/portfolio/operations-dashboard.webp",
+    "bytes": 62904,
+    "width": 1600,
+    "height": 1200
+  },
+  "/portfolio/grocery-mobile.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219763/algofort/lp/saas-development/portfolio/grocery-mobile.webp",
+    "bytes": 83284,
+    "width": 1600,
+    "height": 1200
+  },
+  "/portfolio/fashion-mobile.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219762/algofort/lp/saas-development/portfolio/fashion-mobile.webp",
+    "bytes": 61412,
+    "width": 1200,
+    "height": 1600
+  },
+  "/product-experience/hand.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219763/algofort/lp/saas-development/product-experience/hand.webp",
+    "bytes": 61574,
+    "width": 1870,
+    "height": 1209
+  },
+  "/portfolio/wellness-mobile.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219763/algofort/lp/saas-development/portfolio/wellness-mobile.webp",
+    "bytes": 256032,
+    "width": 1600,
+    "height": 1095
+  },
+  "/product-experience/phone-01.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219764/algofort/lp/saas-development/product-experience/phone-01.webp",
+    "bytes": 173588,
+    "width": 900,
+    "height": 1468
+  },
+  "/product-experience/phone.mp4": {
+    "url": "https://res.cloudinary.com/vfsp1egd/video/upload/c_limit,w_1200,q_auto:best/v1792219764/algofort/lp/saas-development/product-experience/phone.mp4",
+    "bytes": 207752,
+    "width": 460,
+    "height": 996
+  },
+  "/product-experience/phone-02.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219764/algofort/lp/saas-development/product-experience/phone-02.webp",
+    "bytes": 96134,
+    "width": 900,
+    "height": 1472
+  },
+  "/product-experience/screen1-1.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219765/algofort/lp/saas-development/product-experience/screen1-1.webp",
+    "bytes": 155886,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen1-2.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219765/algofort/lp/saas-development/product-experience/screen1-2.webp",
+    "bytes": 30222,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen1-3.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219766/algofort/lp/saas-development/product-experience/screen1-3.webp",
+    "bytes": 31532,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen1-4.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219766/algofort/lp/saas-development/product-experience/screen1-4.webp",
+    "bytes": 19424,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen2-1.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219766/algofort/lp/saas-development/product-experience/screen2-1.webp",
+    "bytes": 64740,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen2-2.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219766/algofort/lp/saas-development/product-experience/screen2-2.webp",
+    "bytes": 35324,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen2-4.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219766/algofort/lp/saas-development/product-experience/screen2-4.webp",
+    "bytes": 34766,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen2-3.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219767/algofort/lp/saas-development/product-experience/screen2-3.webp",
+    "bytes": 155494,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen3-1.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219767/algofort/lp/saas-development/product-experience/screen3-1.webp",
+    "bytes": 24760,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen3-2.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219767/algofort/lp/saas-development/product-experience/screen3-2.webp",
+    "bytes": 42772,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen3-4.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219767/algofort/lp/saas-development/product-experience/screen3-4.webp",
+    "bytes": 30538,
+    "width": 650,
+    "height": 1374
+  },
+  "/product-experience/screen3-3.webp": {
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792219767/algofort/lp/saas-development/product-experience/screen3-3.webp",
+    "bytes": 24376,
+    "width": 650,
+    "height": 1374
+  }
+}

@@ -69,48 +69,47 @@ export function splitTextIntoChars(el) {
  * Animates a section title element with character slide-up stagger animation on scroll.
  */
 export function initTitleAnimation(titleEl, options = {}) {
-  if (!titleEl) return null;
-
-  // If already animated with an active ScrollTrigger, avoid duplicate
-  if (titleEl.dataset.titleAnimated) {
-    const existing = ScrollTrigger.getAll().find(
-      (st) => st.trigger === titleEl || (options.trigger && st.trigger === options.trigger)
-    );
-    if (existing) return existing.animation;
-  }
+  if (!titleEl || titleEl.dataset.titleAnimated) return null;
 
   const chars = splitTextIntoChars(titleEl);
-  if (!chars.length) return null;
+  if (!chars.length) {
+    titleEl.dataset.titleAnimated = 'true';
+    titleEl.dataset.splitDone = 'true';
+    return null;
+  }
 
   titleEl.dataset.titleAnimated = 'true';
 
-  // Clear any dead/stale ScrollTrigger on this element
-  ScrollTrigger.getAll().forEach((st) => {
-    if (st.trigger === titleEl || (options.trigger && st.trigger === options.trigger)) {
-      st.kill();
-    }
-  });
+  try {
+    const triggerTarget = options.trigger || titleEl;
 
-  return gsap.fromTo(
-    chars,
-    {
-      yPercent: 110,
-      opacity: 0,
-    },
-    {
-      yPercent: 0,
-      opacity: 1,
-      duration: 0.75,
-      ease: 'power3.out',
-      stagger: options.stagger ?? 0.02,
-      scrollTrigger: {
-        trigger: options.trigger || titleEl,
-        start: options.start || 'top 85%',
-        toggleActions: 'play none none none',
-        ...options.scrollTrigger,
+    return gsap.fromTo(
+      chars,
+      {
+        yPercent: 110,
+        opacity: 0,
       },
-    }
-  );
+      {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.75,
+        ease: 'power3.out',
+        stagger: options.stagger ?? 0.02,
+        scrollTrigger: {
+          trigger: triggerTarget,
+          start: options.start || 'top 85%',
+          toggleActions: 'play none none none',
+          once: true,
+          ...options.scrollTrigger,
+        },
+      }
+    );
+  } catch (err) {
+    console.warn('[titleAnimation] Error animating heading:', err);
+    gsap.set(chars, { yPercent: 0, opacity: 1 });
+    titleEl.dataset.splitDone = 'true';
+    return null;
+  }
 }
 
 /**
@@ -142,6 +141,9 @@ export function initAllHeadingsAnimation() {
 
   const headings = document.querySelectorAll(selectors.join(', '));
   headings.forEach((heading) => {
+    // Skip if already animated
+    if (heading.dataset.titleAnimated) return;
+
     // Exclude hero banner, navbar, footer heading, showreel lightbox, and process section which has simple static headings
     if (
       heading.closest('#sec-banner') ||
@@ -166,5 +168,11 @@ export function initAllHeadingsAnimation() {
     initTitleAnimation(heading, { trigger, start: 'top 85%', stagger: 0.02 });
   });
 
-  ScrollTrigger.refresh();
+  requestAnimationFrame(() => {
+    try {
+      ScrollTrigger.refresh();
+    } catch {
+      // ignore
+    }
+  });
 }

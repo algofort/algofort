@@ -104,7 +104,7 @@ export function TermsOfServiceSection() {
               <SubtitleMarquee
                 text="Legal & Compliance — "
                 variant="dark"
-                icon="/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+                icon="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
               />
             </div>
 
@@ -367,8 +367,8 @@ export function TermsOfServiceSection() {
                       <div className="sec-terms__contact-box-label">Offline Studio</div>
                       <p className="sec-terms__contact-box-val">
                         Algofort Studio<br />
-                        412 Melrose Avenue, Suite 210<br />
-                        Los Angeles, CA 90036, USA
+                        84j Ghazali Rd, Block 2 PECHS<br />
+                        Karachi, Pakistan
                       </p>
                     </div>
 
@@ -379,7 +379,7 @@ export function TermsOfServiceSection() {
                         <a href="mailto:hello@algofort.com">hello@algofort.com</a>
                         <br />
                         Phone:{' '}
-                        <a href="tel:+12135555555">+1 (213) 555-5555</a>
+                        <a data-site-phone href="tel:+923337198686">+92 333 7198686</a>
                       </p>
                     </div>
                   </div>
@@ -392,7 +392,7 @@ export function TermsOfServiceSection() {
                       </div>
                       <img
                         loading="lazy"
-                        src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                        src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                         alt="Star Icon"
                         className="button-icon"
                       />

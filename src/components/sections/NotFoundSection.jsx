@@ -127,7 +127,7 @@ export function NotFoundSection() {
         <div className="sec-not-found__top-left">
           <Link href="/" className="sec-not-found__logo-link" aria-label="Algofort Home">
             <img
-              src="/assets/logo.png"
+              src="https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792145914/algofort/assets/logo"
               alt="Algofort Logo"
               className="sec-not-found__logo-img"
               loading="eager"
@@ -171,7 +171,7 @@ export function NotFoundSection() {
                 </div>
                 <img
                   loading="lazy"
-                  src="/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                  src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
                   alt="Star Icon"
                   className="button-icon"
                 />

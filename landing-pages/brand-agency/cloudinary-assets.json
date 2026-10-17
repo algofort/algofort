@@ -1,0 +1,392 @@
+{
+  "/brand/algofort-dark.webp": {
+    "publicId": "algofort/lp/brand-agency/brand/algofort-dark",
+    "version": 1792214818,
+    "bytes": 8652,
+    "width": 504,
+    "height": 81,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214818/algofort/lp/brand-agency/brand/algofort-dark.webp"
+  },
+  "/cursors/retro-arrow.svg": {
+    "publicId": "algofort/lp/brand-agency/cursors/retro-arrow",
+    "version": 1792214818,
+    "bytes": 774,
+    "width": 27,
+    "height": 40,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214818/algofort/lp/brand-agency/cursors/retro-arrow.svg"
+  },
+  "/cursors/retro-pointer.svg": {
+    "publicId": "algofort/lp/brand-agency/cursors/retro-pointer",
+    "version": 1792214818,
+    "bytes": 353,
+    "width": 32,
+    "height": 40,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214818/algofort/lp/brand-agency/cursors/retro-pointer.svg"
+  },
+  "/fonts/BDOGrotesk-Regular.ttf": {
+    "publicId": "algofort/lp/brand-agency/fonts/BDOGrotesk-Regular.ttf",
+    "version": 1792214820,
+    "bytes": 126412,
+    "url": "https://res.cloudinary.com/vfsp1egd/raw/upload/v1792214820/algofort/lp/brand-agency/fonts/BDOGrotesk-Regular.ttf"
+  },
+  "/images/hero-slider/hero-brand-1.webp": {
+    "publicId": "algofort/lp/brand-agency/images/hero-slider/hero-brand-1",
+    "version": 1792214820,
+    "bytes": 74332,
+    "width": 736,
+    "height": 1308,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214820/algofort/lp/brand-agency/images/hero-slider/hero-brand-1.webp"
+  },
+  "/images/hero-slider/hero-brand-3.webp": {
+    "publicId": "algofort/lp/brand-agency/images/hero-slider/hero-brand-3",
+    "version": 1792214820,
+    "bytes": 114862,
+    "width": 941,
+    "height": 1672,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214820/algofort/lp/brand-agency/images/hero-slider/hero-brand-3.webp"
+  },
+  "/images/hero-slider/hero-brand-4.webp": {
+    "publicId": "algofort/lp/brand-agency/images/hero-slider/hero-brand-4",
+    "version": 1792214821,
+    "bytes": 107750,
+    "width": 736,
+    "height": 1307,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214821/algofort/lp/brand-agency/images/hero-slider/hero-brand-4.webp"
+  },
+  "/images/hero-slider/hero-brand-5.webp": {
+    "publicId": "algofort/lp/brand-agency/images/hero-slider/hero-brand-5",
+    "version": 1792214821,
+    "bytes": 55536,
+    "width": 736,
+    "height": 758,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214821/algofort/lp/brand-agency/images/hero-slider/hero-brand-5.webp"
+  },
+  "/images/hero-slider/hero-brand-6.webp": {
+    "publicId": "algofort/lp/brand-agency/images/hero-slider/hero-brand-6",
+    "version": 1792214821,
+    "bytes": 74828,
+    "width": 675,
+    "height": 1200,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214821/algofort/lp/brand-agency/images/hero-slider/hero-brand-6.webp"
+  },
+  "/images/hero-slider/hero-brand-7.webp": {
+    "publicId": "algofort/lp/brand-agency/images/hero-slider/hero-brand-7",
+    "version": 1792214821,
+    "bytes": 42878,
+    "width": 460,
+    "height": 640,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214821/algofort/lp/brand-agency/images/hero-slider/hero-brand-7.webp"
+  },
+  "/images/inquiry-creative-workspace-480.webp": {
+    "publicId": "algofort/lp/brand-agency/images/inquiry-creative-workspace-480",
+    "version": 1792214822,
+    "bytes": 32626,
+    "width": 480,
+    "height": 640,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214822/algofort/lp/brand-agency/images/inquiry-creative-workspace-480.webp"
+  },
+  "/images/inquiry-creative-workspace-960.webp": {
+    "publicId": "algofort/lp/brand-agency/images/inquiry-creative-workspace-960",
+    "version": 1792214822,
+    "bytes": 110920,
+    "width": 960,
+    "height": 1280,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214822/algofort/lp/brand-agency/images/inquiry-creative-workspace-960.webp"
+  },
+  "/images/latest-work/identity-brain-1280.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-brain-1280",
+    "version": 1792214822,
+    "bytes": 104528,
+    "width": 1280,
+    "height": 768,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214822/algofort/lp/brand-agency/images/latest-work/identity-brain-1280.webp"
+  },
+  "/images/latest-work/identity-brain-480.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-brain-480",
+    "version": 1792214822,
+    "bytes": 26800,
+    "width": 480,
+    "height": 288,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214822/algofort/lp/brand-agency/images/latest-work/identity-brain-480.webp"
+  },
+  "/images/latest-work/identity-brain-800.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-brain-800",
+    "version": 1792214822,
+    "bytes": 54862,
+    "width": 800,
+    "height": 480,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214822/algofort/lp/brand-agency/images/latest-work/identity-brain-800.webp"
+  },
+  "/images/latest-work/identity-emerging-scenarios-1280.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-emerging-scenarios-1280",
+    "version": 1792214823,
+    "bytes": 107544,
+    "width": 1280,
+    "height": 768,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214823/algofort/lp/brand-agency/images/latest-work/identity-emerging-scenarios-1280.webp"
+  },
+  "/images/latest-work/identity-emerging-scenarios-480.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-emerging-scenarios-480",
+    "version": 1792214823,
+    "bytes": 21206,
+    "width": 480,
+    "height": 288,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214823/algofort/lp/brand-agency/images/latest-work/identity-emerging-scenarios-480.webp"
+  },
+  "/images/latest-work/identity-emerging-scenarios-800.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-emerging-scenarios-800",
+    "version": 1792214823,
+    "bytes": 49848,
+    "width": 800,
+    "height": 480,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214823/algofort/lp/brand-agency/images/latest-work/identity-emerging-scenarios-800.webp"
+  },
+  "/images/latest-work/identity-goosebump-1280.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-goosebump-1280",
+    "version": 1792214823,
+    "bytes": 102296,
+    "width": 1280,
+    "height": 768,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214823/algofort/lp/brand-agency/images/latest-work/identity-goosebump-1280.webp"
+  },
+  "/images/latest-work/identity-goosebump-480.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-goosebump-480",
+    "version": 1792214823,
+    "bytes": 22998,
+    "width": 480,
+    "height": 288,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214823/algofort/lp/brand-agency/images/latest-work/identity-goosebump-480.webp"
+  },
+  "/images/latest-work/identity-goosebump-800.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-goosebump-800",
+    "version": 1792214823,
+    "bytes": 50894,
+    "width": 800,
+    "height": 480,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214823/algofort/lp/brand-agency/images/latest-work/identity-goosebump-800.webp"
+  },
+  "/images/latest-work/identity-herzog-1280.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-herzog-1280",
+    "version": 1792214824,
+    "bytes": 121208,
+    "width": 1280,
+    "height": 768,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214824/algofort/lp/brand-agency/images/latest-work/identity-herzog-1280.webp"
+  },
+  "/images/latest-work/identity-herzog-480.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-herzog-480",
+    "version": 1792214824,
+    "bytes": 22142,
+    "width": 480,
+    "height": 288,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214824/algofort/lp/brand-agency/images/latest-work/identity-herzog-480.webp"
+  },
+  "/images/latest-work/identity-herzog-800.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-herzog-800",
+    "version": 1792214824,
+    "bytes": 52412,
+    "width": 800,
+    "height": 480,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214824/algofort/lp/brand-agency/images/latest-work/identity-herzog-800.webp"
+  },
+  "/images/latest-work/identity-petpals-1280.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-petpals-1280",
+    "version": 1792214824,
+    "bytes": 156110,
+    "width": 1280,
+    "height": 768,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214824/algofort/lp/brand-agency/images/latest-work/identity-petpals-1280.webp"
+  },
+  "/images/latest-work/identity-petpals-480.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-petpals-480",
+    "version": 1792214824,
+    "bytes": 33512,
+    "width": 480,
+    "height": 288,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214824/algofort/lp/brand-agency/images/latest-work/identity-petpals-480.webp"
+  },
+  "/images/latest-work/identity-petpals-800.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-petpals-800",
+    "version": 1792214825,
+    "bytes": 73726,
+    "width": 800,
+    "height": 480,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214825/algofort/lp/brand-agency/images/latest-work/identity-petpals-800.webp"
+  },
+  "/images/latest-work/identity-whisky-1280.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-whisky-1280",
+    "version": 1792214825,
+    "bytes": 120212,
+    "width": 1280,
+    "height": 768,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214825/algofort/lp/brand-agency/images/latest-work/identity-whisky-1280.webp"
+  },
+  "/images/latest-work/identity-whisky-480.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-whisky-480",
+    "version": 1792214825,
+    "bytes": 24310,
+    "width": 480,
+    "height": 288,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214825/algofort/lp/brand-agency/images/latest-work/identity-whisky-480.webp"
+  },
+  "/images/latest-work/identity-whisky-800.webp": {
+    "publicId": "algofort/lp/brand-agency/images/latest-work/identity-whisky-800",
+    "version": 1792214825,
+    "bytes": 55128,
+    "width": 800,
+    "height": 480,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214825/algofort/lp/brand-agency/images/latest-work/identity-whisky-800.webp"
+  },
+  "/images/process/brand-process.webp": {
+    "publicId": "algofort/lp/brand-agency/images/process/brand-process",
+    "version": 1792214826,
+    "bytes": 110354,
+    "width": 1600,
+    "height": 833,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214826/algofort/lp/brand-agency/images/process/brand-process.webp"
+  },
+  "/images/services/service-brand-guidelines-v2.webp": {
+    "publicId": "algofort/lp/brand-agency/images/services/service-brand-guidelines-v2",
+    "version": 1792214826,
+    "bytes": 5382,
+    "width": 400,
+    "height": 272,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214826/algofort/lp/brand-agency/images/services/service-brand-guidelines-v2.webp"
+  },
+  "/images/services/service-brand-strategy-v2-480.webp": {
+    "publicId": "algofort/lp/brand-agency/images/services/service-brand-strategy-v2-480",
+    "version": 1792214826,
+    "bytes": 22376,
+    "width": 480,
+    "height": 480,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214826/algofort/lp/brand-agency/images/services/service-brand-strategy-v2-480.webp"
+  },
+  "/images/services/service-brand-strategy-v2-960.webp": {
+    "publicId": "algofort/lp/brand-agency/images/services/service-brand-strategy-v2-960",
+    "version": 1792214827,
+    "bytes": 73636,
+    "width": 960,
+    "height": 960,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214827/algofort/lp/brand-agency/images/services/service-brand-strategy-v2-960.webp"
+  },
+  "/images/services/service-brand-strategy-v2.webp": {
+    "publicId": "algofort/lp/brand-agency/images/services/service-brand-strategy-v2",
+    "version": 1792214827,
+    "bytes": 13798,
+    "width": 400,
+    "height": 272,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214827/algofort/lp/brand-agency/images/services/service-brand-strategy-v2.webp"
+  },
+  "/images/services/service-business-card-design-v2.webp": {
+    "publicId": "algofort/lp/brand-agency/images/services/service-business-card-design-v2",
+    "version": 1792214827,
+    "bytes": 15386,
+    "width": 400,
+    "height": 272,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214827/algofort/lp/brand-agency/images/services/service-business-card-design-v2.webp"
+  },
+  "/images/services/service-logo-design-v2.webp": {
+    "publicId": "algofort/lp/brand-agency/images/services/service-logo-design-v2",
+    "version": 1792214827,
+    "bytes": 17534,
+    "width": 400,
+    "height": 272,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214827/algofort/lp/brand-agency/images/services/service-logo-design-v2.webp"
+  },
+  "/images/services/service-packaging-design-v2.webp": {
+    "publicId": "algofort/lp/brand-agency/images/services/service-packaging-design-v2",
+    "version": 1792214827,
+    "bytes": 8610,
+    "width": 400,
+    "height": 272,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214827/algofort/lp/brand-agency/images/services/service-packaging-design-v2.webp"
+  },
+  "/images/studio/asterisk.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/asterisk",
+    "version": 1792214827,
+    "bytes": 1207,
+    "width": 140,
+    "height": 140,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214827/algofort/lp/brand-agency/images/studio/asterisk.svg"
+  },
+  "/images/studio/brand-airbnb.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-airbnb",
+    "version": 1792214828,
+    "bytes": 974,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214828/algofort/lp/brand-agency/images/studio/brand-airbnb.svg"
+  },
+  "/images/studio/brand-figma.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-figma",
+    "version": 1792214828,
+    "bytes": 1160,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214828/algofort/lp/brand-agency/images/studio/brand-figma.svg"
+  },
+  "/images/studio/brand-framer.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-framer",
+    "version": 1792214829,
+    "bytes": 343,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214829/algofort/lp/brand-agency/images/studio/brand-framer.svg"
+  },
+  "/images/studio/brand-linear.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-linear",
+    "version": 1792214829,
+    "bytes": 601,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214829/algofort/lp/brand-agency/images/studio/brand-linear.svg"
+  },
+  "/images/studio/brand-nike.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-nike",
+    "version": 1792214829,
+    "bytes": 494,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214829/algofort/lp/brand-agency/images/studio/brand-nike.svg"
+  },
+  "/images/studio/brand-notion.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-notion",
+    "version": 1792214830,
+    "bytes": 1032,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214830/algofort/lp/brand-agency/images/studio/brand-notion.svg"
+  },
+  "/images/studio/brand-spotify.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-spotify",
+    "version": 1792214831,
+    "bytes": 841,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214831/algofort/lp/brand-agency/images/studio/brand-spotify.svg"
+  },
+  "/images/studio/brand-stripe.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-stripe",
+    "version": 1792214831,
+    "bytes": 701,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214831/algofort/lp/brand-agency/images/studio/brand-stripe.svg"
+  },
+  "/images/studio/brand-vercel.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-vercel",
+    "version": 1792214832,
+    "bytes": 278,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214832/algofort/lp/brand-agency/images/studio/brand-vercel.svg"
+  },
+  "/images/studio/brand-webflow.svg": {
+    "publicId": "algofort/lp/brand-agency/images/studio/brand-webflow",
+    "version": 1792214832,
+    "bytes": 463,
+    "width": 160,
+    "height": 48,
+    "url": "https://res.cloudinary.com/vfsp1egd/image/upload/v1792214832/algofort/lp/brand-agency/images/studio/brand-webflow.svg"
+  }
+}
