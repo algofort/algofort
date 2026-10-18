@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 
-const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeRMfItAAAAAE6Ab634ch6gXJcLzte0dPix5kXO';
 
 export function RecaptchaField({ onTokenChange, resetKey = 0, theme = 'light' }) {
   const containerRef = useRef(null);
