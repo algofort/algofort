@@ -1,0 +1,44 @@
+name: Live Deploy Algofort to cPanel
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Production Standalone
+        run: npm run build
+
+      - name: Prepare Standalone Release
+        run: |
+          mkdir -p release
+          cp -r .next/standalone/. release/
+          mkdir -p release/.next/static
+          cp -r .next/static/. release/.next/static/
+          cp -r public release/public
+          mkdir -p release/tmp
+          touch release/tmp/restart.txt
+
+      - name: Setup SSH Key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.NAMECHEAP_SSH_KEY }}
+
+      - name: Deploy to cPanel algofort directory
+        run: |
+          rsync -avz \
+            -e "ssh -p 22 -o StrictHostKeyChecking=no" \
+            ./release/ ${{ secrets.CPANEL_USERNAME }}@${{ secrets.NAMECHEAP_HOST }}:/home/${{ secrets.CPANEL_USERNAME }}/algofort-app/

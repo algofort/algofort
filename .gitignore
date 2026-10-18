@@ -30,3 +30,6 @@ dist-ssr
 *.sw?
 .vercel
 .private/
+
+# Deployment keys
+deploy_key*
