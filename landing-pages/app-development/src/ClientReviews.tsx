@@ -1,3 +1,4 @@
+import { observeNear } from '../../../src/utils/observeNear.js'
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -26,6 +27,7 @@ export default function ClientReviews({ action }: { action: ReactNode }) {
     return () => { clearTimeout(resizeTimer); window.removeEventListener('resize', resize) }
   }, [])
   useLayoutEffect(() => {
+    return observeNear(sectionRef.current, () => {
     const media = gsap.matchMedia()
     media.add('(prefers-reduced-motion: no-preference)', () => {
       const section = sectionRef.current!
@@ -71,6 +73,7 @@ export default function ClientReviews({ action }: { action: ReactNode }) {
       return () => split.revert()
     }, sectionRef)
     return () => media.revert()
+    })
   }, [viewportVersion])
 
   return <section className="client-reviews" id="reviews" ref={sectionRef} aria-labelledby="reviews-heading">

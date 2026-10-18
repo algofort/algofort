@@ -88,15 +88,23 @@ export default function AppPortfolio({ action }: { action: ReactNode }) {
           contentReveal = gsap.to(content, { autoAlpha: 1, duration: 0.25, ease: 'power1.out' })
           revealTitle()
         }
+        if (spring.scale === spring.target && spring.velocity === 0) gsap.ticker.remove(tick)
+      }
+
+      const setTarget = (target: number) => {
+        if (spring.target === target) return
+        spring.target = target
+        previousTime = gsap.ticker.time
+        gsap.ticker.add(tick)
       }
 
       const circleTrigger = ScrollTrigger.create({
         trigger: root.querySelector('.app-transition-anchor'),
         start: 'top bottom-=80',
-        onEnter: () => { spring.target = 9 },
-        onLeaveBack: () => { spring.target = restingScale },
+        onEnter: () => setTarget(9),
+        onLeaveBack: () => setTarget(restingScale),
         onRefresh: (self) => {
-          spring.target = self.scroll() >= self.start ? 9 : restingScale
+          setTarget(self.scroll() >= self.start ? 9 : restingScale)
         },
       })
       spring.target = circleTrigger.scroll() >= circleTrigger.start ? 9 : restingScale
@@ -107,7 +115,6 @@ export default function AppPortfolio({ action }: { action: ReactNode }) {
       contentShown = spring.scale === 9
       gsap.set(content, { autoAlpha: contentShown ? 1 : 0 })
       revealTitle()
-      gsap.ticker.add(tick)
 
       sectionRef.current!.querySelectorAll<HTMLElement>('.latest-project-media').forEach((frame) => {
         const reveal = gsap.timeline({

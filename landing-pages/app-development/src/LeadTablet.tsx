@@ -1,3 +1,4 @@
+import { observeNear } from '../../../src/utils/observeNear.js'
 import { useLayoutEffect, useRef, useState, type FormEvent } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -15,6 +16,7 @@ export default function LeadTablet({ popup = false }: { popup?: boolean }) {
   const sectionRef = useRef<HTMLElement>(null)
 
   useLayoutEffect(() => {
+    return observeNear(sectionRef.current, () => {
     if (popup) return;
     const media = gsap.matchMedia()
     media.add('(prefers-reduced-motion: no-preference)', () => {
@@ -47,6 +49,7 @@ export default function LeadTablet({ popup = false }: { popup?: boolean }) {
       return () => splits.forEach(split => split.revert())
     }, sectionRef)
     return () => media.revert()
+    })
   }, [popup])
 
   async function submit(event: FormEvent<HTMLFormElement>) {

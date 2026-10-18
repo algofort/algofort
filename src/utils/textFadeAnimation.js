@@ -1,3 +1,4 @@
+import { observeNear } from './observeNear.js';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
@@ -74,7 +75,10 @@ export function initAllTextFadeAnimation() {
 
   const activeTimelines = [];
 
+  const stopObservers = [];
+  const splits = [];
   containerGroups.forEach((groupParagraphs, container) => {
+    stopObservers.push(observeNear(container, () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
@@ -100,6 +104,7 @@ export function initAllTextFadeAnimation() {
         tagName: 'span',
       });
 
+      splits.push(split);
       const chars = split.chars || [];
       if (!chars.length) {
         paragraph.classList.add('split-ready');
@@ -136,7 +141,13 @@ export function initAllTextFadeAnimation() {
     });
 
     activeTimelines.push(tl);
+    }));
   });
 
-  return activeTimelines;
+  return () => {
+    stopObservers.forEach(stop => stop());
+    activeTimelines.forEach(tl => { tl.scrollTrigger?.kill(); tl.kill(); });
+    splits.forEach(split => split.revert());
+    targetParagraphs.forEach(p => { delete p.dataset.fadeInitialized; });
+  };
 }

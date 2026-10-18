@@ -1,5 +1,7 @@
 "use client";
 
+import { observeNear } from '../../../../src/utils/observeNear.js';
+
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, MessageCircle, Workflow } from 'lucide-react';
 import { clientStories as content } from '@/config/ending';
@@ -69,8 +71,8 @@ export function SaaSClients() {
       };
       cleanup = () => { transition.current = null; animation?.kill(); splits.forEach(split => split.revert()); };
     }
-    void initialize().catch(() => cleanup());
-    return () => { disposed = true; cleanup(); };
+    const stopObserving = observeNear(root.current, () => { void initialize().catch(() => cleanup()); });
+    return () => { disposed = true; stopObserving(); cleanup(); };
   }, []);
 
   return <section className="alp_clients" id="alp_clients" aria-labelledby="alp_clients-title" ref={root}>

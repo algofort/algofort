@@ -36,8 +36,8 @@ export const SmoothScroll = ({ children }) => {
     gsap.ticker.lagSmoothing(0);
 
     // Initialize heading and sequential paragraph animations across all pages
-    initAllHeadingsAnimation();
-    initAllTextFadeAnimation();
+    const stopHeadings = initAllHeadingsAnimation();
+    const stopText = initAllTextFadeAnimation();
 
     if (document.fonts) {
       document.fonts.ready.then(() => {
@@ -62,6 +62,8 @@ export const SmoothScroll = ({ children }) => {
         if (window.__lenisInstance === lenis) window.__lenisInstance = null;
         if (window.lenis === lenis) window.lenis = null;
       }
+      stopHeadings?.();
+      if (typeof stopText === 'function') stopText();
       clearTimeout(timer);
       lenis.destroy();
       gsap.ticker.remove(updateLenis);

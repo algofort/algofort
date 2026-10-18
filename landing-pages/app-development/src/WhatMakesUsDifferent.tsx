@@ -1,3 +1,4 @@
+import { observeNear } from '../../../src/utils/observeNear.js'
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -17,6 +18,7 @@ const differences = [
 export default function WhatMakesUsDifferent() {
   const sectionRef = useRef<HTMLElement>(null)
   useLayoutEffect(() => {
+    return observeNear(sectionRef.current, () => {
     const media = gsap.matchMedia()
     media.add('(prefers-reduced-motion: no-preference)', () => {
       const section = sectionRef.current!
@@ -43,6 +45,7 @@ export default function WhatMakesUsDifferent() {
       return () => split.revert()
     }, sectionRef)
     return () => media.revert()
+    })
   }, [])
 
   return <section className="differences-section" id="different" ref={sectionRef} aria-labelledby="differences-heading">

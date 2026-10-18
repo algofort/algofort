@@ -1,3 +1,4 @@
+import { observeNear } from './observeNear.js';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -138,6 +139,7 @@ export function initAllHeadingsAnimation() {
     '.work-title',
   ];
 
+  const stopObservers = [];
   const headings = document.querySelectorAll(selectors.join(', '));
   headings.forEach((heading) => {
     // Skip if already animated
@@ -164,14 +166,18 @@ export function initAllHeadingsAnimation() {
       return;
     }
     const trigger = heading.closest('.alg-works-item') || heading.closest('.work-item') || heading;
-    initTitleAnimation(heading, { trigger, start: 'top 85%', stagger: 0.02 });
+    stopObservers.push(observeNear(trigger, () => {
+      const animation = initTitleAnimation(heading, { trigger, start: 'top 85%', stagger: 0.02 });
+      return () => { animation?.scrollTrigger?.kill(); animation?.kill(); delete heading.dataset.titleAnimated; };
+    }));
   });
 
-  requestAnimationFrame(() => {
+  const frame = requestAnimationFrame(() => {
     try {
       ScrollTrigger.refresh();
     } catch {
       // ignore
     }
   });
+  return () => { cancelAnimationFrame(frame); stopObservers.forEach(stop => stop()); };
 }

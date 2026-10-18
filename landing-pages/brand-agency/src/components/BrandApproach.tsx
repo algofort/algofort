@@ -1,3 +1,4 @@
+import { observeNear } from '../../../../src/utils/observeNear.js'
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -14,6 +15,7 @@ export default function BrandApproach() {
   const headingRef = useRef<HTMLHeadingElement>(null)
 
   useLayoutEffect(() => {
+    return observeNear(sectionRef.current, () => {
     const media = gsap.matchMedia()
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
@@ -76,6 +78,7 @@ export default function BrandApproach() {
     }, sectionRef)
 
     return () => media.revert()
+    })
   }, [])
 
   return (

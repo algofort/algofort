@@ -1,3 +1,4 @@
+import { observeNear } from '../../../../src/utils/observeNear.js'
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -22,6 +23,7 @@ export default function ClientTestimonials() {
   const sectionRef = useRef<HTMLElement>(null)
 
   useLayoutEffect(() => {
+    return observeNear(sectionRef.current, () => {
     const media = gsap.matchMedia()
 
     // Desktop: a single timeline keeps the heading and incoming cards synchronized.
@@ -113,6 +115,7 @@ export default function ClientTestimonials() {
     ScrollTrigger.refresh()
 
     return () => media.revert()
+    })
   }, [])
 
   return (

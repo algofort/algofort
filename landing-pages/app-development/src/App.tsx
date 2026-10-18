@@ -1,3 +1,4 @@
+import { observeNear } from '../../../src/utils/observeNear.js'
 import { useEffect, useLayoutEffect, useRef, useState, type FormEvent, type RefObject } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -220,6 +221,7 @@ const techLogos = [
 
 function useHeadingReveal(headingRef: RefObject<HTMLHeadingElement | null>, sectionRef: RefObject<HTMLElement | null>) {
   useLayoutEffect(() => {
+    return observeNear(sectionRef.current, () => {
     gsap.registerPlugin(ScrollTrigger, SplitText)
     const media = gsap.matchMedia()
 
@@ -267,6 +269,7 @@ function useHeadingReveal(headingRef: RefObject<HTMLHeadingElement | null>, sect
     }, sectionRef)
 
     return () => media.revert()
+    })
   }, [])
 
 }

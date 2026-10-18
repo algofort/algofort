@@ -1,0 +1,16 @@
+/* Shared page scrollbar for the main site and all landing pages. */
+html, body {
+  scrollbar-width: thin;
+  scrollbar-color: #f47a1f rgba(0, 0, 0, 0.04);
+}
+:is(html, body)::-webkit-scrollbar { width: 9px; height: 9px; }
+:is(html, body)::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.03); border-radius: 9999px; }
+:is(html, body)::-webkit-scrollbar-thumb {
+  background-color: #f47a1f;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+:is(html, body)::-webkit-scrollbar-thumb:hover { background-color: #e0680f; }
+:is(html, body)::-webkit-scrollbar-thumb:active { background-color: #cb5908; }
+:is(html, body)::-webkit-scrollbar-corner { background: transparent; }

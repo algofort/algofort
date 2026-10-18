@@ -1,3 +1,4 @@
+import { observeNear } from '../../../../src/utils/observeNear.js'
 import { useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -28,6 +29,7 @@ export default function BrandProcess() {
   const [activeStep, setActiveStep] = useState(0)
 
   useLayoutEffect(() => {
+    return observeNear(sectionRef.current, () => {
     const media = gsap.matchMedia()
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
@@ -81,6 +83,7 @@ export default function BrandProcess() {
     }, sectionRef)
 
     return () => media.revert()
+    })
   }, [])
 
   return (

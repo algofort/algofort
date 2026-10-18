@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { observeNear } from "../../../../src/utils/observeNear.js";
 import type { SplitText as SplitTextInstance } from "gsap/SplitText";
 import { landingMotion as motion } from "@/config/motion";
 import { waitForPageReveal } from '@/lib/page-reveal';
@@ -24,6 +25,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       cleanup = () => media.revert();
       media.add("(prefers-reduced-motion: no-preference)", () => {
         const splits: SplitTextInstance[] = [];
+        const stopObservers: (() => void)[] = [];
         const animations = new Map<Element, ReturnType<typeof gsap.from>>();
         const revealed = new Set<Element>();
         const observer = new IntersectionObserver(entries => {
@@ -36,6 +38,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         }, { threshold: motion.viewportThreshold, rootMargin: motion.viewportMargin });
 
         root.current?.querySelectorAll<HTMLElement>("[data-alp-motion]").forEach(element => {
+          stopObservers.push(observeNear(element, () => {
           const kind = element.dataset.alpMotion;
           if (kind === "heading" || kind === "text") {
             const heading = kind === "heading";
@@ -73,8 +76,9 @@ export function LandingMotion({ children }: { children: ReactNode }) {
             }));
           }
           observer.observe(element);
+          }));
         });
-        return () => { observer.disconnect(); splits.forEach(split => split.revert()); };
+        return () => { stopObservers.forEach(stop => stop()); observer.disconnect(); splits.forEach(split => split.revert()); };
       }, root);
     }
 
