@@ -50,5 +50,7 @@ jobs:
       - name: Deploy to cPanel algofort directory
         run: |
           rsync -avz \
+            --exclude '.env*' \
+            --delete \
             -e "ssh -p 22 -o StrictHostKeyChecking=no" \
             ./release/ ${{ secrets.CPANEL_USERNAME }}@${{ secrets.NAMECHEAP_HOST }}:/home/${{ secrets.CPANEL_USERNAME }}/algofort-app/
