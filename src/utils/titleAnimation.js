@@ -36,7 +36,6 @@ export function splitTextIntoChars(el) {
             const charSpan = document.createElement('span');
             charSpan.className = 'char';
             charSpan.style.display = 'inline-block';
-            charSpan.style.willChange = 'transform, opacity';
             charSpan.textContent = cStr;
             wordSpan.appendChild(charSpan);
           });

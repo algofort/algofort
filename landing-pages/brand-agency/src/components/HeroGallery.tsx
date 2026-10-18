@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './HeroGallery.css'
 import { assetUrl } from '../lib/assets'
+import { imageAtWidth, imageSrcSet } from '../../../shared/responsiveImage.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -60,7 +61,7 @@ export default function HeroGallery() {
         <ul className="hero-gallery-track">
           {[0, 1].map(copy => images.map(({ file, alt }, index) => (
             <li className="hero-gallery-slide" key={`${copy}-${file}`} aria-hidden={copy === 1}>
-              <img src={assetUrl(`/images/hero-slider/${file}`)} alt={copy === 0 ? alt : ''} width="460" height="640" loading={copy === 0 && index < 3 ? 'eager' : 'lazy'} decoding="async" />
+              <img src={imageAtWidth(assetUrl(`/images/hero-slider/${file}`), 960)} srcSet={imageSrcSet(assetUrl(`/images/hero-slider/${file}`))} sizes="(max-width: 700px) 84vw, 460px" alt={copy === 0 ? alt : ''} width="460" height="640" loading={copy === 0 && index === 0 ? 'eager' : 'lazy'} decoding="async" />
             </li>
           )))}
         </ul>

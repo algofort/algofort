@@ -1,3 +1,4 @@
+@import '../../shared/fonts.css';
 @import '../../web-development/src/footer.css';
 @import '../../shared/popup.css';
 :root { --alp_font-sans: 'Inter'; --alp_font-display: 'Plus Jakarta Sans'; }

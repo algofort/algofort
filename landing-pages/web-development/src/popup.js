@@ -1,5 +1,6 @@
 import { captchaToken, renderCaptcha, resetCaptcha } from './captcha.js';
 import { sendWebLead } from './lead.js';
+import { onPopupIntent } from '../../shared/popupIntent.js';
 
 /**
  * Entrance Popup Component for Algofort
@@ -57,6 +58,7 @@ export function initEntrancePopup() {
   function openPopup() {
     if (isOpen) return;
     isOpen = true;
+    backdrop.querySelectorAll('[data-popup-src]').forEach(image => { image.src = image.dataset.popupSrc; });
     backdrop.setAttribute('aria-hidden', 'false');
     renderCaptcha(form?.querySelector('[data-recaptcha]')).catch((error) => {
       statusEl.hidden = false;
@@ -175,15 +177,7 @@ export function initEntrancePopup() {
 
   // Trigger entrance popup on page load if not opted out
   if (!hasSeenPopup()) {
-    const triggerPopup = () => {
-      setTimeout(openPopup, 200);
-    };
-
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      triggerPopup();
-    } else {
-      window.addEventListener('DOMContentLoaded', triggerPopup, { once: true });
-    }
+    onPopupIntent(() => { if (!hasSeenPopup()) openPopup(); });
   }
 }
 

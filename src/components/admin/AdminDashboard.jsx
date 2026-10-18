@@ -1,8 +1,10 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import { onAuthStateChanged, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, sendPasswordResetEmail, sendEmailVerification } from 'firebase/auth';
 import { ALGOFORT_DARK_LOGO_URL as ALGOFORT_LOGO_URL } from '../../lib/brand';
+import AdminSkeleton from './AdminSkeleton';
+import {createAdminCache,clearAdminCaches,connectAdminLive} from '../../lib/adminCache';
 import ChatbotSettings from './ChatbotSettings';
 import { DEFAULT_SITE_SETTINGS, whatsappLink } from '../../lib/siteSettings';
 import { WHATSAPP_SETTINGS_EVENT, WHATSAPP_STORAGE_KEY } from '../../lib/whatsappWidget';
@@ -16,6 +18,9 @@ const date = value => value ? new Date(value).toLocaleString() : '—';
 const errorMessage = error => ({ 'auth/invalid-credential': 'Email or password is incorrect.', 'auth/too-many-requests': 'Too many attempts. Please wait before trying again.', 'auth/network-request-failed': 'Check your connection and try again.', 'auth/user-disabled': 'This account is disabled.' }[error.code] || error.message || 'Something went wrong. Please try again.');
 
 export default function AdminDashboard() {
+  const cacheRef=useRef(null),authEpoch=useRef(0),activeTab=useRef('overview'),loadRef=useRef(null),inboxRef=useRef({items:[],cursor:null}),requests=useRef({});
+  const [cache,setCache]=useState(null);
+  const [ready,setReady]=useState({}),[loading,setLoading]=useState({}),[sync,setSync]=useState('connecting'),[settingsDirty,setSettingsDirty]=useState(false),[chatDirty,setChatDirty]=useState(false),[settingsChanged,setSettingsChanged]=useState(false);
   const [user,setUser] = useState(null), [profile,setProfile] = useState(null), [boot,setBoot] = useState(true);
   const [tab,setTab] = useState('overview'), [menu,setMenu] = useState(false), [busy,setBusy] = useState(false), [notice,setNotice] = useState(''), [error,setError] = useState('');
   const [email,setEmail] = useState(''), [password,setPassword] = useState('');
@@ -28,38 +33,90 @@ export default function AdminDashboard() {
   const api = useCallback(async (path, options = {}) => {
     const current = clientAuth().currentUser;
     if (!current) throw Error('Sign in to continue.');
+    const epoch=authEpoch.current;
     const token = await current.getIdToken();
-    const response = await fetch(`/api/admin/${path}`, { ...options, cache: 'no-store', headers: { Authorization: `Bearer ${token}`, ...(options.body && !(options.body instanceof FormData) ? { 'Content-Type':'application/json' } : {}), ...options.headers } });
-    const result = await response.json(); if (!response.ok) throw Error(result.error || 'Request failed.'); return result;
+    if(epoch!==authEpoch.current||current.uid!==clientAuth().currentUser?.uid)throw Error('Session changed. Please try again.');
+    const {force=false,...requestOptions}=options;
+    const method=(options.method||'GET').toUpperCase();
+    async function fetchData(){
+    const response = await fetch(`/api/admin/${path}`, { ...requestOptions, cache: 'no-store', headers: { Authorization: `Bearer ${token}`, ...(options.body && !(options.body instanceof FormData) ? { 'Content-Type':'application/json' } : {}), ...options.headers } });
+    const result = await response.json();
+    if(epoch!==authEpoch.current)throw Error('Session changed. Please try again.');
+    if (!response.ok) {if([401,403].includes(response.status)){cacheRef.current?.clear();setProfile(null);}throw Error(result.error || 'Request failed.');}return result;
+    }
+    if(method==='GET')return cacheRef.current?cacheRef.current.get(path,fetchData,{force}):fetchData();
+    const result=await fetchData();
+    const affected=({content:['content','overview'],submissions:['submissions','overview'],users:['users'],settings:['settings'],chatbot:['chatbot']})[path];
+    if(affected&&!(path==='chatbot'&&method==='POST'))cacheRef.current?.invalidate(affected);
+    return result;
   }, []);
-  const load = useCallback(async (target = tab, append = false) => {
-    if (target === 'overview') setStats(await api('overview'));
-    if (['projects','categories'].includes(target)) setContent(await api('content'));
-    if (target === 'submissions') { const result = await api(`submissions${append && cursor ? `?cursor=${cursor}` : ''}`); setInbox(old => {
-      const ids = new Set(result.submissions.map(item=>item.id));
-      if (append) return {items:[...old.items,...result.submissions.filter(item=>!old.items.some(previous=>previous.id===item.id))],cursor:result.cursor};
-      const lastDate = result.submissions.at(-1)?.createdAt;
-      const older = lastDate ? old.items.filter(item=>!ids.has(item.id) && item.createdAt<=lastDate) : [];
-      return {items:[...result.submissions,...older],cursor:older.length?old.cursor:result.cursor};
-    }); }
-    if (target === 'users') setUsers((await api('users')).users);
-    if (target === 'chatbot') setChatVersion(old=>old+1);
-    if (target === 'settings') setSettings(await api('settings'));
-  }, [api,tab,cursor]);
+  const load = useCallback(async (target = activeTab.current, append = false, force = false) => {
+    const epoch=authEpoch.current,sequence=(requests.current[target]||0)+1;requests.current[target]=sequence;
+    const fresh=()=>epoch===authEpoch.current&&requests.current[target]===sequence;
+    setLoading(old=>({...old,[target]:true}));
+    try {
+      if(target==='chatbot'){if(force){cacheRef.current?.invalidate(['chatbot'],false);setChatVersion(old=>old+1);}return;}
+      const path=({overview:'overview',projects:'content',categories:'content',submissions:'submissions',users:'users',settings:'settings'})[target];
+      if(!path)return;
+      if(target==='settings' && settingsDirty && !force){setSettingsChanged(true);return;}
+      const currentInbox=inboxRef.current;
+      let value=await api(`${path}${append&&currentInbox.cursor?`?cursor=${currentInbox.cursor}`:''}`,{force});
+      if(target==='submissions' && !append && currentInbox.items.length>40){
+        // Re-fetch loaded older pages only on a real invalidation, avoiding stale
+        // archived/status records after changes outside the first page.
+        const pages=[...value.submissions];let next=value.cursor;
+        while(next&&pages.length<currentInbox.items.length){const page=await api(`submissions?cursor=${next}`,{force});pages.push(...page.submissions);next=page.cursor;}
+        value={submissions:pages,cursor:next};
+      }
+      if(!fresh())return;
+      if(target==='overview')setStats(value);
+      if(['projects','categories'].includes(target))setContent(value);
+      if(target==='submissions'){
+        const items=append?[...currentInbox.items,...value.submissions.filter(item=>!currentInbox.items.some(previous=>previous.id===item.id))]:value.submissions;
+        inboxRef.current={items,cursor:value.cursor};setInbox(inboxRef.current);
+      }
+      if(target==='users')setUsers(value.users);
+      if(target==='settings'){setSettings(value);setSettingsDirty(false);setSettingsChanged(false);}
+      setReady(old=>({...old,[target]:true}));
+    } finally {if(fresh())setLoading(old=>({...old,[target]:false}));}
+  }, [api,settingsDirty]);
+  useEffect(()=>{loadRef.current=load;activeTab.current=tab;});
   useEffect(() => onAuthStateChanged(clientAuth(), async current => {
-    setUser(current); setProfile(null); setError('');
-    if (current?.emailVerified) { try { setProfile(await api('me')); } catch (err) { setError(errorMessage(err)); } }
-    setBoot(false);
+    const epoch=++authEpoch.current;
+    cacheRef.current?.clear();cacheRef.current=null;setCache(null);
+    setUser(current);setProfile(null);setError('');setBoot(true);setReady({});setLoading({});
+    setContent({projects:[],homeProjects:[],categories:[]});setStats({});setUsers([]);setSettings({...DEFAULT_SITE_SETTINGS});setSettingsDirty(false);setChatDirty(false);setSettingsChanged(false);setModal(null);setPassword('');
+    inboxRef.current={items:[],cursor:null};setInbox(inboxRef.current);
+    if(current?.emailVerified){try {
+      const verified=await api('me');if(epoch!==authEpoch.current)return;
+      // Authorization is always verified on the server before cached records render.
+      cacheRef.current=createAdminCache(current.uid,verified.role);setCache(cacheRef.current);setProfile(verified);
+      let savedTab;try{savedTab=sessionStorage.getItem(`algofort-admin-tab:${current.uid}`);}catch{}
+      setTab(savedTab&&canVisit(verified.role,savedTab)&&sections.some(([id])=>id===savedTab)?savedTab:'overview');
+    }catch(err){if(epoch===authEpoch.current){clearAdminCaches();setError(errorMessage(err));}}}
+    else clearAdminCaches();
+    if(epoch===authEpoch.current)setBoot(false);
   }), [api]);
-  useEffect(() => {
-    if (!profile) return;
-    let alive = true;
-    load(tab).catch(err => { if (alive) setError(errorMessage(err)); });
-    const timer = tab === 'submissions' ? setInterval(() => load('submissions').catch(() => {}), 30000) : null;
-    return () => { alive = false; clearInterval(timer); };
-    // Refresh on section changes; pagination does not restart the subscription.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profile,tab]);
+  useEffect(()=>{
+    if(!profile)return;
+    const cache=cacheRef.current;
+    const unsubscribe=cache.subscribe(names=>{
+      const target=activeTab.current,path=({projects:'content',categories:'content'})[target]||target;
+      if(names.includes(path))loadRef.current(target).catch(err=>{if(activeTab.current===target)setError(errorMessage(err));});
+    });
+    const stop=connectAdminLive({
+      getToken:()=>clientAuth().currentUser.getIdToken(),
+      onVersions:versions=>cache.acceptVersions(versions),onStatus:setSync,
+      onAccessChanged:()=>{++authEpoch.current;cache.clear();clearAdminCaches();setProfile(null);setModal(null);setError('Your access has changed. Sign out and sign in again to verify your role.');},
+    });
+    return()=>{unsubscribe();stop();};
+  },[profile]);
+  useEffect(()=>{
+    if(!profile||!canVisit(profile.role,tab))return;
+    let alive=true;
+    loadRef.current(tab).catch(err=>{if(alive)setError(errorMessage(err));});
+    return()=>{alive=false;};
+  },[profile,tab]);
   useEffect(() => {
     if (!modal) return;
     const previousFocus = document.activeElement;
@@ -79,7 +136,7 @@ export default function AdminDashboard() {
   }, [modal]);
   async function run(action) { setBusy(true);setError('');setNotice('');try { await action(); } catch(err) { setError(errorMessage(err)); } finally { setBusy(false); } }
   async function login(event) { event.preventDefault(); await run(async () => { await setPersistence(clientAuth(),browserSessionPersistence); await signInWithEmailAndPassword(clientAuth(),email.trim(),password); setPassword(''); }); }
-  function changeTab(next) { setTab(next);setSearch('');setFilter('');setMenu(false);setError('');setNotice(''); }
+  function changeTab(next) { if(!canVisit(profile.role,next))return;if(((tab==='settings'&&settingsDirty)||(tab==='chatbot'&&chatDirty))&&!window.confirm('Discard unsaved settings?'))return;setSettingsDirty(false);setChatDirty(false);try{sessionStorage.setItem(`algofort-admin-tab:${profile.uid}`,next);}catch{}setTab(next);setSearch('');setFilter('');setMenu(false);setError('');setNotice(''); }
   function open(kind,data) { setDraft(structuredClone(data));setModal(kind);setError('');setNotice(''); }
   function field(key,value) { setDraft(old => ({...old,[key]:value})); }
   async function save(event) {
@@ -99,22 +156,25 @@ export default function AdminDashboard() {
   const visibleProjects = [...content.projects,...content.homeProjects].filter(project => `${project.title} ${project.category?.join(' ')}`.toLowerCase().includes(search.toLowerCase()) && (!filter || project.status === filter));
   const visibleSubmissions = submissions.filter(item => `${item.fullName} ${item.email} ${item.source}`.toLowerCase().includes(search.toLowerCase()) && (!filter || item.status === filter));
 
-  if (boot) return <div className="adm-root adm-loading">Opening your workspace…</div>;
-  if (!profile) return <div className="adm-root adm-login"><div className="adm-login-card"><a className="adm-logo" href="/" aria-label="Algofort home"><img src={ALGOFORT_LOGO_URL} alt="Algofort" width="170" decoding="async" /></a><span className="adm-eyebrow">ADMIN WORKSPACE</span><h1>{user ? 'Activate your access' : 'Welcome back'}</h1><p>Manage your work, enquiries and team in one place.</p>
+  if (boot) return <div className="adm-root adm-boot"><AdminSkeleton/></div>;
+  if (!profile) return <div className="adm-root adm-login"><div className="adm-login-card"><a className="adm-logo" href="/" aria-label="Algofort home"><img src={ALGOFORT_LOGO_URL} alt="Algofort" width="170" decoding="async" /></a><span className="adm-eyebrow">ADMIN WORKSPACE</span><h1>{user ? user.emailVerified?'Check your access':'Activate your access' : 'Welcome back'}</h1><p>Manage your work, enquiries and team in one place.</p>
     {error && <div className="adm-alert adm-error" role="alert">{error}</div>}{notice && <div className="adm-alert" role="status">{notice}</div>}
-    {!user ? <form onSubmit={login}><label>Email address<input type="email" autoComplete="username" required value={email} onChange={event=>setEmail(event.target.value)} /></label><label>Password<input type="password" autoComplete="current-password" required value={password} onChange={event=>setPassword(event.target.value)} /></label><button className="adm-btn adm-primary" disabled={busy}>Sign in</button><button type="button" className="adm-link" disabled={busy || !email} onClick={()=>run(async()=>{await sendPasswordResetEmail(clientAuth(),email.trim());setNotice('If an account exists, password reset instructions will be sent.');})}>Forgot password?</button></form> : <div className="adm-stack"><p>Signed in as <strong>{user.email}</strong>. Verify your email to open the workspace. If already verified, ask the owner to check your role.</p><button className="adm-btn adm-primary" disabled={busy} onClick={()=>run(async()=>{await sendEmailVerification(clientAuth().currentUser);setNotice('Verification email sent. Check your inbox and spam folder.');})}>Send verification email</button><button className="adm-btn" disabled={busy} onClick={()=>run(async()=>{await clientAuth().currentUser.reload();await clientAuth().currentUser.getIdToken(true);setUser(clientAuth().currentUser);setProfile(await api('me'));})}>I have verified my email</button><button className="adm-link" onClick={()=>signOut(clientAuth())}>Sign out</button></div>}
+    {!user ? <form onSubmit={login}><label>Email address<input type="email" autoComplete="username" required value={email} onChange={event=>setEmail(event.target.value)} /></label><label>Password<input type="password" autoComplete="current-password" required value={password} onChange={event=>setPassword(event.target.value)} /></label><button className="adm-btn adm-primary" disabled={busy}>Sign in</button><button type="button" className="adm-link" disabled={busy || !email} onClick={()=>run(async()=>{await sendPasswordResetEmail(clientAuth(),email.trim());setNotice('If an account exists, password reset instructions will be sent.');})}>Forgot password?</button></form> : <div className="adm-stack"><p>Signed in as <strong>{user.email}</strong>. {user.emailVerified?'Recheck your session to continue. If access is still unavailable, ask the owner to check your role.':'Verify your email to open the workspace.'}</p>{!user.emailVerified&&<button className="adm-btn adm-primary" disabled={busy} onClick={()=>run(async()=>{await sendEmailVerification(clientAuth().currentUser);setNotice('Verification email sent. Check your inbox and spam folder.');})}>Send verification email</button>}<button className="adm-btn" disabled={busy} onClick={()=>run(async()=>{await clientAuth().currentUser.reload();await clientAuth().currentUser.getIdToken(true);setUser(clientAuth().currentUser);const verified=await api('me');cacheRef.current?.clear();cacheRef.current=createAdminCache(verified.uid,verified.role);setCache(cacheRef.current);setProfile(verified);})}>{user.emailVerified?'Recheck access':'I have verified my email'}</button><button className="adm-link" onClick={()=>signOut(clientAuth())}>Sign out</button></div>}
     <a className="adm-back" href="/">← Back to website</a></div></div>;
 
   return <div className="adm-root adm-workspace"><aside className={`adm-sidebar ${menu?'is-open':''}`}><a className="adm-logo" href="/" aria-label="Algofort home"><img src={ALGOFORT_LOGO_URL} alt="Algofort" width="170" decoding="async" /></a><span className="adm-eyebrow">YOUR WORKSPACE</span><nav aria-label="Admin navigation">{sections.filter(([id])=>canVisit(profile.role,id)).map(([id,label,Icon])=><button key={id} className={tab===id?'is-active':''} onClick={()=>changeTab(id)}><Icon size={18}/>{label}</button>)}</nav><div className="adm-account"><span className="adm-pill">{profile.role}</span><p>{profile.email}</p><button onClick={()=>signOut(clientAuth())}><LogOut size={16}/> Sign out</button></div></aside>{menu && <button className="adm-overlay" aria-label="Close menu" onClick={()=>setMenu(false)}/>}
-    <main className="adm-main"><header className="adm-header"><div><span className="adm-eyebrow">ADMIN WORKSPACE</span><h1>{sections.find(([id])=>id===tab)?.[1]}</h1></div><div className="adm-actions"><button className="adm-btn adm-mobile-menu" aria-label="Open menu" onClick={()=>setMenu(!menu)}><Menu size={18}/></button><a className="adm-btn" href="/" target="_blank" rel="noreferrer"><ExternalLink size={16}/><span>View site</span></a><button className="adm-btn" disabled={busy} onClick={()=>run(()=>load())} aria-label="Refresh"><RefreshCw size={16}/></button></div></header>
+    <main className="adm-main" aria-busy={Boolean(loading[tab]&&!ready[tab])}><header className="adm-header"><div><span className="adm-eyebrow">ADMIN WORKSPACE</span><h1>{sections.find(([id])=>id===tab)?.[1]}</h1><span className={`adm-sync adm-sync-${sync}`} role="status">{({live:'Live updates',connecting:'Connecting…',reconnecting:'Reconnecting…',offline:'Offline · cached data',paused:'Updates paused',checking:'Checking for updates'})[sync]}</span></div><div className="adm-actions"><button className="adm-btn adm-mobile-menu" aria-label="Open menu" onClick={()=>setMenu(!menu)}><Menu size={18}/></button><a className="adm-btn" href="/" target="_blank" rel="noreferrer"><ExternalLink size={16}/><span>View site</span></a><button className="adm-btn" disabled={busy} onClick={()=>{if(((tab==='settings'&&settingsDirty)||(tab==='chatbot'&&chatDirty))&&!window.confirm('Discard unsaved settings and refresh?'))return;run(()=>load(tab,false,true));}} aria-label="Refresh"><RefreshCw size={16} className={loading[tab]?'adm-spin':''}/></button></div></header>
     {!modal && error && <div className="adm-alert adm-error" role="alert">{error}</div>}{!modal && notice && <div className="adm-alert" role="status">{notice}</div>}
+    {tab!=='chatbot'&&!ready[tab]&&!error&&<AdminSkeleton kind={tab}/>}
+    <div hidden={tab!=='chatbot'&&!ready[tab]}>
     {tab==='overview' && <><div className="adm-stats">{Object.entries(stats).map(([key,value])=><article key={key}><span>{({projects:'Projects',categories:'Categories',submissions:'All enquiries',newSubmissions:'New enquiries'})[key]}</span><strong>{value}</strong></article>)}</div><section className="adm-panel adm-welcome"><span className="adm-eyebrow">MADE TO MANAGE</span><h2>Your next update starts here.</h2><p>Publish projects, organise your portfolio and keep every conversation moving.</p><div className="adm-actions">{canVisit(profile.role,'projects') && <button className="adm-btn adm-primary" onClick={()=>changeTab('projects')}>Manage portfolio</button>}{canVisit(profile.role,'submissions') && <button className="adm-btn" onClick={()=>changeTab('submissions')}>Open submissions</button>}</div></section><p className="adm-muted">Portfolio changes apply to the main website. Landing page project galleries keep their own content.</p></>}
     {tab==='projects' && <><div className="adm-toolbar"><div className="adm-search"><input aria-label="Search projects" placeholder="Search projects…" value={search} onChange={event=>setSearch(event.target.value)}/><select aria-label="Project status" value={filter} onChange={event=>setFilter(event.target.value)}><option value="">All statuses</option>{['published','draft','archived'].map(value=><option key={value}>{value}</option>)}</select></div><button className="adm-btn adm-primary" onClick={()=>open('project',{...blankProject,sortOrder:content.projects.length})}><Plus size={17}/> Add project</button></div><div className="adm-project-grid">{visibleProjects.map(project=><article className="adm-project" key={project.id}><div className="adm-project-image"><img src={project.image} alt={project.title} loading="lazy"/><span className="adm-pill">{project.status}</span></div><div className="adm-project-info"><span className="adm-eyebrow">{project.placement} · ORDER {project.sortOrder}</span><h3>{project.title}</h3><p>{project.category?.map(id=>content.categories.find(category=>category.id===id)?.label || id).join(' · ') || 'Featured project'}</p><button className="adm-btn" onClick={()=>open('project',project)}>Edit project</button></div></article>)}</div>{!visibleProjects.length && <Empty text="No matching projects. Add a project or change your search."/>}</>}
     {tab==='categories' && <><div className="adm-toolbar"><p className="adm-muted">Categories control the portfolio filter tabs.</p><button className="adm-btn adm-primary" onClick={()=>open('category',{id:'',label:'',sortOrder:content.categories.length,create:true})}><Plus size={17}/> Add category</button></div><div className="adm-panel adm-table-wrap"><table><thead><tr><th>Category</th><th>ID</th><th>Order</th><th>Actions</th></tr></thead><tbody>{content.categories.map(category=><tr key={category.id}><td data-label="Category">{category.label}</td><td data-label="ID">{category.id}</td><td data-label="Order">{category.sortOrder}</td><td data-label="Actions"><div className="adm-actions"><button className="adm-link" onClick={()=>open('category',category)}>Edit</button><button className="adm-link adm-danger" disabled={busy} onClick={()=>{if(window.confirm(`Delete the category “${category.label}”? Categories with projects cannot be deleted.`))run(async()=>{await api('content',{method:'DELETE',body:JSON.stringify({type:'category',id:category.id})});await load();setNotice('Category deleted.');});}}>Delete</button></div></td></tr>)}</tbody></table></div></>}
-    {tab==='submissions' && <><div className="adm-toolbar"><div className="adm-search"><input aria-label="Search enquiries" placeholder="Search name, email or form…" value={search} onChange={event=>setSearch(event.target.value)}/><select aria-label="Enquiry status" value={filter} onChange={event=>setFilter(event.target.value)}><option value="">All statuses</option>{['new','in-progress','replied','archived'].map(value=><option key={value}>{value}</option>)}</select></div><span className="adm-muted">Refreshes every 30 seconds</span></div><div className="adm-panel adm-table-wrap"><table><thead><tr><th>Contact</th><th>Form</th><th>Received</th><th>Status</th><th></th></tr></thead><tbody>{visibleSubmissions.map(item=><tr key={item.id}><td data-label="Contact"><div><strong>{item.fullName}</strong><small>{item.email}</small></div></td><td data-label="Form">{item.source}</td><td data-label="Received">{date(item.createdAt)}</td><td data-label="Status"><span className={`adm-pill ${item.status==='new'?'adm-pill-orange':''}`}>{item.status}</span></td><td data-label="Actions"><button className="adm-link" onClick={()=>open('submission',item)}>Open</button></td></tr>)}</tbody></table>{!visibleSubmissions.length && <Empty text="No enquiries found. New form submissions will appear here."/>}</div>{cursor && <button className="adm-btn adm-load" disabled={busy} onClick={()=>run(()=>load('submissions',true))}>Load older enquiries</button>}<p className="adm-muted">Search filters the enquiries loaded here. Use “Load older enquiries” to include earlier records.</p></>}
+    {tab==='submissions' && <><div className="adm-toolbar"><div className="adm-search"><input aria-label="Search enquiries" placeholder="Search name, email or form…" value={search} onChange={event=>setSearch(event.target.value)}/><select aria-label="Enquiry status" value={filter} onChange={event=>setFilter(event.target.value)}><option value="">All statuses</option>{['new','in-progress','replied','archived'].map(value=><option key={value}>{value}</option>)}</select></div><span className="adm-muted">{({live:'Live updates',connecting:'Connecting…',reconnecting:'Reconnecting…',offline:'Offline — showing cached data',paused:'Updates paused',checking:'Checking for updates'})[sync]}</span></div><div className="adm-panel adm-table-wrap"><table><thead><tr><th>Contact</th><th>Form</th><th>Received</th><th>Status</th><th></th></tr></thead><tbody>{visibleSubmissions.map(item=><tr key={item.id}><td data-label="Contact"><div><strong>{item.fullName}</strong><small>{item.email}</small></div></td><td data-label="Form">{item.source}</td><td data-label="Received">{date(item.createdAt)}</td><td data-label="Status"><span className={`adm-pill ${item.status==='new'?'adm-pill-orange':''}`}>{item.status}</span></td><td data-label="Actions"><button className="adm-link" onClick={()=>open('submission',item)}>Open</button></td></tr>)}</tbody></table>{!visibleSubmissions.length && <Empty text="No enquiries found. New form submissions will appear here."/>}</div>{cursor && <button className="adm-btn adm-load" disabled={busy} onClick={()=>run(()=>load('submissions',true))}>Load older enquiries</button>}<p className="adm-muted">Search filters the enquiries loaded here. Use “Load older enquiries” to include earlier records.</p></>}
     {tab==='users' && <><div className="adm-toolbar"><p className="adm-muted">Owner: full access · Editor: portfolio · Support: enquiries</p><button className="adm-btn adm-primary" onClick={()=>open('user',{email:'',displayName:'',role:'editor',active:true})}><Plus size={17}/> Invite user</button></div><div className="adm-panel adm-table-wrap"><table><thead><tr><th>User</th><th>Role</th><th>Access</th><th>Actions</th></tr></thead><tbody>{users.map(item=><tr key={item.id}><td data-label="User"><div><strong>{item.displayName || item.email}</strong><small>{item.email}</small></div></td><td data-label="Role">{item.role}</td><td data-label="Access"><span className="adm-pill">{item.active?'Active':'Disabled'}</span></td><td data-label="Actions"><div className="adm-actions"><button className="adm-link" onClick={()=>open('user',item)}>Manage</button>{item.active && <button className="adm-link" disabled={busy} onClick={()=>run(async()=>{await api('users',{method:'POST',body:JSON.stringify({action:'invite',id:item.id})});setNotice('Password setup invitation sent.');})}>Send invitation</button>}</div></td></tr>)}</tbody></table></div></>}
-    {tab==='settings' && <section className="adm-panel adm-settings"><span className="adm-eyebrow">WEBSITE & LANDING PAGES</span><h2>WhatsApp contact</h2><p className="adm-muted">One contact number powers the sticky WhatsApp button across the main website and all four landing pages.</p><form onSubmit={event=>{event.preventDefault();run(async()=>{const saved=await api('settings',{method:'PUT',body:JSON.stringify(settings)});setSettings(saved);window.dispatchEvent(new CustomEvent(WHATSAPP_SETTINGS_EVENT,{detail:saved}));try{localStorage.setItem(WHATSAPP_STORAGE_KEY,String(Date.now()));}catch{}setNotice('WhatsApp settings saved across the website and all landing pages.');});}}><label>WhatsApp number<input type="tel" autoComplete="tel" required maxLength={40} value={settings.whatsappNumber} placeholder="+92 333 7198686" onChange={event=>setSettings(old=>({...old,whatsappNumber:event.target.value}))}/><small>Include the country code. Use a number registered with WhatsApp.</small></label><label>Pre-filled message<textarea rows={3} maxLength={500} value={settings.whatsappMessage} onChange={event=>setSettings(old=>({...old,whatsappMessage:event.target.value}))}/><small>Visitors can edit this message before sending it.</small></label><label className="adm-check"><input type="checkbox" checked={settings.whatsappEnabled} onChange={event=>setSettings(old=>({...old,whatsappEnabled:event.target.checked}))}/>Show the sticky WhatsApp button</label><div className="adm-actions"><button className="adm-btn adm-primary" disabled={busy}>{busy?'Saving…':'Save settings'}</button>{whatsappLink({...settings,whatsappNumber:settings.whatsappNumber.replace(/[\s().-]/g,'')}) && <a className="adm-btn" href={whatsappLink({...settings,whatsappNumber:settings.whatsappNumber.replace(/[\s().-]/g,'')})} target="_blank" rel="noopener noreferrer">Preview chat link <ExternalLink size={15}/></a>}</div></form></section>}
-    {tab==='chatbot' && <ChatbotSettings api={api} key={chatVersion}/>}
+    {tab==='settings' && <section className="adm-panel adm-settings" onChange={()=>setSettingsDirty(true)}><span className="adm-eyebrow">WEBSITE & LANDING PAGES</span><h2>WhatsApp contact</h2><p className="adm-muted">One contact number powers the sticky WhatsApp button across the main website and all four landing pages.</p><div>{settingsChanged&&<div className="adm-alert" role="status">Settings changed on the server. Your unsaved edits are preserved. <button type="button" className="adm-link" onClick={()=>{if(window.confirm('Discard your edits and load the latest settings?'))run(()=>load('settings',false,true));}}>Load latest settings</button></div>}</div><form onSubmit={event=>{event.preventDefault();run(async()=>{const saved=await api('settings',{method:'PUT',body:JSON.stringify(settings)});setSettings(saved);setSettingsDirty(false);setSettingsChanged(false);window.dispatchEvent(new CustomEvent(WHATSAPP_SETTINGS_EVENT,{detail:saved}));try{localStorage.setItem(WHATSAPP_STORAGE_KEY,String(Date.now()));}catch{}setNotice('WhatsApp settings saved across the website and all landing pages.');});}}><label>WhatsApp number<input type="tel" autoComplete="tel" required maxLength={40} value={settings.whatsappNumber} placeholder="+92 333 7198686" onChange={event=>setSettings(old=>({...old,whatsappNumber:event.target.value}))}/><small>Include the country code. Use a number registered with WhatsApp.</small></label><label>Pre-filled message<textarea rows={3} maxLength={500} value={settings.whatsappMessage} onChange={event=>setSettings(old=>({...old,whatsappMessage:event.target.value}))}/><small>Visitors can edit this message before sending it.</small></label><label className="adm-check"><input type="checkbox" checked={settings.whatsappEnabled} onChange={event=>setSettings(old=>({...old,whatsappEnabled:event.target.checked}))}/>Show the sticky WhatsApp button</label><div className="adm-actions"><button className="adm-btn adm-primary" disabled={busy}>{busy?'Saving…':'Save settings'}</button>{whatsappLink({...settings,whatsappNumber:settings.whatsappNumber.replace(/[\s().-]/g,'')}) && <a className="adm-btn" href={whatsappLink({...settings,whatsappNumber:settings.whatsappNumber.replace(/[\s().-]/g,'')})} target="_blank" rel="noopener noreferrer">Preview chat link <ExternalLink size={15}/></a>}</div></form></section>}
+    {tab==='chatbot' && <ChatbotSettings api={api} cache={cache} onDirtyChange={setChatDirty} key={chatVersion}/>}
+    </div>
     </main>
     {modal && <div className="adm-modal-backdrop" onClick={event=>{if(event.target===event.currentTarget && !busy)setModal(null);}}><section className="adm-dialog" role="dialog" aria-modal="true" aria-labelledby="adm-dialog-title"><header><div><span className="adm-eyebrow">WORKSPACE</span><h2 id="adm-dialog-title">{modal==='submission'?'Enquiry details':`${draft.id?'Edit':'Add'} ${modal}`}</h2></div><button className="adm-icon" aria-label="Close dialog" disabled={busy} onClick={()=>setModal(null)}><X size={22}/></button></header><form onSubmit={save}>
       {error && <div className="adm-alert adm-error" role="alert">{error}</div>}{notice && <div className="adm-alert" role="status">{notice}</div>}

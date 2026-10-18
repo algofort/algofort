@@ -85,7 +85,13 @@ This imports the original 129 main portfolio projects, six categories and six le
 
 All main-site and landing-page enquiry forms use `/api/contact`. After validation, rate limiting, honeypot and reCAPTCHA checks, the enquiry is saved to Firestore before email delivery. Both a branded user confirmation and an admin notification are sent. Delivery failures are recorded without losing the enquiry or prompting visitors to resubmit. Authorised staff can retry failed emails from the enquiry details; already-sent recipients are skipped. Enquiry notes and status are private to authorised staff. “Replied” is a manual status and does not itself send a reply.
 
-The dashboard loads enquiries in batches of 40 and refreshes the current batch every 30 seconds. Search filters the currently loaded records. At launch, retain shared rate limiting at the hosting layer, set all environment variables, rotate shared secrets, verify the authorised domain and test reCAPTCHA/email on the live domain.
+The dashboard loads enquiries in batches of 40. Search filters the currently loaded records. At launch, retain shared rate limiting at the hosting layer, set all environment variables, rotate shared secrets, verify the authorised domain and test reCAPTCHA/email on the live domain.
+
+### Dashboard cache and live updates
+
+Dashboard responses use a user/role-scoped cache in `sessionStorage` with a 15-minute age limit and an in-memory fallback if browser storage is unavailable. It survives refreshes in the same tab, clears on sign-out/access changes and never stores passwords, Firebase tokens or provider API keys. `/api/admin/me` still checks current authorization before cached records render; authentication is never bypassed. The selected section survives a refresh. First loads show responsive shimmer skeletons; background refreshes retain the existing view. The Refresh button explicitly reloads current data.
+
+`/api/admin/live` is an authenticated server-sent event stream of opaque collection revisions. Shared server-side Firestore listeners detect edits, including changes made outside this dashboard. Clients fetch only invalidated resources, rather than polling entire submission lists. Own profile changes immediately invalidate the session; streams reconnect and reauthenticate every 55 seconds, pause in hidden tabs, and reconnect on network recovery. If a hosting proxy buffers the stream, the client falls back to periodic authenticated revision snapshots and shows “Checking for updates”; freshness then depends on the reconnect interval. Keep SSE buffering disabled for immediate push updates. Each application process shares listeners among its connected dashboards, and releases them after the last subscriber disconnects. Loaded older submission pages refresh on invalidation so their statuses cannot remain stale. Unsaved settings are preserved during incoming updates and require an explicit discard when navigating or manually refreshing.
 
 Email content cards are rendered locally with Sharp as opaque PNGs and embedded using MIME Content-ID attachments to preserve readable text contrast in Outlook dark mode. No submission data is uploaded to Cloudinary for these cards. Buttons remain HTML links, and the full enquiry is included in the multipart plain-text alternative. The image card is not selectable text; clients that hide inline images should use the plain-text version or the admin dashboard.
 
@@ -105,3 +111,15 @@ Messages are sent to the configured provider with bounded recent context, but ar
 
 The assistant follows the visitor's current language and expressed tone, answers harmless general questions, and offers brief relevant bridges to Algofort services. Clear English and Roman Urdu signals are resolved per turn so an earlier assistant reply cannot force the wrong language. Other languages are inferred from the latest message. Replies progressively reveal in the browser over a bounded interval, then activate safe links; this is a presentation animation after the API response, not provider token streaming. Reduced-motion preferences disable the reveal animation.
 
+
+## Performance and landing-page builds
+
+Run `npm run build` to build the four landing pages and then Next. Brand, App and SaaS use `scripts/build-landing.mjs` to generate static HTML from the same React components at build time. Client entries hydrate that markup. Keep the client/server entry trees identical. No extra cPanel rendering service or separate dependency installation is needed.
+
+Landing fonts use the same families, hosted as local WOFF2 in `/fonts/google`, with OFL licenses alongside. Responsive Cloudinary image candidates retain existing quality settings. Web LP video dimensions and quality are unchanged; playback waits until near the viewport.
+
+Welcome popups wait for the first visitor scroll/click via `landing-pages/shared/popupIntent.js`, excluding navigation controls and open menus. Existing opt-out cookie/storage keys are preserved. A timed automatic popup image was the LCP element in the initial SaaS PageSpeed audit.
+
+The main hero starts its letter animation in CSS from server HTML. Process illustrations load near the viewport. Next's documented `experimental.inlineCss` removes stylesheet round trips for new visitors; the trade-off is that CSS travels in HTML rather than an independently cached stylesheet. Retest production builds after Next upgrades.
+
+Verify mobile/desktop PageSpeed Insights on deployed URLs after a release. Local Lighthouse depends on the development machine and does not prove public scores. Targets are 85+, LCP 1-2 s, Speed Index 1-3 s; report them as achieved only when deployed tests confirm them.

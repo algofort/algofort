@@ -4,6 +4,7 @@
 .welcome-inquiry::backdrop { background: #111a; backdrop-filter: blur(8px); }
 html:has(.welcome-inquiry[open]) { overflow: hidden; }
 .welcome-close { position: absolute; top: 14px; right: 14px; z-index: 10; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: #eaece8; color: #111; font-size: 24px; }
+.entrance-popup-close { background: #f7f7f5; color: #151616; }
 .welcome-photo { position: relative; overflow: hidden; }
 .welcome-photo > img { position: absolute; inset: 0; }
 .entrance-popup-modal,
@@ -61,7 +62,7 @@ html:has(.welcome-inquiry[open]) { overflow: hidden; }
 .app-popup-form .lead-tablet-device,
 .app-popup-form .lead-tablet-screen { padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; overflow: visible; }
 .app-popup-form .tablet-enquiry { padding: 0; }
-.app-popup-form .tablet-sr-only { position: static; display: block; width: auto; height: auto; margin: 0 0 4px; padding: 0; overflow: visible; clip: auto; clip-path: none; white-space: normal; color: #62685f; font-size: 13px; }
+.app-popup-form .tablet-sr-only { position: static !important; display: block; width: auto !important; height: auto !important; margin: 0 0 4px !important; padding: 0 !important; overflow: visible; clip: auto; clip-path: none; white-space: normal; color: #62685f; font-size: 13px; }
 .app-popup-form .tablet-field-row { gap: 24px; }
 .app-popup-form .tablet-enquiry-form :is(input, select, textarea) { padding: 7px 0 9px; border: 0; border-bottom: 1px solid #bfc5b9; border-radius: 0; background: transparent; color: #151616; font: 400 16px/1.4 'DM Sans', 'Inter', Arial, sans-serif; }
 .app-popup-form .tablet-enquiry-form fieldset { margin: 0 0 18px; }

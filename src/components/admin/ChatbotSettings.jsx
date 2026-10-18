@@ -1,17 +1,21 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { CHAT_SETTINGS_EVENT, CHAT_STORAGE_KEY } from '../../lib/supportChatWidget';
+import AdminSkeleton from './AdminSkeleton';
 
-export default function ChatbotSettings({api}) {
+export default function ChatbotSettings({api,cache,onDirtyChange}) {
   const [config,setConfig] = useState(null), [apiKey,setApiKey] = useState(''), [busy,setBusy] = useState(false), [error,setError] = useState(''), [notice,setNotice] = useState('');
+  const [dirty,setDirty]=useState(false),[changed,setChanged]=useState(false);
   useEffect(()=>{let alive=true;api('chatbot').then(data=>{if(alive)setConfig(data);}).catch(err=>{if(alive)setError(err.message);});return()=>{alive=false;};},[api]);
-  const field = (key,value) => setConfig(old=>({...old,[key]:value}));
+  useEffect(()=>cache?.subscribe(names=>{if(!names.includes('chatbot'))return;if(dirty){setChanged(true);return;}api('chatbot').then(setConfig).catch(err=>setError(err.message));}),[api,cache,dirty]);
+  useEffect(()=>{onDirtyChange?.(dirty);},[dirty,onDirtyChange]);
+  const field = (key,value) => {setDirty(true);setConfig(old =>({...old,[key]:value}));};
   async function action(test=false) {
     setBusy(true);setError('');setNotice('');
     try {
       if(test) { const result=await api('chatbot',{method:'POST'});setNotice(result.message); }
       else {
-        const saved=await api('chatbot',{method:'PUT',body:JSON.stringify({...config,...(apiKey.trim()?{apiKey:apiKey.trim()}:{})})});setConfig(saved);setApiKey('');
+        const saved=await api('chatbot',{method:'PUT',body:JSON.stringify({...config,...(apiKey.trim()?{apiKey:apiKey.trim()}:{})})});setConfig(saved);setApiKey('');setDirty(false);setChanged(false);
         window.dispatchEvent(new Event(CHAT_SETTINGS_EVENT));try{localStorage.setItem(CHAT_STORAGE_KEY,String(Date.now()));}catch{}
         setNotice('AI support settings saved across the website and all landing pages.');
       }
@@ -19,7 +23,8 @@ export default function ChatbotSettings({api}) {
   }
   return <div className="adm-chat-settings">
     {error && <div className="adm-alert adm-error" role="alert">{error}</div>}{notice && <div className="adm-alert" role="status">{notice}</div>}
-    {!config ? <p className="adm-muted">{error?'Use Refresh to try again.':'Loading assistant settings…'}</p> : <form onSubmit={event=>{event.preventDefault();action();}}>
+    {changed&&<div className="adm-alert" role="status">Settings changed on the server. Your unsaved edits have been kept. <button type="button" className="adm-link" disabled={busy} onClick={()=>{if(window.confirm('Discard your edits and load the latest settings?'))api('chatbot',{force:true}).then(data=>{setConfig(data);setApiKey('');setDirty(false);setChanged(false);}).catch(err=>setError(err.message));}}>Load latest settings</button></div>}
+    {!config ? error?<p className="adm-muted">Use Refresh to try again.</p>:<AdminSkeleton kind="settings"/> : <form onSubmit={event=>{event.preventDefault();action();}}>
       <section className="adm-panel"><span className="adm-eyebrow">WEBSITE & LANDING PAGES</span><h2>Your support assistant</h2><p className="adm-muted">One assistant for the main website and all four landing pages. Owner access only.</p>
         <label className="adm-check"><input type="checkbox" checked={config.enabled} onChange={event=>field('enabled',event.target.checked)}/>Enable support chat</label>
         <label>Assistant name<input required maxLength={60} value={config.name} onChange={event=>field('name',event.target.value)}/></label>
@@ -32,7 +37,7 @@ export default function ChatbotSettings({api}) {
       <section className="adm-panel"><span className="adm-eyebrow">API CONNECTION</span><h2>Provider settings</h2><p className="adm-muted">Use an OpenAI-compatible chat completions API. API keys are encrypted on the server and are never returned to the browser.</p>
         <div className="adm-form-grid"><label>Provider name<input required maxLength={60} value={config.providerName} onChange={event=>field('providerName',event.target.value)}/></label><label>Model ID<input required maxLength={120} value={config.model} onChange={event=>field('model',event.target.value)}/></label></div>
         <label>API endpoint<input type="url" required maxLength={500} value={config.endpoint} onChange={event=>field('endpoint',event.target.value)}/><small>Public HTTPS URL ending in /chat/completions.</small></label>
-        <label>{config.hasApiKey?'Replace API key':'API key'}<input type="password" autoComplete="new-password" spellCheck={false} maxLength={500} value={apiKey} placeholder={config.hasApiKey?'Key configured — leave blank to keep it':'Enter your provider API key'} onChange={event=>setApiKey(event.target.value)}/><small>{config.hasApiKey?'An encrypted key is configured. A blank field keeps the existing key.':'Save a key before enabling the assistant.'}</small></label>
+        <label>{config.hasApiKey?'Replace API key':'API key'}<input type="password" autoComplete="new-password" spellCheck={false} maxLength={500} value={apiKey} placeholder={config.hasApiKey?'Key configured — leave blank to keep it':'Enter your provider API key'} onChange={event=>{setDirty(true);setApiKey(event.target.value);}}/><small>{config.hasApiKey?'An encrypted key is configured. A blank field keeps the existing key.':'Save a key before enabling the assistant.'}</small></label>
         <label>Daily request limit<input type="number" min={10} max={5000} required value={config.dailyLimit} onChange={event=>field('dailyLimit',Number(event.target.value))}/><small>Maximum visitor requests per day across the website. Each visitor is also limited to 20 requests per 10 minutes.</small></label>
         <div className="adm-actions"><button className="adm-btn adm-primary" disabled={busy}>{busy?'Please wait…':'Save assistant settings'}</button><button type="button" className="adm-btn" disabled={busy || !config.hasApiKey} onClick={()=>action(true)}>Test saved connection</button></div><p className="adm-muted">Save changes before testing the connection. Chat history stays in the current page and is sent to your provider only when a visitor sends a message.</p>
       </section>

@@ -36,7 +36,6 @@ function splitTextIntoSpans(el) {
       const charSpan = document.createElement('span');
       charSpan.className = 'char';
       charSpan.style.display = 'inline-block';
-      charSpan.style.willChange = 'transform, opacity';
       charSpan.textContent = cStr;
       wordSpan.appendChild(charSpan);
       charArray.push(charSpan);
@@ -117,7 +116,7 @@ export function PageBanner({
     if (logoEl) gsap.set(logoEl, { opacity: 0, y: -15 });
     if (navLinks?.length) gsap.set(navLinks, { opacity: 0, y: -10 });
     if (menuBtn) gsap.set(menuBtn, { opacity: 0, scale: 0.85 });
-    if (videoWrap) gsap.set(videoWrap, { opacity: 0, scale: 1.04 });
+    if (videoWrap) gsap.set(videoWrap, { scale: 1.04 });
     if (breadcrumbWrap) gsap.set(breadcrumbWrap, { visibility: 'visible', opacity: 1, y: 0 });
     if (breadcrumbNav) gsap.set(breadcrumbNav, { opacity: 0, scale: 0.94, visibility: 'hidden' });
     if (breadcrumbItems?.length) gsap.set(breadcrumbItems, { opacity: 0, x: -18 });
@@ -137,7 +136,7 @@ export function PageBanner({
 
     // 2. Video Reveal
     if (videoWrap) {
-      tl.to(videoWrap, { opacity: 1, scale: 1, duration: 0.45, ease: 'power2.out' });
+      tl.to(videoWrap, { scale: 1, duration: 0.45, ease: 'power2.out' });
     }
 
     // 3. Stagger Header reveal (matching Home page BannerSection)

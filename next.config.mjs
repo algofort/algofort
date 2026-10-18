@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
+  // Deliver styles with the HTML so the first hero paint does not wait on a
+  // stylesheet request waterfall. Verify this production-only Next option.
+  experimental: { inlineCss: true },
   async rewrites() {
     return [
       { source: '/lp/web-development', destination: '/lp/web-development/index.html' },
@@ -12,6 +15,18 @@ const nextConfig = {
   },
   async headers() {
     return [
+      {
+        source: '/fonts/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/assets/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=604800, stale-while-revalidate=86400' }],
+      },
+      {
+        source: '/lp/:page/assets/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
       {
         source: '/:path*',
         headers: [

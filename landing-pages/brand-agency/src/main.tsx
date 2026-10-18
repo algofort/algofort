@@ -7,12 +7,14 @@ import '../../../src/styles/whatsapp-widget.css';
 initWhatsAppWidget();
 
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!;
+const content = (
   <StrictMode>
     <App />
-  </StrictMode>,
-)
+  </StrictMode>
+);
+if (root.hasChildNodes()) hydrateRoot(root, content); else createRoot(root).render(content);

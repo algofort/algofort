@@ -27,39 +27,12 @@ const marqueeItems = [
   'Mobile App Development',
 ];
 
-function splitTextIntoSpans(el) {
-  if (!el || el.dataset.splitDone) return Array.from(el.querySelectorAll('.char'));
-
-  const text = el.textContent.trim();
-  el.innerHTML = '';
-  const charArray = [];
-
-  const words = text.split(/\s+/);
-  words.forEach((wordStr, wIdx) => {
-    const wordSpan = document.createElement('span');
-    wordSpan.className = 'word';
-    wordSpan.style.display = 'inline-block';
-    wordSpan.style.whiteSpace = 'nowrap';
-
-    wordStr.split('').forEach((cStr) => {
-      const charSpan = document.createElement('span');
-      charSpan.className = 'char';
-      charSpan.style.display = 'inline-block';
-      charSpan.style.willChange = 'transform, opacity';
-      charSpan.textContent = cStr;
-      wordSpan.appendChild(charSpan);
-      charArray.push(charSpan);
-    });
-
-    el.appendChild(wordSpan);
-    if (wIdx < words.length - 1) {
-      const space = document.createTextNode(' ');
-      el.appendChild(space);
-    }
-  });
-
-  el.dataset.splitDone = 'true';
-  return charArray;
+function BannerText({ text }) {
+  let index = 0;
+  return text.split(' ').map((word, wordIndex) => <React.Fragment key={wordIndex}>
+    {wordIndex > 0 && ' '}
+    <span className="hero-word">{Array.from(word).map((char, charIndex) => <span className="hero-char" key={charIndex} style={{ '--char-index': index++ }}>{char}</span>)}</span>
+  </React.Fragment>);
 }
 
 export const BannerSection = () => {
@@ -72,106 +45,9 @@ export const BannerSection = () => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Master Entrance Timeline
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-    // Target elements
-    const videoWrap = container.querySelector('.sec-banner__video-wrap');
-    const headerEl = document.querySelector('.site-header');
-    const logoEl = headerEl?.querySelector('.logo-wrapper');
-    const navLinks = headerEl?.querySelectorAll('.nav-link');
-    const menuBtn = headerEl?.querySelector('.menu-button');
-    const titleEl = container.querySelector('.sec-banner__title');
-    const symbolEl = container.querySelector('.sec-banner__symbol');
-    const descEl = container.querySelector('.sec-banner__desc');
-    const social1 = container.querySelector('.social-link-1');
-    const social2 = container.querySelector('.social-link-2');
-    const marqueeComp = container.querySelector('.service-marquee-component');
-    const social3 = container.querySelector('.social-link-3');
-    const social4 = container.querySelector('.social-link-4');
-
-    // Initial hidden states
-    if (videoWrap) gsap.set(videoWrap, { opacity: 0, scale: 1.04 });
-    if (headerEl) gsap.set(headerEl, { opacity: 1 });
-    if (logoEl) gsap.set(logoEl, { opacity: 0, y: -15 });
-    if (navLinks?.length) gsap.set(navLinks, { opacity: 0, y: -10 });
-    if (menuBtn) gsap.set(menuBtn, { opacity: 0, scale: 0.85 });
-    if (symbolEl) gsap.set(symbolEl, { opacity: 0, scale: 0 });
-    if (social1) gsap.set(social1, { opacity: 0, y: 15 });
-    if (social2) gsap.set(social2, { opacity: 0, y: 15 });
-    if (marqueeComp) gsap.set(marqueeComp, { opacity: 0, scale: 0.95 });
-    if (social3) gsap.set(social3, { opacity: 0, y: 15 });
-    if (social4) gsap.set(social4, { opacity: 0, y: 15 });
-
-    // Split Title "Algofort" characters
-    let titleChars = [];
-    if (titleEl) {
-      titleChars = splitTextIntoSpans(titleEl);
-      gsap.set(titleChars, { opacity: 0, y: 35 });
-      gsap.set(titleEl, { visibility: 'visible', opacity: 1 });
-    }
-
-    // Split Subtitle "Designing Your Digital World" characters
-    let descChars = [];
-    if (descEl) {
-      descChars = splitTextIntoSpans(descEl);
-      gsap.set(descChars, { opacity: 0, scale: 1.3, x: 10, y: -20 });
-      gsap.set(descEl, { visibility: 'visible', opacity: 1 });
-    }
-
-    // 1. Video Show
-    if (videoWrap) {
-      tl.to(videoWrap, { opacity: 1, scale: 1, duration: 0.45, ease: 'power2.out' });
-    }
-
-    // 2. Header visible -> Logo -> Nav links 1 by 1 -> Menu button
-    if (logoEl) {
-      tl.to(logoEl, { opacity: 1, y: 0, duration: 0.3 }, '-=0.25');
-    }
-    if (navLinks?.length) {
-      tl.to(navLinks, { opacity: 1, y: 0, duration: 0.25, stagger: 0.04 }, '-=0.15');
-    }
-    if (menuBtn) {
-      tl.to(menuBtn, { opacity: 1, scale: 1, duration: 0.25 }, '-=0.15');
-    }
-
-    // 3. Heading animation on Algofort Text -> Register symbol ® scale 0 to 1
-    if (titleChars.length) {
-      tl.to(titleChars, { opacity: 1, y: 0, duration: 0.35, stagger: 0.025, ease: 'power3.out' }, '-=0.1');
-    }
-    if (symbolEl) {
-      tl.to(symbolEl, { opacity: 1, scale: 1, duration: 0.35, ease: 'back.out(2)' }, '-=0.15');
-    }
-
-    // 4. "Designing Your Digital World" character drop down effect
-    if (descChars.length) {
-      tl.to(descChars, {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        y: 0,
-        duration: 0.3,
-        stagger: 0.012,
-        ease: 'back.out(1.2)',
-      }, '-=0.15');
-    }
-
-    // 5. Sequential Social icons & Marquee: 1st social -> 2nd social -> Marquee -> 3rd social -> 4th social
-    if (social1) {
-      tl.to(social1, { opacity: 1, y: 0, duration: 0.2 }, '-=0.1');
-    }
-    if (social2) {
-      tl.to(social2, { opacity: 1, y: 0, duration: 0.2 }, '-=0.12');
-    }
-    if (marqueeComp) {
-      tl.to(marqueeComp, { opacity: 1, scale: 1, duration: 0.3 }, '-=0.1');
-    }
-    if (social3) {
-      tl.to(social3, { opacity: 1, y: 0, duration: 0.2 }, '-=0.12');
-    }
-    if (social4) {
-      tl.to(social4, { opacity: 1, y: 0, duration: 0.2 }, '-=0.12');
-    }
+    // Entrance motion is CSS driven so it starts with the server HTML,
+    // while the optional pointer trail still uses GSAP after hydration.
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
     const visualWrap = container.querySelector('.alg-hero-gsap-wrapper, .gsap-wrapper');
     if (!visualWrap) return;
@@ -234,13 +110,15 @@ export const BannerSection = () => {
 
   return (
     <header id="sec-banner" ref={containerRef} className="alg-hero site-section section-home-header sec-banner">
+      <link rel="preload" as="image" href="/assets/banner_bg_poster.jpg" fetchPriority="high" />
+      <link rel="preload" as="font" href="/fonts/6925673287d6a5eea5a68225_ClashDisplay-Bold.otf" type="font/otf" crossOrigin="anonymous" />
       <div className="alg-hero-container w-layout-grid header-component-grid sec-banner__grid">
         
         {/* Main Header Copy */}
         <div className="alg-hero-content header-content-wrap sec-banner__content-wrap" id="w-node-e3d40d27-f8bf-23a1-bff7-5262c35d051f-fc8c1483">
           <div className="alg-hero-symbol copyright-symbol sec-banner__symbol">®</div>
-          <h1 className="alg-hero-title header-title section-title sec-banner__title">Algofort</h1>
-          <div className="alg-hero-text header-description section-description sec-banner__desc">Designing Your Digital World</div>
+          <h1 className="alg-hero-title header-title section-title sec-banner__title" aria-label="Algofort"><BannerText text="Algofort" /></h1>
+          <div className="alg-hero-text header-description section-description sec-banner__desc"><BannerText text="Designing Your Digital World" /></div>
         </div>
 
         {/* Video Background */}
@@ -383,15 +261,6 @@ export const BannerSection = () => {
               <div className="gsap-image-wrap">
                 <img alt="" className="placeholder-image" src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145856/algofort/assets/68ee74b7102caefef6ce7894_image.svg" />
               </div>
-            </div>
-          </div>
-          <div className="gsap-image-container" style={{ display: 'none' }}>
-            <div className="gsap-image-block">
-              {trailImages.map((src, i) => (
-                <div className="gsap-image-item" key={i}>
-                  <img alt="Trail Preview" className="gsap-image" src={src} />
-                </div>
-              ))}
             </div>
           </div>
         </div>

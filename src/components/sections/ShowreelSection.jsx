@@ -142,7 +142,8 @@ export function ShowreelSection() {
                   src="https://res.cloudinary.com/vfsp1egd/image/upload/w_1920,c_limit,q_auto:best,f_auto/v1792145887/algofort/assets/BG_IMAGE"
                   alt="A man standing in the middle of a dark room."
                   className="alg-showreel-img showreel_img"
-                  loading="eager"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 <div ref={playWrapperRef} className="alg-showreel-play-wrapper showreel_play-wrapper">

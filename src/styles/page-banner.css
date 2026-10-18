@@ -97,7 +97,7 @@
   letter-spacing: -0.015em !important;
   font-size: clamp(1.85rem, 3.4vw, 3.15rem) !important;
   margin: 0 0 0.85rem 0 !important;
-  visibility: hidden;
+  visibility: visible;
   text-align: center;
   max-width: 100%;
   word-break: break-word;

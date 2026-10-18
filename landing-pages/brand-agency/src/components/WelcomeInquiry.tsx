@@ -4,6 +4,7 @@ import { isWelcomeSuppressed, saveWelcomePreference } from '../lib/welcomePrefer
 import InquiryForm from './InquiryForm'
 import './ProjectInquiry.css'
 import './WelcomeInquiry.css'
+import { onPopupIntent } from '../../../shared/popupIntent.js'
 
 export default function WelcomeInquiry() {
   const dialogRef = useRef<HTMLDialogElement>(null)
@@ -14,13 +15,7 @@ export default function WelcomeInquiry() {
 
   useEffect(() => {
     if (isWelcomeSuppressed()) return
-    let delay: ReturnType<typeof setTimeout> | undefined
-    function welcome() {
-      delay = setTimeout(() => { if (!isWelcomeSuppressed()) setOpen(true) }, 2500)
-    }
-    if (document.readyState === 'complete') welcome()
-    else window.addEventListener('load', welcome, { once: true })
-    return () => { window.removeEventListener('load', welcome); clearTimeout(delay) }
+    return onPopupIntent(() => { if (!isWelcomeSuppressed()) setOpen(true) })
   }, [])
 
   useLayoutEffect(() => {

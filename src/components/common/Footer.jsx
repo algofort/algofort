@@ -253,7 +253,7 @@ export const Footer = ({ className = '', newsletterPreview = false } = {}) => {
                     width={828}
                     height={115}
                     className="footer_brand_img"
-                    priority
+                    loading="lazy"
                     unoptimized
                   />
                 </Link>

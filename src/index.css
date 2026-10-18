@@ -1,5 +1,4 @@
 @import "./styles/style.css";
-@import "./styles/forteve-banner.css";
 @import "./styles/forteve.shared.08906c3c1.css";
 @import "./styles/process-section.css";
 @import "./styles/projects-section.css";
@@ -15,7 +14,6 @@
 @import "./styles/contact-section.css";
 @import "./styles/single-service-page.css";
 @import "./styles/header.css";
-@import "tailwindcss";
 
 /* ==========================================================================
    Clash Display Local Fonts
@@ -956,23 +954,33 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-narrow {
 }
 
 
-/* Hero Banner Entrance Animation Initial Hidden State (Prevents FOUC) */
-.sec-banner__video-wrap,
+/* The hero poster must paint before JavaScript; animate the decoration only. */
 .sec-banner__symbol,
 .social-link-1,
 .social-link-2,
 .service-marquee-component,
 .social-link-3,
-.social-link-4,
-.sec-header__logo-wrapper,
-.sec-header .nav-link,
-.sec-header__menu-btn {
+.social-link-4 {
   opacity: 0;
 }
 
 .sec-banner__title,
 .sec-banner__desc {
-  visibility: hidden;
+  visibility: visible;
+}
+
+/* Start the same compact hero entrance from HTML/CSS, without waiting for
+   React, GSAP, or any below-the-fold section to hydrate. */
+#sec-banner .hero-word { display: inline-block; white-space: nowrap; }
+#sec-banner .hero-char { display: inline-block; animation: alg-hero-char .35s ease-out calc(.12s + var(--char-index) * .025s) both; }
+#sec-banner .sec-banner__desc .hero-char { animation-delay: calc(.32s + var(--char-index) * .012s); }
+#sec-banner .sec-banner__symbol,
+#sec-banner .social-link,
+#sec-banner .service-marquee-component { animation: alg-hero-enter .35s ease-out .3s both; }
+@keyframes alg-hero-char { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes alg-hero-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  #sec-banner .hero-char, #sec-banner .sec-banner__symbol, #sec-banner .social-link, #sec-banner .service-marquee-component { animation: none; opacity: 1; transform: none; }
 }
 
 /* ==========================================================================

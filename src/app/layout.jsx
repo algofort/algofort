@@ -21,6 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <link rel="preload" as="font" href="/assets/68f243b1931a07b0823ded78_Mona-Sans-Regular.woff2" type="font/woff2" crossOrigin="anonymous" />
         {/* Preconnect to Cloudinary CDN for instant image fetching */}
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />

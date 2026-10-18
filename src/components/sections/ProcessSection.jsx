@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Script from 'next/script';
+import { DeferredLottie } from '../common/DeferredLottie';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
 
 const processSteps = [
@@ -97,10 +97,6 @@ export function ProcessSection() {
 
   return (
     <>
-      <Script
-        src="/scripts/dotlottie-player.js"
-        strategy="afterInteractive"
-      />
 
       <section className="alg-process site-section sec-process step-process-section" id="sec-process" ref={sectionRef}>
         <div className="alg-process-container site-container sec-process__container step-container">
@@ -136,14 +132,14 @@ export function ProcessSection() {
                         </div>
                       </div>
                       <div className="alg-process-card-illustration card-illustration">
-                        <dotlottie-player
+                        <DeferredLottie
                           src={item.lottieSrc}
                           background="transparent"
                           speed="1"
                           style={{ width: '280px', height: '280px' }}
                           loop
                           autoplay
-                        ></dotlottie-player>
+                        ></DeferredLottie>
                       </div>
                       <p className="alg-process-card-desc card-desc alg-text">{item.description}</p>
                     </div>

@@ -93,6 +93,23 @@ const smoothScroll = new Lenis({
 });
 window.smoothScroll = smoothScroll;
 const videos = document.querySelectorAll('.shared-video');
+// Preserve the existing high-quality sources, but fetch/play only videos near
+// the viewport instead of letting autoplay download every video immediately.
+const visibleVideos = new Set();
+function updateVideo(video, visible) {
+  if (visible) visibleVideos.add(video); else visibleVideos.delete(video);
+  if (!visible || document.hidden || reduceMotion.matches || navigator.connection?.saveData) { video.pause(); return; }
+  if (!video.dataset.loaded) {
+    video.querySelectorAll('source[data-src]').forEach(source => { source.src = source.dataset.src; });
+    video.dataset.loaded = 'true'; video.load();
+  }
+  video.play().catch(() => {});
+}
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => updateVideo(entry.target, entry.isIntersecting)), { rootMargin: '150px 0px' });
+  videos.forEach(video => observer.observe(video));
+} else videos.forEach(video => updateVideo(video, true));
+document.addEventListener('visibilitychange', () => videos.forEach(video => updateVideo(video, visibleVideos.has(video))));
 
 const whoSection = document.querySelector('.who');
 const whoStatement = document.querySelector('.who-statement');

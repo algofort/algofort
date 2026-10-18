@@ -1,0 +1,5 @@
+/* Same Google Fonts families, served locally without a CSS/API round trip. */
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 300 800; font-display: swap; src: url('/fonts/google/dm-sans-lp-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 300 800; font-display: swap; src: url('/fonts/google/manrope-lp-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 800; font-display: swap; src: url('/fonts/google/inter-lp-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 300 800; font-display: swap; src: url('/fonts/google/plus-jakarta-sans-lp-latin.woff2') format('woff2'); }

@@ -11,6 +11,7 @@ import SiteFooter from './SiteFooter'
 import MobileMenu from './MobileMenu'
 import { useAppCaptcha, sendAppLead } from './lead'
 import EntrancePopup from './EntrancePopup'
+import { imageAtWidth, imageSrcSet } from '../../shared/responsiveImage.js'
 import {
   ArrowRight, ArrowUpRight, Bell, Check, ChevronLeft,
   Compass, Home, Mail, Search, Send, Sparkles, Target, PenTool, Code2,
@@ -338,7 +339,7 @@ function AppShowcase() {
       <div className="showcase-grid" ref={gridRef}>
         {showcaseColumns.map((column, index) => <div className="showcase-column" ref={index === 1 ? middleRef : undefined} key={index}>
           {column.map((app) => <div className="showcase-tile" key={app.src}>
-            <img src={app.src} alt={app.alt} loading="lazy" />
+            <img src={imageAtWidth(app.src, 960)} srcSet={imageSrcSet(app.src)} sizes="(max-width: 767px) 70vw, 40vw" alt={app.alt} loading="lazy" decoding="async" />
           </div>)}
         </div>)}
       </div>

@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 
 export const Cursor = () => {
   useEffect(() => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const cursor = document.querySelector('.cb-cursor');
     if (!cursor) return;
 

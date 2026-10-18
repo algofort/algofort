@@ -220,7 +220,7 @@ export function PortfolioShowcaseSection() {
 
           {/* 2-Column Showcase Grid */}
           <div ref={gridRef} className="sec-portfolio__grid">
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <div key={project.id} className="sec-portfolio__card">
                 
                 {/* Image Container with Hover Overlay */}
@@ -228,8 +228,7 @@ export function PortfolioShowcaseSection() {
                   <img
                     src={project.image}
                     alt={`${project.title} Project Showcase`}
-                    loading={index < 8 ? 'eager' : 'lazy'}
-                    fetchPriority={index < 4 ? 'high' : 'auto'}
+                    loading="lazy"
                     decoding="async"
                     className="sec-portfolio__image"
                   />

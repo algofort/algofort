@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useSaasLead } from './SaasInquiry';
 import { AnimatedButtonContent } from './AnimatedButtonContent';
+import { onPopupIntent } from '../../../shared/popupIntent.js';
 
 const STORAGE_KEY = 'algofort_popup_dont_show';
 const COOKIE_NAME = 'algofort_popup_dont_show';
@@ -83,12 +84,11 @@ export function EntrancePopup() {
     }
 
     if (!isDismissedCookie && !isDismissedStorage) {
-      // Trigger smoothly on page load after brief delay
-      const timer = setTimeout(() => {
-        openPopup();
-      }, 1600);
-
-      return () => clearTimeout(timer);
+      return onPopupIntent(() => {
+        let dismissed = getCookie(COOKIE_NAME) === 'true';
+        try { dismissed ||= localStorage.getItem(STORAGE_KEY) === 'true'; } catch {}
+        if (!dismissed) openPopup();
+      });
     }
   }, []);
 
