@@ -1,5 +1,6 @@
 import { adminAuth } from './firebase.js';
 import { database } from './firebase.js';
+import { hasValidRequestOrigin } from './requestOrigin.js';
 
 export class HttpError extends Error {
   constructor(status, message) { super(message); this.status = status; }
@@ -16,8 +17,7 @@ export async function requireAdmin(request, permission = 'read') {
   if (!user.email_verified || !['owner', 'editor', 'support'].includes(role)) throw new HttpError(403, 'Verify your email and ask the owner to enable your account.');
   if ((['users', 'settings'].includes(permission) && role !== 'owner') || (permission === 'portfolio' && !['owner', 'editor'].includes(role)) || (permission === 'submissions' && !['owner', 'support'].includes(role))) throw new HttpError(403, 'Your role does not allow this action.');
   if (!['GET', 'HEAD'].includes(request.method)) {
-    const origin = request.headers.get('origin');
-    if (origin && origin !== new URL(request.url).origin) throw new HttpError(403, 'Invalid request origin.');
+    if (!hasValidRequestOrigin(request)) throw new HttpError(403, 'Invalid request origin.');
   }
   return { ...user, role };
 }

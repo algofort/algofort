@@ -4,6 +4,7 @@ import { requestChatCompletion } from '../../../lib/server/chatProvider';
 import { takeChatSlot } from '../../../lib/server/chatRateLimit';
 import { readSiteSettings } from '../../../lib/server/siteSettingsStore';
 import { whatsappLink } from '../../../lib/siteSettings';
+import { hasValidRequestOrigin } from '../../../lib/server/requestOrigin.js';
 
 export const runtime = 'nodejs';
 const noStore = {'Cache-Control':'no-store'};
@@ -15,8 +16,7 @@ export async function GET() {
   } catch { return json({enabled:false}); }
 }
 export async function POST(request) {
-  const origin = request.headers.get('origin');
-  if (origin && origin!==new URL(request.url).origin) return json({error:'Invalid request origin.'},403);
+  if (!hasValidRequestOrigin(request)) return json({error:'Invalid request origin.'},403);
   if (!request.headers.get('content-type')?.includes('application/json')) return json({error:'Expected JSON.'},415);
   let messages;
   try {
