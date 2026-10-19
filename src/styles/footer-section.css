@@ -544,7 +544,7 @@ footer,
   }
 
   .footer_main_layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 3.5rem;
   }
 
@@ -570,7 +570,7 @@ footer,
   }
 
   .footer_right_top {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
 
@@ -590,5 +590,11 @@ footer,
 
   .footer_watermark {
     display: none;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .footer_links_grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

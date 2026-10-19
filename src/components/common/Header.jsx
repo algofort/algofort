@@ -232,41 +232,36 @@ export const Header = () => {
                           </Link>
                         </div>
 
-                        {/* 03. Services (Hover or Click expands sub-services) */}
+                        {/* 03. Services page link with a separate sub-services toggle */}
                         <div 
                           className={`alg-header-drawer-link-block navigation-link-block mobile-services-wrapper ${servicesSubOpen ? 'is-open' : ''} ${isActive('/services') ? 'is-active' : ''}`}
-                          onMouseEnter={() => setServicesSubOpen(true)}
-                          onMouseLeave={() => setServicesSubOpen(false)}
                         >
                           <div 
                             className={`navigation-link mobile-services-trigger ${isActive('/services') ? 'is-active w--current' : ''}`}
-                            onClick={() => setServicesSubOpen((prev) => !prev)}
-                            role="button"
-                            tabIndex={0}
-                            aria-expanded={servicesSubOpen}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter' || e.key === ' ') {
-                                e.preventDefault();
-                                setServicesSubOpen((prev) => !prev);
-                              }
-                            }}
                           >
-                            <div className="mobile-services-trigger-left">
+                            <Link href="/services" className="mobile-services-trigger-left" onClick={() => setNavOpen(false)}>
                               <div className="navigation-link-wrap">
                                 <div className="navigation-link-text">Services</div>
                                 <div className="navigation-link-text">Services</div>
                               </div>
                               <div className="navigation-number">(03)</div>
-                            </div>
-                            <div className="mobile-services-arrow" aria-label="Toggle Sub Services">
+                            </Link>
+                            <button
+                              type="button"
+                              className="mobile-services-arrow"
+                              aria-label="Toggle service links"
+                              aria-expanded={servicesSubOpen}
+                              aria-controls="mobile-subservices-list"
+                              onClick={() => setServicesSubOpen((prev) => !prev)}
+                            >
                               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                               </svg>
-                            </div>
+                            </button>
                           </div>
 
                           {/* Sub Services Accordion */}
-                          <div className={`nav-subservices-container ${servicesSubOpen ? 'is-open' : ''}`}>
+                          <div id="mobile-subservices-list" className={`nav-subservices-container ${servicesSubOpen ? 'is-open' : ''}`}>
                             <div className="nav-subservices-list">
                               <Link className={`nav-subservice-item ${pathname?.includes('web-development') ? 'is-active' : ''}`} href="/services/web-development" onClick={() => setNavOpen(false)}>
                                 <span className="nav-subservice-dot">✦</span>

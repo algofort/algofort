@@ -205,6 +205,7 @@ export const BannerSection = () => {
                 </div>
 
                 <Link
+                  id="w-node-_923bbb91-ab4e-64e0-e5d3-6ad3d2bc123a-fc8c1483"
                   className="social-link social-link-3 w-inline-block"
                   href="/portfolio"
                   aria-label="View Algofort portfolio"

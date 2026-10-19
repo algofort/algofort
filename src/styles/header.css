@@ -86,6 +86,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
+  text-decoration: none;
 }
 
 .mobile-services-arrow {
@@ -100,6 +101,9 @@
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease;
   flex-shrink: 0;
   margin-left: 0.5rem;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .mobile-services-trigger:hover .mobile-services-arrow,
@@ -125,8 +129,7 @@
   margin-top: 0;
 }
 
-.mobile-services-wrapper.is-open .nav-subservices-container,
-.mobile-services-wrapper:hover .nav-subservices-container {
+.mobile-services-wrapper.is-open .nav-subservices-container {
   max-height: 380px;
   opacity: 1;
   margin-top: 0.85rem;
