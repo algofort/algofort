@@ -14,6 +14,7 @@ import { CtaSection } from '../../../components/sections/CtaSection';
 import '../../../styles/single-service-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/services/saas-app-development' },
   title: 'SaaS App Development Services | Algofort - Scalable Cloud Platforms',
   description:
     'Full-cycle SaaS application development by Algofort. We engineer multi-tenant cloud architectures, subscription platforms, and high-performance digital products.',

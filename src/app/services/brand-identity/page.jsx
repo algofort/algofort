@@ -14,6 +14,7 @@ import { CtaSection } from '../../../components/sections/CtaSection';
 import '../../../styles/single-service-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/services/brand-identity' },
   title: 'Brand Identity Design Services | Algofort - Distinctive Visual Systems',
   description:
     'Strategic brand identity and visual systems by Algofort. We create memorable logos, typography systems, and cohesive visual guidelines that help modern brands stand out.',

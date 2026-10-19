@@ -75,7 +75,7 @@ export function AboutStorySection() {
                     />
                   </Link>
 
-                  <Link href="/projects" className="underline-link w-inline-block">
+                  <Link href="/portfolio" className="underline-link w-inline-block">
                     <div className="link-wrapper">
                       <div className="link-text-wrap">
                         <div className="link-text">Our Portfolio</div>

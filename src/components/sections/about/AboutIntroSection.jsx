@@ -126,7 +126,7 @@ export function AboutIntroSection() {
 
             {/* CTA Button at bottom left of right column */}
             <div className="button-group-wrap left-align sec-about-intro__buttons">
-              <Link href="/projects" className="underline-link w-inline-block">
+              <Link href="/portfolio" className="underline-link w-inline-block">
                 <div className="link-wrapper">
                   <div className="link-text-wrap">
                     <div className="link-text">OUR PORTFOLIO</div>

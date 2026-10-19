@@ -28,8 +28,8 @@ export default function Home() {
           <TestimonialsSection />
           <FaqSection />
           <CtaSection />
-          <Footer />
         </main>
+        <Footer />
       </div>
     </SmoothScroll>
   );

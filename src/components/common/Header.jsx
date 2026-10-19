@@ -116,7 +116,7 @@ export const Header = () => {
   }, [navOpen]);
 
   return (
-    <div 
+    <header
       className={`alg-header navbar site-header sec-header w-nav ${navOpen ? 'w--nav-menu-open' : ''}`} 
       data-animation="default" 
       data-collapse="all" 
@@ -125,7 +125,6 @@ export const Header = () => {
       data-easing2="ease" 
       data-wf--navbar--variant="base" 
       id="top" 
-      role="banner"
     >
       <div className="alg-header-container sec-header__container-full w-full">
         <div className="alg-header-content-wrapper nav-content-wrapper sec-header__wrapper">
@@ -404,6 +403,6 @@ export const Header = () => {
 
         </div>
       </div>
-    </div>
+    </header>
   );
 };

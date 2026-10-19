@@ -14,6 +14,7 @@ import { CtaSection } from '../../components/sections/CtaSection';
 import '../../styles/about-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/about' },
   title: 'About Us | Algofort - Shaping Bold Digital Experiences',
   description:
     'Discover Algofort: our story, vision pillars, strategic work process, industry recognition, and team of visionary digital designers and engineers.',

@@ -10,6 +10,7 @@ import { PortfolioShowcaseSection } from '../../components/sections/portfolio/Po
 import '../../styles/portfolio-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/portfolio' },
   title: 'Our Portfolio | Algofort - Shaping Bold Digital Experiences',
   description:
     'Explore Algofort’s portfolio of cutting-edge digital platforms, high-performance agency websites, and custom software engineered for scalability and modern brand impact.',

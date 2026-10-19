@@ -14,6 +14,7 @@ import { CtaSection } from '../../../components/sections/CtaSection';
 import '../../../styles/single-service-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/services/mobile-app-development' },
   title: 'Mobile App Development Services | Algofort - iOS & Android Solutions',
   description:
     'Custom mobile application development by Algofort. We build high-performance iOS, Android, and cross-platform mobile apps with fluid UI and native performance.',

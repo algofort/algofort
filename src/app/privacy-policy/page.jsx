@@ -8,6 +8,7 @@ import { PrivacyPolicySection } from '../../components/sections/privacy/PrivacyP
 import '../../styles/privacy-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/privacy-policy' },
   title: 'Privacy Policy | Algofort - Shaping Bold Digital Experiences',
   description:
     'Read the Algofort Privacy Policy. Learn how we collect, use, store, and protect your information across our website, contact forms, and digital technology services.',

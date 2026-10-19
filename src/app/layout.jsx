@@ -5,9 +5,11 @@ import '../styles/support-chat.css';
 import SupportChatWidget from '../components/common/SupportChatWidget';
 
 export const metadata = {
+  metadataBase: new URL('https://algofort.com'),
   title: 'Algofort | AI, Custom Software & Digital Transformation',
   description:
     'Algofort is a technology and digital solutions agency engineering custom software, intelligent AI solutions, and high-performance digital platforms.',
+  alternates: { canonical: '/' },
   icons: {
     icon: [
       { url: '/fav-icon.png', type: 'image/png' },

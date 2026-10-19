@@ -1,0 +1,16 @@
+# Algofort
+
+Algofort designs and builds websites, brand identities, SaaS products, and mobile applications.
+
+## Main pages
+- [Home](https://algofort.com/)
+- [About](https://algofort.com/about)
+- [Services](https://algofort.com/services)
+- [Portfolio](https://algofort.com/portfolio)
+- [Contact](https://algofort.com/contact)
+
+## Services
+- [Web development](https://algofort.com/services/web-development)
+- [Brand identity](https://algofort.com/services/brand-identity)
+- [SaaS app development](https://algofort.com/services/saas-app-development)
+- [Mobile app development](https://algofort.com/services/mobile-app-development)

@@ -7,6 +7,7 @@ import { BackToTop } from '../../components/common/BackToTop';
 import { SmoothScroll } from '../../components/common/SmoothScroll';
 
 export const metadata = {
+  alternates: { canonical: '/contact' },
   title: 'Contact Us | Algofort - Let’s Start a Conversation',
   description:
     'Get in touch with the Algofort team. We design and deliver AI-driven platforms, high-performance websites, and custom software that drive business growth.',

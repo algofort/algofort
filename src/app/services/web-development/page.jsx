@@ -14,6 +14,7 @@ import { CtaSection } from '../../../components/sections/CtaSection';
 import '../../../styles/single-service-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/services/web-development' },
   title: 'Web Development Services | Algofort - Fast, Scalable Digital Platforms',
   description:
     'Custom web development services by Algofort. We engineer high-performance websites, scalable web applications, and intuitive front-end/back-end digital solutions.',

@@ -10,6 +10,7 @@ import { FaqSection } from '../../components/sections/FaqSection';
 import '../../styles/services-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/services' },
   title: 'Our Services | Algofort - Shaping Bold Digital Experiences',
   description:
     'Discover Algofort’s core services: Web Development, Brand Identity, SaaS App Development, and Mobile App Development engineered for digital growth, scalability, and high performance.',

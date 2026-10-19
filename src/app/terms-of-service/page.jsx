@@ -8,6 +8,7 @@ import { TermsOfServiceSection } from '../../components/sections/terms/TermsOfSe
 import '../../styles/terms-page.css';
 
 export const metadata = {
+  alternates: { canonical: '/terms-of-service' },
   title: 'Terms of Service | Algofort - Shaping Bold Digital Experiences',
   description:
     'Read the Algofort Terms of Service. Learn about our digital services, acceptable use policies, intellectual property rights, and commercial project terms.',

@@ -113,7 +113,7 @@ export function ProjectsSection() {
                 Explore our portfolio of digital products, software solutions, and technology experiences built by Algofort.
               </p>
               <div className="alg-projects-btn-wrap projects-btn-wrap">
-                <Link href="/projects" className="main-button footer-submit-btn w-inline-block">
+                <Link href="/portfolio" className="main-button footer-submit-btn w-inline-block">
                   <div className="main-button-block">
                     <div className="button-text">All Works</div>
                     <div className="button-text">All Works</div>
@@ -134,7 +134,7 @@ export function ProjectsSection() {
             <div className="alg-projects-list projects-items-list">
               {projectsData.map((project) => (
                 <div key={project.id} className="alg-projects-item projects-item">
-                  <Link href={project.liveUrl || "/projects"} className="alg-projects-item-media projects-item-media">
+                  <Link href={project.liveUrl || "/portfolio"} className="alg-projects-item-media projects-item-media">
                     <div className="alg-projects-item-img-wrap projects-item-img-wrap">
                       <img
                         src={project.image}
