@@ -1,5 +1,5 @@
 :root {
-  --floating-control-size: 56px;
+  --floating-control-size: 48px;
   --floating-control-edge: 24px;
   --floating-control-gap: 12px;
 }
@@ -13,6 +13,10 @@ body .lp-back-to-top {
   width: var(--floating-control-size) !important;
   height: var(--floating-control-size) !important;
 }
+body #algofort-support-chat .asc-launch .asc-brand-mark {
+  width: 32px;
+  height: 32px;
+}
 body .alg-back-to-top-wrap,
 body .lp-back-to-top {
   right: var(--floating-control-edge) !important;
@@ -23,5 +27,6 @@ body.alg-chat-ready .lp-back-to-top {
   bottom: calc(var(--floating-control-edge) + var(--floating-control-size) + var(--floating-control-gap)) !important;
 }
 @media (max-width: 600px) {
-  :root { --floating-control-size: 52px; --floating-control-edge: 18px; }
+  :root { --floating-control-size: 44px; --floating-control-edge: 18px; }
+  body #algofort-support-chat .asc-launch .asc-brand-mark { width: 30px; height: 30px; }
 }

@@ -476,7 +476,7 @@ function App() {
   return <div className="site-shell" id="top">
     <SmoothScroll/>
     <header ref={headerRef} className={`site-header${menuActive ? ' mobile-menu-active' : ''}`} role={menuActive ? 'dialog' : undefined} aria-modal={menuActive ? true : undefined} aria-label={menuActive ? 'Mobile navigation' : undefined}>
-      <a className="wordmark" href="#top" aria-label="Algofort home"><img src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792215728/algofort/lp/app-development/brand/algofort-dark.png" alt="Algofort" width="220" height="35"/></a>
+      <a className="wordmark lp-header-brand" href="#top" aria-label="Algofort home"><img src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792213389/algofort/lp/web-development/brand/algofort-dark.png" alt="Algofort" width="220" height="35"/></a>
       <MobileMenu onActiveChange={setMenuActive}/>
       <nav className="site-nav" aria-label="Main navigation"><a className="nav-active" href="#top" aria-current="page">Overview</a><a href="#experience" onClick={() => setScreen('discover')}>Experience</a><a href="#experience" onClick={() => setScreen('contact')}>Contact</a></nav>
       <SplitLink className="header-cta" label="Get Started" tone="orange" onClick={() => setScreen('contact')}/>

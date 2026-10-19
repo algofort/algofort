@@ -200,8 +200,8 @@ export function LandingHeader({ config, variant = "default" }: { config: HeaderC
         className={`alp_header ${variant === "saas" ? "alp_saas-header" : ""} ${isOpen ? "alp_header-menu-active" : ""}`}
       >
         <div className="alp_container alp_header-inner">
-          <a ref={logoRef} href={config.brand.home} className="alp_logo" aria-label={`${config.brand.name} home`}>
-            <Image src={config.brand.logo} alt={config.brand.name} width={168} height={27} priority />
+          <a ref={logoRef} href={config.brand.home} className="alp_logo lp-header-brand" aria-label={`${config.brand.name} home`}>
+            <Image src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792213389/algofort/lp/web-development/brand/algofort-dark.png" alt={config.brand.name} width={168} height={27} priority />
           </a>
           <nav className="alp_nav" aria-label="Main navigation">
             {config.navigation.map((link) => (

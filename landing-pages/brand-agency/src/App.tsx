@@ -67,7 +67,7 @@ function App() {
     <>
       <SmoothScroll />
       <header className={`site-header page-inset${menuActive ? ' mobile-menu-active' : ''}`} id="top" role={menuActive ? 'dialog' : undefined} aria-modal={menuActive ? true : undefined} aria-label={menuActive ? 'Mobile navigation' : undefined}>
-        <a className="wordmark" href="#" aria-label="Algofort home"><img src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792214818/algofort/lp/brand-agency/brand/algofort-dark.webp" alt="Algofort" width="156" height="28" /></a>
+        <a className="wordmark lp-header-brand" href="#" aria-label="Algofort home"><img src="https://res.cloudinary.com/vfsp1egd/image/upload/f_auto,q_auto:good/v1792213389/algofort/lp/web-development/brand/algofort-dark.png" alt="Algofort" width="156" height="28" /></a>
         <MobileMenu onProject={openInquiry} onActiveChange={setMenuActive} />
         <nav id="main-navigation" className="navigation" aria-label="Main navigation">
           <a className="nav-roll" href="#work" aria-label="Work"><MenuLabel text="Work" /></a>

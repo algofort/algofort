@@ -221,6 +221,13 @@ footer,
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
+.footer_social_arrow svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 .footer_social_left .nav-text-wrap {
   display: flex !important;
   flex-direction: column !important;
