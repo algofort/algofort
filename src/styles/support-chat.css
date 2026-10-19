@@ -1,3 +1,4 @@
+@import "./floating-controls.css";
 #algofort-support-chat{position:fixed;right:24px;bottom:24px;z-index:100001;font-family:'Mona Sans',Arial,sans-serif;color:#262a2d;color-scheme:light;font-size:14px;line-height:1.5;text-transform:none;letter-spacing:normal}
 #algofort-support-chat *,#algofort-support-chat *:before,#algofort-support-chat *:after{box-sizing:border-box}
 #algofort-support-chat [hidden],#algofort-support-chat[hidden]{display:none!important}
@@ -47,7 +48,6 @@
 #algofort-support-chat .asc-human:hover{color:#d96a16}
 #algofort-support-chat .asc-error{margin:8px 18px 0;font-size:12px;color:#ad3123}
 #algofort-support-chat .asc-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-body.alg-chat-ready .lp-back-to-top,body.alg-chat-ready .alg-back-to-top-wrap{bottom:100px!important}
 body.alg-chat-open .lp-back-to-top,body.alg-chat-open .alg-back-to-top-wrap{visibility:hidden!important}
 body.popup-locked #algofort-support-chat,body:has(dialog[open]) #algofort-support-chat{visibility:hidden!important}
 @keyframes asc-arrive{from{opacity:0;transform:translateY(8px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}

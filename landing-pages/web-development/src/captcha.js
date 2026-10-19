@@ -1,5 +1,8 @@
+import { fitRecaptcha } from '../../../src/utils/fitRecaptcha.js';
+
 const siteKey = __RECAPTCHA_SITE_KEY__;
 const widgets = new WeakMap();
+const fitCleanups = new WeakMap();
 let scriptPromise;
 
 function loadScript() {
@@ -23,16 +26,27 @@ function loadScript() {
 }
 
 export async function renderCaptcha(container) {
-  if (!container || widgets.has(container)) return;
+  if (!container) return;
+  if (widgets.has(container)) {
+    if (container.dataset.captchaSize !== 'compact') {
+      fitCleanups.get(container)?.();
+      fitCleanups.set(container, fitRecaptcha(container));
+    }
+    return;
+  }
   await loadScript();
   if (!container.isConnected || widgets.has(container)) return;
   const id = window.grecaptcha.render(container, {
     sitekey: siteKey,
-    size: container.dataset.captchaSize === 'auto-width'
-      ? (container.clientWidth < 304 ? 'compact' : 'normal')
-      : container.dataset.captchaSize || (window.matchMedia('(max-width: 420px)').matches || container.clientWidth < 304 ? 'compact' : 'normal'),
+    // The interactive phone demo intentionally uses compact mode. Every real
+    // enquiry form keeps the familiar horizontal checkbox, also on mobile.
+    size: container.dataset.captchaSize === 'compact' ? 'compact' : 'normal',
   });
   widgets.set(container, id);
+  if (container.dataset.captchaSize !== 'compact') {
+    fitCleanups.get(container)?.();
+    fitCleanups.set(container, fitRecaptcha(container));
+  }
 }
 
 export function captchaToken(container) {
@@ -47,15 +61,19 @@ export function resetCaptcha(container) {
 
 export function observeCaptcha(container, onError = () => {}) {
   if (!container) return;
+  let active = true;
+  const render = () => renderCaptcha(container).then(() => {
+    if (!active) { fitCleanups.get(container)?.(); fitCleanups.delete(container); }
+  }).catch(error => { if (active) onError(error); });
   if (!('IntersectionObserver' in window)) {
-    renderCaptcha(container).catch(onError);
-    return () => {};
+    render();
+    return () => { active = false; fitCleanups.get(container)?.(); fitCleanups.delete(container); };
   }
   const observer = new IntersectionObserver(([entry]) => {
     if (!entry.isIntersecting) return;
     observer.disconnect();
-    renderCaptcha(container).catch(onError);
+    render();
   }, { rootMargin: '400px 0px' });
   observer.observe(container);
-  return () => observer.disconnect();
+  return () => { active = false; observer.disconnect(); fitCleanups.get(container)?.(); fitCleanups.delete(container); };
 }

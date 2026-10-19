@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import LeadTablet from './LeadTablet'
 import { assetUrl } from './assets'
-import { imageAtWidth, imageSrcSet } from '../../shared/responsiveImage.js'
 import { onPopupIntent } from '../../shared/popupIntent.js'
 import '../../shared/popup.css'
 
@@ -37,7 +36,7 @@ export default function EntrancePopup() {
   }
   return <dialog ref={dialog} className="welcome-inquiry app-entrance-popup" aria-labelledby="app-popup-title" onCancel={event => { event.preventDefault(); setOpen(false) }}>
     <button type="button" className="welcome-close" aria-label="Close popup" onClick={() => setOpen(false)}>×</button>
-    <div className="welcome-photo" aria-hidden="true">{open && <img src={imageAtWidth(assetUrl('/showcase/commerce.jpg'), 960)} srcSet={imageSrcSet(assetUrl('/showcase/commerce.jpg'))} sizes="(max-width: 760px) calc(100vw - 32px), 480px" alt="" decoding="async"/>}</div>
+    <div className="welcome-photo" aria-hidden="true">{open && <img src={assetUrl('/showcase/commerce.jpg').replace('q_auto:good', 'q_auto:best')} width="1448" height="1086" alt="" decoding="async"/>}</div>
     <div className="welcome-content"><header className="welcome-header"><p className="welcome-kicker">+ Let’s talk</p><h2 id="app-popup-title">Have an app in mind?</h2><p>Tell us about your idea. We’ll help you find the right way forward.</p></header>{open && <LeadTablet popup/>}<div className="welcome-preferences"><button className="welcome-dismiss" type="button" onClick={dismiss}>Don’t show again</button></div></div>
   </dialog>
 }
