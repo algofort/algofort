@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../../lib/seo';
 import { Header } from '../../../components/common/Header';
 import { Footer } from '../../../components/common/Footer';
 import { PageBanner } from '../../../components/common/PageBanner';
@@ -13,12 +14,12 @@ import { MobileServiceFaqSection } from '../../../components/sections/services/s
 import { CtaSection } from '../../../components/sections/CtaSection';
 import '../../../styles/single-service-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/services/mobile-app-development' },
   title: 'Mobile App Development Services | Algofort - iOS & Android Solutions',
   description:
     'Custom mobile application development by Algofort. We build high-performance iOS, Android, and cross-platform mobile apps with fluid UI and native performance.',
-};
+});
 
 export default function MobileAppDevelopmentPage() {
   return (
@@ -33,7 +34,7 @@ export default function MobileAppDevelopmentPage() {
             breadcrumbs={[
               { label: 'Home', href: '/' },
               { label: 'Services', href: '/services' },
-              { label: 'Mobile App Development', active: true },
+              { label: 'Mobile App Development', href: '/services/mobile-app-development', active: true },
             ]}
           />
           <MobileServiceAboutSection />

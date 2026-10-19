@@ -5,6 +5,8 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { splitTextIntoChars } from '../../utils/titleAnimation';
+import { ViewportVideo } from '../common/ViewportVideo';
+import { homeVideoSources } from '../../utils/videoAssets';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(useGSAP);
@@ -18,9 +20,8 @@ export function NotFoundSection() {
     const container = containerRef.current;
     if (!container) return;
 
-    // Top-left logo & bottom-left copyright entrance
+    // Top-left logo entrance
     const logoEl = container.querySelector('.sec-not-found__top-left');
-    const copyrightEl = container.querySelector('.sec-not-found__bottom-left');
 
     if (logoEl) {
       gsap.fromTo(
@@ -30,25 +31,17 @@ export function NotFoundSection() {
       );
     }
 
-    if (copyrightEl) {
+    // 1. Large 404 entrance animation
+    const number = container.querySelector('.sec-not-found__number');
+    if (number) {
       gsap.fromTo(
-        copyrightEl,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', delay: 0.5 }
-      );
-    }
-
-    // 1. Left Column: Outline 404 entrance animation
-    const outlineNumber = container.querySelector('.sec-not-found__number-outline');
-    if (outlineNumber) {
-      gsap.fromTo(
-        outlineNumber,
+        number,
         { opacity: 0, x: -35, scale: 0.94 },
         { opacity: 1, x: 0, scale: 1, duration: 0.9, ease: 'power3.out' }
       );
     }
 
-    // 2. Right Column: Heading letter-by-letter entrance animation matching homepage
+    // 2. Heading letter-by-letter entrance animation matching homepage
     const titleEl = container.querySelector('.sec-not-found__title');
     if (titleEl) {
       const chars = splitTextIntoChars(titleEl);
@@ -70,7 +63,7 @@ export function NotFoundSection() {
       );
     }
 
-    // 3. Right Column: Description & button entrance
+    // 3. Description & button entrance
     const desc = container.querySelector('.sec-not-found__desc');
     const buttonItem = container.querySelector('.sec-not-found__button-item');
 
@@ -135,58 +128,38 @@ export function NotFoundSection() {
           </Link>
         </div>
 
-        {/* Background Subtle Cyber Grid & Ambient Glow */}
-        <div className="sec-not-found__bg-grid" aria-hidden="true" />
-        <div className="sec-not-found__nebula" aria-hidden="true" />
-
-        {/* 2-Column Error Layout: Left Column = 404, Right Column = Heading + Desc + Button */}
-        <div className="sec-not-found__grid">
-          
-          {/* Left Column: Big Wireframe Outline 404 */}
-          <div className="sec-not-found__left">
-            <div className="sec-not-found__number-outline" aria-hidden="true">
-              404
-            </div>
-          </div>
-
-          {/* Right Column: Heading + Description + Home Page Button */}
-          <div className="sec-not-found__right">
-            
-            {/* Heading: Only "Oops!" is Orange brand color, rest is white */}
-            <h2 className="heading-style-h2 section-title sec-not-found__title text-color-alternate">
-              <span className="text-color-secondary">Oops!</span> Page Not Found
-            </h2>
-
-            {/* Description text */}
-            <p className="sec-not-found__desc alg-text">
-              The page you are looking for may have been moved, renamed, or is temporarily unavailable.
-            </p>
-
-            {/* Button matching exact homepage main-button alternate-button structure */}
-            <div className="button-item sec-not-found__button-item">
-              <Link href="/" className="main-button alternate-button w-inline-block">
-                <div className="main-button-block">
-                  <div className="button-text alternate-text">Back to Home</div>
-                  <div className="button-text alternate-text">Back to Home</div>
-                </div>
-                <img
-                  loading="lazy"
-                  src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
-                  alt="Star Icon"
-                  className="button-icon"
-                />
-              </Link>
-            </div>
-
-          </div>
-
+        {/* Same background video and poster as the homepage hero */}
+        <div className="sec-not-found__video-wrap" aria-hidden="true">
+          <ViewportVideo
+            sources={homeVideoSources}
+            poster="/assets/banner_bg_poster.jpg"
+          />
+          <div className="alg-hero-video-overlay video-overlay sec-not-found__video-overlay" />
         </div>
 
-        {/* Bottom-Left Corner Copyright */}
-        <div className="sec-not-found__bottom-left">
-          <span className="sec-not-found__copyright">
-            &copy; 2026 Algofort. All rights reserved.
-          </span>
+        {/* Centered error message */}
+        <div className="sec-not-found__grid">
+          <h1 className="sec-not-found__number">404</h1>
+          <h2 className="sec-not-found__title">
+            <span className="text-color-secondary">Oops!</span> Page Not Found
+          </h2>
+          <p className="sec-not-found__desc alg-text">
+            The page you are looking for may have been moved, renamed, or is temporarily unavailable.
+          </p>
+          <div className="button-item sec-not-found__button-item">
+            <Link href="/" className="main-button alternate-button w-inline-block">
+              <div className="main-button-block">
+                <div className="button-text alternate-text">Back to Home</div>
+                <div className="button-text alternate-text">Back to Home</div>
+              </div>
+              <img
+                loading="lazy"
+                src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145871/algofort/assets/68f287b26ff74f4a3003bac0_black-star-icon.svg"
+                alt="Star Icon"
+                className="button-icon"
+              />
+            </Link>
+          </div>
         </div>
 
       </div>

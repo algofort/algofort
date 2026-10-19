@@ -3,8 +3,9 @@ import '../styles/whatsapp-widget.css';
 import WhatsAppWidget from '../components/common/WhatsAppWidget';
 import '../styles/support-chat.css';
 import SupportChatWidget from '../components/common/SupportChatWidget';
+import { withSocialMetadata } from '../lib/seo';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   metadataBase: new URL('https://algofort.com'),
   title: 'Algofort | AI, Custom Software & Digital Transformation',
   description:
@@ -17,12 +18,13 @@ export const metadata = {
     shortcut: '/fav-icon.png',
     apple: '/fav-icon.png',
   },
-};
+});
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="L_bsyt0nrSFS7z0TV9YwLxlkrPo2mqy-15q5hy62zd0" />
         <link rel="preload" as="font" href="/assets/68f243b1931a07b0823ded78_Mona-Sans-Regular.woff2" type="font/woff2" crossOrigin="anonymous" />
         {/* Preconnect to Cloudinary CDN for instant image fetching */}
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />

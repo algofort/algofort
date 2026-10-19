@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../lib/seo';
 import { Header } from '../../components/common/Header';
 import { Footer } from '../../components/common/Footer';
 import { PageBanner } from '../../components/common/PageBanner';
@@ -9,12 +10,12 @@ import { PortfolioBentoSection } from '../../components/sections/portfolio/Portf
 import { PortfolioShowcaseSection } from '../../components/sections/portfolio/PortfolioShowcaseSection';
 import '../../styles/portfolio-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/portfolio' },
   title: 'Our Portfolio | Algofort - Shaping Bold Digital Experiences',
   description:
     'Explore Algofort’s portfolio of cutting-edge digital platforms, high-performance agency websites, and custom software engineered for scalability and modern brand impact.',
-};
+});
 
 export default function PortfolioPage() {
   return (
@@ -28,7 +29,7 @@ export default function PortfolioPage() {
             title="Our Portfolio"
             breadcrumbs={[
               { label: 'Home', href: '/' },
-              { label: 'Portfolio', active: true },
+              { label: 'Portfolio', href: '/portfolio', active: true },
             ]}
           />
           <PortfolioIntroSection />

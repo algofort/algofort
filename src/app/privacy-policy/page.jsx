@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../lib/seo';
 import { Header } from '../../components/common/Header';
 import { Footer } from '../../components/common/Footer';
 import { PageBanner } from '../../components/common/PageBanner';
@@ -7,12 +8,12 @@ import { SmoothScroll } from '../../components/common/SmoothScroll';
 import { PrivacyPolicySection } from '../../components/sections/privacy/PrivacyPolicySection';
 import '../../styles/privacy-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/privacy-policy' },
   title: 'Privacy Policy | Algofort - Shaping Bold Digital Experiences',
   description:
     'Read the Algofort Privacy Policy. Learn how we collect, use, store, and protect your information across our website, contact forms, and digital technology services.',
-};
+});
 
 export default function PrivacyPolicyPage() {
   return (
@@ -26,7 +27,7 @@ export default function PrivacyPolicyPage() {
             title="Privacy Policy"
             breadcrumbs={[
               { label: 'Home', href: '/' },
-              { label: 'Privacy Policy', active: true },
+              { label: 'Privacy Policy', href: '/privacy-policy', active: true },
             ]}
           />
           <PrivacyPolicySection />

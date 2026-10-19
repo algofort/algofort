@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../../lib/seo';
 import { Header } from '../../../components/common/Header';
 import { Footer } from '../../../components/common/Footer';
 import { PageBanner } from '../../../components/common/PageBanner';
@@ -13,12 +14,12 @@ import { WebServiceFaqSection } from '../../../components/sections/services/sing
 import { CtaSection } from '../../../components/sections/CtaSection';
 import '../../../styles/single-service-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/services/web-development' },
   title: 'Web Development Services | Algofort - Fast, Scalable Digital Platforms',
   description:
     'Custom web development services by Algofort. We engineer high-performance websites, scalable web applications, and intuitive front-end/back-end digital solutions.',
-};
+});
 
 export default function WebDevelopmentPage() {
   return (
@@ -33,7 +34,7 @@ export default function WebDevelopmentPage() {
             breadcrumbs={[
               { label: 'Home', href: '/' },
               { label: 'Services', href: '/services' },
-              { label: 'Web Development', active: true },
+              { label: 'Web Development', href: '/services/web-development', active: true },
             ]}
           />
           <WebServiceAboutSection />

@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../lib/seo';
 import { Header } from '../../components/common/Header';
 import { Footer } from '../../components/common/Footer';
 import { PageBanner } from '../../components/common/PageBanner';
@@ -6,12 +7,12 @@ import { Cursor } from '../../components/common/Cursor';
 import { BackToTop } from '../../components/common/BackToTop';
 import { SmoothScroll } from '../../components/common/SmoothScroll';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/contact' },
   title: 'Contact Us | Algofort - Let’s Start a Conversation',
   description:
     'Get in touch with the Algofort team. We design and deliver AI-driven platforms, high-performance websites, and custom software that drive business growth.',
-};
+});
 
 export default function ContactPage() {
   return (
@@ -25,7 +26,7 @@ export default function ContactPage() {
             title="Contact Us"
             breadcrumbs={[
               { label: 'Home', href: '/' },
-              { label: 'Contact Us', active: true },
+              { label: 'Contact Us', href: '/contact', active: true },
             ]}
           />
           <ContactSection />

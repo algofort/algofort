@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../../lib/seo';
 import { Header } from '../../../components/common/Header';
 import { Footer } from '../../../components/common/Footer';
 import { PageBanner } from '../../../components/common/PageBanner';
@@ -13,12 +14,12 @@ import { BrandServiceFaqSection } from '../../../components/sections/services/si
 import { CtaSection } from '../../../components/sections/CtaSection';
 import '../../../styles/single-service-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/services/brand-identity' },
   title: 'Brand Identity Design Services | Algofort - Distinctive Visual Systems',
   description:
     'Strategic brand identity and visual systems by Algofort. We create memorable logos, typography systems, and cohesive visual guidelines that help modern brands stand out.',
-};
+});
 
 export default function BrandIdentityPage() {
   return (
@@ -33,7 +34,7 @@ export default function BrandIdentityPage() {
             breadcrumbs={[
               { label: 'Home', href: '/' },
               { label: 'Services', href: '/services' },
-              { label: 'Brand Identity', active: true },
+              { label: 'Brand Identity', href: '/services/brand-identity', active: true },
             ]}
           />
           <BrandServiceAboutSection />

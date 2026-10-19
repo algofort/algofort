@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../lib/seo';
 import { Header } from '../../components/common/Header';
 import { Footer } from '../../components/common/Footer';
 import { PageBanner } from '../../components/common/PageBanner';
@@ -7,12 +8,12 @@ import { SmoothScroll } from '../../components/common/SmoothScroll';
 import { TermsOfServiceSection } from '../../components/sections/terms/TermsOfServiceSection';
 import '../../styles/terms-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/terms-of-service' },
   title: 'Terms of Service | Algofort - Shaping Bold Digital Experiences',
   description:
     'Read the Algofort Terms of Service. Learn about our digital services, acceptable use policies, intellectual property rights, and commercial project terms.',
-};
+});
 
 export default function TermsOfServicePage() {
   return (
@@ -26,7 +27,7 @@ export default function TermsOfServicePage() {
             title="Terms of Service"
             breadcrumbs={[
               { label: 'Home', href: '/' },
-              { label: 'Terms of Service', active: true },
+              { label: 'Terms of Service', href: '/terms-of-service', active: true },
             ]}
           />
           <TermsOfServiceSection />

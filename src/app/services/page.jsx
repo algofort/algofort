@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../lib/seo';
 import { Header } from '../../components/common/Header';
 import { Footer } from '../../components/common/Footer';
 import { PageBanner } from '../../components/common/PageBanner';
@@ -9,12 +10,12 @@ import { TestimonialsSection } from '../../components/sections/TestimonialsSecti
 import { FaqSection } from '../../components/sections/FaqSection';
 import '../../styles/services-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/services' },
   title: 'Our Services | Algofort - Shaping Bold Digital Experiences',
   description:
     'Discover Algofort’s core services: Web Development, Brand Identity, SaaS App Development, and Mobile App Development engineered for digital growth, scalability, and high performance.',
-};
+});
 
 export default function ServicesPage() {
   return (
@@ -28,7 +29,7 @@ export default function ServicesPage() {
             title="Our Services"
             breadcrumbs={[
               { label: 'Home', href: '/' },
-              { label: 'Our Services', active: true },
+              { label: 'Our Services', href: '/services', active: true },
             ]}
           />
           <ServicesListSection />

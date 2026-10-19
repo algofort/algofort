@@ -12,10 +12,33 @@ import { Cursor } from '../components/common/Cursor';
 import { BackToTop } from '../components/common/BackToTop';
 import { SmoothScroll } from '../components/common/SmoothScroll';
 
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://algofort.com/#website',
+      name: 'Algofort',
+      url: 'https://algofort.com/',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://algofort.com/#organization',
+      name: 'Algofort',
+      url: 'https://algofort.com/',
+      logo: 'https://algofort.com/fav-icon.png',
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <SmoothScroll>
       <div className="page-wrapper min-h-screen bg-[#f4f4f2] text-[#05080C]" id="top">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd).replace(/</g, '\\u003c') }}
+        />
         <Cursor />
         <Header />
         <BackToTop />

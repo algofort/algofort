@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ViewportVideo } from './ViewportVideo';
 import { pageVideoSources } from '../../utils/videoAssets';
+import { breadcrumbJsonLd } from '../../lib/seo';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(useGSAP);
@@ -201,6 +202,14 @@ export function PageBanner({
       ref={containerRef}
       className={`alg-hero site-section section-home-header sec-banner sec-page-banner ${className}`}
     >
+      {breadcrumbList.length >= 2 && breadcrumbList.every((crumb) => crumb.href) && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbJsonLd(breadcrumbList)).replace(/</g, '\\u003c'),
+          }}
+        />
+      )}
       {/* Video Background - directly positioned as absolute card backdrop */}
       <div className="alg-hero-video-wrap background-video-wrap sec-banner__video-wrap">
         <div className="alg-hero-video background-video w-background-video w-background-video-atom">

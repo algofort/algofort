@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../../lib/seo';
 import { Header } from '../../../components/common/Header';
 import { Footer } from '../../../components/common/Footer';
 import { PageBanner } from '../../../components/common/PageBanner';
@@ -13,12 +14,12 @@ import { SaasServiceFaqSection } from '../../../components/sections/services/sin
 import { CtaSection } from '../../../components/sections/CtaSection';
 import '../../../styles/single-service-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/services/saas-app-development' },
   title: 'SaaS App Development Services | Algofort - Scalable Cloud Platforms',
   description:
     'Full-cycle SaaS application development by Algofort. We engineer multi-tenant cloud architectures, subscription platforms, and high-performance digital products.',
-};
+});
 
 export default function SaasAppDevelopmentPage() {
   return (
@@ -33,7 +34,7 @@ export default function SaasAppDevelopmentPage() {
             breadcrumbs={[
               { label: 'Home', href: '/' },
               { label: 'Services', href: '/services' },
-              { label: 'SaaS App Development', active: true },
+              { label: 'SaaS App Development', href: '/services/saas-app-development', active: true },
             ]}
           />
           <SaasServiceAboutSection />

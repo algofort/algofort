@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '../../lib/seo';
 import { Header } from '../../components/common/Header';
 import { Footer } from '../../components/common/Footer';
 import { PageBanner } from '../../components/common/PageBanner';
@@ -13,12 +14,12 @@ import { CtaSection } from '../../components/sections/CtaSection';
 
 import '../../styles/about-page.css';
 
-export const metadata = {
+export const metadata = withSocialMetadata({
   alternates: { canonical: '/about' },
   title: 'About Us | Algofort - Shaping Bold Digital Experiences',
   description:
     'Discover Algofort: our story, vision pillars, strategic work process, industry recognition, and team of visionary digital designers and engineers.',
-};
+});
 
 export default function AboutPage() {
   return (
@@ -32,7 +33,7 @@ export default function AboutPage() {
             title="About Us"
             breadcrumbs={[
               { label: 'Home', href: '/' },
-              { label: 'About Us', active: true },
+              { label: 'About Us', href: '/about', active: true },
             ]}
           />
           <AboutIntroSection />
