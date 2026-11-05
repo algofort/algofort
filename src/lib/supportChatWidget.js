@@ -20,11 +20,20 @@ export function initSupportChat() {
     link.rel = 'noopener noreferrer';
     parent.appendChild(link);
   }
-  function renderContent(element, text) {
+  function cleanMessageText(text) {
+    if (!text || typeof text !== 'string') return '';
+    return text
+      .replace(/\r\n/g, '\n')
+      .replace(/^([ \t]*)[-*][ \t]+/gm, '$1• ')
+      .replace(/([^\n])\n(• )/g, '$1\n\n$2')
+      .trim();
+  }
+  function renderContent(element, rawText) {
     element.replaceChildren();
+    const text = cleanMessageText(rawText);
     if (!text) return;
     // Model and visitor text never become executable markup.
-    const tokenPattern = /\[([^\]]+)\]\((https:\/\/[^\s<>]+)\)|(https:\/\/[^\s<>]+)|\*\*\*(.+?)\*\*\*|\*\*(.+?)\*\*|\*([^*\n]+?)\*|`([^`\n]+)`/g;
+    const tokenPattern = /\[([^\]]+)\]\((https:\/\/[^\s<>]+)\)|(https:\/\/[^\s<>]+)|\*\*\*(.+?)\*\*\*|\*\*\s*([^\*\n]+?)\s*\*\*|\*([^\*\n]+?)\*|`([^`\n]+)`/g;
     let lastIndex = 0;
     let match;
     while ((match = tokenPattern.exec(text)) !== null) {
@@ -39,16 +48,16 @@ export function initSupportChat() {
       } else if (boldItalic) {
         const strong = document.createElement('strong');
         const em = document.createElement('em');
-        em.textContent = boldItalic;
+        em.textContent = boldItalic.trim();
         strong.appendChild(em);
         element.appendChild(strong);
       } else if (bold) {
         const strong = document.createElement('strong');
-        strong.textContent = bold;
+        strong.textContent = bold.trim();
         element.appendChild(strong);
       } else if (italic) {
         const em = document.createElement('em');
-        em.textContent = italic;
+        em.textContent = italic.trim();
         element.appendChild(em);
       } else if (code) {
         const codeEl = document.createElement('code');
@@ -65,28 +74,10 @@ export function initSupportChat() {
   }
   function bubble(text, role) {
     const element = document.createElement('div'); element.className = `asc-message asc-${role}`;
-    renderContent(element,text); log.appendChild(element); log.scrollTop = log.scrollHeight; return element;
+    renderContent(element, text); log.appendChild(element); log.scrollTop = log.scrollHeight; return element;
   }
-  async function revealReply(text) {
-    const element=bubble('','assistant');
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) { renderContent(element,text); return; }
-    element.classList.add('asc-revealing');
-    const node=document.createTextNode('');element.appendChild(node);
-    const characters=Array.from(text), duration=Math.min(3600,Math.max(700,characters.length*9));
-    await new Promise(resolve=>{
-      let frame,position=0;const start=performance.now();
-      function finish() { cancelAnimationFrame(frame);controller.signal.removeEventListener('abort',finish);resolve(); }
-      function tick(now) {
-        if(destroyed) {finish();return;}
-        const follow=log.scrollHeight-log.scrollTop-log.clientHeight<65;
-        const next=Math.min(characters.length,Math.floor((now-start)/duration*characters.length));
-        if(next>position) {node.appendData(characters.slice(position,next).join(''));position=next;}
-        if(follow)log.scrollTop=log.scrollHeight;
-        if(position>=characters.length)finish();else frame=requestAnimationFrame(tick);
-      }
-      controller.signal.addEventListener('abort',finish,{once:true});frame=requestAnimationFrame(tick);
-    });
-    if(!destroyed) {const follow=log.scrollHeight-log.scrollTop-log.clientHeight<65;element.classList.remove('asc-revealing');renderContent(element,text);if(follow)log.scrollTop=log.scrollHeight;}
+  function revealReply(text) {
+    return bubble(text, 'assistant');
   }
   function toggle(open) {
     clearTimeout(closeTimer); launcher.setAttribute('aria-expanded', String(open));
