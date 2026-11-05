@@ -1500,6 +1500,7 @@
 /* 4-Column Team Grid (Desktop: 4 col, Tablet: 2 col, Mobile: 1 col) */
 .sec-about-team__grid {
   display: grid;
+  grid-auto-rows: 1fr;
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
   width: 100%;
@@ -1524,6 +1525,9 @@
 /* Team Card Item - Architectural Obsidian Dark Container (#0b0c10 / #05080c) */
 .sec-about-team__card {
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: #0b0c10;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
@@ -1550,7 +1554,9 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-top: 15px;
+  padding-top: 0;
+  aspect-ratio: 314 / 343;
+  flex-shrink: 0;
   background-color: transparent;
 }
 
@@ -1565,12 +1571,21 @@
   z-index: 0;
 }
 
+.sec-about-team .pxl-item--image-link {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .sec-about-team .pxl-item--image img {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 314px;
-  height: auto;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
   display: block;
   margin: 0 auto;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);

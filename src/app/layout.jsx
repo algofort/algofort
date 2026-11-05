@@ -7,7 +7,7 @@ import { withSocialMetadata } from '../lib/seo';
 
 export const metadata = withSocialMetadata({
   metadataBase: new URL('https://algofort.com'),
-  title: 'Algofort | AI, Custom Software & Digital Transformation',
+  title: 'AlgoFort | AI, Custom Software & Digital Transformation',
   description:
     'Algofort is a technology and digital solutions agency engineering custom software, intelligent AI solutions, and high-performance digital platforms.',
   alternates: { canonical: '/' },

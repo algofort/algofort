@@ -20,20 +20,22 @@ const shareSquareImage = {
 
 export function withSocialMetadata(metadata) {
   const path = metadata.alternates?.canonical || '/';
+  const title = typeof metadata.title === 'string' ? metadata.title.replaceAll('Algofort', 'AlgoFort') : metadata.title;
 
   return {
     ...metadata,
+    title,
     openGraph: {
-      title: metadata.title,
+      title,
       description: metadata.description,
       url: new URL(path, siteUrl).toString(),
-      siteName: 'Algofort',
+      siteName: 'AlgoFort',
       type: 'website',
       images: [shareImage, shareSquareImage],
     },
     twitter: {
       card: 'summary_large_image',
-      title: metadata.title,
+      title,
       description: metadata.description,
       images: [shareImage],
     },

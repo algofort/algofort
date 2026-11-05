@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SubtitleMarquee } from '../common/SubtitleMarquee';
 import { RecaptchaField } from '../common/RecaptchaField';
+import { ContactMap } from '../common/ContactMap';
 import { initTitleAnimation } from '../../utils/titleAnimation';
 import { submitContactForm } from '../../utils/submitContactForm';
 
@@ -332,19 +333,9 @@ export function ContactSection() {
 
           </div>
 
-          {/* Subsay nichay map */}
+          {/* Studio map */}
           <div className="alg-contact-map-wrapper">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7239.476525376414!2d67.04718154488073!3d24.872787454250034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e8c5f05ada3%3A0xd7721a415c03d15!2s84j%20Ghazali%20Rd%2C%20P.E.C.H.S%20Block%202%20Block%202%20PECHS%2C%20Karachi%2C%2075300%2C%20Pakistan!5e0!3m2!1sen!2s!4v1790938745774!5m2!1sen!2s"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-              title="Algofort Studio Location PECHS Karachi"
-              className="alg-contact-map-iframe"
-            />
+            <ContactMap />
           </div>
 
         </div>

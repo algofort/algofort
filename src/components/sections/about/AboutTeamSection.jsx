@@ -5,96 +5,98 @@ import Link from 'next/link';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SubtitleMarquee } from '../../common/SubtitleMarquee';
 import { initTitleAnimation } from '../../../utils/titleAnimation';
+import { AboutCeoProfile } from './AboutCeoProfile';
 
+// Team names, roles and portraits migrated from https://addiztech.com/about/.
 const teamMembers = [
   {
-    id: 'wade-warren',
-    name: 'Wade Warren',
-    role: 'Lead Full-Stack Engineer',
-    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146020/algofort/assets/team/img-team-1',
-    socials: {
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      twitter: 'https://twitter.com',
-    },
+    "id": "yasir-jameel",
+    "name": "Yasir Jameel",
+    "role": "Shopify & WordPress Developer",
+    "image": "/assets/team/yasir-jameel.webp",
+    "socials": {
+      "facebook": "https://www.facebook.com/algoforttech/",
+      "instagram": "https://www.instagram.com/algoforttech/",
+      "twitter": "https://x.com/algofort"
+    }
   },
   {
-    id: 'john-smith',
-    name: 'John Smith',
-    role: 'Brand Identity Director',
-    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-2',
-    socials: {
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      twitter: 'https://twitter.com',
-    },
+    "id": "hamza-faiz",
+    "name": "Hamza Faiz",
+    "role": "Full-Stack & AI Engineer",
+    "image": "/assets/team/hamza-faiz.jpg",
+    "socials": {
+      "facebook": "https://www.facebook.com/algoforttech/",
+      "instagram": "https://www.instagram.com/algoforttech/",
+      "twitter": "https://x.com/algofort"
+    }
   },
   {
-    id: 'jenny-wilson',
-    name: 'Jenny Wilson',
-    role: 'Lead Product Designer',
-    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-3',
-    socials: {
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      twitter: 'https://twitter.com',
-    },
+    "id": "adnan-hassan",
+    "name": "Adnan Hassan",
+    "role": "Laravel Developer",
+    "image": "/assets/team/adnan-hassan.webp",
+    "socials": {
+      "facebook": "https://www.facebook.com/algoforttech/",
+      "instagram": "https://www.instagram.com/algoforttech/",
+      "twitter": "https://x.com/algofort"
+    }
   },
   {
-    id: 'cody-fisher',
-    name: 'Cody Fisher',
-    role: 'Senior SaaS Architect',
-    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-4',
-    socials: {
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      twitter: 'https://twitter.com',
-    },
+    "id": "rehan-ayaz",
+    "name": "Rehan Ayaz",
+    "role": "MERN Stack Developer",
+    "image": "/assets/team/rehan-ayaz.webp",
+    "socials": {
+      "facebook": "https://www.facebook.com/algoforttech/",
+      "instagram": "https://www.instagram.com/algoforttech/",
+      "twitter": "https://x.com/algofort"
+    }
   },
   {
-    id: 'robert-fox',
-    name: 'Robert Fox',
-    role: 'Senior Mobile Developer',
-    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-5',
-    socials: {
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      twitter: 'https://twitter.com',
-    },
+    "id": "ghulam-mustafa",
+    "name": "Ghulam Mustafa",
+    "role": "WordPress Developer & Designer",
+    "image": "/assets/team/ghulam-mustafa.webp",
+    "socials": {
+      "facebook": "https://www.facebook.com/algoforttech/",
+      "instagram": "https://www.instagram.com/algoforttech/",
+      "twitter": "https://x.com/algofort"
+    }
   },
   {
-    id: 'albert-flores',
-    name: 'Albert Flores',
-    role: 'Cloud & DevOps Specialist',
-    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146022/algofort/assets/team/img-team-6',
-    socials: {
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      twitter: 'https://twitter.com',
-    },
+    "id": "ahmed-raza",
+    "name": "Ahmed Raza",
+    "role": "Web & WordPress Developer",
+    "image": "/assets/team/ahmed-raza.webp",
+    "socials": {
+      "facebook": "https://www.facebook.com/algoforttech/",
+      "instagram": "https://www.instagram.com/algoforttech/",
+      "twitter": "https://x.com/algofort"
+    }
   },
   {
-    id: 'jerome-bell',
-    name: 'Jerome Bell',
-    role: 'Senior Frontend Engineer',
-    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146020/algofort/assets/team/img-team-1',
-    socials: {
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      twitter: 'https://twitter.com',
-    },
+    "id": "muhammad-hasnat",
+    "name": "Muhammad Hasnat",
+    "role": "Web Developer & AI Builder",
+    "image": "/assets/team/muhammad-hasnat.webp",
+    "socials": {
+      "facebook": "https://www.facebook.com/algoforttech/",
+      "instagram": "https://www.instagram.com/algoforttech/",
+      "twitter": "https://x.com/algofort"
+    }
   },
   {
-    id: 'devon-lane',
-    name: 'Devon Lane',
-    role: 'Creative Brand Strategist',
-    image: 'https://res.cloudinary.com/vfsp1egd/image/upload/w_400,c_limit,q_auto,f_auto/v1792146021/algofort/assets/team/img-team-3',
-    socials: {
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      twitter: 'https://twitter.com',
-    },
-  },
+    "id": "waseem-akram",
+    "name": "Waseem Akram",
+    "role": "AI Automation Architect",
+    "image": "/assets/team/waseem-akram.webp",
+    "socials": {
+      "facebook": "https://www.facebook.com/algoforttech/",
+      "instagram": "https://www.instagram.com/algoforttech/",
+      "twitter": "https://x.com/algofort"
+    }
+  }
 ];
 
 export function AboutTeamSection() {
@@ -143,6 +145,8 @@ export function AboutTeamSection() {
                 Meet our exceptional team members who bring creativity and expertise to every project.
               </p>
             </div>
+
+            <AboutCeoProfile />
 
             {/* Team Grid */}
             <div className="pxl-grid pxl-team-grid pxl-team-grid1 pxl-team-layout1 sec-about-team__grid">
