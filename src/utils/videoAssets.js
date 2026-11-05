@@ -4,8 +4,8 @@ const pageVideo = 'v1792145867/algofort/assets/68ee74b7102caefef6ce7890_2F68f23d
 
 function optimizedSources(asset) {
   return [
-    { src: `${cdn}/q_auto:best/${asset}.webm`, type: 'video/webm' },
     { src: `${cdn}/q_auto:best/${asset}.mp4`, type: 'video/mp4' },
+    { src: `${cdn}/q_auto:best/${asset}.webm`, type: 'video/webm' },
   ];
 }
 

@@ -28,7 +28,9 @@
   }
 }
 
-/* Background Video Inset Card Layering (Matching Home Cockpit Inset) */
+/* Background Video Inset Card Layering (Matching Home Cockpit Inset & iOS WebKit Hardware Clipping Fixes) */
+.sec-banner .background-video-wrap,
+.sec-banner .sec-banner__video-wrap,
 .sec-page-banner .background-video-wrap,
 .sec-page-banner .sec-banner__video-wrap {
   position: absolute;
@@ -37,9 +39,34 @@
   border-radius: var(--_sizes---border-radius--xhuge, 2rem);
   overflow: hidden;
   z-index: 1;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  isolation: isolate;
+}
+
+.sec-banner .background-video,
+.sec-banner .w-background-video,
+.sec-banner .w-background-video>video,
+.sec-page-banner .background-video,
+.sec-page-banner .w-background-video,
+.sec-page-banner .w-background-video>video {
+  border-radius: inherit;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.sec-banner .header-component-grid {
+  position: relative;
+  z-index: 2;
 }
 
 @media screen and (max-width: 991px) {
+  .sec-banner .background-video-wrap,
+  .sec-banner .sec-banner__video-wrap,
   .sec-page-banner .background-video-wrap,
   .sec-page-banner .sec-banner__video-wrap {
     margin: 8px;
@@ -47,10 +74,16 @@
 }
 
 @media screen and (max-width: 479px) {
+  .sec-banner .background-video-wrap,
+  .sec-banner .sec-banner__video-wrap,
   .sec-page-banner .background-video-wrap,
   .sec-page-banner .sec-banner__video-wrap {
-    margin: 6px;
-    border-radius: 1.5rem;
+    margin: 8px;
+    border-radius: var(--_sizes---border-radius--xhuge, 2rem);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 }
 

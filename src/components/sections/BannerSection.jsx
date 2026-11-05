@@ -113,6 +113,20 @@ export const BannerSection = () => {
     <header id="sec-banner" ref={containerRef} className="alg-hero site-section section-home-header sec-banner">
       <link rel="preload" as="image" href="/assets/banner_bg_poster.jpg" fetchPriority="high" />
       <link rel="preload" as="font" href="/fonts/6925673287d6a5eea5a68225_ClashDisplay-Bold.otf" type="font/otf" crossOrigin="anonymous" />
+      {/* Video Background - directly positioned as absolute card backdrop */}
+      <div className="alg-hero-video-wrap background-video-wrap sec-banner__video-wrap">
+        <div className="alg-hero-video background-video w-background-video w-background-video-atom">
+          <ViewportVideo
+            sources={homeVideoSources}
+            data-object-fit="cover"
+            poster="/assets/banner_bg_poster.jpg"
+            style={{
+              backgroundImage: 'url("/assets/banner_bg_poster.jpg")',
+            }}
+          />
+        </div>
+        <div className="alg-hero-video-overlay video-overlay"></div>
+      </div>
       <div className="alg-hero-container w-layout-grid header-component-grid sec-banner__grid">
         
         {/* Main Header Copy */}
@@ -120,21 +134,6 @@ export const BannerSection = () => {
           <div className="alg-hero-symbol copyright-symbol sec-banner__symbol">®</div>
           <h1 className="alg-hero-title header-title section-title sec-banner__title" aria-label="Algofort"><BannerText text="Algofort" /></h1>
           <div className="alg-hero-text header-description section-description sec-banner__desc"><BannerText text="Designing Your Digital World" /></div>
-        </div>
-
-        {/* Video Background */}
-        <div className="alg-hero-video-wrap background-video-wrap sec-banner__video-wrap">
-          <div className="alg-hero-video background-video w-background-video w-background-video-atom">
-            <ViewportVideo
-              sources={homeVideoSources}
-              data-object-fit="cover" 
-              poster="/assets/banner_bg_poster.jpg"
-              style={{
-                backgroundImage: 'url("/assets/banner_bg_poster.jpg")',
-              }}
-            />
-          </div>
-          <div className="alg-hero-video-overlay video-overlay"></div>
         </div>
 
         {/* Bottom Social Links & Service Marquee */}

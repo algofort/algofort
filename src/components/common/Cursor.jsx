@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 
 export const Cursor = () => {
   useEffect(() => {
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const cursor = document.querySelector('.cb-cursor');
     if (!cursor) return;
 
@@ -18,6 +18,10 @@ export const Cursor = () => {
     cursor.classList.add('-hidden');
 
     const handleMouseMove = (e) => {
+      if (window.innerWidth < 768) {
+        cursor.classList.add('-hidden');
+        return;
+      }
       mouseX = e.clientX;
       mouseY = e.clientY;
       if (!isMoving) {
