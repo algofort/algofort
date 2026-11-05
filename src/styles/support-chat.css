@@ -26,6 +26,10 @@
 #algofort-support-chat .asc-assistant{align-self:flex-start;background:#f6f6f5;color:#4f5457;border:0;border-bottom-left-radius:5px}
 #algofort-support-chat .asc-user{align-self:flex-end;color:#7b481d;background:#fff0e4;border-bottom-right-radius:5px}
 #algofort-support-chat .asc-message a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+#algofort-support-chat .asc-message strong{font-weight:700;color:#181b1d}
+#algofort-support-chat .asc-user strong{color:#532c0d}
+#algofort-support-chat .asc-message em{font-style:italic}
+#algofort-support-chat .asc-message code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:.9em;background:#0000000d;padding:1px 5px;border-radius:4px}
 #algofort-support-chat .asc-revealing::after{content:'';display:inline-block;width:2px;height:13px;margin-left:3px;vertical-align:-2px;background:#ff790b;animation:asc-caret .8s steps(2,end) infinite}
 @keyframes asc-caret{50%{opacity:0}}
 #algofort-support-chat .asc-thinking{display:flex;align-items:center;gap:4px;min-height:36px;padding:12px 15px}

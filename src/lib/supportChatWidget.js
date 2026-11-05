@@ -11,12 +11,56 @@ export function initSupportChat() {
   const $ = selector => root.querySelector(selector);
   const launcher = $('.asc-launch'), panel = $('.asc-panel'), log = $('.asc-log'), input = $('#asc-input'), send = $('.asc-send'), prompts = $('.asc-prompts'), error = $('.asc-error');
   const controller = new AbortController(); let destroyed = false, pending = false, messages = [], config, sequence = 0, closeTimer;
-  function renderContent(element,text) {
+  function appendLink(parent, href, text) {
+    const link = document.createElement('a');
+    const cleanHref = href.replace(/[.,;)]+$/, '');
+    link.href = cleanHref;
+    link.textContent = text || (cleanHref.startsWith('https://wa.me/') ? 'Chat on WhatsApp' : cleanHref.replace(/^https:\/\//, '').split('?')[0]);
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    parent.appendChild(link);
+  }
+  function renderContent(element, text) {
     element.replaceChildren();
+    if (!text) return;
     // Model and visitor text never become executable markup.
-    for (const part of text.split(/(https:\/\/[^\s<>]+)/g)) {
-      if (part.startsWith('https://')) { const link = document.createElement('a'); const href = part.replace(/[.,;)]+$/, ''); link.href = href; link.textContent = href.startsWith('https://wa.me/') ? 'Chat on WhatsApp' : href.replace(/^https:\/\//,'').split('?')[0]; link.target = '_blank'; link.rel = 'noopener noreferrer'; element.appendChild(link); }
-      else element.appendChild(document.createTextNode(part));
+    const tokenPattern = /\[([^\]]+)\]\((https:\/\/[^\s<>]+)\)|(https:\/\/[^\s<>]+)|\*\*\*(.+?)\*\*\*|\*\*(.+?)\*\*|\*([^*\n]+?)\*|`([^`\n]+)`/g;
+    let lastIndex = 0;
+    let match;
+    while ((match = tokenPattern.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        element.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+      const [, linkText, linkUrl, bareUrl, boldItalic, bold, italic, code] = match;
+      if (linkText && linkUrl) {
+        appendLink(element, linkUrl, linkText);
+      } else if (bareUrl) {
+        appendLink(element, bareUrl);
+      } else if (boldItalic) {
+        const strong = document.createElement('strong');
+        const em = document.createElement('em');
+        em.textContent = boldItalic;
+        strong.appendChild(em);
+        element.appendChild(strong);
+      } else if (bold) {
+        const strong = document.createElement('strong');
+        strong.textContent = bold;
+        element.appendChild(strong);
+      } else if (italic) {
+        const em = document.createElement('em');
+        em.textContent = italic;
+        element.appendChild(em);
+      } else if (code) {
+        const codeEl = document.createElement('code');
+        codeEl.textContent = code;
+        element.appendChild(codeEl);
+      } else {
+        element.appendChild(document.createTextNode(match[0]));
+      }
+      lastIndex = tokenPattern.lastIndex;
+    }
+    if (lastIndex < text.length) {
+      element.appendChild(document.createTextNode(text.slice(lastIndex)));
     }
   }
   function bubble(text, role) {
