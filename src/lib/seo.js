@@ -1,10 +1,21 @@
 const siteUrl = 'https://algofort.com';
 
 const shareImage = {
-  url: '/assets/open-graph-image.jpg',
+  url: `${siteUrl}/assets/open-graph-image.jpg`,
+  secureUrl: `${siteUrl}/assets/open-graph-image.jpg`,
   width: 1200,
   height: 630,
   alt: 'Algofort',
+  type: 'image/jpeg',
+};
+
+const shareSquareImage = {
+  url: `${siteUrl}/assets/open-graph-square.jpg`,
+  secureUrl: `${siteUrl}/assets/open-graph-square.jpg`,
+  width: 1024,
+  height: 1024,
+  alt: 'Algofort',
+  type: 'image/jpeg',
 };
 
 export function withSocialMetadata(metadata) {
@@ -18,7 +29,7 @@ export function withSocialMetadata(metadata) {
       url: new URL(path, siteUrl).toString(),
       siteName: 'Algofort',
       type: 'website',
-      images: [shareImage],
+      images: [shareImage, shareSquareImage],
     },
     twitter: {
       card: 'summary_large_image',
