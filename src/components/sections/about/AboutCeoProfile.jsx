@@ -16,7 +16,15 @@ export function AboutCeoProfile() {
   return (
     <article className={styles.profile} aria-labelledby="about-ceo-name">
       <div className={styles.content}>
-        <p className={styles.badge}><span aria-hidden="true">✦</span>Chief Executive Officer</p>
+        <p className={styles.badge}>
+          <img
+            loading="lazy"
+            alt="Asterisk Icon"
+            className={styles.badgeIcon}
+            src="https://res.cloudinary.com/vfsp1egd/image/upload/v1792145874/algofort/assets/68f7ca5b06eb018b17750d6c_star-icon.svg"
+          />
+          Chief Executive Officer
+        </p>
         <h3 id="about-ceo-name" className={styles.name}>Muhammad <span>Adnan</span></h3>
         <h4 className={styles.role}>Muhammad Adnan – Chief Executive Officer</h4>
         <div className={styles.bio}>

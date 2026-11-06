@@ -1468,6 +1468,11 @@
   margin-bottom: 1.15rem;
 }
 
+.sec-about-team .asterisk,
+.sec-about-team__badge .asterisk {
+  filter: brightness(0) invert(1) !important;
+}
+
 .sec-about-team__title {
   color: #ffffff !important;
   font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;

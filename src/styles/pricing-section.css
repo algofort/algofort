@@ -1,0 +1,403 @@
+/* ==========================================================================
+   Pricing Section Styles
+   Algofort Design System
+   ========================================================================== */
+
+.pricing-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(60px, 7vw, 110px) 0;
+  background-color: transparent;
+  color: #05080c;
+  overflow: hidden;
+  font-family: var(--font-family-primary, 'Mona Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+}
+
+.pricing-section .container,
+.pricing-section .w-container {
+  width: 100%;
+  max-width: 1472px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 3vw, 36px);
+  padding-right: clamp(16px, 3vw, 36px);
+  box-sizing: border-box;
+}
+
+.pricing-wrapper {
+  width: 100%;
+}
+
+.pricing-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Section Header - Left-Aligned Algofort Standard
+   -------------------------------------------------------------------------- */
+.campaign-packages-header-wrap,
+.sec-pricing__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  gap: 14px;
+}
+
+.sec-pricing__badge {
+  margin-bottom: 0 !important;
+}
+
+.sec-pricing__title,
+.pricing-section .heading-style-h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  color: #05080c !important;
+  text-align: left !important;
+  font-family: var(--font-family-heading, 'Mona Sans Narrow', sans-serif) !important;
+  text-transform: uppercase !important;
+}
+
+.sec-pricing__title .text-color-secondary,
+.sec-pricing__title .text-color-secondary .char {
+  color: var(--brand-orange, #f47a1f) !important;
+}
+
+.sec-pricing__title .text-color-secondary {
+  color: var(--brand-orange, #f47a1f) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Packages 4-Column Grid
+   -------------------------------------------------------------------------- */
+.our-packages-wrapper {
+  margin-top: clamp(36px, 4.5vw, 60px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+/* Single Package Card */
+.our-packages-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px !important;
+  height: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Top Card Box (Plan Name & Price) - All 4 corners rounded as originally
+   -------------------------------------------------------------------------- */
+.our-packages-text-wrapper {
+  padding: 24px;
+  border-radius: 24px !important;
+  border: 1px solid #ffffff !important;
+  background-color: #ffffff;
+  background-image: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.25) 100%);
+  box-shadow: inset 0 0 64px 0 rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease;
+  will-change: transform, opacity;
+}
+
+/* Strictly NO hover border color change */
+.our-packages-box:hover .our-packages-text-wrapper,
+.our-packages-box:hover .plans-pricing-item-wrapper {
+  border-color: #ffffff !important;
+}
+
+.our-packages-text-namber-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.text-title-box {
+  padding: 4px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  box-sizing: border-box;
+}
+
+.text-mediums {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pricing-section .h4.gaya {
+  font-family: var(--font-family-heading, 'Clash Display', 'Mona Sans', sans-serif);
+  font-size: clamp(30px, 2.3vw, 40px);
+  font-weight: 600;
+  line-height: 1;
+  color: #d6d9e0;
+  margin: 0;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.plans-pricing-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.pricing-section .h4 {
+  font-family: var(--font-family-heading, 'Clash Display', 'Mona Sans', sans-serif);
+  font-size: clamp(34px, 2.4vw, 46px);
+  font-weight: 700;
+  line-height: 1;
+  color: #000000;
+  letter-spacing: -0.03em;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-default {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #000000;
+}
+
+.text-default.opactiy-70 {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Card Box (What's included & CTA) - Sits in front of sliding header
+   -------------------------------------------------------------------------- */
+.plans-pricing-item-wrapper {
+  padding: 30px 24px 24px;
+  border-radius: 24px !important;
+  border: 1px solid #ffffff !important;
+  background-color: #ffffff;
+  background-image: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 24px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.plans-pricing-item-name-wrap {
+  margin-bottom: -4px;
+}
+
+.text-medium.blold-meddle,
+.text-medium.blod-meddle {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #000000;
+}
+
+.plans-pricing-item-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.plans-pricing-item-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.plans-pricing-item-icon-wrap {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-image-wrap {
+  width: 8px;
+  height: 8px;
+  display: block;
+}
+
+.plans-pricing-item-text-wrap {
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.72);
+  word-break: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   Algofort Master Brand Button (.main-button)
+   -------------------------------------------------------------------------- */
+.plans-pricing-item-button-wrap {
+  margin-top: auto;
+  padding-top: 12px;
+  width: 100%;
+}
+
+.pricing-section .main-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0.85rem 1.65rem !important;
+  border-radius: 100px !important;
+  background-color: #05080c !important;
+  color: #ffffff !important;
+  border: 1px solid transparent !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  grid-column-gap: 0.75rem !important;
+  grid-row-gap: 0.75rem !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease !important;
+}
+
+.pricing-section .main-button:hover {
+  background-color: var(--brand-orange, #f47a1f) !important;
+  border-color: var(--brand-orange, #f47a1f) !important;
+  transform: translateY(-2px) !important;
+}
+
+.pricing-section .main-button-block {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 0.95rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.pricing-section .button-text {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
+  font-size: 0.9rem !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  white-space: nowrap !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.pricing-section .main-button:hover .button-text {
+  transform: translateY(-100%) !important;
+}
+
+.pricing-section .button-icon {
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  position: relative !important;
+  top: -0.05rem !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.pricing-section .main-button:hover .button-icon {
+  transform: rotate(45deg) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Pricing Transparency Note
+   -------------------------------------------------------------------------- */
+.pricing-note-wrap {
+  margin-top: 20px;
+  padding: 20px 28px;
+  border-radius: 20px;
+  border: 1px solid #ffffff !important;
+  background-image: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 100%);
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.pricing-note-text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.72);
+  margin: 0;
+}
+
+.pricing-note-text strong {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout
+   -------------------------------------------------------------------------- */
+@media (max-width: 1240px) {
+  .our-packages-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .our-packages-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .pricing-section {
+    padding: 50px 0;
+  }
+  
+  .campaign-packages-header-wrap,
+  .sec-pricing__header {
+    gap: 12px;
+  }
+  
+  .pricing-note-wrap {
+    padding: 16px 18px;
+    margin-top: 20px;
+  }
+  
+  .pricing-note-text {
+    font-size: 13px;
+  }
+}

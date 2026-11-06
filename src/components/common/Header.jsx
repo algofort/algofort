@@ -44,6 +44,12 @@ export const Header = () => {
         currentPath.startsWith('/projects/')
       );
     }
+    if (target === '/pricing') {
+      return (
+        currentPath === '/pricing' ||
+        currentPath.startsWith('/pricing/')
+      );
+    }
     if (target === '/contact') {
       return (
         currentPath === '/contact' ||
