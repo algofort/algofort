@@ -63,12 +63,21 @@
   text-transform: uppercase !important;
 }
 
-.sec-pricing__title .text-color-secondary,
-.sec-pricing__title .text-color-secondary .char {
-  color: var(--brand-orange, #f47a1f) !important;
+.sec-pricing__title .word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
 }
 
-.sec-pricing__title .text-color-secondary {
+.sec-pricing__title .char {
+  display: inline-block;
+  color: inherit !important;
+  visibility: visible !important;
+  will-change: transform, opacity;
+}
+
+.sec-pricing__title .text-color-secondary,
+.sec-pricing__title .text-color-secondary .char {
   color: var(--brand-orange, #f47a1f) !important;
 }
 

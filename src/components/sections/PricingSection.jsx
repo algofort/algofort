@@ -89,69 +89,96 @@ export function PricingSection() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      // Title animation
-      const titleEl = sectionRef.current.querySelector('.pricing-title');
-      if (titleEl) {
-        initTitleAnimation(titleEl, { start: 'top 85%', stagger: 0.02 });
-      }
+    // Title character animation matching site-wide H2 standard
+    const titleEl = sectionRef.current.querySelector('.pricing-title');
+    let titleAnim = null;
+    if (titleEl) {
+      delete titleEl.dataset.titleAnimated;
+      titleAnim = initTitleAnimation(titleEl, {
+        trigger: titleEl,
+        start: 'top 85%',
+        stagger: 0.02,
+      });
+    }
 
-      // Entrance animation for complete package cards (.our-packages-box) and price counter
-      const grid = sectionRef.current.querySelector('.our-packages-wrapper');
-      const cards = sectionRef.current.querySelectorAll('.our-packages-box');
-      const counters = sectionRef.current.querySelectorAll('.pricing-counter');
+    // Entrance animation for complete package cards (.our-packages-box) and price counter
+    const grid = sectionRef.current.querySelector('.our-packages-wrapper');
+    const cards = sectionRef.current.querySelectorAll('.our-packages-box');
+    const counters = sectionRef.current.querySelectorAll('.pricing-counter');
 
-      if (cards && cards.length > 0 && grid) {
-        // Entrance animation on complete boxes (.our-packages-box)
-        gsap.fromTo(
-          cards,
-          { y: 50, opacity: 0 },
+    let cardsAnim = null;
+    const counterAnims = [];
+
+    if (cards && cards.length > 0 && grid) {
+      // Entrance animation on complete boxes (.our-packages-box)
+      cardsAnim = gsap.fromTo(
+        cards,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.12,
+          clearProps: 'transform',
+          scrollTrigger: {
+            trigger: grid,
+            start: 'top 85%',
+          },
+        }
+      );
+
+      // Price counter count-up animation
+      counters.forEach((el, index) => {
+        const target = parseFloat(el.getAttribute('data-price')) || 0;
+        const counterObj = { val: 0 };
+        const anim = gsap.fromTo(
+          counterObj,
+          { val: 0 },
           {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: 'power3.out',
-            stagger: 0.12,
-            clearProps: 'transform',
+            val: target,
+            duration: 1.5,
+            delay: index * 0.12,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: grid,
               start: 'top 85%',
             },
+            onStart: () => {
+              el.textContent = '$0';
+            },
+            onUpdate: () => {
+              el.textContent = '$' + Math.round(counterObj.val).toLocaleString('en-US');
+            },
+            onComplete: () => {
+              el.textContent = '$' + target.toLocaleString('en-US');
+            },
           }
         );
+        counterAnims.push(anim);
+      });
+    }
 
-        // Price counter count-up animation
-        counters.forEach((el, index) => {
-          const target = parseFloat(el.getAttribute('data-price')) || 0;
-          const counterObj = { val: 0 };
-          gsap.fromTo(
-            counterObj,
-            { val: 0 },
-            {
-              val: target,
-              duration: 1.5,
-              delay: index * 0.12,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: grid,
-                start: 'top 85%',
-              },
-              onStart: () => {
-                el.textContent = '$0';
-              },
-              onUpdate: () => {
-                el.textContent = '$' + Math.round(counterObj.val).toLocaleString('en-US');
-              },
-              onComplete: () => {
-                el.textContent = '$' + target.toLocaleString('en-US');
-              },
-            }
-          );
-        });
+    const timer = setTimeout(() => {
+      try {
+        ScrollTrigger.refresh();
+      } catch {
+        // ignore
       }
-    }, sectionRef);
+    }, 150);
 
-    return () => ctx.revert();
+    return () => {
+      clearTimeout(timer);
+      if (titleEl) delete titleEl.dataset.titleAnimated;
+      titleAnim?.scrollTrigger?.kill();
+      titleAnim?.kill();
+      cardsAnim?.scrollTrigger?.kill();
+      cardsAnim?.kill();
+      counterAnims.forEach((a) => {
+        a.scrollTrigger?.kill();
+        a.kill();
+      });
+    };
   }, []);
 
   return (
