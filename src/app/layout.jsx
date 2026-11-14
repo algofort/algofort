@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/fav-icon.png" />
         {/* Google Tag Manager */}
         <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MX9WSSSJ"></script>
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KT7Z4NKS"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
@@ -49,6 +50,14 @@ gtag('js', new Date());`,
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MX9WSSSJ"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KT7Z4NKS"
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
