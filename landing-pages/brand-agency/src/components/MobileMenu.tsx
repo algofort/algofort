@@ -160,7 +160,7 @@ export default function MobileMenu({ onProject, onActiveChange }: MobileMenuProp
       </nav>
       <div className="mobile-menu-contacts">
         <p>Contacts</p>
-        <a data-site-phone href="tel:+923337198686">+92 333 7198686</a>
+        <a data-site-phone href="tel:+971582802786">+971 58 280 2786</a>
         <a href="mailto:hello@algofort.com">hello@algofort.com</a>
       </div>
       <ActionButton className="mobile-menu-cta" arrow onClick={() => closeMenu(onProject)}>Get in touch</ActionButton>

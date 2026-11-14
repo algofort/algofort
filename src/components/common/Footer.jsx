@@ -220,10 +220,10 @@ export const Footer = ({ className = '', newsletterPreview = false } = {}) => {
                   <div className="footer_col_contact">
                     <div className="footer_contact_section">
                       <div className="footer_label">Get in Touch</div>
-                      <a data-site-phone href="tel:+923337198686" className="footer_phone_link">
+                      <a data-site-phone href="tel:+971582802786" className="footer_phone_link">
                         <div className="nav-text-wrap">
-                          <span className="nav-text">+92 333 7198686</span>
-                          <span className="nav-text">+92 333 7198686</span>
+                          <span className="nav-text">+971 58 280 2786</span>
+                          <span className="nav-text">+971 58 280 2786</span>
                         </div>
                       </a>
                       <a href="mailto:hello@algofort.com" className="footer_email_link">

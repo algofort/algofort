@@ -146,12 +146,12 @@ export function CtaSection() {
                 <div className="spacer-large"></div>
                 <div className="fade-in fade-in-left">
                   <a
-                    data-site-phone href="tel:+923337198686"
+                    data-site-phone href="tel:+971582802786"
                     className="alg-cta-button main-button alternate-button w-inline-block"
                   >
                     <div className="main-button-block">
-                      <div className="button-text alternate-text">+92 333 7198686</div>
-                      <div className="button-text alternate-text">+92 333 7198686</div>
+                      <div className="button-text alternate-text">+971 58 280 2786</div>
+                      <div className="button-text alternate-text">+971 58 280 2786</div>
                     </div>
                     <img
                       loading="lazy"

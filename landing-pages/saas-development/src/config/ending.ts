@@ -27,7 +27,7 @@ export const landingFooter = {
   cta: 'Become a Client',
   emailPrompt: 'Prefer email? Drop us a line.',
   email: 'hello@algofort.com',
-  phone: { label: '+92 333 7198686', href: 'tel:+923337198686' },
+  phone: { label: '+971 58 280 2786', href: 'tel:+971582802786' },
   contactNote: 'Your next chapter starts with a conversation.',
   socials: [
     { label: 'LinkedIn', href: 'https://linkedin.com/company/algofort' },
