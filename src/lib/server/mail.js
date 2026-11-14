@@ -7,4 +7,4 @@ export async function mailTransport() {
   const secure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : port === 465;
   return nodemailer.createTransport({ host: (await lookup(host)).address, port, secure, requireTLS: !secure, tls: { servername: host }, auth: { user, pass }, connectionTimeout: 10000, greetingTimeout: 10000, socketTimeout: 15000 });
 }
-export function sender() { return { name: 'Algofort', address: process.env.SMTP_FROM || process.env.SMTP_USER }; }
+export function sender() { return { name: 'Algofort', address: process.env.SMTP_FROM || process.env.SMTP_USER || 'hello@algofort.com' }; }

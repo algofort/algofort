@@ -4,7 +4,15 @@ import { enquiryEmail } from './emailTemplates.js';
 
 export async function saveSubmission(fields) {
   const ref = database().collection('submissions').doc();
-  const submission = { ...fields, id: ref.id, status: 'new', notes: '', createdAt: new Date().toISOString(), delivery: { admin: 'pending', user: 'pending' } };
+  const submission = {
+    ...fields,
+    selectedServices: Array.isArray(fields.selectedServices) ? fields.selectedServices : (fields.selectedServices ? [fields.selectedServices] : []),
+    id: ref.id,
+    status: 'new',
+    notes: '',
+    createdAt: new Date().toISOString(),
+    delivery: { admin: 'pending', user: 'pending' },
+  };
   await ref.create(submission);
   try { await deliverSubmission(submission); }
   catch (error) { console.error('Submission email failed:', error.code || error.name); }
@@ -28,9 +36,14 @@ export async function deliverSubmission(submission) {
     transport = await mailTransport();
     const results = await Promise.allSettled(['admin', 'user'].map(async audience => {
       if (submission.delivery?.[audience] === 'sent') return;
+      const isAdmin = audience === 'admin';
+      const to = isAdmin ? (process.env.CONTACT_TO || 'hello@algofort.com') : submission.email;
+      const cc = isAdmin ? (process.env.CONTACT_CC || 'ali@algofort.com') : undefined;
       const result = await transport.sendMail({
-        from: sender(), to: audience === 'admin' ? process.env.CONTACT_TO || process.env.SMTP_USER : submission.email,
-        replyTo: audience === 'admin' ? submission.email : sender().address,
+        from: sender(),
+        to,
+        cc,
+        replyTo: isAdmin ? submission.email : sender().address,
         ...await enquiryEmail(submission, audience),
       });
       if (!result.accepted?.length) throw new Error('Recipient rejected');

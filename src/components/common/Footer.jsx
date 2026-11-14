@@ -46,15 +46,45 @@ const socialLinks = [
 export const Footer = ({ className = '', newsletterPreview = false } = {}) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
+    if (!email || loading) return;
+    if (newsletterPreview) {
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
         setEmail('');
       }, 4000);
+      return;
+    }
+
+    setLoading(true);
+    setErrorMessage('');
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Subscription failed. Please try again.');
+      }
+      setSubmitted(true);
+      setEmail('');
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      setErrorMessage(err.message || 'Subscription failed. Please try again.');
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 5000);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -94,12 +124,14 @@ export const Footer = ({ className = '', newsletterPreview = false } = {}) => {
                       className="footer_newsletter_input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      disabled={loading}
                       required
                     />
                     <button
                       type="submit"
                       className="footer_newsletter_btn"
                       aria-label="Submit newsletter subscription"
+                      disabled={loading}
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -109,7 +141,12 @@ export const Footer = ({ className = '', newsletterPreview = false } = {}) => {
                   </form>
                   {submitted && (
                     <div className="footer_form_success">
-                      {newsletterPreview ? 'Newsletter signup is coming soon. You have not been subscribed.' : '✓ Thank you! Your email has been registered.'}
+                      ✓ Thank you! Your email has been registered.
+                    </div>
+                  )}
+                  {errorMessage && (
+                    <div className="footer_form_error" style={{ color: '#ff6b6b', fontSize: '13px', marginTop: '8px' }}>
+                      {errorMessage}
                     </div>
                   )}
                 </div>

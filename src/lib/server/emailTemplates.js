@@ -11,6 +11,8 @@ const groups = {
   brand: { label: 'Brand identity', location: 'brand identity page', title: 'Thank you for your branding enquiry.', accent: 'branding enquiry.', intro: 'We have received your brand identity enquiry. Our team will review your requirements and contact you to discuss your branding goals.' },
   app: { label: 'App development', location: 'app development page', title: 'Thank you for your app enquiry.', accent: 'app enquiry.', intro: 'We have received your app development enquiry. Our team will review your requirements and contact you to discuss your app project.' },
   saas: { label: 'SaaS development', location: 'SaaS development page', title: 'Thank you for your SaaS enquiry.', accent: 'SaaS enquiry.', intro: 'We have received your SaaS development enquiry. Our team will review your requirements and contact you to discuss your product goals.' },
+  newsletter: { label: 'Newsletter subscription', location: 'website footer', title: 'Thank you for subscribing to Algofort.', accent: 'subscribing to Algofort.', intro: 'Thank you for subscribing to our newsletter! You will receive our latest updates, industry insights, and project highlights.' },
+  chat: { label: 'Chat lead', location: 'support chat', title: 'Thank you for contacting Algofort.', accent: 'contacting Algofort.', intro: 'We received your contact details through our website support chat. A member of our team will get in touch with you shortly.' },
 };
 
 export function sourceGroup(source) { return String(source || '').startsWith('lp-') ? source.split('-')[1] : source; }
@@ -95,7 +97,7 @@ export async function enquiryEmail(submission, audience = 'user') {
   const subject = user ? `We received your ${copy.label.toLowerCase()} — Algofort` : `New ${copy.label.toLowerCase()} — ${submission.fullName}`;
   const title = user ? copy.title : `New ${copy.label.toLowerCase()} received.`;
   const intro = user ? `Dear ${submission.fullName},\n\n${copy.intro}` : `A new enquiry has been submitted through the ${copy.location}. Please review the contact details and message below.`;
-  const rows = [['Reference',submission.id],['Name',submission.fullName],['Email',submission.email],['Phone',submission.phone || 'Not provided'],['Services',submission.selectedServices.join(', ')],['Form',submission.source]];
+  const rows = [['Reference',submission.id],['Name',submission.fullName],['Email',submission.email],['Phone',submission.phone || 'Not provided'],['Services',Array.isArray(submission.selectedServices) ? submission.selectedServices.join(', ') : (submission.selectedServices || 'General')],['Form',submission.source]];
   const card = await emailCard({ title:'Contact details', rows, messageTitle:'Your message', message:submission.message, note:user ? 'If you would like to share any additional information, please reply to this email.' : '' });
   const content = card.html + (user ? '' : button('Open submissions','https://algofort.com/admin',true));
   return { subject, attachments:[card.attachment], html: shell({label:user?'Enquiry confirmation':`New ${copy.label.toLowerCase()}`,title,accent:user?copy.accent:copy.label.toLowerCase(),intro,content}), text: `${title}\n\n${intro}\n\n${rows.map(([label,value])=>`${label}: ${value}`).join('\n')}\n\n${submission.message}\n\n${user?'If you would like to share any additional information, please reply to this email.':'Open submissions: https://algofort.com/admin'}\n\nAlgofort\nhello@algofort.com\nhttps://algofort.com` };

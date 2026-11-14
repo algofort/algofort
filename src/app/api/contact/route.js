@@ -11,6 +11,8 @@ const allowedServices = new Set([
   'DevOps & Cloud',
   'UI/UX Design',
   'Brand Identity',
+  'Newsletter',
+  'AI Support Chat',
 ]);
 
 function json(data, status, extraHeaders = {}) {
@@ -77,7 +79,7 @@ export async function POST(request) {
       : (phone.length < 5 || phone.length > 40 || !/^[+\d\s().-]+$/.test(phone))) ||
     email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
     message.length < 1 || message.length > 5000 ||
-    !['contact', 'cta', 'lp-web-estimate', 'lp-web-popup', 'lp-brand-inquiry', 'lp-brand-popup', 'lp-app-preview', 'lp-app-inquiry', 'lp-saas-inquiry', 'lp-saas-popup'].includes(source) ||
+    !['contact', 'cta', 'newsletter', 'chat', 'lp-web-estimate', 'lp-web-popup', 'lp-brand-inquiry', 'lp-brand-popup', 'lp-app-preview', 'lp-app-inquiry', 'lp-saas-inquiry', 'lp-saas-popup'].includes(source) ||
     !Array.isArray(selectedServices) || selectedServices.length < 1 ||
     selectedServices.length > allowedServices.size ||
     selectedServices.some((service) => !allowedServices.has(service))
