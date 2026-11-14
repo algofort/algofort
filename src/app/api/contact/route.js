@@ -109,7 +109,19 @@ export async function POST(request) {
     });
     if (!verification.ok) throw new Error('reCAPTCHA verification unavailable');
     const result = await verification.json();
-    if (!result.success || result.hostname !== new URL(request.url).hostname) {
+    const allowedHostnames = new Set(['algofort.com', 'www.algofort.com', 'localhost', '127.0.0.1']);
+    const requestHost = new URL(request.url).hostname;
+    const forwardedHost = request.headers.get('x-forwarded-host')?.split(':')[0];
+    const isHostValid = allowedHostnames.has(result.hostname) || result.hostname === requestHost || (forwardedHost && result.hostname === forwardedHost);
+
+    if (!result.success || !isHostValid) {
+      console.error('reCAPTCHA validation failed:', {
+        success: result.success,
+        hostname: result.hostname,
+        requestHost,
+        forwardedHost,
+        errorCodes: result['error-codes'],
+      });
       return json({ error: 'Security check expired or failed. Please try again.' }, 400);
     }
   } catch (error) {
