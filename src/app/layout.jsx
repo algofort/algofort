@@ -4,7 +4,6 @@ import WhatsAppWidget from '../components/common/WhatsAppWidget';
 import '../styles/support-chat.css';
 import SupportChatWidget from '../components/common/SupportChatWidget';
 import { withSocialMetadata } from '../lib/seo';
-import Script from 'next/script';
 
 export const metadata = withSocialMetadata({
   metadataBase: new URL('https://algofort.com'),
