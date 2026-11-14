@@ -1694,4 +1694,127 @@
   box-shadow: none !important;
 }
 
+/* ==========================================================================
+   Homepage Portfolio Section Overrides:
+   - Bottom 128px padding removed
+   - Orange Styled Bottom CTA Button matching brand orange buttons
+   ========================================================================== */
+.sec-portfolio--home .sec-portfolio__padding,
+.sec-portfolio__padding--home {
+  padding-bottom: 0 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .sec-portfolio--home .sec-portfolio__padding,
+  .sec-portfolio__padding--home {
+    padding-bottom: 0 !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sec-portfolio--home .sec-portfolio__padding,
+  .sec-portfolio__padding--home {
+    padding-bottom: 0 !important;
+  }
+}
+
+.sec-portfolio__more-wrap {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 3.5rem !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+}
+
+.sec-portfolio__explore-btn,
+.sec-portfolio .main-button.sec-portfolio__explore-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  padding: 1.15rem 2.25rem !important;
+  border-radius: 100px !important;
+  background-color: var(--brand-orange, #f47a1f) !important;
+  color: #ffffff !important;
+  border: none !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  width: auto !important;
+  max-width: max-content !important;
+  transition: background-color 0.25s ease, filter 0.25s ease !important;
+}
+
+.sec-portfolio__explore-btn:hover,
+.sec-portfolio .main-button.sec-portfolio__explore-btn:hover {
+  background-color: #e0680f !important;
+  filter: brightness(1.06) !important;
+}
+
+.sec-portfolio__explore-btn .main-button-block,
+.sec-portfolio .main-button.sec-portfolio__explore-btn .main-button-block {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 1.25rem !important;
+  line-height: 1.25rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.sec-portfolio__explore-btn .button-text,
+.sec-portfolio .main-button.sec-portfolio__explore-btn .button-text {
+  font-family: var(--font-family-primary, 'Mona Sans', sans-serif) !important;
+  font-size: 1rem !important;
+  line-height: 1.25rem !important;
+  height: 1.25rem !important;
+  min-height: 1.25rem !important;
+  max-height: 1.25rem !important;
+  flex: 0 0 1.25rem !important;
+  flex-shrink: 0 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  color: #ffffff !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+}
+
+.sec-portfolio__explore-btn .button-icon,
+.sec-portfolio .main-button.sec-portfolio__explore-btn .button-icon {
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  object-fit: contain !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+  .sec-portfolio__more-wrap {
+    margin-top: 2.25rem !important;
+  }
+  .sec-portfolio__explore-btn,
+  .sec-portfolio .main-button.sec-portfolio__explore-btn {
+    padding: 0.95rem 1.75rem !important;
+  }
+  .sec-portfolio__explore-btn .main-button-block,
+  .sec-portfolio .main-button.sec-portfolio__explore-btn .main-button-block {
+    height: 1.15rem !important;
+    line-height: 1.15rem !important;
+  }
+  .sec-portfolio__explore-btn .button-text,
+  .sec-portfolio .main-button.sec-portfolio__explore-btn .button-text {
+    font-size: 0.9rem !important;
+    line-height: 1.15rem !important;
+    height: 1.15rem !important;
+    min-height: 1.15rem !important;
+    max-height: 1.15rem !important;
+    flex: 0 0 1.15rem !important;
+  }
+}
+
+
 

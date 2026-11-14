@@ -3,6 +3,7 @@ import { BannerSection } from '../components/sections/BannerSection';
 import { AboutSection } from '../components/sections/AboutSection';
 import { ShowreelSection } from '../components/sections/ShowreelSection';
 import { ServicesSection } from '../components/sections/ServicesSection';
+import { PortfolioSection } from '../components/sections/PortfolioSection';
 import { TestimonialsSection } from '../components/sections/TestimonialsSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
 import { FaqSection } from '../components/sections/FaqSection';
@@ -46,6 +47,7 @@ export default function Home() {
           <BannerSection />
           <AboutSection />
           <ServicesSection />
+          <PortfolioSection />
           <ProcessSection />
           <ShowreelSection />
           <TestimonialsSection />

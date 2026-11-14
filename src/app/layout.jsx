@@ -4,6 +4,7 @@ import WhatsAppWidget from '../components/common/WhatsAppWidget';
 import '../styles/support-chat.css';
 import SupportChatWidget from '../components/common/SupportChatWidget';
 import { withSocialMetadata } from '../lib/seo';
+import Script from 'next/script';
 
 export const metadata = withSocialMetadata({
   metadataBase: new URL('https://algofort.com'),
@@ -33,8 +34,26 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/fav-icon.png" type="image/png" />
         <link rel="shortcut icon" href="/fav-icon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/fav-icon.png" />
+        {/* Google Tag Manager */}
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MX9WSSSJ"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+          }}
+        />
       </head>
       <body className="bg-[#f4f4f2] text-[#05080C] antialiased selection:bg-[#6366F1] selection:text-white" suppressHydrationWarning>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MX9WSSSJ"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         {/* Custom Follower Cursor Container */}
         <div className="cb-cursor"></div>
         {children}
