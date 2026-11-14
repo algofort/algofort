@@ -4,6 +4,8 @@ import { enquiryEmail } from './emailTemplates.js';
 
 export async function saveSubmission(fields) {
   const ref = database().collection('submissions').doc();
+  const sentTo = process.env.CONTACT_TO || 'hello@algofort.com';
+  const ccTo = process.env.CONTACT_CC || 'ali@algofort.com';
   const submission = {
     ...fields,
     selectedServices: Array.isArray(fields.selectedServices) ? fields.selectedServices : (fields.selectedServices ? [fields.selectedServices] : []),
@@ -11,7 +13,9 @@ export async function saveSubmission(fields) {
     status: 'new',
     notes: '',
     createdAt: new Date().toISOString(),
-    delivery: { admin: 'pending', user: 'pending' },
+    delivery: { admin: 'pending', user: 'pending', sentTo, ccTo },
+    sentTo,
+    ccTo,
   };
   await ref.create(submission);
   try { await deliverSubmission(submission); }
@@ -48,9 +52,33 @@ export async function deliverSubmission(submission) {
       });
       if (!result.accepted?.length) throw new Error('Recipient rejected');
     }));
-    await ref.update({ delivery: Object.fromEntries(results.map((result, index) => [index === 0 ? 'admin' : 'user', result.status === 'fulfilled' ? 'sent' : 'failed'])), deliveryUpdatedAt: new Date().toISOString() });
+    const sentTo = process.env.CONTACT_TO || 'hello@algofort.com';
+    const ccTo = process.env.CONTACT_CC || 'ali@algofort.com';
+    await ref.update({
+      delivery: {
+        admin: results[0]?.status === 'fulfilled' ? 'sent' : 'failed',
+        user: results[1]?.status === 'fulfilled' ? 'sent' : 'failed',
+        sentTo,
+        ccTo,
+      },
+      sentTo,
+      ccTo,
+      deliveryUpdatedAt: new Date().toISOString(),
+    });
   } catch (error) {
-    await ref.update({ delivery: { admin: submission.delivery?.admin === 'sent' ? 'sent' : 'failed', user: submission.delivery?.user === 'sent' ? 'sent' : 'failed' }, deliveryUpdatedAt: new Date().toISOString() });
+    const sentTo = process.env.CONTACT_TO || 'hello@algofort.com';
+    const ccTo = process.env.CONTACT_CC || 'ali@algofort.com';
+    await ref.update({
+      delivery: {
+        admin: submission.delivery?.admin === 'sent' ? 'sent' : 'failed',
+        user: submission.delivery?.user === 'sent' ? 'sent' : 'failed',
+        sentTo,
+        ccTo,
+      },
+      sentTo,
+      ccTo,
+      deliveryUpdatedAt: new Date().toISOString(),
+    });
     throw error;
   } finally { transport?.close(); await ref.update({ deliveryLeaseUntil: 0 }); }
 }
