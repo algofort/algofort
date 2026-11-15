@@ -26,24 +26,28 @@ Algofort is a technology and digital solutions company building intelligent AI s
 <table>
 <tr>
 <td width="50%" valign="top">
-<h3><img src="https://api.iconify.design/lucide:code-xml.svg?color=%23f47a1f" width="22" alt="" /> Web Development</h3>
+<h3>Web Development</h3>
+<a href="https://algofort.com/services/web-development"><img src="https://img.shields.io/badge/Engineering-f47a1f?style=flat-square&logo=googlechrome&logoColor=white" alt="Web engineering" /></a>
 <p>Fast, accessible, and conversion-focused websites engineered around your business goals—from polished marketing experiences to complex web platforms.</p>
 <a href="https://algofort.com/services/web-development">Explore web development →</a>
 </td>
 <td width="50%" valign="top">
-<h3><img src="https://api.iconify.design/lucide:palette.svg?color=%23f47a1f" width="22" alt="" /> Brand Identity</h3>
+<h3>Brand Identity</h3>
+<a href="https://algofort.com/services/brand-identity"><img src="https://img.shields.io/badge/Design-f47a1f?style=flat-square&logo=figma&logoColor=white" alt="Brand design" /></a>
 <p>Distinctive visual systems that turn strategy into a recognizable brand across digital products, campaigns, and customer touchpoints.</p>
 <a href="https://algofort.com/services/brand-identity">Explore brand identity →</a>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
-<h3><img src="https://api.iconify.design/lucide:panels-top-left.svg?color=%23f47a1f" width="22" alt="" /> SaaS App Development</h3>
+<h3>SaaS App Development</h3>
+<a href="https://algofort.com/services/saas-app-development"><img src="https://img.shields.io/badge/Product-f47a1f?style=flat-square&logo=vercel&logoColor=white" alt="SaaS product development" /></a>
 <p>Scalable SaaS products built from product strategy through architecture, interface design, development, integrations, and launch.</p>
 <a href="https://algofort.com/services/saas-app-development">Explore SaaS development →</a>
 </td>
 <td width="50%" valign="top">
-<h3><img src="https://api.iconify.design/lucide:smartphone.svg?color=%23f47a1f" width="22" alt="" /> Mobile App Development</h3>
+<h3>Mobile App Development</h3>
+<a href="https://algofort.com/services/mobile-app-development"><img src="https://img.shields.io/badge/Mobile-f47a1f?style=flat-square&logo=flutter&logoColor=white" alt="Mobile app development" /></a>
 <p>Thoughtful mobile experiences with reliable engineering, intuitive interactions, and the performance users expect on every device.</p>
 <a href="https://algofort.com/services/mobile-app-development">Explore mobile development →</a>
 </td>
@@ -54,7 +58,9 @@ Algofort is a technology and digital solutions company building intelligent AI s
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=react,nextjs,typescript,nodejs,python,php,laravel,wordpress,shopify,flutter,figma,aws,docker,mongodb,mysql,postgres&perline=8" alt="Algofort technology stack" />
+<a href="https://algofort.com" title="Visit Algofort">
+  <img src="https://skillicons.dev/icons?i=react,nextjs,typescript,nodejs,python,php,laravel,wordpress,shopify,flutter,figma,aws,docker,mongodb,mysql,postgres&perline=8" alt="Algofort technology stack" />
+</a>
 
 </div>
 
@@ -78,10 +84,10 @@ We partner with startups, scale-ups, and established organizations that need mor
 
 <br />
 
-<a href="https://www.linkedin.com/company/algofort/"><img src="https://api.iconify.design/simple-icons:linkedin.svg?color=%23f47a1f" width="25" alt="LinkedIn" /></a>&nbsp;&nbsp;&nbsp;
-<a href="https://www.instagram.com/algoforttech/"><img src="https://api.iconify.design/simple-icons:instagram.svg?color=%23f47a1f" width="25" alt="Instagram" /></a>&nbsp;&nbsp;&nbsp;
-<a href="https://x.com/algoforttech"><img src="https://api.iconify.design/simple-icons:x.svg?color=%23f47a1f" width="25" alt="X" /></a>&nbsp;&nbsp;&nbsp;
-<a href="https://algofort.com"><img src="https://api.iconify.design/lucide:globe-2.svg?color=%23f47a1f" width="25" alt="Website" /></a>
+<a href="https://www.linkedin.com/company/algofort/"><img src="https://img.shields.io/badge/LinkedIn-f47a1f?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="https://www.instagram.com/algoforttech/"><img src="https://img.shields.io/badge/Instagram-f47a1f?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>
+<a href="https://x.com/algoforttech"><img src="https://img.shields.io/badge/X-f47a1f?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
+<a href="https://algofort.com"><img src="https://img.shields.io/badge/Website-f47a1f?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
 
 <br />
 <br />
