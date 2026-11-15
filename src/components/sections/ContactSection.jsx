@@ -174,20 +174,7 @@ export function ContactSection() {
                   </div>
                 </a>
 
-                {/* 3. Contact Us Via Whatsapp */}
-                <a data-whatsapp-link href="https://wa.me/971582802786" target="_blank" rel="noopener noreferrer" className="alg-contact-info-item" aria-label="Contact Us Via Whatsapp">
-                  <div className="alg-contact-info-icon-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>
-                  </div>
-                  <div className="alg-contact-info-text">
-                    <span className="alg-contact-info-label">CONTACT US VIA WHATSAPP</span>
-                    <span data-whatsapp-number className="alg-contact-info-value">+971 58 280 2786</span>
-                  </div>
-                </a>
-
-                {/* 4. Contact info */}
+                {/* 3. Contact info */}
                 <a data-site-phone href="tel:+971582802786" className="alg-contact-info-item" aria-label="Contact info">
                   <div className="alg-contact-info-icon-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
